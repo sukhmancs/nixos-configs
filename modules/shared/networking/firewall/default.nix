@@ -11,7 +11,6 @@ in {
     ./nftables
 
     ./fail2ban.nix
-    ./tarpit.nix
   ];
 
   config = {
