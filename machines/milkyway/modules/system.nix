@@ -17,12 +17,12 @@
 
         # If not using tmpfs, which is naturally purged on reboot, we must clean
         # /tmp ourselves. /tmp should be volatile storage!
-        cleanOnBoot = mkDefault (!config.boot.tmp.useTmpfs);
+        cleanOnBoot = lib.mkDefault (!config.boot.tmp.useTmpfs);
 
         # The size of the tmpfs, in percentage form
         # this defaults to 50% of your ram, which is a good default
         # but should be tweaked based on your systems capabilities
-        tmpfsSize = mkDefault "75%";
+        tmpfsSize = lib.mkDefault "75%";
       };
     };
 
