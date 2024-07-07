@@ -10,7 +10,7 @@
   inherit (lib.meta) getExe;
 in {
   config = {
-    environment.systemPackages = pkgs.iwgtk;
+    environment.systemPackages = [pkgs.iwgtk];
     networking.wireless =
       {
         enable = true;
