@@ -1,0 +1,131 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Update flake
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 4 1 * *"
+    - cron: "0 4 15 * *"
+
+jobs:
+  nvfetcher_matrix:
+    name: Generate nvfetcher update matrix
+    runs-on: ubuntu-latest
+    outputs:
+      paths: ${{ steps.matrix.outputs.paths }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: "Install nix"
+        uses: cachix/install-nix-action@master
+        with:
+          install_url: https://nixos.org/nix/install
+          extra_nix_config: |
+            experimental-features = nix-command flakes fetch-tree
+            allow-import-from-derivation = false
+            extra-platforms = aarch64-linux
+
+            # extra substituters
+            # my own package set
+            extra-substituters = https://nyx.cachix.org
+            extra-trusted-public-keys = nyx.cachix.org-1:xH6G0MO9PrpeGe7mHBtj1WbNzmnXr7jId2mCiq6hipE=
+
+            # nix-community
+            extra-substituters = https://nix-community.cachix.org
+            extra-trusted-public-keys = nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=
+      - name: "Generate matrix"
+        id: matrix
+        run: |
+          set -ex
+          nix profile install --inputs-from . nixpkgs#jq nixpkgs#fd
+          paths="$(fd 'nvfetcher.toml|sources.toml' | jq -ncR '[inputs]')"
+          echo "paths=$paths" >> "$GITHUB_OUTPUT"
+
+  nvfetcher_update:
+    runs-on: ubuntu-latest
+    needs: [nvfetcher_matrix]
+    if: ${{ needs.nvfetcher_matrix.outputs.paths != '[]' && needs.nvfetcher_matrix.outputs.paths != '' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        path: ${{ fromJson(needs.nvfetcher_matrix.outputs.paths )}}
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v3
+      - name: "Install nix"
+        uses: cachix/install-nix-action@master
+        with:
+          install_url: https://nixos.org/nix/install
+          extra_nix_config: |
+            experimental-features = nix-command flakes fetch-tree
+            allow-import-from-derivation = false
+            extra-platforms = aarch64-linux
+
+            # extra substituters
+            # my own package set
+            extra-substituters = https://nyx.cachix.org
+            extra-trusted-public-keys = nyx.cachix.org-1:xH6G0MO9PrpeGe7mHBtj1WbNzmnXr7jId2mCiq6hipE=
+
+            # nix-community
+            extra-substituters = https://nix-community.cachix.org
+            extra-trusted-public-keys = nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=
+      - name: "Update element"
+        run: |
+          nix run github:berberman/nvfetcher -- \
+            --build-dir "$(dirname ${{ matrix.path }})" \
+            --config "${{ matrix.path }}" --keep-old
+      - name: "Create Pull Request"
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          title: "ci: bump ${{ matrix.path }}"
+          commit-message: |
+            Bump ${{ matrix.path }}
+
+
+            Co-authored-by: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          author: GitHub <noreply@github.com>
+          branch: update/${{ matrix.path }}
+          delete-branch: true
+
+  main:
+    name: Update flake inputs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: "Install nix"
+        uses: cachix/install-nix-action@master
+        with:
+          install_url: https://nixos.org/nix/install
+          extra_nix_config: |
+            experimental-features = nix-command flakes fetch-tree
+            allow-import-from-derivation = false
+            extra-platforms = aarch64-linux
+
+            # extra substituters
+            # my own package set
+            extra-substituters = https://nyx.cachix.org
+            extra-trusted-public-keys = nyx.cachix.org-1:xH6G0MO9PrpeGe7mHBtj1WbNzmnXr7jId2mCiq6hipE=
+
+            # nix-community
+            extra-substituters = https://nix-community.cachix.org
+            extra-trusted-public-keys = nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=
+
+      - name: Update flake.lock
+        run: nix flake update
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          title: "ci: bump flake"
+          commit-message: |
+            Bump flake
+
+
+            Co-authored-by: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          author: GitHub <noreply@github.com>
+          branch: update/inputs
+          delete-branch: true

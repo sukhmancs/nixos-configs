@@ -1,0 +1,28 @@
+name: Check flake inputs
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "**.lock"
+  push:
+    paths:
+      - "**.lock"
+    branches: [main]
+
+jobs:
+  checks:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check flake inputs
+        uses: DeterminateSystems/flake-checker-action@main
+        with:
+          flake-lock-path: ./flake.lock
+          check-outdated: true
+          check-owner: true
+          check-supported: true
+          nixpkgs-keys: nixpkgs
+          ignore-missing-flake-lock: false
+          fail-mode: true
+          send-statistics: false
