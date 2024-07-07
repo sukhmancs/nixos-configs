@@ -2,6 +2,6 @@
   imports = [
     ./boot
     ./hardware
-    ./tailscale
+    ./tailscale-client
   ];
 }

@@ -8,7 +8,7 @@ in {
     services.resolved.enable = mkForce false; # use adguardhome for dns
     networking = {
       networkmanager.dns = mkForce "none";
-      nameservers = ["102.209.85.226"]; # adguardhome dns server
+      nameservers = ["102.209.85.226" "8.8.8.8"]; # adguardhome dns server
     };
   };
 }

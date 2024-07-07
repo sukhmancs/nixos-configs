@@ -40,13 +40,14 @@ in {
       efi.canTouchEfiVariables = true;
     };
 
+    #TODO: enable useTmpfs for desktop
     # instructions on how /tmp should be handled
     # if your system is low on ram, you should avoid tmpfs to prevent hangups while compiling
     tmp = {
       # /tmp on tmpfs, lets it live on your ram
       # it defaults to FALSE, which means you will use disk space instead of ram
       # enable tmpfs tmp on anything except servers and builders
-      useTmpfs = true;
+      useTmpfs = false;
 
       # If not using tmpfs, which is naturally purged on reboot, we must clean
       # /tmp ourselves. /tmp should be volatile storage!

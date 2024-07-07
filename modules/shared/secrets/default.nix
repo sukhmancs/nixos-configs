@@ -5,7 +5,7 @@
 }: let
   inherit (lib) mkAgenixSecret;
   inherit (lib.strings) optionalString;
-
+  #TODO: fix mail secrets starting only when lldap service is enabled.
   autheliaUser =
     if ((config ? services.authelia.instances.main) && config.services.authelia.instances.main.enable)
     then config.services.authelia.instances.main.user
@@ -34,7 +34,7 @@ in {
       file = "common/nix-builder.age";
     };
 
-    tailscale-client = mkAgenixSecret true {
+    tailscale-client = mkAgenixSecret config.services.tailscale.enable {
       file = "client/tailscale.age";
       owner = "notashelf";
       group = "users";
@@ -56,7 +56,7 @@ in {
       mode = "700";
     };
 
-    client-email = mkAgenixSecret true {
+    client-email = mkAgenixSecret config.services.lldap.enable {
       file = "client/email.age";
       owner = "notashelf";
       group = "users";
@@ -76,7 +76,7 @@ in {
     };
 
     # service secrets
-    wg-server = mkAgenixSecret true {
+    wg-server = mkAgenixSecret config.networking.wireguard.enable {
       file = "service/wg.age";
     };
 
@@ -89,13 +89,13 @@ in {
       file = "service/github_notification_token.age";
     };
 
-    matrix-secret = mkAgenixSecret true {
+    matrix-secret = mkAgenixSecret config.services.matrix-synapse.enable {
       file = "service/matrix.age";
       owner = "matrix-synapse";
       mode = "440";
     };
 
-    vaultwarden-env = mkAgenixSecret true {
+    vaultwarden-env = mkAgenixSecret config.services.vaultwarden.enable {
       file = "service/vaultwarden.age";
       owner = "vaultwarden";
       mode = "440";
@@ -108,7 +108,7 @@ in {
       group = "searx";
     };
 
-    nextcloud-secret = mkAgenixSecret true {
+    nextcloud-secret = mkAgenixSecret config.services.nextcloud.enable {
       file = "service/nextcloud.age";
       mode = "400";
       owner = "nextcloud";
@@ -122,7 +122,7 @@ in {
       group = "atticd";
     };
 
-    harmonia-privateKey = mkAgenixSecret true {
+    harmonia-privateKey = mkAgenixSecret config.services.harmonia.enable {
       file = "service/harmonia.age";
       mode = "770";
       owner = "harmonia";
@@ -143,14 +143,14 @@ in {
       group = "gitea-runner";
     };
 
-    headscale-derp = mkAgenixSecret true {
+    headscale-derp = mkAgenixSecret config.services.headscale.enable {
       file = "service/headscale-derp.age";
       mode = "400";
       owner = "headscale";
       group = "headscale";
     };
 
-    headscale-noise = mkAgenixSecret true {
+    headscale-noise = mkAgenixSecret config.services.headscale.enable {
       file = "service/headscale-noise.age";
       mode = "400";
       owner = "headscale";
@@ -225,37 +225,37 @@ in {
     };
 
     # mailserver secrets
-    mailserver-secret = mkAgenixSecret true {
+    mailserver-secret = mkAgenixSecret config.services.lldap.enable {
       file = "mailserver/postmaster.age";
       mode = "400";
     };
 
-    mailserver-forgejo-secret = mkAgenixSecret true {
+    mailserver-forgejo-secret = mkAgenixSecret config.services.lldap.enable {
       file = "mailserver/forgejo.age";
       owner = "forgejo";
       group = "forgejo";
       mode = "440";
     };
 
-    mailserver-vaultwarden-secret = mkAgenixSecret true {
+    mailserver-vaultwarden-secret = mkAgenixSecret config.services.lldap.enable {
       file = "mailserver/vaultwarden.age";
       owner = "vaultwarden";
       mode = "400";
     };
 
-    mailserver-cloud-secret = mkAgenixSecret true {
+    mailserver-cloud-secret = mkAgenixSecret config.services.lldap.enable {
       file = "mailserver/cloud.age";
       owner = "nextcloud";
       mode = "400";
     };
 
-    mailserver-matrix-secret = mkAgenixSecret true {
+    mailserver-matrix-secret = mkAgenixSecret config.services.lldap.enable {
       file = "mailserver/matrix.age";
       owner = "matrix-synapse";
       mode = "400";
     };
 
-    mailserver-noreply-secret = mkAgenixSecret true {
+    mailserver-noreply-secret = mkAgenixSecret config.services.lldap.enable {
       file = "mailserver/noreply.age";
       owner = "mastodon";
       mode = "400";
