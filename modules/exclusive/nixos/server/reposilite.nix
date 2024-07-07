@@ -11,7 +11,8 @@
 
   inherit (cfg.reposilite.settings) port;
 in {
-  config = mkIf config.services.reposilite.enable {
+  # TODO: Add an option here
+  config = mkIf false {
     modules.system.services = {
       nginx.enable = true;
     };
