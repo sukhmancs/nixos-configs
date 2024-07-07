@@ -1,0 +1,9 @@
+# Ignore nix stuff
+result
+.direnv/
+
+# Ignore VM stuff
+*.qcow2
+
+# Ignore pre-commit config
+.pre-commit-config.yaml
