@@ -106,7 +106,7 @@ in {
 
     hostConfig = concatStringsSep "\n" (map mkHostConfig hosts);
   in {
-    startAgent = !config.modules.system.yubikeySupport.enable;
+    startAgent = true;
     extraConfig = ''
       ${hostConfig}
     '';
