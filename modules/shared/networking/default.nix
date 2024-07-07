@@ -8,7 +8,6 @@
 in {
   imports = [
     ./firewall
-    ./tailscale
 
     ./blocker.nix
     ./network-manager.nix
