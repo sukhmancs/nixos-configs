@@ -10,7 +10,7 @@ concurrency: build
 jobs:
   build-images:
     name: "Build ISO Images"
-    if: github.repository == 'sukhmancs/nyx'
+    if: github.repository == 'sukhmancs/nixos-configs'
     runs-on: ubuntu-latest
 
     strategy:
