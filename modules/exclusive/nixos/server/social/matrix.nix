@@ -48,10 +48,6 @@ in {
   config = mkIf config.services.matrix-synapse.enable {
     networking.firewall.allowedTCPPorts = [port];
 
-    modules.system.services.database = {
-      postgresql.enable = true;
-    };
-
     services = {
       postgresql = {
         initialScript = pkgs.writeText "synapse-init.sql" ''

@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  inherit (lib) mkIf mkDefault mkForce;
+  inherit (lib) mkDefault mkForce;
 
   domain = "netdata.xilain.dev";
   sys = config.modules.system;
@@ -12,9 +12,6 @@
   inherit (cfg.netdata.settings) port host;
 in {
   config = {
-    modules.system.services = {
-      nginx.enable = true;
-    };
     services = {
       netdata = {
         enable = true;

@@ -7,14 +7,6 @@
   inherit (lib) mkIf;
 in {
   config = mkIf config.services.mastodon.enable {
-    modules.system.services = {
-      elasticsearch.enable = true;
-      database = {
-        postgresql.enable = true;
-        redis.enable = true;
-      };
-    };
-
     services = {
       mastodon = {
         package = inputs'.nyxpkgs.packages.mastodon-bird-ui;

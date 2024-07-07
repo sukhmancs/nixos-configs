@@ -16,10 +16,6 @@ in {
   ];
 
   config = mkIf config.services.reposilite.enable {
-    modules.system.services = {
-      nginx.enable = true;
-    };
-
     services.reposilite = {
       package = inputs'.nyxpkgs.packages.reposilite-bin;
       dataDir = "/var/lib/reposilite";

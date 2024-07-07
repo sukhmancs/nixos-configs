@@ -1,17 +1,18 @@
 {
   imports = [
     ./databases # mysql, postgreqsl, redis and more
-    ./nginx # base nginx webserver configuration
     ./homepage-dashboard # homepage dashboard
     ./monitoring # prometheus, grafana, loki and uptime-kuma
+    ./networking
+    ./nginx # base nginx webserver configuration
 
-    ./nextcloud.nix # cloud storage (not a backup solution)
-    ./vaultwarden.nix # bitwarden compatible password manager
+    ./adguard.nix # adguard home dns server
+    ./authelia.nix # authelia authentication server
+    ./lldap.nix # authentication server
     ./mailserver.nix # nixos-mailserver setup
+    ./nextcloud.nix # cloud storage (not a backup solution)
     ./searxng.nix # searx search engine
     ./suwayomi-server.nix # manga reader server
-    ./adguard.nix # adguard home dns server
-    ./lldap.nix # authentication server
-    ./authelia.nix # authelia authentication server
+    ./vaultwarden.nix # bitwarden compatible password manager
   ];
 }

@@ -3,18 +3,12 @@
   lib,
   ...
 }: let
-  inherit (lib) mkIf;
-
   sys = config.modules.system;
   cfg = sys.services;
 
   inherit (cfg.vaultwarden.settings) port host;
 in {
   config = {
-    modules.system.services = {
-      nginx.enable = true;
-    };
-
     # this forces the system to create backup folder
     systemd.services.backup-vaultwarden.serviceConfig = {
       User = "root";

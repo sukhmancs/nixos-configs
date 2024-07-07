@@ -5,7 +5,6 @@
     ./gpg.nix
     ./rofi.nix
     ./system.nix
-    ./wireguard.nix
     ./networking.nix
   ];
 }

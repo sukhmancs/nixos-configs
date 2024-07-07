@@ -4,8 +4,6 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkIf;
-
   format = pkgs.formats.yaml {};
   configDir = "/var/lib/homepage-dashboard";
 

@@ -18,10 +18,6 @@
   inherit (cfg.invidious.settings) port host;
 in {
   config = mkIf config.services.invidious.enable {
-    modules.system.services = {
-      nginx.enable = true;
-    };
-
     services = {
       invidious = {
         port = mkDefault port;

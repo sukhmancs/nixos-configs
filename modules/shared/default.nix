@@ -7,7 +7,6 @@
     ./secrets
     ./security
     ./services
-    ./style
     ./users
 
     ./fs.nix

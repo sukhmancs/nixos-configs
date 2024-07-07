@@ -27,7 +27,7 @@
   authelia = config.services.authelia.instances.main;
   redis = config.services.redis.servers."";
   autheliaUrl = "http://${authelia.settings.server.host}:${builtins.toString authelia.settings.server.port}";
-  inherit (lib) mkIf mkDefault;
+  inherit (lib) mkDefault;
   inherit (config.age) secrets;
 
   cfg = config.modules.system.services;

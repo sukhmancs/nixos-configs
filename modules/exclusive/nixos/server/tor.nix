@@ -4,9 +4,6 @@
   ...
 }: let
   inherit (lib) mkIf;
-
-  sys = config.modules.system;
-  cfg = sys.services;
 in {
   config = mkIf config.services.tor.enable {
     services = {

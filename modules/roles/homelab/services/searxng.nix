@@ -4,8 +4,6 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkIf;
-
   sys = config.modules.system;
   cfg = sys.services;
 
@@ -13,11 +11,6 @@
 in {
   config = {
     networking.firewall.allowedTCPPorts = [port];
-
-    modules.system.services = {
-      nginx.enable = true;
-      database.redis.enable = true;
-    };
 
     users = {
       users.searx = {

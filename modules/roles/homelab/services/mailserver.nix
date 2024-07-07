@@ -8,8 +8,7 @@
   inherit (lib) mkIf;
   inherit (config.age) secrets;
 
-  sys = config.modules.system;
-  cfg = sys.services;
+  cfg = config.services;
 in {
   imports = [
     inputs.simple-nixos-mailserver.nixosModule
@@ -76,7 +75,7 @@ in {
           sendOnlyRejectMessage = "";
         };
 
-        "matrix@xilain.dev" = mkIf cfg.social.matrix.enable {
+        "matrix@xilain.dev" = mkIf cfg.matrix-synapse.enable {
           aliases = ["matrix"];
           hashedPasswordFile = secrets.mailserver-matrix-secret.path;
           sendOnly = true;

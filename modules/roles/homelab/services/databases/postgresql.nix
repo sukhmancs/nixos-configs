@@ -4,8 +4,6 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkIf;
-
   authelia = config.services.authelia.instances.main;
 in {
   config = {

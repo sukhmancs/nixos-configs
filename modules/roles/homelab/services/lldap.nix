@@ -5,8 +5,6 @@
 }: let
   inherit (config.age) secrets;
 
-  inherit (lib) mkIf;
-
   sys = config.modules.system;
   cfg = sys.services;
   domain = "ldap.xilain.dev";

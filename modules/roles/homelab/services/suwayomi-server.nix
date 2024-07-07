@@ -3,7 +3,6 @@
   lib,
   ...
 }: let
-  inherit (lib) mkIf;
   inherit (config.age) secrets;
 
   domain = "manga.xilain.dev";
@@ -13,10 +12,6 @@
   inherit (cfg.suwayomi-server.settings) port host;
 in {
   config = {
-    modules.system.services = {
-      nginx.enable = true;
-    };
-
     services = {
       suwayomi-server = {
         enable = true;

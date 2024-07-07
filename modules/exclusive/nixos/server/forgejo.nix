@@ -12,14 +12,6 @@
   inherit (cfg.forgejo.settings) port;
 in {
   config = mkIf config.services.forgejo.enable {
-    modules.system.services = {
-      nginx.enable = true;
-      database = {
-        redis.enable = true;
-        postgresql.enable = true;
-      };
-    };
-
     networking.firewall.allowedTCPPorts = [
       # make sure the service is reachable from outside
       config.services.forgejo.settings.server.HTTP_PORT

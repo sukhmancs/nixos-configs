@@ -2,5 +2,6 @@
   imports = [
     ./security
     ./services
+    ./style
   ];
 }

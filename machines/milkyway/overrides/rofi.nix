@@ -13,7 +13,7 @@ in {
       enable = true;
       package = pkgs.rofi-wayland.override {
         plugins = [
-          pkgs.rofi-rbw
+          pkgs.rofi-rbw-wayland
         ];
       };
       font = mkForce "Iosevka Nerd Font 14";

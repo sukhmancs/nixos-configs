@@ -38,8 +38,6 @@
   #       )
   #       config.homelab.hosts
   #     );
-  inherit (lib) mkIf;
-
   sys = config.modules.system;
   cfg = sys.services;
 

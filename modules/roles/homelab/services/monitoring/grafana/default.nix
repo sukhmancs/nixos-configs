@@ -4,17 +4,10 @@
   ...
 }: let
   inherit (lib) mkIf;
-
-  sys = config.modules.system;
-  cfg = sys.services;
 in {
   # imports = [./dashboards.nix];
   config = {
     networking.firewall.allowedTCPPorts = [config.services.grafana.settings.server.http_port];
-
-    modules.system.services.database = {
-      postgresql.enable = true;
-    };
 
     services = {
       grafana = {
@@ -59,7 +52,7 @@ in {
           enable = true;
           datasources.settings = {
             datasources = [
-              (mkIf sys.services.monitoring.prometheus.enable {
+              (mkIf config.services.prometheus.enable {
                 name = "Prometheus";
                 type = "prometheus";
                 access = "proxy";
@@ -76,14 +69,14 @@ in {
                 };
               })
 
-              (mkIf sys.services.monitoring.loki.enable {
+              (mkIf config.services.loki.enable {
                 name = "Loki";
                 type = "loki";
                 access = "proxy";
                 url = "http://127.0.0.1:${toString config.services.loki.configuration.server.http_listen_port}";
               })
 
-              (mkIf sys.services.database.postgresql.enable {
+              (mkIf config.services.postgresql.enable {
                 name = "PostgreSQL";
                 type = "postgres";
                 access = "proxy";

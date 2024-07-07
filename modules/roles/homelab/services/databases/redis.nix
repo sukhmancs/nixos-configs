@@ -4,21 +4,18 @@
   ...
 }: let
   inherit (lib) mkIf;
-
-  sys = config.modules.system;
-  cfg = sys.services;
 in {
   config = {
     services.redis = {
       vmOverCommit = true;
       servers = {
-        nextcloud = mkIf cfg.nextcloud.enable {
+        nextcloud = mkIf config.services.nextcloud.enable {
           enable = true;
           user = "nextcloud";
           port = 0;
         };
 
-        searxng = mkIf cfg.searxng.enable {
+        searxng = mkIf config.services.searx.enable {
           enable = true;
           user = "searx";
           port = 6370;
@@ -27,7 +24,7 @@ in {
           requirePass = "searxng";
         };
 
-        forgejo = mkIf cfg.forgejo.enable {
+        forgejo = mkIf config.services.forgejo.enable {
           enable = true;
           user = "forgejo";
           port = 6371;
@@ -36,7 +33,7 @@ in {
           requirePass = "forgejo";
         };
 
-        mastodon = mkIf cfg.social.mastodon.enable {
+        mastodon = mkIf config.services.mastodon.enable {
           enable = true;
           user = "mastodon";
           port = 6372;
@@ -44,7 +41,7 @@ in {
           logLevel = "debug";
         };
 
-        "" = mkIf cfg.authelia.enable {
+        "" = mkIf ((config ? services.authelia.instances.main) && config.services.authelia.instances.main.enable) {
           enable = true;
           # user = "authelia";
           port = 0;

@@ -4,22 +4,9 @@
   lib,
   ...
 }: let
-  inherit (lib) mkIf;
-
   domain = "cloud.xilain.dev";
-
-  sys = config.modules.system;
-  cfg = sys.services;
 in {
   config = {
-    modules.system.services = {
-      nginx.enable = true;
-      database = {
-        redis.enable = true;
-        postgresql.enable = true;
-      };
-    };
-
     services = {
       nextcloud = {
         enable = true;

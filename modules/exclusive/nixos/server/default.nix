@@ -1,7 +1,6 @@
 {
   imports = [
     ./bincache
-    ./networking
     ./reposilite
     ./social
 

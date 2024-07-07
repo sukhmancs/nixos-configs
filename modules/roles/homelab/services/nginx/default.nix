@@ -4,10 +4,10 @@
   lib,
   ...
 }: let
-  inherit (lib.modules) mkIf mkDefault;
+  inherit (lib.modules) mkDefault;
   inherit (lib.strings) fileContents;
 
-  inherit (config.networking) domain;
+  domain = "xilain.dev";
 in {
   config = {
     security = {
