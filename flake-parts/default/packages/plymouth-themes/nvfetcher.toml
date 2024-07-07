@@ -1,0 +1,4 @@
+[plymouth-themes]
+src.git = "https://github.com/adi1090x/plymouth-themes"
+fetch.github = "adi1090x/plymouth-themes"
+git.date_format = "%Y-%m-%d"

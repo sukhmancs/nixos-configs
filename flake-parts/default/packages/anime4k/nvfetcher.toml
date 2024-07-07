@@ -1,0 +1,5 @@
+[anime4k]
+# Fixed version, never updates
+src.manual = "4.0.1"
+fetch.url = "https://github.com/bloc97/Anime4K/releases/download/v$ver/Anime4K_v4.0.zip"
+fetch.force = true

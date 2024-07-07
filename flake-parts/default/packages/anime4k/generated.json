@@ -1,0 +1,17 @@
+{
+    "anime4k": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "anime4k",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-E5zSgghkV8Wtx5yve3W4uCUJHXHJtUlYwYdF/qYtftc=",
+            "type": "url",
+            "url": "https://github.com/bloc97/Anime4K/releases/download/v4.0.1/Anime4K_v4.0.zip"
+        },
+        "version": "4.0.1"
+    }
+}

@@ -1,0 +1,7 @@
+{
+  imports = [
+    ./fs
+    ./modules
+    ./overrides
+  ];
+}

@@ -1,0 +1,8 @@
+#+title: Xcode Dusk
+#+author: Emmet
+
+"Xcode Dusk" base-16 theme originally by Elsa Gonsiorowski ([[https://github.com/gonsie]]).
+
+[[https://raw.githubusercontent.com/librephoenix/nixos-config-screenshots/main/xmonad/xcode-dusk.png]]
+
+[[https://w.wallhaven.cc/full/yx/wallhaven-yxe85x.jpg][Background Link]]

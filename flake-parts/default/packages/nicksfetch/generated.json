@@ -1,0 +1,22 @@
+{
+    "nicksfetch": {
+        "cargoLocks": null,
+        "date": "2021-12-10",
+        "extract": null,
+        "name": "nicksfetch",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "dylanaraps",
+            "repo": "neofetch",
+            "rev": "ccd5d9f52609bbdcd5d8fa78c4fdb0f12954125f",
+            "sha256": "sha256-9MoX6ykqvd2iB0VrZCfhSyhtztMpBTukeKejfAWYW1w=",
+            "type": "github"
+        },
+        "version": "ccd5d9f52609bbdcd5d8fa78c4fdb0f12954125f"
+    }
+}

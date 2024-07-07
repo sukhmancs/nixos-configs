@@ -1,0 +1,7 @@
+{
+  imports = [
+    # ./server
+    ./shared
+    ./workstation
+  ];
+}

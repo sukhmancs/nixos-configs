@@ -1,0 +1,4 @@
+[nicksfetch]
+src.git = "https://github.com/dylanaraps/neofetch"
+fetch.github = "dylanaraps/neofetch"
+git.date_format = "%Y-%m-%d"
