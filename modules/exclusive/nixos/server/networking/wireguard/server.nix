@@ -1,12 +1,12 @@
+#
+# Wireguard Server Configuration
+#
 {
   config,
   lib,
   ...
 }: let
   inherit (lib) mkIf;
-
-  sys = config.modules.system;
-  cfg = sys.services;
 
   dev = config.modules.device;
   acceptedTypes = ["server" "hybrid"];

@@ -4,7 +4,7 @@
   ...
 }: {
   config = {
-    boot.loader.grub.enable = true;
+    boot.loader.systemd-boot.enable = true;
     boot.plymouth.enable = true;
     # services.seatd.enable = true;
     xdg.portal.enable = true;

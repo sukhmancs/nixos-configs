@@ -3,9 +3,7 @@
   pkgs,
   lib,
   ...
-}: let
-  inherit (lib) mkIf;
-in {
+}: {
   # get rid of the tcpcrypt module provided by nixpkgs
   # it is unmaintained and I cannot be arsed to PR a fix
   disabledModules = ["services/networking/tcpcrypt.nix"];

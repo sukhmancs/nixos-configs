@@ -26,9 +26,6 @@
     ++ [
       "mitigations=off" # Of course we don't want no mitigations
     ];
-
-  sys = config.modules.system;
-  cfg = sys.security;
 in {
   config = {
     security = {

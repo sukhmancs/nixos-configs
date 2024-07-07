@@ -6,8 +6,6 @@
 }: let
   inherit (lib) mkIf;
 
-  cfg = config.modules.system.services;
-
   # construct each runner using the mkRunner function
   # you can pass additional configuration options in the instance submodule
   # it'll be merged to the below configuration

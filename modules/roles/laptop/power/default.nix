@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkIf mkDefault;
+  inherit (lib) mkDefault;
 in {
   imports = [./monitor.nix];
 

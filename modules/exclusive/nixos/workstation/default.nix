@@ -1,8 +1,8 @@
 {
   imports = [
+    ./gaming
     ./virtualization
     ./wayland
-    ./gaming
 
     ./encryption.nix
     ./hyprland.nix

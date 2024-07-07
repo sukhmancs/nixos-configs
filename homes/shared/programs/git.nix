@@ -3,8 +3,6 @@
   pkgs,
   ...
 }: let
-  inherit (osConfig) modules;
-
   gitPackage = pkgs.gitFull;
 in {
   config = {

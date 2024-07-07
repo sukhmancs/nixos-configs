@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  inherit (lib.modules) mkIf mkForce;
+  inherit (lib.modules) mkForce;
 in {
   # we use networkmanager manage network devices locally
   environment.systemPackages = with pkgs; [networkmanagerapplet];

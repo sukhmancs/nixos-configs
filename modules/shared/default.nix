@@ -1,6 +1,7 @@
 {
   imports = [
     ./environment
+    ./networking
     ./nix
     ./programs
     ./secrets

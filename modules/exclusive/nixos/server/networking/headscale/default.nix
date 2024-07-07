@@ -6,9 +6,6 @@
   ...
 }: let
   inherit (lib) mkIf;
-
-  sys = config.modules.system;
-  cfg = sys.services;
 in {
   imports = [
     ./acls.nix

@@ -6,10 +6,7 @@
   osConfig,
   lib,
   ...
-}: let
-  inherit (lib.modules) mkIf;
-  inherit (osConfig) modules;
-in {
+}: {
   config = {
     programs = {
       direnv = {

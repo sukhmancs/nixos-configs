@@ -5,9 +5,6 @@
   ...
 }: let
   inherit (lib) mkIf;
-
-  sys = config.modules.system;
-  cfg = sys.services.social;
 in {
   config = mkIf config.services.mastodon.enable {
     modules.system.services = {

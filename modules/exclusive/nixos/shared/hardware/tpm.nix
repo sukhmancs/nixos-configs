@@ -4,9 +4,11 @@
   ...
 }: let
   inherit (lib) mkIf mkDefault;
+  dev = config.modules.device;
 in {
-  config = mkIf config.security.tpm2.enable {
+  config = mkIf dev.hasTPM {
     security.tpm2 = {
+      enable = true;
       # enable Trusted Platform Module 2 support
 
       # enable Trusted Platform 2 userspace resource manager daemon

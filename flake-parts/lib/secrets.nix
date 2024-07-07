@@ -12,6 +12,7 @@
   # overridden, the secret will be owned by root, and have mode 400.
   # The file argument is mandatory, and should be relative to
   # ${self}/secrets to find the secret.
+  # ${self} refers to the root directory of the flake.
   mkAgenixSecret = enableCondition: {
     file,
     owner ? "root",

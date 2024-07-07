@@ -1,6 +1,6 @@
 {
   imports = [
-    # ./server
+    ./server
     ./shared
     ./workstation
   ];
