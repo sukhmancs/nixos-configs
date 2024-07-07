@@ -14,7 +14,6 @@ in {
     ./optimize.nix
     ./resolved.nix
     ./ssh.nix
-    ./tcpcrypt.nix
     ./wireless.nix
   ];
 
