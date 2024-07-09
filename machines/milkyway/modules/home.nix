@@ -8,7 +8,6 @@
       programs = {
         rofi.enable = true;
         firefox.enable = true;
-        chromium.enable = true;
         thunderbird.enable = true;
         vscode.enable = true;
         mangohud.enable = false;
