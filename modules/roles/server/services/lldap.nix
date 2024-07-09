@@ -12,10 +12,6 @@
   inherit (cfg.ldap.settings) port host;
 in {
   config = {
-    modules.system.services = {
-      nginx.enable = true;
-    };
-
     services = {
       lldap = {
         enable = true;
