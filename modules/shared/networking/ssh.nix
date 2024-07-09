@@ -1,3 +1,6 @@
+#
+# SSH - Server Setup (openssh, fail2ban, ssh-agent)
+#
 {
   keys,
   config,
@@ -93,7 +96,7 @@ in {
     # it would be better to construct this list dynamically
     # but we hardcode it because we cannot check if a host is
     # authenticated - that needs manual intervention
-    hosts = ["helios" "enyo" "prometheus"];
+    hosts = ["milkyway" "andromeda" "triangulum"];
 
     # generate the ssh config for the hosts
     mkHostConfig = hostname: ''
