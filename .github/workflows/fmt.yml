@@ -26,5 +26,6 @@ jobs:
             experimental-features = nix-command flakes
       - run: |
           nix run nixpkgs#alejandra -- \
-          --exclude ./flake/pkgs/packages/nicksfetch/generated.nix \
-          --exclude ./flake/pkgs/packages/plymouth-themes/generated.nix -c .
+          --exclude ./flake-parts/default/packages/nicksfetch/generated.nix \
+          --exclude ./flake-parts/default/packages/anime4k/generated.nix \
+          --exclude ./flake-parts/default/packages/plymouth-themes/generated.nix -c .
