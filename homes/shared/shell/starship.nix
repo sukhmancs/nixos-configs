@@ -6,7 +6,6 @@
 }: let
   inherit (builtins) map;
   inherit (lib.strings) concatStrings;
-
   hostname = builtins.getEnv "HOST";
   userStyle =
     if builtins.getEnv "USER" == "root"
@@ -47,72 +46,30 @@ in {
       STARSHIP_CACHE = "${config.xdg.cacheHome}/starship";
     };
   };
-
-  programs.starship = let
-    elemsConcatted = concatStrings (
-      map (s: "\$${s}") [
-        "hostname"
-        "username"
-        "directory"
-        "shell"
-        "nix_shell"
-        "git_branch"
-        "git_commit"
-        "git_state"
-        "git_status"
-        "jobs"
-        "cmd_duration"
-      ]
-    );
-  in {
+  programs.starship = {
     enable = true;
-
     settings = {
       scan_timeout = 2;
       command_timeout = 2000; # nixpkgs makes starship implode with lower values
-      # add_newline = false;
-
       format = ''
-        $directory$git_branch$git_commit$git_status$git_state( $python) $fill($cmd_duration)($battery)$username@$hostname $time $line_break$status ${charSymbol}
+        [\(](${hostStyle})$directory([|](${hostStyle})$shell$nix_shell)([|](${hostStyle})$git_branch$git_commit$git_status([|](${hostStyle})$git_state))[\)](${hostStyle})( $python) $fill ($cmd_duration )($battery )$username[@](bg)$hostname [\[](${hostStyle})$time[\]](${hostStyle}) $line_break$status [${charSymbol}](${userStyle})
       '';
       right_format = "$character";
       add_newline = false;
       palette = "local";
-      # line_break.disabled = false;
-
-      # format = "${elemsConcatted}\n$character";
-
-      # configure specific elements
-      # character = {
-      #   error_symbol = "[](bold red)";
-      #   success_symbol = "[](bold green)";
-      #   vicmd_symbol = "[](bold yellow)";
-      #   format = "$symbol [|](bold bright-black) ";
-      # };
-
-      # username = {
-      #   format = "[$user]($style) in ";
-      # };
 
       directory = {
         truncation_length = 2;
-
-        # # removes the read_only symbol from the format, it doesn't play nicely with my folder icon
-        # format = "[ ](bold green) [$path]($style) ";
-
-        # the following removes tildes from the path, and substitutes some folders with shorter names
         substitutions = {
           "~/Dev" = "Dev";
           "~/Documents" = "Docs";
         };
-
         format = "[$path]($style)[$read_only]($read_only_style) ";
         style = "bg";
         repo_root_format = "[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)";
         repo_root_style = "git";
         fish_style_pwd_dir_length = 1;
       };
-
       # git
       git_state = {
         format = "[$state(:$progress_current/$progress_total)]($style)";
@@ -125,18 +82,17 @@ in {
         am = "a";
         am_or_rebase = "r";
       };
-      # git_commit.commit_hash_length = 7;
+
       git_commit = {
         format = "[$hash$tag]($style)";
         style = "git";
         commit_hash_length = 7;
       };
-      # git_branch.style = "bold purple";
 
       git_branch = {
         format = "[$branch(:$remote_branch)]($style)";
-        style = "git";
-        ignore_branches = "['main' 'master' 'HEAD']";
+        style = "bold purple"; #git
+        ignore_branches = ["main" "master" "HEAD"];
       };
 
       git_status = {
@@ -144,7 +100,6 @@ in {
         style = "bold git";
         modified = "!";
         stashed = "";
-        staged = "+";
         deleted = "✘ ";
         conflicted = " ";
         untracked = "?";
@@ -262,7 +217,6 @@ in {
           host = hostStyle;
         };
       };
-
       # language configurations
       # the whitespaces at the end *are* necessary for proper formatting
       lua.symbol = "[ ](blue) ";

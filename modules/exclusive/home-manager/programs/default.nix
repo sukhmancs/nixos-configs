@@ -18,6 +18,7 @@
     ./webcord.nix
     ./zathura.nix
     ./swayidle.nix
+    ./rbw.nix
     ./wlogout.nix
   ];
 }

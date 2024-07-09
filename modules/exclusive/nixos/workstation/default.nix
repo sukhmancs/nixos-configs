@@ -8,7 +8,6 @@
     ./hyprland.nix
     ./impermanence.nix
     ./printing.nix
-    ./tarpit.nix
     ./tor.nix
   ];
 }

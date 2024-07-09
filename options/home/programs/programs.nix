@@ -8,6 +8,11 @@ in {
       description = "Enable AnyRun";
     };
 
+    rbw.enable = mkEnableOption {
+      default = false;
+      description = "Enable Bitwarden CLI (rbw)";
+    };
+
     clipboard.enable = mkEnableOption {
       default = false;
       description = "Enable clipboard service";

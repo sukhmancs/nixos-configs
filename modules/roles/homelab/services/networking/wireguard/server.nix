@@ -8,7 +8,7 @@
 }: let
   inherit (lib) mkIf;
 in {
-  config = mkIf config.networking.wireguard.enable {
+  config = mkIf false {
     networking = {
       nat = {
         enable = true;
@@ -26,8 +26,8 @@ in {
       "wireguard"
     ];
 
-    # Wireguard Server Peer Setup
     networking.wireguard = {
+      enable = true;
       interfaces = {
         wg0 = {
           # General settings

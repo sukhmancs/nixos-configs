@@ -26,5 +26,6 @@
     modules.home.programs.wlogout.enable = false;
     modules.home.exclusive.packages.enable = true;
     modules.home.programs.anyrun.enable = false;
+    modules.home.programs.rbw.enable = true;
   };
 }

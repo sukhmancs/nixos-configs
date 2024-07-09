@@ -10,8 +10,6 @@
 in {
   config = mkIf config.programs.rofi.enable {
     programs.rofi = {
-      font = "Iosevka Nerd Font 14";
-
       theme = let
         inherit (osConfig.modules.style.colorScheme) colors;
         inherit (config.lib.formats.rasi) mkLiteral;

@@ -13,12 +13,13 @@ in {
     ./dns.nix
   ];
 
-  config = mkIf config.services.headscale.enable {
+  config = mkIf false {
     environment.systemPackages = [config.services.headscale.package];
     networking.firewall.allowedUDPPorts = [3478 8086]; # DERP
 
     services = {
       headscale = {
+        enable = true;
         address = "127.0.0.1";
         port = 8085;
 
