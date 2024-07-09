@@ -89,7 +89,7 @@ in {
           sendOnlyRejectMessage = "";
         };
 
-        "authelia@xilain.dev" = mkIf cfg.authelia.enable {
+        "authelia@xilain.dev" = mkIf ((config ? services.authelia.instances.main) && config.services.authelia.instances.main.enable) {
           aliases = ["auth" "security"];
           hashedPasswordFile = secrets.mailserver-authelia-secret.path;
           sendOnly = true;
