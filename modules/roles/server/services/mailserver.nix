@@ -163,30 +163,30 @@ in {
         '';
       };
 
-      postfix = {
-        dnsBlacklists = [
-          "all.s5h.net"
-          "b.barracudacentral.org"
-          "bl.spamcop.net"
-          "blacklist.woody.ch"
-        ];
-        dnsBlacklistOverrides = ''
-          xilain.dev OK
-          mail.xilain.dev OK
-          127.0.0.0/8 OK
-          192.168.0.0/16 OK
-        '';
-        headerChecks = [
-          {
-            action = "IGNORE";
-            pattern = "/^User-Agent.*Roundcube Webmail/";
-          }
-        ];
+      # postfix = {
+      #   dnsBlacklists = [
+      #     "all.s5h.net"
+      #     "b.barracudacentral.org"
+      #     "bl.spamcop.net"
+      #     "blacklist.woody.ch"
+      #   ];
+      #   dnsBlacklistOverrides = ''
+      #     xilain.dev OK
+      #     mail.xilain.dev OK
+      #     127.0.0.0/8 OK
+      #     192.168.0.0/16 OK
+      #   '';
+      #   headerChecks = [
+      #     {
+      #       action = "IGNORE";
+      #       pattern = "/^User-Agent.*Roundcube Webmail/";
+      #     }
+      #   ];
 
-        config = {
-          smtp_helo_name = config.mailserver.fqdn;
-        };
-      };
+      #   config = {
+      #     smtp_helo_name = config.mailserver.fqdn;
+      #   };
+      # };
 
       phpfpm.pools.roundcube.settings = {
         "listen.owner" = config.services.nginx.user;
