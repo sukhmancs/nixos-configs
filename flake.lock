@@ -1783,22 +1783,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-pinned": {
-      "locked": {
-        "lastModified": 1683233934,
-        "narHash": "sha256-f3y1Hzcm/q+iZQU/jiwmWtFXFP1LV7pfMFvdRHJWZYQ=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "b610c60e23e0583cdc1997c54badfd32592d3d3e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "b610c60e23e0583cdc1997c54badfd32592d3d3e",
-        "type": "github"
-      }
-    },
     "nixpkgs-regression": {
       "locked": {
         "lastModified": 1643052045,
@@ -3752,7 +3736,6 @@
         "nixos-hardware": "nixos-hardware",
         "nixpak": "nixpak",
         "nixpkgs": "nixpkgs_8",
-        "nixpkgs-pinned": "nixpkgs-pinned",
         "nixpkgs-small": "nixpkgs-small",
         "nyxpkgs": "nyxpkgs",
         "rust-overlay": "rust-overlay_2",
