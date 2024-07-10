@@ -12,7 +12,7 @@
     nixpkgs-small.url = "github:NixOS/nixpkgs/nixos-unstable-small"; # moves faster, has less packages
 
     # Sometimes nixpkgs breaks something I need, pin a working commit when that occurs
-    # nixpkgs-pinned.url = "github:NixOS/nixpkgs/b610c60e23e0583cdc1997c54badfd32592d3d3e";
+    # nixpkgs-pinned.url = github:NixOS/nixpkgs/b610c60e23e0583cdc1997c54badfd32592d3d3e;
 
     # Flake parts for easier flake development
     flake-parts = {
