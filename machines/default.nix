@@ -35,7 +35,7 @@
 
   serverRoles = [
     ../modules/roles/server
-    # ../modules/roles/headless
+    ../modules/roles/headless
   ];
 
   isoRoles = [
