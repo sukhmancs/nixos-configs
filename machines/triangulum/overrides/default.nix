@@ -1,6 +1,6 @@
 {
   imports = [
-    # ./fs.nix
+    ./fs.nix
     ./networking.nix
     ./nftables.nix
     ./system.nix
