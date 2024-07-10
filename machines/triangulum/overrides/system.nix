@@ -8,7 +8,7 @@
 
   config = {
     networking.domain = "xilain.dev";
-    services.smartd.enable = lib.mkForce false;
+    # services.smartd.enable = lib.mkForce false;
     boot = {
       growPartition = !config.boot.initrd.systemd.enable;
       initrd.availableKernelModules = ["ata_piix" "uhci_hcd" "xen_blkfront" "vmw_pvscsi"];

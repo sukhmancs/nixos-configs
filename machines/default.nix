@@ -34,7 +34,7 @@
   ];
 
   serverRoles = [
-    ../modules/roles/server
+    # ../modules/roles/server
     ../modules/roles/headless
   ];
 

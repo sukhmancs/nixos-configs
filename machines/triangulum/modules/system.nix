@@ -45,13 +45,13 @@
 }: {
   config = {
     # Enable qemu - this is required for VPS to work
-    # virtualisation.libvirtd.enable = true;
+    virtualisation.libvirtd.enable = true;
 
     #TODO: configure tailscale for server - override flags for server (check modules/exclusive/nixos/shared/tailscale-client)
-    services.tailscale.enable = false;
+    # services.tailscale.enable = false;
 
     # This have performance impact
-    services.endlessh-go.enable = false; # tarpit
+    # services.endlessh-go.enable = false; # tarpit
 
     modules.system = {
       mainUser = "xi";
