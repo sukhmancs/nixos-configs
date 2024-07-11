@@ -7,12 +7,11 @@
     # Fork of the Nix package manager
     nix-super.url = "github:privatevoid-net/nix-super";
 
-    #TODO: remove me
     # NixOS stable
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
 
     # NixOS unstable
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-small.url = "github:NixOS/nixpkgs/nixos-unstable-small"; # moves faster, has less packages
 
     # Sometimes nixpkgs breaks something I need, pin a working commit when that occurs
