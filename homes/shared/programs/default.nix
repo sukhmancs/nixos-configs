@@ -17,7 +17,7 @@
     ./git.nix
     ./gh.nix
     ./gpg.nix
-    ./man.nix
+    #./man.nix
     ./nix-direnv.nix
     ./nix-index.nix
     ./nix-init.nix
