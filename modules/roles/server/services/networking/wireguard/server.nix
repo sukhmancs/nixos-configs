@@ -59,7 +59,7 @@ in {
             # android
             {
               allowedIPs = [
-                "10.0.0.2/24"
+                "10.0.0.2/32"
                 "fdc9:281f:04d7:9ee9::2/128"
               ];
               publicKey = "T0y8gISdCvbgwH2wOinfX3YuiAfb7zuw20li7dzt1QU=";
