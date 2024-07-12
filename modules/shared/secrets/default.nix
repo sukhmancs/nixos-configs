@@ -25,7 +25,7 @@ in {
 
   age.identityPaths = [
     "${optionalString sys.system.impermanence.root.enable "/persist"}/etc/ssh/ssh_host_ed25519_key"
-    "${optionalString sys.system.impermanence.home.enable "/persist"}/home/notashelf/.ssh/id_ed25519"
+    "${optionalString sys.system.impermanence.home.enable "/persist"}/home/xi/.ssh/id_ed25519"
   ];
 
   age.secrets = {
@@ -36,7 +36,7 @@ in {
 
     tailscale-client = mkAgenixSecret config.services.tailscale.enable {
       file = "client/tailscale.age";
-      owner = "notashelf";
+      owner = "xi";
       group = "users";
       mode = "400";
     };
@@ -44,21 +44,21 @@ in {
     # secrets needed for peers
     spotify-secret = mkAgenixSecret true {
       file = "client/spotify.age";
-      owner = "notashelf";
+      owner = "xi";
       group = "users";
       mode = "400";
     };
 
     wg-client = mkAgenixSecret true {
       file = "client/wg.age";
-      owner = "notashelf";
+      owner = "xi";
       group = "users";
       mode = "700";
     };
 
     client-email = mkAgenixSecret config.services.lldap.enable {
       file = "client/email.age";
-      owner = "notashelf";
+      owner = "xi";
       group = "users";
       mode = "400";
     };
