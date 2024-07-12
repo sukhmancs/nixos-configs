@@ -53,6 +53,9 @@
     # Matrix Synapse - Private Chat Server
     services.matrix-synapse.enable = true;
 
+    # Wireguard Server Configuration
+    networking.wireguard.enable = true;
+
     #TODO: configure tailscale for server - override flags for server (check modules/exclusive/nixos/shared/tailscale-client)
     # services.tailscale.enable = false;
 
