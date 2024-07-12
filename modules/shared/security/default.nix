@@ -10,6 +10,7 @@
   imports = [
     ./apparmor.nix # apparmor configuration and policies
     ./auditd.nix # auditd
+    #TODO: enable this (breaks some builds on server)
     # ./clamav.nix # clamav antivirus
     ./impurity-tracker.nix # find applications that depend on /bin/sh or /usr/bin/env
     ./kernel.nix # kernel hardening
