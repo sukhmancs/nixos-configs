@@ -12,7 +12,7 @@ in {
     networking = {
       nat = {
         enable = true;
-        externalInterface = "ens3";
+        externalInterface = "eth0";
         internalInterfaces = ["wg0"];
       };
 
