@@ -172,7 +172,7 @@ in {
         "https://cache.garnix.io" # garnix binary cache, hosts prismlauncher
         "https://cache.notashelf.dev" # my own binary cache, served over https
         "https://ags.cachix.org" # ags
-        #"https://cache.xilain.dev"
+        "https://cache.xilain.dev" # My binary cache for xilain
       ];
 
       trusted-public-keys = [
@@ -191,7 +191,7 @@ in {
         "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
         "cache.notashelf.dev-1:DhlmJBtURj+XS3j4F8SFFukT8dYgSjtFcd3egH8rE6U="
         "ags.cachix.org-1:naAvMrz0CuYqeyGNyLgE010iUiuf/qx6kYrUv3NwAJ8="
-        #"cache.xilain.dev-1:jmB+1nvzo2i+y71RgmHjMcKjvzkJTs2JtoRbyV4Z4jc="
+        "cache.xilain.dev-1:jmB+1nvzo2i+y71RgmHjMcKjvzkJTs2JtoRbyV4Z4jc="
       ];
     };
   };
