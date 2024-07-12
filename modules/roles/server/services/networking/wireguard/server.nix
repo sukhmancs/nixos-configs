@@ -34,17 +34,6 @@ in {
           privateKeyFile = config.age.secrets.wg-server.path;
           listenPort = 51820;
 
-          # This allows the wireguard server to route your traffic to the internet and hence be like a VPN
-          # For this to work you have to set the dnsserver IP of your router (or dnsserver of choice) in your clients
-          postSetup = ''
-            ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o eth0 -j MASQUERADE
-          '';
-
-          # This undoes the above command
-          postShutdown = ''
-            ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.0.0.0/24 -o eth0 -j MASQUERADE
-          '';
-
           # IPs
           ips = [
             "10.0.0.1/24"
@@ -75,6 +64,9 @@ in {
                 "fdc9:281f:04d7:9ee9::2/128"
               ];
               publicKey = "T0y8gISdCvbgwH2wOinfX3YuiAfb7zuw20li7dzt1QU=";
+
+              # Set this to the server IP and port.
+              endpoint = "174.119.200.86:51820";
             }
             # iphone
             {
@@ -83,6 +75,9 @@ in {
                 "fdc9:281f:04d7:9ee9::3/128"
               ];
               publicKey = "7SUc29cwNgNsvNh95ffsRyQHadDehnO3aC4UHJ8DAXM=";
+
+              # Set this to the server IP and port.
+              endpoint = "174.119.200.86:51820";
             }
           ];
         };
