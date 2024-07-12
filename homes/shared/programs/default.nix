@@ -21,6 +21,7 @@
     ./nix-direnv.nix
     ./nix-index.nix
     ./nix-init.nix
+    # ./pass.nix
     ./ranger.nix
     ./ripgrep.nix
     ./ssh.nix
@@ -28,6 +29,5 @@
     ./transient-services.nix
     ./xdg.nix
     ./zoxide.nix
-    ./pass.nix
   ];
 }
