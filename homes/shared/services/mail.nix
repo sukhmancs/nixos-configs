@@ -10,7 +10,7 @@
     accounts.email = {
       maildirBasePath = config.xdg.userDirs.extraConfig.XDG_MAIL_DIR;
       accounts = {
-        notashelf = let
+        xi = let
           gpgKey = "0xBA46BCC36E912922";
           name = "XiLain";
         in {
@@ -31,8 +31,8 @@
               --
               ${name}
 
-              Want to use GPG encryption with me? Try my GPG key:
-              [${gpgKey}](https://github.com/notashelf.gpg)
+              Want to use GPG encryption? Try my GPG key:
+              [${gpgKey}](https://raw.githubusercontent.com/sukhmancs/sukhmancs.gpg/master/public.pgp)
             '';
           };
 
