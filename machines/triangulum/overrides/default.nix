@@ -4,5 +4,6 @@
     ./networking.nix
     ./nftables.nix
     ./system.nix
+    ./tailscale.nix
   ];
 }

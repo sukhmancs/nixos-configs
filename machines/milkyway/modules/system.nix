@@ -28,7 +28,7 @@
 
     # services.seatd.enable = true;
     xdg.portal.enable = true;
-    services.tailscale.enable = false;
+    services.tailscale.enable = true;
 
     modules.system = {
       mainUser = "xi";
