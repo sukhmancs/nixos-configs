@@ -13,7 +13,7 @@
   tags = ["tag:server"];
 in {
   config.services.tailscale = {
-    enable = true;
+    enable = false; #TODO setup headscale first
     extraUpFlags = mkForce [
       "--ssh"
       "--authkeyfile:${config.age.secrets.tailscale-client.path}"

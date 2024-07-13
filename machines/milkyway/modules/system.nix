@@ -28,7 +28,7 @@
 
     # services.seatd.enable = true;
     xdg.portal.enable = true;
-    services.tailscale.enable = true;
+    services.tailscale.enable = false; #TODO setup headscale first
 
     modules.system = {
       mainUser = "xi";
