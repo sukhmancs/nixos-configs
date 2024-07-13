@@ -1,26 +1,32 @@
 {
-  description = "Python Project Template";
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs";
-  };
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+  inputs.poetry2nix.url = "github:nix-community/poetry2nix";
 
   outputs = {
     self,
     nixpkgs,
+    poetry2nix,
   }: let
-    systems = ["x86_64-linux" "aarch64-linux"];
-    forEachSystem = nixpkgs.lib.genAttrs systems;
-
-    pkgsForEach = nixpkgs.legacyPackages;
-  in rec {
-    packages = forEachSystem (system: {
-      default = pkgsForEach.${system}.callPackage ./default.nix {};
+    supportedSystems = ["x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin"];
+    forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+    pkgs = forAllSystems (system: nixpkgs.legacyPackages.${system});
+  in {
+    packages = forAllSystems (system: let
+      inherit (poetry2nix.lib.mkPoetry2Nix {pkgs = pkgs.${system};}) mkPoetryApplication;
+    in {
+      default = mkPoetryApplication {projectDir = self;};
     });
 
-    devShells = forEachSystem (system: {
-      default = pkgsForEach.${system}.callPackage ./shell.nix {};
+    devShells = forAllSystems (system: let
+      inherit (poetry2nix.lib.mkPoetry2Nix {pkgs = pkgs.${system};}) mkPoetryEnv;
+    in {
+      default = pkgs.${system}.mkShellNoCC {
+        packages = with pkgs.${system}; [
+          (mkPoetryEnv {projectDir = self;})
+          poetry
+          pip
+        ];
+      };
     });
-
-    hydraJobs = packages;
   };
 }
