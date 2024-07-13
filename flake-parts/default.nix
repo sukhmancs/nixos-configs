@@ -4,13 +4,14 @@
     inputs.git-hooks.flakeModule
     inputs.treefmt-nix.flakeModule
 
-    ./lib
     ./default
     ./git-hooks
+    ./lib
+    ./shell
+    ./templates
 
     ./args.nix
     ./treefmt.nix
     ./iso-images.nix
-    ./shell
   ];
 }
