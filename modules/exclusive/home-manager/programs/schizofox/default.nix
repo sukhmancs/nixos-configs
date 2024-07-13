@@ -55,14 +55,6 @@ in {
         disableWebgl = false;
         firefoxSync = true;
         startPageURL = "file://${self'.packages.schizofox-startpage.outPath}/index.html";
-        bookmarks = [
-          {
-            Title = "Nyx";
-            URL = "https://github.com/NotAShelf/nyx";
-            Placement = "toolbar";
-            Folder = "Github";
-          }
-        ];
       };
       # Schizofox also have default extensions: temporary-containers, localcdn-fork-of-decentraleyes, don-t-fuck-with-paste, clearurls, libredirect, etc
       extensions = {

@@ -41,7 +41,7 @@ in
       homepage = "https://github.com/dylanaraps/neofetch";
       license = lib.licenses.mit;
       platforms = lib.platforms.all;
-      maintainers = with lib.maintainers; [alibabzo konimex notashelf];
+      maintainers = with lib.maintainers; [alibabzo konimex xi];
       mainProgram = "neofetch";
     };
   }

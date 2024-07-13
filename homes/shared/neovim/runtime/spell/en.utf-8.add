@@ -2,8 +2,8 @@ contrib
 Contrib
 gitignore
 dotfiles
-nyx
-notashelf
+nixos-configs
+xilain
 utils
 neovim
 glab

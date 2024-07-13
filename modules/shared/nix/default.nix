@@ -170,7 +170,7 @@ in {
         "https://nyx.cachix.org" # cached stuff from my flake outputs
         "https://neovim-flake.cachix.org" # a cache for my neovim flake
         "https://cache.garnix.io" # garnix binary cache, hosts prismlauncher
-        "https://cache.notashelf.dev" # my own binary cache, served over https
+        "https://cache.notashelf.dev" # raf's binary cache, served over https
         "https://ags.cachix.org" # ags
         "https://cache.xilain.dev" # My binary cache for xilain
       ];

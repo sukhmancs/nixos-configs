@@ -33,7 +33,7 @@ in {
           general = {
             instance_name = "XiSearx";
             privacypolicy_url = false;
-            donation_url = "https://ko-fi.com/notashelf";
+            donation_url = "https://ko-fi.com/xilain";
             contact_url = "mailto:shelf@xilain.dev";
             enable_metrics = true;
             debug = false;
