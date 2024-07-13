@@ -1,5 +1,10 @@
 _: {
   flake.templates = {
+    python = {
+      path = ./python; # Python
+      description = "Python Development environment";
+    };
+
     c = {
       path = ./c; # C/C++
       description = "Development environment for C/C++";
