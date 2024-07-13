@@ -24,7 +24,7 @@
         packages = with pkgs.${system}; [
           (mkPoetryEnv {projectDir = self;})
           poetry
-          pip
+          python312Packages.pip
         ];
       };
     });
