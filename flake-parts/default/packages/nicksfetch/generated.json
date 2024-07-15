@@ -15,6 +15,7 @@
             "repo": "neofetch",
             "rev": "ccd5d9f52609bbdcd5d8fa78c4fdb0f12954125f",
             "sha256": "sha256-9MoX6ykqvd2iB0VrZCfhSyhtztMpBTukeKejfAWYW1w=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "ccd5d9f52609bbdcd5d8fa78c4fdb0f12954125f"
