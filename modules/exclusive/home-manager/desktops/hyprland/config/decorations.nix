@@ -2,28 +2,36 @@
   wayland.windowManager.hyprland.settings = {
     decoration = {
       # fancy corners
-      rounding = 8;
+      rounding = 20;
 
       # blur
       blur = {
         enabled = true;
-        size = 5;
-        passes = 3;
-        ignore_opacity = true;
+        size = 14;
+        passes = 4;
         new_optimizations = 1;
         xray = true;
-        contrast = 0.7;
-        brightness = 0.8;
+        contrast = 1;
+        brightness = 1;
+        noise = 0.01;
+        popups = true;
+        popups_ignorealpha = 0.6;
         vibrancy = 0.2;
         special = true; # expensive, but helps distinguish special workspaces
       };
 
       # shadow config
       drop_shadow = "yes";
+      shadow_ignore_window = true;
       shadow_range = 20;
-      shadow_render_power = 3;
-      "col.shadow" = "rgba(292c3cee)";
-      shadow_offset = "0 0";
+      shadow_offset = "0 2";
+      shadow_render_power = 4;
+      "col.shadow" = "rgba(0000002A)";
+
+      # Dim
+      dim_inactive = false;
+      dim_strength = 0.1;
+      dim_special = 0;
     };
 
     group = {
@@ -54,20 +62,34 @@
       first_launch_animation = true; # fade in on first launch
 
       bezier = [
-        "smoothOut, 0.36, 0, 0.66, -0.56"
-        "smoothIn, 0.25, 1, 0.5, 1"
-        "overshot, 0.4,0.8,0.2,1.2"
+        "linear, 0, 0, 1, 1"
+        "md3_standard, 0.2, 0, 0, 1"
+        "md3_decel, 0.05, 0.7, 0.1, 1"
+        "md3_accel, 0.3, 0, 0.8, 0.15"
+        "overshot, 0.05, 0.9, 0.1, 1.1"
+        "crazyshot, 0.1, 1.5, 0.76, 0.92"
+        "hyprnostretch, 0.05, 0.9, 0.1, 1.0"
+        "menu_decel, 0.1, 1, 0, 1"
+        "menu_accel, 0.38, 0.04, 1, 0.07"
+        "easeInOutCirc, 0.85, 0, 0.15, 1"
+        "easeOutCirc, 0, 0.55, 0.45, 1"
+        "easeOutExpo, 0.16, 1, 0.3, 1"
+        "softAcDecel, 0.26, 0.26, 0.15, 1"
+        "md2, 0.4, 0, 0.2, 1" # use with .2s duration
       ];
 
       animation = [
-        "windows, 1, 4, overshot, slide"
-        "windowsOut, 1, 4, smoothOut, slide"
-        "windowsMove, 1, 4, default"
-        "border,1,10,default"
-
-        "fade, 1, 10, smoothIn"
-        "fadeDim, 1, 10, smoothIn"
-        "workspaces,1,4,overshot,slidevert"
+        "windows, 1, 3, md3_decel, popin 60%"
+        "windowsIn, 1, 3, md3_decel, popin 60%"
+        "windowsOut, 1, 3, md3_accel, popin 60%"
+        "border, 1, 10, default"
+        "fade, 1, 3, md3_decel"
+        "layersIn, 1, 3, menu_decel, slide"
+        "layersOut, 1, 1.6, menu_accel"
+        "fadeLayersIn, 1, 2, menu_decel"
+        "fadeLayersOut, 1, 4.5, menu_accel"
+        "workspaces, 1, 7, menu_decel, slide"
+        "specialWorkspace, 1, 3, md3_decel, slidevert"
       ];
     };
   };

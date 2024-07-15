@@ -28,11 +28,12 @@ in {
           inputs'.anyrun-nixos-options.packages.default
         ];
 
-        # the x coordinate of the runner
-        #x.relative = 800;
-        # the y coordinate of the runner
-        #y.absolute = 500.0;
-        y.fraction = 0.02;
+        # x and y are the position of the main box
+        x.fraction = 0.500000;
+        y.absolute = 15;
+
+        width.fraction = 0.300000;
+        height.absolute = 0;
 
         # Hide match and plugin info icons
         hideIcons = false;
@@ -44,16 +45,16 @@ in {
         layer = "overlay";
 
         # Hide the plugin info panel
-        hidePluginInfo = false;
+        hidePluginInfo = true;
 
         # Close window when a click outside the main box is received
-        closeOnClick = false;
+        closeOnClick = true;
 
         # Show search results immediately when Anyrun starts
         showResultsImmediately = false;
 
         # Limit amount of entries shown in total
-        maxEntries = 10;
+        maxEntries = null;
       };
 
       extraConfigFiles = {
