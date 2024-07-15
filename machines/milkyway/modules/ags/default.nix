@@ -8,11 +8,11 @@
   settings = {
     system = "x86_64-linux";
     hostname = "alfheim"; # Hostname
-    username = "serpentian"; # Ssername
+    username = "xi";
     profile = "desktop"; # Select from profiles directory
     timezone = "Europe/Moscow"; # Select timezone
     locale = "en_US.UTF-8"; # Select locale
-    name = "Nikita Zheleztsov"; # Name (git config)
+    name = "Xi Lain"; # Name (git config)
     email = "n.zheleztsov@proton.me"; # Email (git config)
     dotfilesDir = "/home/xi/.config/nixos-configs"; # Absolute path of the local repo
     theme = "catppuccin"; # Selected theme from themes directory (./themes/)
@@ -60,7 +60,7 @@
     gtk3 = pkgs.gtk3;
     which = pkgs.which;
   in
-    pkgs.callPackage ../../../modules/exclusive/home-manager/bars/ags/default.nix {
+    pkgs.callPackage ../../../../modules/exclusive/home-manager/bars/ags/default.nix {
       inherit inputs writeShellScript stdenv cage swww esbuild dart-sass fd fzf brightnessctl accountsservice slurp wf-recorder wl-clipboard wayshot swappy hyprpicker pavucontrol networkmanager gtk3 which;
       inherit (settings) system;
     };
@@ -114,7 +114,7 @@ in {
 
       programs.ags = {
         enable = true;
-        configDir = ../../../modules/exclusive/home-manager/bars/ags;
+        configDir = ../../../../modules/exclusive/home-manager/bars/ags;
       };
 
       home.file.".cache/ags/options-nix.json".text = builtins.toJSON agsOptions;

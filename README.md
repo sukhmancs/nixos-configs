@@ -1,7 +1,7 @@
 ## TODO
 
-- [ ] Dunst
-- [ ] ags
-- [ ] hyprland
+- [x] Dunst
+- [x] ags
+- [x] hyprland
 - [ ] sww
 ## Thanks
