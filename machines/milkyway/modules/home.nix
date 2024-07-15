@@ -25,7 +25,7 @@
       discord.enable = false;
       webcord.enable = true;
       wlogout.enable = false;
-      anyrun.enable = false;
+      anyrun.enable = true;
       rbw.enable = true;
     };
 

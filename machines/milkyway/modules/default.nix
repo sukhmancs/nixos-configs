@@ -1,5 +1,7 @@
 {
   imports = [
+    ./ags
+
     ./device.nix
     ./environment.nix
     ./home.nix
