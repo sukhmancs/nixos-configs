@@ -7,7 +7,7 @@
   inherit (lib.lists) zipListsWith;
   inherit (lib.strings) escapeShellArg;
 in {
-  environment.variables.FLAKE = "/home/xi/.config/nixos-configs";
+  environment.variables.FLAKE = lib.mkForce "/home/xi/.config/nixos-configs";
 
   programs.nh = {
     enable = true;
