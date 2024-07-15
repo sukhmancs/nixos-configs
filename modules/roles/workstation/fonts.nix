@@ -9,7 +9,7 @@ in {
     enableDefaultPackages = false;
 
     fontconfig = {
-      enable = false; #TODO: change me
+      enable = true;
       hinting.enable = true;
       antialias = true;
       defaultFonts = let
