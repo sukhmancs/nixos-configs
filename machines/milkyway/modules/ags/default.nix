@@ -104,7 +104,7 @@ in {
     home-manager.users.xi = {
       imports = [inputs.ags.homeManagerModules.default];
       home.packages = with pkgs; [
-        # asztal
+        asztal
         bun
         fd
         dart-sass
@@ -123,7 +123,7 @@ in {
 
       programs.ags = {
         enable = true;
-        configDir = null; #../../../../modules/exclusive/home-manager/bars/ags;
+        configDir = ../../../../modules/exclusive/home-manager/bars/ags;
 
         extraPackages = with pkgs; [
           gtksourceview
@@ -139,7 +139,7 @@ in {
         ];
       };
 
-      # home.file.".cache/ags/options-nix.json".text = builtins.toJSON agsOptions;
+      home.file.".cache/ags/options-nix.json".text = builtins.toJSON agsOptions;
     };
   };
 }

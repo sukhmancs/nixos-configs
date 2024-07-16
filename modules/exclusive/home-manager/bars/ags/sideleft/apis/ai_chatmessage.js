@@ -275,7 +275,7 @@ const MessageContent = (content) => {
             .slice(lastProcessed, lines.length)
             .join("\n");
           if (!inCode)
-            lastLabel.label = `${md2pango(blockContent)}${useCursor ? userOptions.ai.writingCursor : ""}`;
+            lastLabel.label = `${md2pango(blockContent)}${useCursor ? " ..." : ""}`;
           else lastLabel.attribute.updateText(blockContent);
         }
         // Debug: plain text
@@ -312,7 +312,7 @@ export const ChatMessage = (message, modelName = "Model") => {
   const messageArea = Stack({
     homogeneous: message.role !== "user",
     transition: "crossfade",
-    transitionDuration: userOptions.animations.durationLarge,
+    transitionDuration: 180,
     children: {
       thinking: messageLoadingSkeleton,
       message: messageContentBox,

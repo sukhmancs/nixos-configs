@@ -58,7 +58,6 @@ const PROVIDERS = Object.assign(
       model: "gpt-3.5-turbo",
     },
   },
-  userOptions.sidebar.ai.extraGptModels,
 );
 
 // Custom prompt
@@ -190,9 +189,9 @@ class GPTService extends Service {
   }
 
   _assistantPrompt = true;
-  _currentProvider = userOptions.ai.defaultGPTProvider;
+  _currentProvider = "openai";
   _requestCount = 0;
-  _temperature = userOptions.ai.defaultTemperature;
+  _temperature = 0.9;
   _messages = [];
   _key = "";
   _key_file_location = `${GLib.get_user_state_dir()}/ags/user/ai/${PROVIDERS[this._currentProvider]["key_file"]}`;
@@ -330,7 +329,7 @@ class GPTService extends Service {
       stream: true,
     };
     const proxyResolver = new Gio.SimpleProxyResolver({
-      "default-proxy": userOptions.ai.proxyUrl,
+      "default-proxy": null,
     });
     const session = new Soup.Session({ "proxy-resolver": proxyResolver });
     const message = new Soup.Message({

@@ -27,7 +27,7 @@ async function getImageViewerApp(preferredApp) {
 }
 
 const IMAGE_REVEAL_DELAY = 13; // Some wait for inits n other weird stuff
-const IMAGE_VIEWER_APP = getImageViewerApp(userOptions.apps.imageViewer); // Gnome's image viewer cuz very comfortable zooming
+const IMAGE_VIEWER_APP = getImageViewerApp("loupe"); // Gnome's image viewer cuz very comfortable zooming
 const USER_CACHE_DIR = GLib.get_user_cache_dir();
 
 // Create cache folder and clear pics from previous session
@@ -124,7 +124,7 @@ const WaifuImage = (taglist) => {
   const downloadState = Stack({
     homogeneous: false,
     transition: "slide_up_down",
-    transitionDuration: userOptions.animations.durationSmall,
+    transitionDuration: 110,
     children: {
       api: ImageState("api", "Calling API"),
       download: ImageState("downloading", "Downloading image"),
@@ -199,7 +199,7 @@ const WaifuImage = (taglist) => {
   });
   const blockImageRevealer = Revealer({
     transition: "slide_down",
-    transitionDuration: userOptions.animations.durationLarge,
+    transitionDuration: 180,
     revealChild: false,
     child: Overlay({
       child: Box({
@@ -401,7 +401,7 @@ export const waifuView = Scrollable({
 const waifuTags = Revealer({
   revealChild: false,
   transition: "crossfade",
-  transitionDuration: userOptions.animations.durationLarge,
+  transitionDuration: 180,
   child: Box({
     className: "spacing-h-5",
     children: [

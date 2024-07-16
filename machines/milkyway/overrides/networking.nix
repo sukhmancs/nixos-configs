@@ -7,7 +7,9 @@ in {
   config = {
     services.resolved.enable = mkForce false; # use adguardhome for dns
     networking = {
-      networkmanager.dns = mkForce "none";
+      useDHCP = mkForce false;
+      useNetworkd = mkForce false;
+      networkmanager.dns = mkForce "none"; # Don't touch /etc/resolv.conf
       nameservers = mkForce ["102.209.85.226"]; # adguardhome dns server
     };
   };

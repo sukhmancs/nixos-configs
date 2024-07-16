@@ -38,7 +38,7 @@ export default ({ icon, name, child, revealChild = true }) => {
   const content = Revealer({
     revealChild: revealChild,
     transition: "slide_down",
-    transitionDuration: userOptions.animations.durationLarge,
+    transitionDuration: 180,
     child: Box({
       className: "margin-top-5",
       homogeneous: true,

@@ -26,7 +26,7 @@ const SIDEBARTABS = {
     friendlyName: "Tools",
   },
 };
-const CONTENTS = userOptions.sidebar.pages.order.map(
+const CONTENTS = ["apis", "tools"].map(
   (tabName) => SIDEBARTABS[tabName],
 );
 
@@ -89,13 +89,13 @@ export default () =>
     setup: (self) =>
       self.on("key-press-event", (widget, event) => {
         // Handle keybinds
-        if (checkKeybind(event, userOptions.keybinds.sidebar.pin))
+        if (checkKeybind(event, "Ctrl+p"))
           pinButton.attribute.toggle(pinButton);
-        else if (checkKeybind(event, userOptions.keybinds.sidebar.cycleTab))
+        else if (checkKeybind(event, "Ctrl+Tab"))
           widgetContent.cycleTab();
-        else if (checkKeybind(event, userOptions.keybinds.sidebar.nextTab))
+        else if (checkKeybind(event, "Ctrl+Page_Down"))
           widgetContent.nextTab();
-        else if (checkKeybind(event, userOptions.keybinds.sidebar.prevTab))
+        else if (checkKeybind(event, "Ctrl+Page_Up"))
           widgetContent.prevTab();
 
         if (
@@ -123,7 +123,7 @@ export default () =>
           }
           // Switch API type
           else if (
-            checkKeybind(event, userOptions.keybinds.sidebar.apis.nextTab)
+            checkKeybind(event, "Page_Down")
           ) {
             const toSwitchTab =
               widgetContent.attribute.children[
@@ -131,7 +131,7 @@ export default () =>
               ];
             toSwitchTab.nextTab();
           } else if (
-            checkKeybind(event, userOptions.keybinds.sidebar.apis.prevTab)
+            checkKeybind(event, "Page_Up")
           ) {
             const toSwitchTab =
               widgetContent.attribute.children[
