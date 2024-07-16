@@ -7,6 +7,7 @@
   inherit (lib) mkDefault;
 
   cfg = config.services;
+  dev = config.modules.device;
 in {
   imports = [./monitor.nix];
 
@@ -18,17 +19,12 @@ in {
       powertop
     ];
 
-    boot = {
-      kernelModules = ["acpi_call"];
-      extraModulePackages = with config.boot.kernelPackages; [
-        acpi_call
-        cpupower
-      ];
-    };
-
     services = {
       # handle ACPI events
-      acpid.enable = true;
+      acpid = {
+        enable = true;
+        logEvents = true;
+      };
 
       # Power state monitor. Switches Power profiles based on charging state.
       # Only enable if auto-cpufreq is disabled
@@ -36,6 +32,8 @@ in {
 
       # temperature target on battery
       undervolt = {
+        # only enable on intel devices
+        enable = dev.cpu.type == "intel";
         tempBat = 65; # deg C
         package = pkgs.undervolt;
       };
