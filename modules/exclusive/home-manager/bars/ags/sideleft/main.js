@@ -1,4 +1,5 @@
 import PopupWindow from "./.widgethacks/popupwindow.js";
+import userOptions from './user_options.js';
 import SidebarLeft from "./sideleft.js";
 import Widget from "resource:///com/github/Aylur/ags/widget.js";
 const { Box } = Widget;
