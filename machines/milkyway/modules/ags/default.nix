@@ -59,9 +59,10 @@
     networkmanager = pkgs.networkmanager;
     gtk3 = pkgs.gtk3;
     which = pkgs.which;
+    gtksourceview = pkgs.gtksourceview;
   in
     pkgs.callPackage ../../../../modules/exclusive/home-manager/bars/ags/default.nix {
-      inherit inputs writeShellScript stdenv cage swww esbuild dart-sass fd fzf brightnessctl accountsservice slurp wf-recorder wl-clipboard wayshot swappy hyprpicker pavucontrol networkmanager gtk3 which;
+      inherit inputs writeShellScript stdenv cage swww esbuild dart-sass fd fzf brightnessctl accountsservice slurp wf-recorder wl-clipboard wayshot swappy hyprpicker pavucontrol networkmanager gtk3 which gtksourceview;
       inherit (settings) system;
     };
   agsColors = {
@@ -103,21 +104,42 @@ in {
     home-manager.users.xi = {
       imports = [inputs.ags.homeManagerModules.default];
       home.packages = with pkgs; [
-        asztal
+        # asztal
         bun
         fd
         dart-sass
         gtk3
         pulsemixer
         networkmanager
+        gtksourceview
+        ollama
+        pywal
+        sassc
+        (python311.withPackages (p: [
+          p.material-color-utilities
+          p.pywayland
+        ]))
       ];
 
       programs.ags = {
         enable = true;
-        configDir = ../../../../modules/exclusive/home-manager/bars/ags;
+        configDir = null; #../../../../modules/exclusive/home-manager/bars/ags;
+
+        extraPackages = with pkgs; [
+          gtksourceview
+          gtksourceview4
+          ollama
+          python311Packages.material-color-utilities
+          python311Packages.pywayland
+          pywal
+          sassc
+          webkitgtk
+          webp-pixbuf-loader
+          ydotool
+        ];
       };
 
-      home.file.".cache/ags/options-nix.json".text = builtins.toJSON agsOptions;
+      # home.file.".cache/ags/options-nix.json".text = builtins.toJSON agsOptions;
     };
   };
 }

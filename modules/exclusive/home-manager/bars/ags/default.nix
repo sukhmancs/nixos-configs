@@ -21,6 +21,7 @@
   networkmanager,
   gtk3,
   which,
+  gtksourceview,
 }: let
   name = "asztal";
 
@@ -38,6 +39,7 @@
     networkmanager
     wl-clipboard
     gtk3
+    gtksourceview
   ];
 
   addBins = list: builtins.concatStringsSep ":" (builtins.map (p: "${p}/bin") list);
