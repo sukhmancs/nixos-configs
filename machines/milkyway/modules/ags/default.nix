@@ -110,6 +110,7 @@ in {
         gtk3
         pulsemixer
         networkmanager
+        gtksourceview
       ];
 
       programs.ags = {
