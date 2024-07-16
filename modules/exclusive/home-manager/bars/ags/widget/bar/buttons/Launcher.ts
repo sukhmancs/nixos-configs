@@ -1,3 +1,4 @@
+import App from 'resource:///com/github/Aylur/ags/app.js';
 import PanelButton from "../PanelButton"
 import options from "options"
 import nix from "service/nix"
@@ -17,7 +18,7 @@ function Spinner() {
                 to { -gtk-icon-transform: rotate(1turn); }
             }
 
-            image.spinning {
+            image.spinning:hover {
                 animation-name: spin;
                 animation-duration: 1s;
                 animation-timing-function: linear;
@@ -38,7 +39,7 @@ function Spinner() {
 
 export default (monitor: number, pos: string) => PanelButton({
     window: "launcher",
-    on_clicked: action.bind(),
+    on_clicked: App.toggleWindow('sideleft'),
     setup: self => { barAssignPosition(self, pos) },
     child: Widget.Box({
         children: [
