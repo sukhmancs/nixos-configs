@@ -5,6 +5,8 @@
   ...
 }: let
   inherit (lib) mkDefault;
+
+  cfg = config.services;
 in {
   imports = [./monitor.nix];
 
@@ -20,8 +22,9 @@ in {
       # handle ACPI events
       acpid.enable = true;
 
-      # allows changing system behavior based upon user-selected power profiles
-      power-profiles-daemon.enable = true;
+      # Power state monitor. Switches Power profiles based on charging state.
+      # Only enable if auto-cpufreq is disabled
+      power-profiles-daemon.enable = !cfg.auto-cpufreq.enable;
 
       # temperature target on battery
       undervolt = {
