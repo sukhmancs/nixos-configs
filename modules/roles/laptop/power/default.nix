@@ -18,6 +18,14 @@ in {
       powertop
     ];
 
+    boot = {
+      kernelModules = ["acpi_call"];
+      extraModulePackages = with config.boot.kernelPackages; [
+        acpi_call
+        cpupower
+      ];
+    };
+
     services = {
       # handle ACPI events
       acpid.enable = true;
@@ -40,6 +48,7 @@ in {
         in {
           battery = {
             governor = "powersave";
+            energy_performance_preference = "power";
             scaling_min_freq = mkDefault (MHz 1200);
             scaling_max_freq = mkDefault (MHz 1800);
             turbo = "never";
@@ -47,6 +56,7 @@ in {
 
           charger = {
             governor = "performance";
+            energy_performance_preference = "performance";
             scaling_min_freq = mkDefault (MHz 1800);
             scaling_max_freq = mkDefault (MHz 3800);
             turbo = "auto";
