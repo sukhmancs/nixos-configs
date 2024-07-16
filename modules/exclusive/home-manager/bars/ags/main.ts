@@ -14,6 +14,7 @@ import Verification from "widget/powermenu/Verification"
 import { forMonitors } from "lib/utils"
 import { setupQuickSettings } from "widget/quicksettings/QuickSettings"
 import { setupCalendarSettings } from "widget/calendarsettings/CalendarSettings"
+// import SideLeft from "modules/sideleft/main.js"
 import hyprland from "lib/hyprland"
 
 App.config({
@@ -33,6 +34,7 @@ App.config({
         ...forMonitors(NotificationPopups),
         ...forMonitors(ScreenCorners),
         ...forMonitors(OSD),
+        // SideLeft(),
         Launcher(),
         Overview(),
         PowerMenu(),
