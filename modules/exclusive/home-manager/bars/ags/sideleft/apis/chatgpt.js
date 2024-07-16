@@ -9,7 +9,7 @@ import {
   setupCursorHover,
   setupCursorHoverInfo,
 } from "../.widgetutils/cursorhover.js";
-import { SystemMessage, ChatMessage } from "./ai_chatmessage.js";
+// import { SystemMessage, ChatMessage } from "./ai_chatmessage.js";
 import {
   ConfigToggle,
   ConfigSegmentedSelection,
@@ -286,10 +286,11 @@ export const chatContent = Box({
         const message = GPTService.messages[id];
         if (!message) return;
         box.add(
-          ChatMessage(
-            message,
-            `Model (${GPTService.providers[GPTService.providerID]["name"]})`,
-          ),
+          // ChatMessage(
+          //   message,
+          //   `Model (${GPTService.providers[GPTService.providerID]["name"]})`,
+          // ),
+          message,
         );
       },
       "newMsg",
@@ -329,11 +330,12 @@ export const sendMessage = (text) => {
   if (GPTService.key.length == 0) {
     GPTService.key = text;
     chatContent.add(
-      SystemMessage(
-        `Key saved to\n\`${GPTService.keyPath}\``,
-        "API Key",
-        chatGPTView,
-      ),
+      // SystemMessage(
+      //   `Key saved to\n\`${GPTService.keyPath}\``,
+      //   "API Key",
+      //   chatGPTView,
+      // ),
+      `Key saved to\n\`${GPTService.keyPath}\``,
     );
     text = "";
     return;
@@ -343,18 +345,20 @@ export const sendMessage = (text) => {
     if (text.startsWith("/clear")) clearChat();
     else if (text.startsWith("/model"))
       chatContent.add(
-        SystemMessage(
-          `Currently using \`${GPTService.modelName}\``,
-          "/model",
-          chatGPTView,
-        ),
+        // SystemMessage(
+        //   `Currently using \`${GPTService.modelName}\``,
+        //   "/model",
+        //   chatGPTView,
+        // ),
+        `Currently using \`${GPTService.modelName}\``,
       );
     else if (text.startsWith("/prompt")) {
       const firstSpaceIndex = text.indexOf(" ");
       const prompt = text.slice(firstSpaceIndex + 1);
       if (firstSpaceIndex == -1 || prompt.length < 1) {
         chatContent.add(
-          SystemMessage(`Usage: \`/prompt MESSAGE\``, "/prompt", chatGPTView),
+          // SystemMessage(`Usage: \`/prompt MESSAGE\``, "/prompt", chatGPTView),
+          `Usage: \`/prompt MESSAGE\``,
         );
       } else {
         GPTService.addMessage("user", prompt);
@@ -363,28 +367,32 @@ export const sendMessage = (text) => {
       const parts = text.split(" ");
       if (parts.length == 1)
         chatContent.add(
-          SystemMessage(
-            `Key stored in:\n\`${GPTService.keyPath}\`\nTo update this key, type \`/key YOUR_API_KEY\``,
-            "/key",
-            chatGPTView,
-          ),
+          // SystemMessage(
+          //   `Key stored in:\n\`${GPTService.keyPath}\`\nTo update this key, type \`/key YOUR_API_KEY\``,
+          //   "/key",
+          //   chatGPTView,
+          // ),
+          `Key stored in:\n\`${GPTService.keyPath}\`\nTo update this key, type \`/key YOUR_API_KEY\``,
         );
       else {
         GPTService.key = parts[1];
         chatContent.add(
-          SystemMessage(
-            `Updated API Key at\n\`${GPTService.keyPath}\``,
-            "/key",
-            chatGPTView,
-          ),
+          // SystemMessage(
+          //   `Updated API Key at\n\`${GPTService.keyPath}\``,
+          //   "/key",
+          //   chatGPTView,
+          // ),
+          `Updated API Key at\n\`${GPTService.keyPath}\``,
         );
       }
     } else if (text.startsWith("/test"))
       chatContent.add(
-        SystemMessage(markdownTest, `Markdown test`, chatGPTView),
+        // SystemMessage(markdownTest, `Markdown test`, chatGPTView),
+        markdownTest,
       );
     else
-      chatContent.add(SystemMessage(`Invalid command.`, "Error", chatGPTView));
+      // chatContent.add(SystemMessage(`Invalid command.`, "Error", chatGPTView));
+    chatContent.add(`Invalid command.`);
   } else {
     GPTService.send(text);
   }
