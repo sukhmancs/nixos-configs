@@ -1,4 +1,3 @@
-import App from 'resource:///com/github/Aylur/ags/app.js';
 import PanelButton from "../PanelButton"
 import options from "options"
 import nix from "service/nix"
@@ -39,10 +38,7 @@ function Spinner() {
 
 export default (monitor: number, pos: string) => PanelButton({
     window: "launcher",
-    on_clicked: () => {
-        action.bind()();
-        App.toggleWindow('sideleft');
-    },
+    on_clicked: action.bind(),
     setup: self => { barAssignPosition(self, pos) },
     child: Widget.Box({
         children: [
