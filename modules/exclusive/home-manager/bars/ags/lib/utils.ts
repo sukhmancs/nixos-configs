@@ -56,7 +56,12 @@ export async function run_sh(cmd: string | string[]) {
         return ""
     })
 }
-
+/**
+ * Creates a Gtk.Window for each monitor.
+ *
+ * @param {function(number): Gtk.Window} widget - A function that takes a monitor index and returns a Gtk.Window.
+ * @returns {Gtk.Window[]} An array of Gtk.Windows, one for each monitor.
+ */
 export function forMonitors(widget: (monitor: number) => Gtk.Window) {
     const n = Gdk.Display.get_default()?.get_n_monitors() || 1
     return range(n, 0).map(widget).flat(1)
