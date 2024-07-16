@@ -9,7 +9,7 @@ in {
     networking = {
       useDHCP = mkForce false;
       useNetworkd = mkForce false;
-      networkmanager.dns = mkForce "default";
+      networkmanager.dns = mkForce "none"; # Don't touch /etc/resolv.conf
       nameservers = mkForce ["102.209.85.226"]; # adguardhome dns server
     };
   };
