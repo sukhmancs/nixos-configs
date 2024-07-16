@@ -35,26 +35,12 @@ in {
 
         width.fraction = 0.300000;
         height.absolute = 0;
-
-        # Hide match and plugin info icons
         hideIcons = false;
-
-        # ignore exclusive zones, i.e. Waybar
         ignoreExclusiveZones = false;
-
-        # Layer shell layer: Background, Bottom, Top, Overlay
         layer = "overlay";
-
-        # Hide the plugin info panel
         hidePluginInfo = true;
-
-        # Close window when a click outside the main box is received
         closeOnClick = true;
-
-        # Show search results immediately when Anyrun starts
         showResultsImmediately = false;
-
-        # Limit amount of entries shown in total
         maxEntries = null;
       };
 
