@@ -59,9 +59,10 @@
     networkmanager = pkgs.networkmanager;
     gtk3 = pkgs.gtk3;
     which = pkgs.which;
+    gtksourceview = pkgs.gtksourceview;
   in
     pkgs.callPackage ../../../../modules/exclusive/home-manager/bars/ags/default.nix {
-      inherit inputs writeShellScript stdenv cage swww esbuild dart-sass fd fzf brightnessctl accountsservice slurp wf-recorder wl-clipboard wayshot swappy hyprpicker pavucontrol networkmanager gtk3 which;
+      inherit inputs writeShellScript stdenv cage swww esbuild dart-sass fd fzf brightnessctl accountsservice slurp wf-recorder wl-clipboard wayshot swappy hyprpicker pavucontrol networkmanager gtk3 which gtksourceview;
       inherit (settings) system;
     };
   agsColors = {

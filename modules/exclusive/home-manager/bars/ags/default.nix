@@ -38,6 +38,7 @@
     networkmanager
     wl-clipboard
     gtk3
+    gtksourceview
   ];
 
   addBins = list: builtins.concatStringsSep ":" (builtins.map (p: "${p}/bin") list);
