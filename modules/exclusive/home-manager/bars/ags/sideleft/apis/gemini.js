@@ -152,7 +152,7 @@ export const GoogleAiInstructions = () =>
     children: [
       Revealer({
         transition: "slide_down",
-        transitionDuration: userOptions.animations.durationLarge,
+        transitionDuration: 180,
         setup: (self) =>
           self.hook(
             GeminiService,

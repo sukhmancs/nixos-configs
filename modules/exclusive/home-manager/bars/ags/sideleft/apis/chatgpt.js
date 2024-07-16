@@ -98,7 +98,7 @@ const ProviderSwitcher = () => {
   const providerList = Revealer({
     revealChild: false,
     transition: "slide_down",
-    transitionDuration: 150,
+    transitionDuration: 180,
     child: Box({
       vertical: true,
       className: "spacing-v-5 sidebar-chat-providerswitcher-list",
@@ -237,7 +237,7 @@ export const OpenaiApiKeyInstructions = () =>
     children: [
       Revealer({
         transition: "slide_down",
-        transitionDuration: 150,
+        transitionDuration: 180,
         setup: (self) =>
           self.hook(
             GPTService,

@@ -170,7 +170,7 @@ export const ExpandingIconTabContainer = ({
     icons, names, children, className = '',
     setup = () => { }, onChange = () => { },
     tabsHpack = 'center', tabSwitcherClassName = '',
-    transitionDuration = userOptions.animations.durationLarge,
+    transitionDuration = 180,
     ...rest
 }) => {
     const shownIndex = Variable(0);

@@ -283,7 +283,7 @@ const BooruPage = (taglist, serviceName = "Booru") => {
     });
     const imageRevealer = Revealer({
       transition: "slide_down",
-      transitionDuration: userOptions.animations.durationLarge,
+      transitionDuration: 180,
       child: EventBox({
         onHover: () => {
           imageActions.revealChild = true;
@@ -299,7 +299,7 @@ const BooruPage = (taglist, serviceName = "Booru") => {
   const downloadState = Stack({
     homogeneous: false,
     transition: "slide_up_down",
-    transitionDuration: userOptions.animations.durationSmall,
+    transitionDuration: 110,
     children: {
       api: PageState("api", "Calling API"),
       download: PageState("downloading", "Downloading image"),
@@ -354,7 +354,7 @@ const BooruPage = (taglist, serviceName = "Booru") => {
   });
   const pageImageRevealer = Revealer({
     transition: "slide_down",
-    transitionDuration: userOptions.animations.durationLarge,
+    transitionDuration: 180,
     revealChild: false,
     child: pageImages,
   });
@@ -372,7 +372,7 @@ const BooruPage = (taglist, serviceName = "Booru") => {
           downloadState.shown = "error";
           return;
         }
-        const imageColumns = userOptions.sidebar.image.columns;
+        const imageColumns = 2;
         const imageRows = data.length / imageColumns;
 
         // Init cols
@@ -494,7 +494,7 @@ export const booruView = Scrollable({
 const booruTags = Revealer({
   revealChild: false,
   transition: "crossfade",
-  transitionDuration: userOptions.animations.durationLarge,
+  transitionDuration: 180,
   child: Box({
     className: "spacing-h-5",
     children: [

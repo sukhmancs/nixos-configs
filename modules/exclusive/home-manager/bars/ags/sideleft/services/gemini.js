@@ -241,13 +241,13 @@ class GeminiService extends Service {
         });
     }
 
-    _assistantPrompt = userOptions.ai.enhancements;
+    _assistantPrompt = true;
     _cycleModels = true;
-    _usingHistory = userOptions.ai.useHistory;
+    _usingHistory = true;
     _key = "";
     _requestCount = 0;
     _safe = true;
-    _temperature = userOptions.ai.defaultTemperature;
+    _temperature = 0.9;
     _messages = [];
     _modelIndex = 0;
     _decoder = new TextDecoder();
@@ -448,7 +448,7 @@ class GeminiService extends Service {
             // "apiKey": this._key,
         };
         const proxyResolver = new Gio.SimpleProxyResolver({
-            "default-proxy": userOptions.ai.proxyUrl,
+            "default-proxy": null,
         });
         const session = new Soup.Session({ "proxy-resolver": proxyResolver });
         const message = new Soup.Message({

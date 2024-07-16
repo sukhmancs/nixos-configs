@@ -88,7 +88,7 @@ const APILIST = {
     placeholderText: "Enter tags",
   },
 };
-const APIS = userOptions.sidebar.pages.apis.order.map(
+const APIS = ["gemini", "gpt", "waifu", "booru"].map(
   (apiName) => APILIST[apiName],
 );
 let currentApiId = 0;
@@ -152,19 +152,19 @@ export const chatEntry = TextView({
           return false;
         }
         // Keybinds
-        if (checkKeybind(event, userOptions.keybinds.sidebar.cycleTab))
+        if (checkKeybind(event, "Ctrl+Tab"))
           widgetContent.cycleTab();
-        else if (checkKeybind(event, userOptions.keybinds.sidebar.nextTab))
+        else if (checkKeybind(event, "Ctrl+Page_Down"))
           widgetContent.nextTab();
-        else if (checkKeybind(event, userOptions.keybinds.sidebar.prevTab))
+        else if (checkKeybind(event, "Page_Up"))
           widgetContent.prevTab();
         else if (
-          checkKeybind(event, userOptions.keybinds.sidebar.apis.nextTab)
+          checkKeybind(event, "Page_Down")
         ) {
           apiWidgets.attribute.nextTab();
           return true;
         } else if (
-          checkKeybind(event, userOptions.keybinds.sidebar.apis.prevTab)
+          checkKeybind(event, "Page_Up")
         ) {
           apiWidgets.attribute.prevTab();
           return true;
@@ -225,7 +225,7 @@ const chatPlaceholder = Label({
 const chatPlaceholderRevealer = Revealer({
   revealChild: true,
   transition: "crossfade",
-  transitionDuration: userOptions.animations.durationLarge,
+  transitionDuration: 180,
   child: chatPlaceholder,
   setup: enableClickthrough,
 });
@@ -246,7 +246,7 @@ const textboxArea = Box({
 
 const apiCommandStack = Stack({
   transition: "slide_up_down",
-  transitionDuration: userOptions.animations.durationLarge,
+  transitionDuration: 180,
   children: APIS.reduce((acc, api) => {
     acc[api.name] = api.commandBar;
     return acc;

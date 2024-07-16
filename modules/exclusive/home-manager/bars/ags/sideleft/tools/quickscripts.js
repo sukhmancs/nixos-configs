@@ -92,7 +92,7 @@ export default () =>
                 execAsync([
                   `bash`,
                   `-c`,
-                  `${userOptions.apps.terminal} fish -C "${script.command}"`,
+                  `foot fish -C "${script.command}"`,
                 ])
                   .catch(print)
                   .then(() => {

@@ -38,7 +38,7 @@ function paramStringFromObj(params) {
 class BooruService extends Service {
     _baseUrl = 'https://yande.re/post.json';
     _mode = 'yandere';
-    _nsfw = userOptions.sidebar.image.allowNsfw;
+    _nsfw = false;
     _responses = [];
     _queries = [];
 
@@ -102,7 +102,7 @@ class BooruService extends Service {
         const params = {
             'tags': taglist.join('+'),
             'page': `${page}`,
-            'limit': `${userOptions.sidebar.image.batchCount}`,
+            'limit': 20,
         };
         const paramString = paramStringFromObj(params);
         // Fetch
