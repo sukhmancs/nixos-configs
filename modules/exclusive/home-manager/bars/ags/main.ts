@@ -12,6 +12,7 @@ import ScreenCorners from "widget/bar/ScreenCorners"
 import SettingsDialog from "widget/settings/SettingsDialog"
 import Verification from "widget/powermenu/Verification"
 import { forMonitors } from "lib/utils"
+import userOptions from './sideleft/.configuration/user_options.js';
 import { setupQuickSettings } from "widget/quicksettings/QuickSettings"
 import { setupCalendarSettings } from "widget/calendarsettings/CalendarSettings"
 import SideLeft from "sideleft/main.js"

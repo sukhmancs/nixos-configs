@@ -255,7 +255,7 @@ const BooruPage = (taglist, serviceName = "Booru") => {
     });
     const imageActions = Revealer({
       transition: "crossfade",
-      transitionDuration: userOptions.animations.durationLarge,
+      transitionDuration: 150,
       child: Box({
         vpack: "start",
         className: "sidebar-booru-image-actions spacing-h-3",
