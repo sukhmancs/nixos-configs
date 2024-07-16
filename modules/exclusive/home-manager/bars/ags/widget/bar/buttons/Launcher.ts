@@ -39,7 +39,10 @@ function Spinner() {
 
 export default (monitor: number, pos: string) => PanelButton({
     window: "launcher",
-    on_clicked: App.toggleWindow('sideleft'),
+    on_clicked: () => {
+        action.bind()();
+        App.toggleWindow('sideleft');
+    },
     setup: self => { barAssignPosition(self, pos) },
     child: Widget.Box({
         children: [
