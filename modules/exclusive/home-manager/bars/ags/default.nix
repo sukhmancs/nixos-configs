@@ -21,6 +21,7 @@
   networkmanager,
   gtk3,
   which,
+  gtksourceview,
 }: let
   name = "asztal";
 
