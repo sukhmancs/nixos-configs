@@ -59,6 +59,7 @@ function Spinner() {
 // })
 
 const Left = () => Widget.EventBox({
+  on_primary_click_release: () => {App.toggleWindow('launcher')},
   on_secondary_click_release: () => {App.toggleWindow('sideleft')},
   child: Widget.Box({
     children: [
