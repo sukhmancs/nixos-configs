@@ -7,17 +7,17 @@
 }: let
   settings = {
     system = "x86_64-linux";
-    hostname = "milkyway"; # Hostname
-    username = "xi";
-    profile = "desktop"; # Select from profiles directory
-    timezone = "Europe/Moscow"; # Select timezone
-    locale = "en_US.UTF-8"; # Select locale
-    name = "Xi Lain"; # Name (git config)
-    email = "n.zheleztsov@proton.me"; # Email (git config)
+    # hostname = "milkyway"; # Hostname
+    # username = "xi";
+    # profile = "desktop"; # Select from profiles directory
+    # timezone = "Europe/Moscow"; # Select timezone
+    # locale = "en_US.UTF-8"; # Select locale
+    # name = "Xi Lain"; # Name (git config)
+    # email = "n.zheleztsov@proton.me"; # Email (git config)
     dotfilesDir = "/home/xi/.config/nixos-configs"; # Absolute path of the local repo
-    theme = "catppuccin"; # Selected theme from themes directory (./themes/)
+    # theme = "catppuccin"; # Selected theme from themes directory (./themes/)
     themeDetails = import (./. + "/mochatheme.nix") {dir = settings.dotfilesDir;};
-    wm = ["hyprland" "kde"]; # Selected window manager or desktop environment;
+    # wm = ["hyprland" "kde"]; # Selected window manager or desktop environment;
     # must select one in both ./user/wm/ and ./system/wm/
     # Note, that first WM is incldued included into work profile
     # second one includes both.
@@ -25,16 +25,16 @@
     font = "JetBrains Mono"; # Selected font
     fontPkg = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
     fontSize = 12; # Font size
-    icons = "Papirus";
-    iconsPkg = pkgs.papirus-icon-theme;
+    # icons = "Papirus";
+    # iconsPkg = pkgs.papirus-icon-theme;
 
     # Session variables.
-    editor = "nvim"; # Default editor
-    editorPkg = pkgs.neovim;
-    browser = "firefox"; # Default browser; must select one from ./user/app/browser/
-    browserPkg = pkgs.firefox;
-    term = "kitty"; # Default terminal command
-    termPkg = pkgs.kitty;
+    # editor = "nvim"; # Default editor
+    # editorPkg = pkgs.neovim;
+    # browser = "firefox"; # Default browser; must select one from ./user/app/browser/
+    # browserPkg = pkgs.firefox;
+    # term = "kitty"; # Default terminal command
+    # termPkg = pkgs.kitty;
   };
 
   details = settings.themeDetails;
@@ -139,7 +139,7 @@ in {
         ];
       };
 
-      home.file.".cache/ags/options-nix.json".text = builtins.toJSON agsOptions;
+      # home.file.".cache/ags/options-nix.json".text = builtins.toJSON agsOptions;
     };
   };
 }
