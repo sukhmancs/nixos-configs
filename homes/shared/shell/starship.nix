@@ -52,7 +52,7 @@ in {
       scan_timeout = 2;
       command_timeout = 2000; # nixpkgs makes starship implode with lower values
       format = ''
-        [\(](${hostStyle})$directory([|](${hostStyle})$shell$nix_shell)([|](${hostStyle})$git_branch$git_commit$git_status([|](${hostStyle})$git_state))[\)](${hostStyle})( $python) $fill ($cmd_duration )($battery )$username[@](bg)$hostname [\[](${hostStyle})$time[\]](${hostStyle}) $line_break$status [${charSymbol}](${userStyle})
+        ╭────┤$os├──┤\[\(](${hostStyle})$directory([|](${hostStyle})$shell$nix_shell)([|](${hostStyle})$git_branch$git_commit$git_status([|](${hostStyle})$git_state))[\)](${hostStyle})( $python) $fill ($cmd_duration )($battery )$username[@](bg)$hostname ├[\[](${hostStyle})$time[\]]┤(${hostStyle}) $line_break$status [${charSymbol}](${userStyle})
       '';
       right_format = "$character";
       add_newline = false;
