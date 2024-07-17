@@ -37,39 +37,18 @@ function Spinner() {
     })
 }
 
-// export default (monitor: number, pos: string) => PanelButton({
-//     window: "launcher",
-//     on_clicked: action.bind(),
-//     setup: self => { barAssignPosition(self, pos) },
-//     child: Widget.EventBox({
-//         onSecondaryClick: () => {
-//             App.toggleWindow('sideleft');
-//         },
-//         child: Widget.Box({
-//             children: [
-//                 Spinner(),
-//                 Widget.Label({
-//                     class_name: label.colored.bind().as(c => c ? "colored" : ""),
-//                     visible: label.label.bind().as(v => !!v),
-//                     label: label.label.bind(),
-//                 }),
-//             ]
-//         }),
-//     }),
-// })
-
-const Left = () => Widget.EventBox({
-  on_secondary_click_release: () => {App.toggleWindow('sideleft')},
-  child: Widget.Box({
-    children: [
-      Spinner(),
-      Widget.Label({
-        class_name: label.colored.bind().as(c => c ? "colored" : ""),
-        visible: label.label.bind().as(v => !!v),
-        label: label.label.bind(),
-        }),
-    ]
-  }),
-});
-
-export default Left;
+export default (monitor: number, pos: string) => PanelButton({
+    window: "spaceleft",
+    on_clicked: App.toggleWindow('sideleft'),
+    setup: self => { barAssignPosition(self, pos) },
+    child: Widget.Box({
+        children: [
+            Spinner(),
+            Widget.Label({
+                class_name: label.colored.bind().as(c => c ? "colored" : ""),
+                visible: label.label.bind().as(v => !!v),
+                label: label.label.bind(),
+            }),
+        ]
+    }),
+})
