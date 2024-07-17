@@ -9,7 +9,7 @@ import {
   setupCursorHover,
   setupCursorHoverInfo,
 } from "../.widgetutils/cursorhover.js";
-// import { SystemMessage, ChatMessage } from "./ai_chatmessage.js";
+import { SystemMessage, ChatMessage } from "./ai_chatmessage.js";
 import {
   ConfigToggle,
   ConfigSegmentedSelection,

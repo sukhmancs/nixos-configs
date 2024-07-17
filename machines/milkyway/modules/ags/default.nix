@@ -123,7 +123,7 @@ in {
 
       programs.ags = {
         enable = true;
-        configDir = ../../../../modules/exclusive/home-manager/bars/ags;
+        configDir = null; #../../../../modules/exclusive/home-manager/bars/ags;
 
         extraPackages = with pkgs; [
           gtksourceview
