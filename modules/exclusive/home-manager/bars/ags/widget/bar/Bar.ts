@@ -49,7 +49,9 @@ export default (monitor: number) => Widget.Window({
         }),
         centerWidget: Widget.Box({
             hpack: "center",
-            children: center.bind().as(c => c.map((w, idx) => widget[w](monitor, "center"))),
+            children: [
+                Workspaces(monitor, "center"),
+            ]
         }),
         endWidget: Widget.Box({
             hexpand: true,
