@@ -50,7 +50,7 @@ export default (monitor: number) => Widget.Window({
         centerWidget: Widget.Box({
             hpack: "center",
             children: [
-                Workspaces(monitor, "center"),
+                Workspaces(),
             ]
         }),
         endWidget: Widget.Box({
