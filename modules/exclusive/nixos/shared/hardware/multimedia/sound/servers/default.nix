@@ -5,7 +5,7 @@
     ./pipewire
 
     # kept for backwards compatibility
-    ./alsa.nix
+    #    ./alsa.nix
     ./pulse.nix
   ];
 }
