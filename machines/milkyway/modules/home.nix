@@ -20,7 +20,7 @@
     modules.home.programs = {
       clipboard.enable = true;
       hyprpaper.enable = true;
-      spotify.enable = true;
+      spotify.enable = false;
       element.enable = false;
       discord.enable = false;
       webcord.enable = true;
