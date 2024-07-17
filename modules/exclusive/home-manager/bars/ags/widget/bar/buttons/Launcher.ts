@@ -42,18 +42,18 @@ export default (monitor: number, pos: string) => PanelButton({
     on_clicked: action.bind(),
     setup: self => { barAssignPosition(self, pos) },
     child: Widget.EventBox({
-        onPrimaryClick: () => {
+        onSecondaryClick: () => {
             App.toggleWindow('sideleft');
         },
         child: Widget.Box({
-        children: [
-            Spinner(),
-            Widget.Label({
-                class_name: label.colored.bind().as(c => c ? "colored" : ""),
-                visible: label.label.bind().as(v => !!v),
-                label: label.label.bind(),
-            }),
-        ]
-    }),
+            children: [
+                Spinner(),
+                Widget.Label({
+                    class_name: label.colored.bind().as(c => c ? "colored" : ""),
+                    visible: label.label.bind().as(v => !!v),
+                    label: label.label.bind(),
+                }),
+            ]
+        }),
     }),
 })
