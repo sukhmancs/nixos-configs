@@ -17,7 +17,6 @@ in {
     environment.systemPackages = with pkgs; [
       acpi
       powertop
-      python312Packages.pyasyncore # (temporary fix) asyncore is not available in python3.12, but auto-cpu-freq requires it
     ];
 
     services = {
