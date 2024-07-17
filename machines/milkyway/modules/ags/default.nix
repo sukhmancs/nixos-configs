@@ -7,7 +7,7 @@
 }: let
   settings = {
     system = "x86_64-linux";
-    hostname = "alfheim"; # Hostname
+    hostname = "milkyway"; # Hostname
     username = "xi";
     profile = "desktop"; # Select from profiles directory
     timezone = "Europe/Moscow"; # Select timezone
@@ -123,7 +123,7 @@ in {
 
       programs.ags = {
         enable = true;
-        configDir = null; #../../../../modules/exclusive/home-manager/bars/ags;
+        configDir = ../../../../modules/exclusive/home-manager/bars/ags;
 
         extraPackages = with pkgs; [
           gtksourceview

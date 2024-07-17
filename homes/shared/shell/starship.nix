@@ -52,7 +52,7 @@ in {
       scan_timeout = 2;
       command_timeout = 2000; # nixpkgs makes starship implode with lower values
       format = ''
-        [\(](${hostStyle})$directory([|](${hostStyle})$shell$nix_shell)([|](${hostStyle})$git_branch$git_commit$git_status([|](${hostStyle})$git_state))[\)](${hostStyle})( $python) $fill ($cmd_duration )($battery )$username[@](bg)$hostname [\[](${hostStyle})$time[\]](${hostStyle}) $line_break$status [${charSymbol}](${userStyle})
+        [\(](${hostStyle})$os$directory([|](${hostStyle})$shell$nix_shell)([|](${hostStyle})$git_branch$git_commit$git_status([|](${hostStyle})$git_state))[\)](${hostStyle})( $python) $fill ($cmd_duration )($battery )$username[@](bg)$hostname [\[](${hostStyle})$time[\]](${hostStyle}) $line_break$status [${charSymbol}](${userStyle})
       '';
       right_format = "$character";
       add_newline = false;
@@ -62,7 +62,11 @@ in {
         truncation_length = 2;
         substitutions = {
           "~/Dev" = "Dev";
-          "~/Documents" = "Docs";
+          "~/Documents" = "󰈙 ";
+          "~/Downloads" = " ";
+          "~/Music" = " ";
+          "~/Pictures" = " ";
+          "~" = " ";
         };
         format = "[$path]($style)[$read_only]($read_only_style) ";
         style = "bg";
@@ -70,6 +74,17 @@ in {
         repo_root_style = "git";
         fish_style_pwd_dir_length = 1;
       };
+
+      os = {
+        disabled = false;
+        format = "[ $symbol ]($style)";
+      };
+
+      # os
+      os.symbols = {
+        NixOS = "󱄅";
+      };
+
       # git
       git_state = {
         format = "[$state(:$progress_current/$progress_total)]($style)";
@@ -134,7 +149,10 @@ in {
       };
 
       cmd_duration = {
-        format = "[\($duration\)]($style)";
+        disabled = false;
+        format = "[ 󱦟 $duration ]($style)";
+        show_milliseconds = true;
+        min_time = 0;
         style = "bg";
       };
 
@@ -203,10 +221,13 @@ in {
       };
 
       character = {
-        format = "$symbol";
-        success_symbol = "";
-        error_symbol = "";
+        format = "[ $symbol ]($style)";
+        success_symbol = "[](bold green)";
+        error_symbol = "[](bold red)";
         vimcmd_symbol = "[\\[NOR\\]](bright-yellow)";
+        vimcmd_replace_one_symbol = "[R](bold green)";
+        vimcmd_replace_symbol = "[R](bold green)";
+        vimcmd_visual_symbol = "[V](bold green)";
       };
 
       palettes = {
