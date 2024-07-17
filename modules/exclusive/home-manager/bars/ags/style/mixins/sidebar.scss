@@ -1,3 +1,6 @@
+// Import the variables file
+@import './material.scss';
+
 $sidebar_chat_textboxareaColor: mix($onSurfaceVariant, $surfaceVariant, 40%);
 
 @mixin group-padding {
