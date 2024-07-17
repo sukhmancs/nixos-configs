@@ -1,6 +1,7 @@
 import Cava from "./buttons/Cava"
 import Date from "./buttons/Date"
-import Launcher from "./buttons/Launcher"
+// import Launcher from "./buttons/Launcher"
+import Left from "./buttons/Launcher"
 import Media from "./buttons/Media"
 import PowerMenu from "./buttons/PowerMenu"
 import SysTray from "./buttons/SysTray"
@@ -20,7 +21,7 @@ const widget = {
     battery: BatteryBar,
     cava: Cava,
     date: Date,
-    launcher: Launcher,
+    // launcher: Launcher,
     media: Media,
     powermenu: PowerMenu,
     systray: SysTray,
@@ -41,8 +42,10 @@ export default (monitor: number) => Widget.Window({
         css: "min-width: 2px; min-height: 2px;",
         startWidget: Widget.Box({
             hexpand: true,
-            children: start.bind().as(s => s.map((w, idx) => widget[w](monitor,
-                idx === 0 ? "first" : "start"))),
+            children: [
+                Left(),
+                Media(monitor, "start"),
+            ]
         }),
         centerWidget: Widget.Box({
             hpack: "center",
