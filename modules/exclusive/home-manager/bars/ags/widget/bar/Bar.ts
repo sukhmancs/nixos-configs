@@ -60,10 +60,10 @@ export default (monitor: number) => Widget.Window({
             vertical: true,
             children: [
                 // RoundedAngleEnd("topright", {class_name: "angle"}),
-                BatteryBar(monitor, "end"),
-                SystemIndicators(monitor, "end"),
+                // BatteryBar(monitor, "end"),
+                // SystemIndicators(monitor, "end"),
                 Workspaces(),
-                Date(monitor, "last"),
+                // Date(monitor, "last"),
                 // SysTray(monitor, "end"),
 
             ]
@@ -74,11 +74,11 @@ export default (monitor: number) => Widget.Window({
             vpack: "end",
             children: [
                     // RoundedAngleEnd("topleft", {class_name: "angle", click_through: true}),
-                    // Cava(monitor, "end"),
+                    Cava(monitor, "end"),
                     SysTray(monitor, "end"),
-                    // BatteryBar(monitor, "end"),
-                    // SystemIndicators(monitor, "end"),
-                    // Date(monitor, "last"),
+                    BatteryBar(monitor, "end"),
+                    SystemIndicators(monitor, "end"),
+                    Date(monitor, "last"),
                     // Widget.Box({ expand: true }),
                 ]
         }),
