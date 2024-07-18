@@ -38,17 +38,18 @@ export default (monitor: number) => Widget.Window({
     class_name: "bar",
     name: `bar${monitor}`,
     exclusivity: "exclusive",
-    anchor: ["top", "bottom", "left"],
+    anchor: ['top', 'left'],
     layer: "top",
-    margins: [8, 0, 8, 8],
+    margins: [8, 8, 0, 8],
     child: Widget.CenterBox({
         // css: "min-width: 2px; min-height: 2px;",
         css: "min-height: 2px; min-width: 1px;",
-        vertical: true,
+        // vertical: true,
         startWidget: Widget.Box({
-            // hexpand: true,
-            vertical: true,
-            vpack: "start",
+            hexpand: true,
+            className: "barTop",
+            // vertical: true,
+            // vpack: "start",
             children: [
                 Left(),
                 Media(monitor, "start"),
@@ -56,8 +57,9 @@ export default (monitor: number) => Widget.Window({
             ]
         }),
         centerWidget: Widget.Box({
-            // hpack: "center",
-            vertical: true,
+            class: "barCenter",
+            hpack: "center",
+            // vertical: true,
             children: [
                 // RoundedAngleEnd("topright", {class_name: "angle"}),
                 // BatteryBar(monitor, "end"),
@@ -69,9 +71,10 @@ export default (monitor: number) => Widget.Window({
             ]
         }),
         endWidget: Widget.Box({
-            // hexpand: true,
-            vertical: true,
-            vpack: "end",
+            className: "barBottom",
+            hexpand: true,
+            // vertical: true,
+            // vpack: "end",
             children: [
                     // RoundedAngleEnd("topleft", {class_name: "angle", click_through: true}),
                     Cava(monitor, "end"),
