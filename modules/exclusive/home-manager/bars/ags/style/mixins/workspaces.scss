@@ -9,6 +9,7 @@
 
     .ws-button {
         transition: all 200ms;
+        border-radius: 1rem;
 
         &:hover {
             background-color: lighten($surface_container_low, 10%);
@@ -36,7 +37,7 @@
 
         &.active {
             .ws-button-label {
-                background-color: $primary;
+                background-color: $primary !important;
                 color: $on_primary;
             }
 
