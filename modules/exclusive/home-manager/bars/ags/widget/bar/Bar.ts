@@ -35,19 +35,20 @@ const widget = {
 
 export default (monitor: number) => Widget.Window({
     monitor,
-    class_name: "bar",
+    // class_name: "bar",
     name: `bar${monitor}`,
     exclusivity: "exclusive",
     anchor: ['top', 'left', 'right'],
     // layer: "top",
     margins: [8, 8, 0, 8],
     child: Widget.CenterBox({
+        className: "bar",
         // css: "min-width: 2px; min-height: 2px;",
         css: "min-height: 2px; min-width: 1px;",
         // vertical: true,
         startWidget: Widget.Box({
             hexpand: true,
-            className: "barLeft",
+            // className: "barLeft",
             // vertical: true,
             // vpack: "start",
             children: [
@@ -57,7 +58,7 @@ export default (monitor: number) => Widget.Window({
             ]
         }),
         centerWidget: Widget.Box({
-            class: "barCenter",
+            // class: "barCenter",
             hpack: "center",
             // vertical: true,
             children: [
@@ -71,7 +72,7 @@ export default (monitor: number) => Widget.Window({
             ]
         }),
         endWidget: Widget.Box({
-            className: "barRight",
+            // className: "barRight",
             hexpand: true,
             // vertical: true,
             // vpack: "end",

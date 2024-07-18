@@ -11,8 +11,8 @@ in {
       sensitivity = 0.8;
 
       # gaps
-      gaps_in = 2;
-      gaps_out = 3;
+      gaps_in = 3;
+      gaps_out = 4;
 
       gaps_workspaces = 50;
 
