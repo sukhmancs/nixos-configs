@@ -47,9 +47,9 @@ App.config({
         PowerMenu(),
         SettingsDialog(),
         Verification(),
-        CornerTopleft(),
-        CornerTopright(),
-        CornerBottomright(),
-        CornerBottomleft(),
+        // CornerTopleft(),
+        // CornerTopright(),
+        // CornerBottomright(),
+        // CornerBottomleft(),
     ],
 })
