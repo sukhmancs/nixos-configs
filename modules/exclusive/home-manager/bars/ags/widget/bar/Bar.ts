@@ -8,6 +8,7 @@ import SysTray from "./buttons/SysTray"
 import SystemIndicators from "./buttons/SystemIndicators"
 import Taskbar from "./buttons/Taskbar"
 import Workspaces from "./buttons/Workspaces"
+import {RoundedAngleEnd} from "../../roundedCorners/index.js";
 import Wallpapers from "./buttons/Wallpapers"
 import BatteryBar from "./buttons/BatteryBar"
 import options from "options"
@@ -37,26 +38,36 @@ export default (monitor: number) => Widget.Window({
     class_name: "bar",
     name: `bar${monitor}`,
     exclusivity: "exclusive",
-    anchor: pos.as(pos => [pos, "right", "left"]),
+    anchor: ["top", "left", "right"],
     child: Widget.CenterBox({
-        css: "min-width: 2px; min-height: 2px;",
+        // css: "min-width: 2px; min-height: 2px;",
+        css: "min-height: 2px;",
         startWidget: Widget.Box({
             hexpand: true,
             children: [
                 Left(),
                 Media(monitor, "start"),
+                RoundedAngleEnd("topright", {class_name: "angle"})
             ]
         }),
         centerWidget: Widget.Box({
             hpack: "center",
             children: [
                 Workspaces(),
+
             ]
         }),
         endWidget: Widget.Box({
             hexpand: true,
-            children: end.bind().as(e => e.map((w, idx) => widget[w](monitor,
-                idx === e.length - 1 ? "last" : "end"))),
+            children: [
+                    RoundedAngleEnd("topleft", {class_name: "angle", click_through: true}),
+                    // Cava(monitor, "end"),
+                    SysTray(monitor, "end"),
+                    BatteryBar(monitor, "end"),
+                    SystemIndicators(monitor, "end"),
+                    Date(monitor, "last"),
+                    // Widget.Box({ expand: true }),
+                ]
         }),
     }),
 })

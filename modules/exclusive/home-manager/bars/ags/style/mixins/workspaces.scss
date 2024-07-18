@@ -2,7 +2,8 @@
 @import './colors.scss';
 
 .ws-container {
-    background-color: $surface;
+    background-color: $bg;
+    border-radius: 0 0 1rem 1rem;
     padding: 3px;
 
     .ws-button {
