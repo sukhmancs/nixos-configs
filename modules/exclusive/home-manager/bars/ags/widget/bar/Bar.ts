@@ -47,7 +47,7 @@ export default (monitor: number) => Widget.Window({
         // vertical: true,
         startWidget: Widget.Box({
             hexpand: true,
-            className: "barTop",
+            // className: "barTop",
             // vertical: true,
             // vpack: "start",
             children: [
@@ -57,7 +57,7 @@ export default (monitor: number) => Widget.Window({
             ]
         }),
         centerWidget: Widget.Box({
-            class: "barCenter",
+            // class: "barCenter",
             hpack: "center",
             // vertical: true,
             children: [
@@ -71,7 +71,7 @@ export default (monitor: number) => Widget.Window({
             ]
         }),
         endWidget: Widget.Box({
-            className: "barBottom",
+            // className: "barBottom",
             hexpand: true,
             // vertical: true,
             // vpack: "end",
