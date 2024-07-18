@@ -9,11 +9,11 @@
 
     .ws-button {
         transition: all 200ms;
-        border-radius: 1rem;
 
         &:hover {
             background-color: lighten($surface_container_low, 10%);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 1rem;
         }
 
         &.occupied {
@@ -49,7 +49,6 @@
                 border-bottom-right-radius: 1rem;
                 border-top-right-radius: 1rem;
             }
-
         }
 
         .ws-button-label {
