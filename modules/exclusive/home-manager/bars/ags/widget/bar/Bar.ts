@@ -38,8 +38,8 @@ export default (monitor: number) => Widget.Window({
     class_name: "bar",
     name: `bar${monitor}`,
     exclusivity: "exclusive",
-    anchor: ['top', 'left'],
-    layer: "top",
+    anchor: ['top', 'left', 'right'],
+    // layer: "top",
     margins: [8, 8, 0, 8],
     child: Widget.CenterBox({
         // css: "min-width: 2px; min-height: 2px;",
