@@ -41,7 +41,7 @@ export default (monitor: number) => Widget.Window({
     anchor: ["top", "left", "right"],
     child: Widget.CenterBox({
         // css: "min-width: 2px; min-height: 2px;",
-        css: "min-height: 2px;",
+        css: "min-height: 2px; min-width: 1px;",
         // startWidget: Widget.Box({
         //     hexpand: true,
         //     children: [
@@ -55,12 +55,12 @@ export default (monitor: number) => Widget.Window({
             children: [
                 Left(),
                 Media(monitor, "start"),
-                RoundedAngleEnd("topright", {class_name: "angle"}),
+                // RoundedAngleEnd("topright", {class_name: "angle"}),
                 Workspaces(),
-                SysTray(monitor, "end"),
                 BatteryBar(monitor, "end"),
                 SystemIndicators(monitor, "end"),
                 Date(monitor, "last"),
+                SysTray(monitor, "end"),
 
             ]
         }),
