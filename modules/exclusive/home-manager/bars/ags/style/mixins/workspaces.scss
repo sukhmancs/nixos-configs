@@ -13,7 +13,7 @@
         &:hover {
             background-color: lighten($surface_container_low, 10%);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 1rem;
+            // border-radius: 1rem;
         }
 
         &.occupied {
