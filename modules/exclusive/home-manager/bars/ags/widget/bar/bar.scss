@@ -23,6 +23,30 @@ $button-radius: $radius;
     border-radius: 14px;
     padding: 2px;
 
+    .barLeft {
+        margin: 7px 7px 7px 7px;
+        background-color: #517F8D; //${base02};
+        border: .5px solid #00384d; //${base01};
+        border-radius: 15px;
+        padding: 2px 2px;
+    }
+
+    .barCenter {
+        margin: 7px 7px 7px 7px;
+        background-color: #517F8D; //${base02};
+        border: .5px solid #00384d; //${base01};
+        border-radius: 15px;
+        padding: 2px 0px 2px 0px;
+    }
+
+    .barRight {
+        margin: 7px 7px 7px 7px;
+        background-color: #517F8D; //${base02};
+        border: .5px solid #00384d; //${base01};
+        border-radius: 15px;
+        padding: 2px 0px 2px 0px;
+    }
+
     .panel-button {
         @include panel-button;
 

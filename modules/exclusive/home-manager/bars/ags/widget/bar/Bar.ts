@@ -47,17 +47,17 @@ export default (monitor: number) => Widget.Window({
         // vertical: true,
         startWidget: Widget.Box({
             hexpand: true,
-            // className: "barTop",
+            className: "barLeft",
             // vertical: true,
             // vpack: "start",
             children: [
                 Left(),
                 Media(monitor, "start"),
-                RoundedAngleEnd("topright", {class_name: "angle"})
+                // RoundedAngleEnd("topright", {class_name: "angle"})
             ]
         }),
         centerWidget: Widget.Box({
-            // class: "barCenter",
+            class: "barCenter",
             hpack: "center",
             // vertical: true,
             children: [
@@ -71,7 +71,7 @@ export default (monitor: number) => Widget.Window({
             ]
         }),
         endWidget: Widget.Box({
-            // className: "barBottom",
+            className: "barRight",
             hexpand: true,
             // vertical: true,
             // vpack: "end",
@@ -82,7 +82,7 @@ export default (monitor: number) => Widget.Window({
                     BatteryBar(monitor, "end"),
                     SystemIndicators(monitor, "end"),
                     Date(monitor, "last"),
-                    // Widget.Box({ expand: true }),
+                    Widget.Box({ expand: true }),
                 ]
         }),
     }),
