@@ -5,7 +5,7 @@
     // background-color: $bg;
     // border-radius: 0 0 1rem 1rem;
     padding: 3px;
-    // margin: 3px;
+    margin: 3px;
 
     .ws-button {
         transition: all 200ms;
@@ -13,6 +13,7 @@
         &:hover {
             background-color: lighten($surface_container_low, 10%);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            // border-radius: 1rem;
         }
 
         &.occupied {
@@ -33,7 +34,6 @@
             }
         }
 
-
         &.active {
             .ws-button-label {
                 background-color: $primary;
@@ -49,7 +49,6 @@
                 border-bottom-right-radius: 1rem;
                 border-top-right-radius: 1rem;
             }
-
         }
 
         .ws-button-label {
