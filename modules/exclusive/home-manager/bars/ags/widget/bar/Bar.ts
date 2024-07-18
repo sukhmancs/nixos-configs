@@ -69,6 +69,7 @@ export default (monitor: number) => Widget.Window({
         endWidget: Widget.Box({
             hexpand: true,
             children: [
+                Widget.Box({ expand: true }),
                 Widget.Box({
                     className: "barRight",
                     children: [
@@ -78,7 +79,6 @@ export default (monitor: number) => Widget.Window({
                         BatteryBar(monitor, "end"),
                         SystemIndicators(monitor, "end"),
                         Date(monitor, "last"),
-                        Widget.Box({ expand: true }),
                         ]
                     }),
                 ]
