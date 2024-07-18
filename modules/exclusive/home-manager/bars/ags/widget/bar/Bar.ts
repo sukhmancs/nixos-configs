@@ -48,7 +48,7 @@ export default (monitor: number) => Widget.Window({
         // vertical: true,
         startWidget: Widget.Box({
             hexpand: true,
-            // className: "barLeft",
+            className: "barLeft",
             // vertical: true,
             // vpack: "start",
             children: [
