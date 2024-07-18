@@ -10,10 +10,10 @@
     .ws-button {
         transition: all 200ms;
 
-        // &:hover {
-        //     background-color: lighten($surface_container_low, 10%);
-        //     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        // }
+        &:hover {
+            background-color: lighten($surface_container_low, 10%);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
         &.occupied {
             // background-color: $surface_container_low;
