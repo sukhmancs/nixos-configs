@@ -2,15 +2,21 @@
 @import './colors.scss';
 
 .ws-container {
-    background-color: $bg;
-    border-radius: 0 0 1rem 1rem;
+    // background-color: $bg;
+    // border-radius: 0 0 1rem 1rem;
     padding: 3px;
+    // margin: 3px;
 
     .ws-button {
         transition: all 200ms;
 
+        &:hover {
+            background-color: lighten($surface_container_low, 10%);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
         &.occupied {
-            background-color: $surface_container_low;
+            // background-color: $surface_container_low;
             border-top: 1px solid $primary;
             border-bottom: 1px solid $primary;
 

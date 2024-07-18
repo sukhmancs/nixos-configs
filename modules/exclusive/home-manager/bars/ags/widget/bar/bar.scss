@@ -19,7 +19,9 @@ $button-radius: $radius;
 }
 
 .bar {
-    // background-color: $bg;
+    background: #1e1e2e;
+    border-radius: 14px;
+    padding: 2px;
 
     .panel-button {
         @include panel-button;

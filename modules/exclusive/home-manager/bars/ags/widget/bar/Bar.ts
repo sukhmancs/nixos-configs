@@ -41,33 +41,40 @@ export default (monitor: number) => Widget.Window({
     anchor: ["top", "left", "right"],
     child: Widget.CenterBox({
         // css: "min-width: 2px; min-height: 2px;",
-        css: "min-height: 2px;",
-        startWidget: Widget.Box({
-            hexpand: true,
-            children: [
-                Left(),
-                Media(monitor, "start"),
-                RoundedAngleEnd("topright", {class_name: "angle"})
-            ]
-        }),
+        css: "min-height: 2px; min-width: 1px;",
+        // startWidget: Widget.Box({
+        //     hexpand: true,
+        //     children: [
+        //         Left(),
+        //         Media(monitor, "start"),
+        //         RoundedAngleEnd("topright", {class_name: "angle"})
+        //     ]
+        // }),
         centerWidget: Widget.Box({
             hpack: "center",
             children: [
+                Left(),
+                Media(monitor, "start"),
+                // RoundedAngleEnd("topright", {class_name: "angle"}),
                 Workspaces(),
+                BatteryBar(monitor, "end"),
+                SystemIndicators(monitor, "end"),
+                Date(monitor, "last"),
+                SysTray(monitor, "end"),
 
             ]
         }),
-        endWidget: Widget.Box({
-            hexpand: true,
-            children: [
-                    RoundedAngleEnd("topleft", {class_name: "angle", click_through: true}),
-                    // Cava(monitor, "end"),
-                    SysTray(monitor, "end"),
-                    BatteryBar(monitor, "end"),
-                    SystemIndicators(monitor, "end"),
-                    Date(monitor, "last"),
-                    // Widget.Box({ expand: true }),
-                ]
-        }),
+        // endWidget: Widget.Box({
+        //     hexpand: true,
+        //     children: [
+        //             RoundedAngleEnd("topleft", {class_name: "angle", click_through: true}),
+        //             // Cava(monitor, "end"),
+        //             SysTray(monitor, "end"),
+        //             BatteryBar(monitor, "end"),
+        //             SystemIndicators(monitor, "end"),
+        //             Date(monitor, "last"),
+        //             // Widget.Box({ expand: true }),
+        //         ]
+        // }),
     }),
 })
