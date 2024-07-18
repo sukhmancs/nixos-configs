@@ -5,7 +5,7 @@
     // background-color: $bg;
     // border-radius: 0 0 1rem 1rem;
     padding: 3px;
-    // margin: 3px;
+    margin: 3px;
 
     .ws-button {
         transition: all 200ms;
@@ -34,10 +34,9 @@
             }
         }
 
-
         &.active {
             .ws-button-label {
-                background-color: $primary !important;
+                background-color: $primary;
                 color: $on_primary;
             }
 
