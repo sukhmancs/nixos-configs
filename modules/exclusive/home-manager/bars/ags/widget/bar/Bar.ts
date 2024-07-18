@@ -65,7 +65,7 @@ export default (monitor: number) => Widget.Window({
                     BatteryBar(monitor, "end"),
                     SystemIndicators(monitor, "end"),
                     Date(monitor, "last"),
-                    Widget.Box({ expand: true }),
+                    // Widget.Box({ expand: true }),
                     RoundedAngleEnd("topleft", {class_name: "angle", click_through: true}),
                 ]
         }),
