@@ -40,7 +40,8 @@ export default (monitor: number) => Widget.Window({
     exclusivity: "exclusive",
     anchor: ["top", "left", "right"],
     child: Widget.CenterBox({
-        css: "min-width: 2px; min-height: 2px;",
+        // css: "min-width: 2px; min-height: 2px;",
+        css: "min-height: 2px;",
         startWidget: Widget.Box({
             hexpand: true,
             children: [
@@ -59,7 +60,7 @@ export default (monitor: number) => Widget.Window({
         endWidget: Widget.Box({
             hexpand: true,
             children: [
-                    Cava(monitor, "end"),
+                    // Cava(monitor, "end"),
                     SysTray(monitor, "end"),
                     BatteryBar(monitor, "end"),
                     SystemIndicators(monitor, "end"),
@@ -67,7 +68,6 @@ export default (monitor: number) => Widget.Window({
                     Widget.Box({ expand: true }),
                     RoundedAngleEnd("topleft", {class_name: "angle", click_through: true}),
                 ]
-
         }),
     }),
 })
