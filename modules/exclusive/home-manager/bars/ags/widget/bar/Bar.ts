@@ -60,13 +60,13 @@ export default (monitor: number) => Widget.Window({
         endWidget: Widget.Box({
             hexpand: true,
             children: [
+                    RoundedAngleEnd("topleft", {class_name: "angle", click_through: true}),
                     // Cava(monitor, "end"),
                     SysTray(monitor, "end"),
                     BatteryBar(monitor, "end"),
                     SystemIndicators(monitor, "end"),
                     Date(monitor, "last"),
                     // Widget.Box({ expand: true }),
-                    RoundedAngleEnd("topleft", {class_name: "angle", click_through: true}),
                 ]
         }),
     }),
