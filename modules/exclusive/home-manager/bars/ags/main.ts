@@ -12,6 +12,12 @@ import ScreenCorners from "widget/bar/ScreenCorners"
 import SettingsDialog from "widget/settings/SettingsDialog"
 import Verification from "widget/powermenu/Verification"
 import { forMonitors } from "lib/utils"
+import {
+  CornerTopleft,
+  CornerTopright,
+  CornerBottomright,
+  CornerBottomleft
+} from "./roundedCorners/index.js";
 import userOptions from './sideleft/.configuration/user_options.js';
 import { setupQuickSettings } from "widget/quicksettings/QuickSettings"
 import { setupCalendarSettings } from "widget/calendarsettings/CalendarSettings"
@@ -35,6 +41,10 @@ App.config({
         ...forMonitors(NotificationPopups),
         ...forMonitors(ScreenCorners),
         ...forMonitors(OSD),
+        ...forMonitors(CornerTopleft),
+        ...forMonitors(CornerTopright),
+        ...forMonitors(CornerBottomright),
+        ...forMonitors(CornerBottomleft),
         SideLeft(),
         Launcher(),
         Overview(),
