@@ -56,12 +56,11 @@
     $base0E: "${colors.base0E}"; # mauve
     $base0F: "${colors.base0F}"; # flamingo
   '';
+  variablesFile = builtins.toFile "variables.scss" scssContent;
 in {
   modules.themes.colorscheme = {
     name = "catppuccin-mocha";
   };
-
-  variablesFile = builtins.toFile "variables.scss" scssContent;
 
   home.file.".config/ags/style/variables.scss".text = ''
     ${variablesFile}
