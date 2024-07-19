@@ -81,7 +81,6 @@
 
   variablesFile = builtins.toFile "variables.scss" scssContent;
 in {
-  home.file.".config/ags/style/variables.scss".text = ''
-    ${variablesFile}
-  '';
+  # Use home-manager to manage the variables.scss file directly
+  home.file.".config/ags/style/variables.scss".text = builtins.readFile variablesFile;
 }
