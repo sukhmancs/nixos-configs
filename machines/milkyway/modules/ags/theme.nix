@@ -1,49 +1,39 @@
-# theme.nix
-{osConfig, ...}: let
-  # colors = {
-  #   primary = "#3498db";
-  #   on_primary = "#ffffff";
-  #   bg = "#ecf0f1";
-  #   surface_container_low = "#bdc3c7";
-  #   popover_radius = "8px";
-  #   popover_padding = "16px";
-  #   popover_border_color = "#95a5a6";
-  #   border_width = "1px";
-  #   border_color = "#7f8c8d";
-  #   shadow_color = "rgba(0, 0, 0, 0.1)";
-  #   radius = "4px";
-  #   fg = "#2c3e50";
-  #   spacing = "8px";
-  #   capuchino = {
-  #     primary = "#d35400";
-  #     on_primary = "#ffffff";
-  #     bg = "#f5e6cc";
-  #     surface_container_low = "#e0c3a3";
-  #     popover_radius = "8px";
-  #     popover_padding = "16px";
-  #     popover_border_color = "#c39c73";
-  #     border_width = "1px";
-  #     border_color = "#a67c52";
-  #     shadow_color = "rgba(0, 0, 0, 0.1)";
-  #     radius = "4px";
-  #     fg = "#5e3c1b";
-  #     spacing = "8px";
-  #   };
-  # };
-  # theme = "capuchino"; # Change this to switch themes
-  # selectedTheme =
-  #   if theme == "capuchino"
-  #   then colors.capuchino
-  #   else colors;
-  # Function to parse YAML files
-  # parseYaml = file: builtins.fromJSON (builtins.toJSON (builtins.fromTOML (builtins.readFile file)));
-  # Function to parse YAML files
-  parseYaml = file: builtins.fromJSON (builtins.readFile file);
+{
+  config,
+  lib,
+  ...
+}: let
+  # Function to read the YAML file as a string
+  readYamlFile = file: builtins.readFile file;
 
-  # Function to convert JSON to TOML format
-  # jsonToToml = json: builtins.toFile "temp.toml" (builtins.toJSON json);
+  # Function to extract color values from the YAML content
+  extractColors = yamlContent: let
+    lines = lib.splitString "\n" yamlContent;
+    getColor = name: lib.head (lib.filter (line: lib.hasPrefix (name + ":") line) lines);
+    getValue = line: lib.trim (lib.substring (lib.strlen (lib.head (lib.splitString ":" line)) + 1) (lib.strlen line) line);
+  in {
+    scheme = getValue (getColor "scheme");
+    author = getValue (getColor "author");
+    base00 = getValue (getColor "base00");
+    base01 = getValue (getColor "base01");
+    base02 = getValue (getColor "base02");
+    base03 = getValue (getColor "base03");
+    base04 = getValue (getColor "base04");
+    base05 = getValue (getColor "base05");
+    base06 = getValue (getColor "base06");
+    base07 = getValue (getColor "base07");
+    base08 = getValue (getColor "base08");
+    base09 = getValue (getColor "base09");
+    base0A = getValue (getColor "base0A");
+    base0B = getValue (getColor "base0B");
+    base0C = getValue (getColor "base0C");
+    base0D = getValue (getColor "base0D");
+    base0E = getValue (getColor "base0E");
+    base0F = getValue (getColor "base0F");
+  };
 
-  colors = parseYaml osConfig.modules.themes.colorsFile;
+  # Read and parse the colors from the YAML file
+  colors = extractColors (readYamlFile ./catppuccin-mocha.yaml);
 
   # Generate SCSS content from the parsed colors
   scssContent = ''
@@ -66,9 +56,13 @@
     $base0E: "${colors.base0E}"; # mauve
     $base0F: "${colors.base0F}"; # flamingo
   '';
+in {
+  modules.themes.colorscheme = {
+    name = "catppuccin-mocha";
+  };
 
   variablesFile = builtins.toFile "variables.scss" scssContent;
-in {
+
   home.file.".config/ags/style/variables.scss".text = ''
     ${variablesFile}
   '';
