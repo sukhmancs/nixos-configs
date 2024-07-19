@@ -68,7 +68,7 @@
       cp -r style $out
       cp -r widget $out
       cp -f main.js $out/config.js
-      # touch $out/style/variables.scss
+      touch $out/style/variables.scss
     '';
   };
 in
