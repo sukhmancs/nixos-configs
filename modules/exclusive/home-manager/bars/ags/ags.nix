@@ -11,7 +11,10 @@
 
   cfg = modules.home.programs;
 
-  theme = import ./theme.nix;
+  theme = import ./theme.nix {
+    inherit osConfig pkgs;
+  };
+
   settings = {
     system = "x86_64-linux";
   };
@@ -86,5 +89,7 @@ in {
       source = ./configs;
       recursive = true;
     };
+
+    home.file.".config/ags/style/variables.scss".text = builtins.readFile theme;
   };
 }

@@ -4,6 +4,7 @@
   pkgs,
   ...
 }: let
+  # This will first convert the yaml file to json and then convert the json to a nix attrset
   parseYaml = file:
     builtins.fromJSON (
       builtins.readFile (
@@ -12,33 +13,32 @@
         ''
       )
     );
-
+  # Parse the yaml colors file
   colors = parseYaml osConfig.modules.themes.colorsFile;
 
   # Generate SCSS content from the parsed colors
   scssContent = ''
     $scheme: "${colors.scheme}";
     $author: "${colors.author}";
-    $base00: #${colors.base00}; // base
-    $base01: #${colors.base01}; // mantle
-    $base02: #${colors.base02}; // surface0
-    $base03: #${colors.base03}; // surface1
-    $base04: #${colors.base04}; // surface2
-    $base05: #${colors.base05}; // text
-    $base06: #${colors.base06}; // rosewater
-    $base07: #${colors.base07}; // lavender
-    $base08: #${colors.base08}; // red
-    $base09: #${colors.base09}; // peach
-    $base0A: #${colors.base0A}; // yellow
-    $base0B: #${colors.base0B}; // green
-    $base0C: #${colors.base0C}; // teal
-    $base0D: #${colors.base0D}; // blue
-    $base0E: #${colors.base0E}; // mauve
-    $base0F: #${colors.base0F}; // flamingo
+    $base00: #${colors.base00};
+    $base01: #${colors.base01};
+    $base02: #${colors.base02};
+    $base03: #${colors.base03};
+    $base04: #${colors.base04};
+    $base05: #${colors.base05};
+    $base06: #${colors.base06};
+    $base07: #${colors.base07};
+    $base08: #${colors.base08};
+    $base09: #${colors.base09};
+    $base0A: #${colors.base0A};
+    $base0B: #${colors.base0B};
+    $base0C: #${colors.base0C};
+    $base0D: #${colors.base0D};
+    $base0E: #${colors.base0E};
+    $base0F: #${colors.base0F};
   '';
+in
+  builtins.toFile "variables.scss" scssContent
+# Use home-manager to manage the variables.scss file directly
+# home.file.".config/ags/style/variables.scss".text = builtins.readFile variablesFile;
 
-  variablesFile = builtins.toFile "variables.scss" scssContent;
-in {
-  # Use home-manager to manage the variables.scss file directly
-  home.file.".config/ags/style/variables.scss".text = builtins.readFile variablesFile;
-}
