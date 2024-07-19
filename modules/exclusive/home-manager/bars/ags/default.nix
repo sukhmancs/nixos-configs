@@ -45,51 +45,49 @@
     };
 in {
   config = mkIf cfg.ags.enable {
-    home-manager.users.xi = {
-      imports = [
-        inputs.ags.homeManagerModules.default
-        ./theme.nix
-      ];
-      home.packages = with pkgs; [
-        asztal
-        bun
-        fd
-        dart-sass
-        gtk3
-        pulsemixer
-        networkmanager
+    imports = [
+      inputs.ags.homeManagerModules.default
+      ./theme.nix
+    ];
+    home.packages = with pkgs; [
+      asztal
+      bun
+      fd
+      dart-sass
+      gtk3
+      pulsemixer
+      networkmanager
+      gtksourceview
+      ollama
+      pywal
+      sassc
+      (python311.withPackages (p: [
+        p.material-color-utilities
+        p.pywayland
+      ]))
+    ];
+
+    programs.ags = {
+      enable = true;
+      configDir = null; #./configs;
+
+      extraPackages = with pkgs; [
         gtksourceview
+        gtksourceview4
         ollama
+        python311Packages.material-color-utilities
+        python311Packages.pywayland
         pywal
         sassc
-        (python311.withPackages (p: [
-          p.material-color-utilities
-          p.pywayland
-        ]))
+        webkitgtk
+        webp-pixbuf-loader
+        ydotool
       ];
+    };
 
-      programs.ags = {
-        enable = true;
-        configDir = null; #./configs;
-
-        extraPackages = with pkgs; [
-          gtksourceview
-          gtksourceview4
-          ollama
-          python311Packages.material-color-utilities
-          python311Packages.pywayland
-          pywal
-          sassc
-          webkitgtk
-          webp-pixbuf-loader
-          ydotool
-        ];
-      };
-
-      home.file.".config/ags" = {
-        source = ./configs;
-        recursive = true;
-      };
+    home.file.".config/ags" = {
+      source = ./configs;
+      recursive = true;
     };
   };
 }
