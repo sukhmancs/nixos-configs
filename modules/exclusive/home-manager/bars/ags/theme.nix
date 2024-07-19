@@ -19,8 +19,8 @@
   scssContent = ''
     $scheme: "${colors.scheme}";
     $author: "${colors.author}";
-    $base00: "${colors.base00}"; // base
-    $base01: "${colors.base01}"; // mantle
+    $base00: #${colors.base00}; // base
+    $base01: #${colors.base01}; // mantle
     $base02: "${colors.base02}"; // surface0
     $base03: "${colors.base03}"; // surface1
     $base04: "${colors.base04}"; // surface2
