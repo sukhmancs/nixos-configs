@@ -1,84 +1,95 @@
 {
   inputs,
-  writeShellScript,
-  system,
-  stdenv,
-  cage,
-  swww,
-  esbuild,
-  dart-sass,
-  fd,
-  fzf,
-  brightnessctl,
-  accountsservice,
-  slurp,
-  wf-recorder,
-  wl-clipboard,
-  wayshot,
-  swappy,
-  hyprpicker,
-  pavucontrol,
-  networkmanager,
-  gtk3,
-  which,
-  gtksourceview,
+  pkgs,
+  lib,
+  config,
+  osConfig,
+  ...
 }: let
-  name = "asztal";
+  inherit (osConfig) modules;
+  inherit (lib) mkIf;
 
-  ags = inputs.ags.packages.${system}.default.override {
-    extraPackages = [accountsservice];
+  cfg = modules.home.programs;
+
+  theme = import ./theme.nix;
+  settings = {
+    system = "x86_64-linux";
   };
 
-  dependencies = [
-    which
-    dart-sass
-    fd
-    fzf
-    swww
-    inputs.hyprland.packages.${system}.default
-    networkmanager
-    wl-clipboard
-    gtk3
-    gtksourceview
-  ];
+  asztal = let
+    writeShellScript = pkgs.writeShellScript;
+    stdenv = pkgs.stdenv;
+    cage = pkgs.cage;
+    swww = pkgs.swww;
+    esbuild = pkgs.esbuild;
+    dart-sass = pkgs.dart-sass;
+    fd = pkgs.fd;
+    fzf = pkgs.fzf;
+    brightnessctl = pkgs.brightnessctl;
+    accountsservice = pkgs.accountsservice;
+    slurp = pkgs.slurp;
+    wf-recorder = pkgs.wf-recorder;
+    wl-clipboard = pkgs.wl-clipboard;
+    wayshot = pkgs.wayshot;
+    swappy = pkgs.swappy;
+    hyprpicker = pkgs.hyprpicker;
+    pavucontrol = pkgs.pavucontrol;
+    networkmanager = pkgs.networkmanager;
+    gtk3 = pkgs.gtk3;
+    which = pkgs.which;
+    gtksourceview = pkgs.gtksourceview;
+  in
+    pkgs.callPackage ./configs/default.nix {
+      inherit inputs writeShellScript stdenv cage swww esbuild dart-sass fd fzf brightnessctl accountsservice slurp wf-recorder wl-clipboard wayshot swappy hyprpicker pavucontrol networkmanager gtk3 which gtksourceview;
+      inherit (settings) system;
+    };
+in {
+  config = mkIf cfg.ags.enable {
+    home-manager.users.xi = {
+      imports = [
+        inputs.ags.homeManagerModules.default
+        ./theme.nix
+      ];
+      home.packages = with pkgs; [
+        asztal
+        bun
+        fd
+        dart-sass
+        gtk3
+        pulsemixer
+        networkmanager
+        gtksourceview
+        ollama
+        pywal
+        sassc
+        (python311.withPackages (p: [
+          p.material-color-utilities
+          p.pywayland
+        ]))
+      ];
 
-  addBins = list: builtins.concatStringsSep ":" (builtins.map (p: "${p}/bin") list);
+      programs.ags = {
+        enable = true;
+        configDir = null; #./configs;
 
-  desktop = writeShellScript name ''
-    export PATH=$PATH:${addBins dependencies}
-    ${ags}/bin/ags -b ${name} -c ${config}/config.js $@
-  '';
+        extraPackages = with pkgs; [
+          gtksourceview
+          gtksourceview4
+          ollama
+          python311Packages.material-color-utilities
+          python311Packages.pywayland
+          pywal
+          sassc
+          webkitgtk
+          webp-pixbuf-loader
+          ydotool
+        ];
+      };
 
-  config = stdenv.mkDerivation {
-    inherit name;
-    src = ./.;
-
-    buildPhase = ''
-      ${esbuild}/bin/esbuild \
-        --bundle ./main.ts \
-        --outfile=main.js \
-        --format=esm \
-        --external:resource://\* \
-        --external:gi://\* \
-    '';
-
-    installPhase = ''
-      mkdir -p $out
-      cp -r assets $out
-      cp -r style $out
-      cp -r widget $out
-      cp -f main.js $out/config.js
-      touch $out/style/variables.scss
-    '';
+      home.file.".config/ags" = {
+        source = ./configs;
+        recursive = true;
+      };
+    };
   };
-in
-  stdenv.mkDerivation {
-    inherit name;
-    src = config;
-
-    installPhase = ''
-      mkdir -p $out/bin
-      cp -r . $out
-      cp ${desktop} $out/bin/${name}
-    '';
-  }
+}
