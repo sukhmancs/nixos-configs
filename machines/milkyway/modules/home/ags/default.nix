@@ -82,7 +82,7 @@ in {
     home-manager.users.xi = {
       imports = [
         inputs.ags.homeManagerModules.default
-        ./theme.nix
+        # ./theme.nix
       ];
       home.packages = with pkgs; [
         asztal
