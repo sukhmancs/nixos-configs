@@ -1,5 +1,5 @@
 # theme.nix
-{config, ...}: let
+{osConfig, ...}: let
   # colors = {
   #   primary = "#3498db";
   #   on_primary = "#ffffff";
@@ -38,7 +38,7 @@
   # Function to parse YAML files
   parseYaml = file: builtins.fromJSON (builtins.toJSON (builtins.fromTOML (builtins.readFile file)));
 
-  colors = parseYaml config.modules.themes.colorsFile;
+  colors = parseYaml osConfig.modules.themes.colorsFile;
 
   # Generate SCSS content from the parsed colors
   scssContent = ''
@@ -64,10 +64,6 @@
 
   variablesFile = builtins.toFile "variables.scss" scssContent;
 in {
-  modules.themes.colorscheme = {
-    name = "catppuccin-mocha";
-  };
-
   home.file.".config/ags/style/variables.scss".text = ''
     ${variablesFile}
   '';
