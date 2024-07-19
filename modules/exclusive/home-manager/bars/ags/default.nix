@@ -68,11 +68,9 @@
       cp -r style $out
       cp -r widget $out
       cp -f main.js $out/config.js
+      touch $out/style/variables.scss
     '';
   };
-
-  # Import the variables.nix file
-  variables = import ./theme.nix;
 in
   stdenv.mkDerivation {
     inherit name;
@@ -84,4 +82,3 @@ in
       cp ${desktop} $out/bin/${name}
     '';
   }
-  // variables
