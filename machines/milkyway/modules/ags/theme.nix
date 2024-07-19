@@ -36,7 +36,12 @@
   #   then colors.capuchino
   #   else colors;
   # Function to parse YAML files
-  parseYaml = file: builtins.fromJSON (builtins.toJSON (builtins.fromTOML (builtins.readFile file)));
+  # parseYaml = file: builtins.fromJSON (builtins.toJSON (builtins.fromTOML (builtins.readFile file)));
+  # Function to parse YAML files
+  parseYaml = file: builtins.fromJSON (builtins.readFile file);
+
+  # Function to convert JSON to TOML format
+  # jsonToToml = json: builtins.toFile "temp.toml" (builtins.toJSON json);
 
   colors = parseYaml osConfig.modules.themes.colorsFile;
 
