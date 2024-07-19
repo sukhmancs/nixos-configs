@@ -1,5 +1,9 @@
 # theme.nix
-{osConfig, ...}: let
+{
+  osConfig,
+  pkgs,
+  ...
+}: let
   # colors = {
   #   primary = "#3498db";
   #   on_primary = "#ffffff";
