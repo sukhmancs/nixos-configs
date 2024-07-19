@@ -39,7 +39,7 @@
     which = pkgs.which;
     gtksourceview = pkgs.gtksourceview;
   in
-    pkgs.callPackage ../../../../modules/exclusive/home-manager/bars/ags/default.nix {
+    pkgs.callPackage ../../../../../modules/exclusive/home-manager/bars/ags/default.nix {
       inherit inputs writeShellScript stdenv cage swww esbuild dart-sass fd fzf brightnessctl accountsservice slurp wf-recorder wl-clipboard wayshot swappy hyprpicker pavucontrol networkmanager gtk3 which gtksourceview;
       inherit (settings) system;
     };
@@ -104,7 +104,7 @@ in {
 
       programs.ags = {
         enable = true;
-        configDir = ../../../../modules/exclusive/home-manager/bars/ags;
+        configDir = ../../../../../modules/exclusive/home-manager/bars/ags;
 
         extraPackages = with pkgs; [
           gtksourceview
