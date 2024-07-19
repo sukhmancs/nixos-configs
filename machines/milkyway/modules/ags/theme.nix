@@ -58,10 +58,6 @@
   '';
   variablesFile = builtins.toFile "variables.scss" scssContent;
 in {
-  modules.themes.colorscheme = {
-    name = "catppuccin-mocha";
-  };
-
   home.file.".config/ags/style/variables.scss".text = ''
     ${variablesFile}
   '';
