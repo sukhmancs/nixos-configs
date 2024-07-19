@@ -25,7 +25,7 @@ $button-radius: $radius;
 
     .barLeft {
         margin: 7px 7px 7px 7px;
-        background-color: #517F8D; //${base02};
+        background-color: #313244; //${base02};
         border: .5px solid #00384d; //${base01};
         border-radius: 15px;
         padding: 2px 2px;
@@ -33,7 +33,7 @@ $button-radius: $radius;
 
     .barCenter {
         margin: 7px 7px 7px 7px;
-        background-color: #517F8D; //${base02};
+        background-color: #313244; //${base02};
         border: .5px solid #00384d; //${base01};
         border-radius: 15px;
         padding: 2px 0px 2px 0px;
@@ -41,7 +41,7 @@ $button-radius: $radius;
 
     .barRight {
         margin: 7px 7px 7px 7px;
-        background-color: #517F8D; //${base02};
+        background-color: #313244; //${base02};
         border: .5px solid #00384d; //${base01};
         border-radius: 15px;
         padding: 2px 0px 2px 0px;
@@ -104,56 +104,12 @@ $button-radius: $radius;
         }
     }
 
-    .workspaces {
-        label {
-            min-width: 5pt;
-            min-height: 5pt;
-            border-radius: $radius*.6;
-            box-shadow: inset 0 0 0 $border-width $border-color;
-            margin: 0 $padding * .5;
-            transition: $transition* .5;
-            background-color: transparentize($fg, .8);
-
-            &.occupied {
-                font-size: 0;
-                // background-color: transparentize($fg, .2);
-                background-color: $bg;
-                min-width: 18pt;
-                min-height: 18pt;
-            }
-
-            &.active {
-                font-size: $font-size;
-                color: $primary-fg;
-                // background-color: $primary-bg;
-                background-image: $active-gradient;
-                min-width: 40pt;
-                min-height: 18pt;
-            }
-        }
-
-        &.active,
-        &:active {
-            label {
-                background-color: transparentize($primary-fg, .3);
-
-                &.occupied {
-                    background-color: transparentize($primary-fg, .15);
-                }
-
-                &.active {
-                    background-color: $primary-fg;
-                }
-            }
-        }
-    }
-
     .media label {
         margin: 0 ($spacing)
     }
 
     .media-btn {
-        background-color: $widget-bg;
+        // background-color: $widget-bg;
         background-image: none;
         border: none;
         box-shadow: none;
@@ -171,7 +127,7 @@ $button-radius: $radius;
     }
 
     .taskbar .indicator.active {
-        background-color: $primary-bg;
+        // background-color: $primary-bg;
         border-radius: $radius;
         min-height: 4pt;
         min-width: 6pt;
@@ -276,24 +232,6 @@ $button-radius: $radius;
                 }
             }
 
-        }
-
-        @for $i from 1 through $bar-battery-blocks {
-            block:nth-child(#{$i}).filled {
-                background-color: color.mix($bg, $primary-bg, $i*3)
-            }
-
-            &.low block:nth-child(#{$i}).filled {
-                background-color: color.mix($bg, $error-bg, $i*3)
-            }
-
-            &.charging block:nth-child(#{$i}).filled {
-                background-color: color.mix($bg, $charging-bg, $i*3)
-            }
-
-            &:active .regular block:nth-child(#{$i}).filled {
-                background-color: color.mix($bg, $primary-fg, $i*3)
-            }
         }
 
         &.low image {
