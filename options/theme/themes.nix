@@ -26,9 +26,9 @@ in {
     colorscheme = {
       # "Name Of The Scheme"
       name = mkOption {
-        type = nullOr (enum ["Catppuccin Mocha" "Tokyonight Storm" "Oxocarbon Dark"]);
+        type = str;
         description = "The colorscheme that should be used globally to theme your system.";
-        default = "Catppuccin Mocha";
+        default = "catppuccin-mocha";
       };
     };
 
