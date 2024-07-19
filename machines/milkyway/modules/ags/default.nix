@@ -5,6 +5,7 @@
   config,
   ...
 }: let
+  theme = import ./theme.nix;
   settings = {
     system = "x86_64-linux";
     # dotfilesDir = "/home/xi/.config/nixos-configs"; # Absolute path of the local repo
@@ -79,7 +80,10 @@
 in {
   config = {
     home-manager.users.xi = {
-      imports = [inputs.ags.homeManagerModules.default];
+      imports = [
+        inputs.ags.homeManagerModules.default
+        ./theme.nix
+      ];
       home.packages = with pkgs; [
         asztal
         bun
@@ -115,8 +119,6 @@ in {
           ydotool
         ];
       };
-
-      # home.file.".cache/ags/options-nix.json".text = builtins.toJSON agsOptions;
     };
   };
 }

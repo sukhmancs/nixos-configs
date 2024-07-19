@@ -49,9 +49,6 @@
     ${ags}/bin/ags -b ${name} -c ${config}/config.js $@
   '';
 
-  # Import the theme.nix file
-  theme = import ./theme.nix;
-
   config = stdenv.mkDerivation {
     inherit name;
     src = ./.;
@@ -71,8 +68,6 @@
       cp -r style $out
       cp -r widget $out
       cp -f main.js $out/config.js
-      # Write the theme variables to the SCSS file
-      echo "${theme}" > $out/style/variables.scss
     '';
   };
 in
