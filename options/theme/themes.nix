@@ -6,7 +6,7 @@
 }: let
   inherit (lib.options) mkOption;
   inherit (lib) serializeTheme;
-  inherit (lib.types) str nullOr enum mkOptionType;
+  inherit (lib.types) str nullOr enum mkOptionType path;
 
   cfg = config.modules.theme;
   slug = serializeTheme "${toString cfg.colorscheme.name}";
@@ -33,7 +33,7 @@ in {
     };
 
     colorsFile = mkOption {
-      type = str;
+      type = path;
       default = getColorsFile config.modules.themes.colorscheme.name;
       description = ''
         The path to the colorscheme file.
