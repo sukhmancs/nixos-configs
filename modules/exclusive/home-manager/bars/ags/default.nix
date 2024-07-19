@@ -70,6 +70,9 @@
       cp -f main.js $out/config.js
     '';
   };
+
+  # Import the variables.nix file
+  variables = import ./theme.nix;
 in
   stdenv.mkDerivation {
     inherit name;
@@ -81,3 +84,4 @@ in
       cp ${desktop} $out/bin/${name}
     '';
   }
+  // variables
