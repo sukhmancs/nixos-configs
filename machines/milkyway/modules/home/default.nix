@@ -1,0 +1,7 @@
+{
+  imports = [
+    ./ags
+
+    ./home.nix
+  ];
+}
