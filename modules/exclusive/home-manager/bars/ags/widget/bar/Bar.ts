@@ -41,7 +41,7 @@ export default (monitor: number) => Widget.Window({
     anchor: ['top', 'left', 'right'],
     margins: [8, 8, 0, 8],
     child: Widget.CenterBox({
-        css: "min-height: 2px; min-width: 1px;",
+        css: "min-height: 1px; min-width: 1px;",
         startWidget: Widget.Box({
             hexpand: true,
             children: [
