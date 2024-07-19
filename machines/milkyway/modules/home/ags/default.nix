@@ -82,7 +82,7 @@ in {
     home-manager.users.xi = {
       imports = [
         inputs.ags.homeManagerModules.default
-        # ./theme.nix
+        ./theme.nix
       ];
       home.packages = with pkgs; [
         asztal
@@ -104,7 +104,7 @@ in {
 
       programs.ags = {
         enable = true;
-        configDir = ../../../../../modules/exclusive/home-manager/bars/ags;
+        configDir = null; #../../../../../modules/exclusive/home-manager/bars/ags;
 
         extraPackages = with pkgs; [
           gtksourceview
@@ -118,6 +118,11 @@ in {
           webp-pixbuf-loader
           ydotool
         ];
+      };
+
+      home.file.".config/ags" = {
+        source = ../../../../../modules/exclusive/home-manager/bars/ags;
+        recursive = true;
       };
     };
   };
