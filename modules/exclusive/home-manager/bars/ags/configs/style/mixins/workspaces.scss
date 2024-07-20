@@ -1,5 +1,6 @@
 // Import the variables file
-@import './colors.scss';
+// @import './colors.scss';
+@import '../variables.scss';
 
 .ws-container {
     // background-color: $bg;
@@ -19,26 +20,26 @@
 
         &.occupied {
             // background-color: $surface_container_low;
-            border-top: 1px solid $primary;
-            border-bottom: 1px solid $primary;
+            border-top: 1px solid $base0E;
+            border-bottom: 1px solid $base0E;
 
             &.occupied-left {
                 border-bottom-left-radius: 1rem;
                 border-top-left-radius: 1rem;
-                border-left: 1px solid $primary;
+                border-left: 1px solid $base0E;
             }
 
             &.occupied-right {
                 border-bottom-right-radius: 1rem;
                 border-top-right-radius: 1rem;
-                border-right: 1px solid $primary;
+                border-right: 1px solid $base0E;
             }
         }
 
         &.active {
             .ws-button-label {
-                background-color: $primary;
-                color: $on_primary;
+                background-color: $base0E;
+                color: $base00;
             }
 
             &.active-left .ws-button-label {

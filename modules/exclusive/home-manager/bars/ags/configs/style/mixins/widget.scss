@@ -1,7 +1,11 @@
+@use 'sass:color';
+
+@import '../variables.scss';
+
 @mixin widget {
     transition: $transition;
     border-radius: $radius;
-    color: $fg;
-    background-color: $widget-bg;
-    border: $border;
+    color: $base05;
+    background-color: transparentize($base00, 0.5);
+    border: $base0E;
 }

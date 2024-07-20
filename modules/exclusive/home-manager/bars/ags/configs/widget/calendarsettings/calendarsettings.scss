@@ -1,6 +1,6 @@
 @mixin calendar {
     @include widget;
-    padding: $padding*2 $padding*2 0;
+    padding: $padding * 2 $padding * 2 0;
 
     calendar {
         all: unset;
@@ -10,28 +10,29 @@
         }
 
         &:selected {
-            box-shadow: inset 0 -8px 0 0 transparentize($primary-bg, 0.5),
-                inset 0 0 0 1px $primary-bg;
-            border-radius: $radius*0.6;
+            box-shadow:
+                inset 0 -8px 0 0 transparentize($base00, 0.5),
+                inset 0 0 0 1px $base00;
+            border-radius: $radius * 0.6;
         }
 
         &.header {
             background-color: transparent;
             border: none;
-            color: transparentize($fg, 0.5);
+            color: transparentize($base05, 0.5);
         }
 
         &.highlight {
             background-color: transparent;
-            color: transparentize($primary-bg, 0.5);
+            color: transparentize($base00, 0.5);
         }
 
         &:indeterminate {
-            color: transparentize($fg, 0.9);
+            color: transparentize($base05, 0.9);
         }
 
         font-size: 1.1em;
-        padding: .2em;
+        padding: 0.2em;
     }
 }
 
@@ -42,8 +43,8 @@ window#calendarsettings .calendarsettings {
     padding: $popover-padding * 1.4;
 
     .header {
-        @include spacing(.5);
-        color: transparentize($fg, .15);
+        @include spacing(0.5);
+        color: transparentize($base05, 0.15);
 
         button {
             @include button;
@@ -63,7 +64,7 @@ window#calendarsettings .calendarsettings {
         }
 
         .uptime {
-            color: transparentize($fg, 0.2);
+            color: transparentize($base05, 0.2);
         }
     }
 

@@ -104,7 +104,7 @@ async function resetCss() {
     }
 }
 
-await sh(`fd "scss" ${App.configDir} -t f`).then(files => {
+await sh(`fd "main.scss" ${App.configDir} -t f`).then(files => {
     files.split(/\s+/).forEach(file => {
         Utils.monitorFile(file, resetCss)
     })

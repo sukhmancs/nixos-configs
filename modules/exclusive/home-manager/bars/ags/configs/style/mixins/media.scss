@@ -1,3 +1,5 @@
+@import '../variables.scss';
+
 @mixin media() {
     @include widget;
     padding: $padding;
@@ -27,12 +29,12 @@
     }
 
     .artist {
-        color: transparentize($fg, .2);
+        color: transparentize($base05, .2);
         font-size: .9em;
     }
 
     scale {
-        @include slider($width: .5em, $slider: false, $gradient: linear-gradient($fg, $fg));
+        @include slider($width: .5em, $slider: false, $gradient: linear-gradient($base05, $base05));
         margin-bottom: $padding * .5;
 
         trough {
