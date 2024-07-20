@@ -20,23 +20,23 @@
     then x.value
     else acc) "${colors.base0E}" [
     {
-      key = "xi";
+      key = "milkyway";
       value = "${colors.base05}";
     }
     {
-      key = "xilain";
+      key = "andromeda";
       value = "${colors.base09}";
     }
     {
-      key = "guest";
+      key = "leto";
       value = "${colors.base06}";
     }
     {
-      key = "nort";
+      key = "erebus";
       value = "${colors.base0B}";
     }
     {
-      key = "hornet";
+      key = "gaea";
       value = "${colors.base0A}";
     }
   ];
