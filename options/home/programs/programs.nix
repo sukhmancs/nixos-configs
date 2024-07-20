@@ -8,6 +8,11 @@ in {
       description = "Enable AnyRun";
     };
 
+    ags.enable = mkEnableOption {
+      default = false;
+      description = "Enable AGS";
+    };
+
     rbw.enable = mkEnableOption {
       default = false;
       description = "Enable Bitwarden CLI (rbw)";

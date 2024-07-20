@@ -18,6 +18,7 @@
     };
 
     modules.home.programs = {
+      ags.enable = true;
       clipboard.enable = true;
       hyprpaper.enable = true;
       spotify.enable = false;
