@@ -2,7 +2,7 @@
 
 @mixin calendar {
     @include widget;
-    padding: $padding*2 $padding*2 0;
+    padding: $padding * 2 $padding * 2 0;
 
     calendar {
         all: unset;
@@ -12,28 +12,29 @@
         }
 
         &:selected {
-            box-shadow: inset 0 -8px 0 0 transparentize($primary-bg, 0.5),
-                inset 0 0 0 1px $primary-bg;
-            border-radius: $radius*0.6;
+            box-shadow:
+                inset 0 -8px 0 0 transparentize($base00, 0.5),
+                inset 0 0 0 1px $base00;
+            border-radius: $radius * 0.6;
         }
 
         &.header {
             background-color: transparent;
             border: none;
-            color: transparentize($fg, 0.5);
+            color: transparentize($base05, 0.5);
         }
 
         &.highlight {
             background-color: transparent;
-            color: transparentize($primary-bg, 0.5);
+            color: transparentize($base00, 0.5);
         }
 
         &:indeterminate {
-            color: transparentize($fg, 0.9);
+            color: transparentize($base05, 0.9);
         }
 
         font-size: 1.1em;
-        padding: .2em;
+        padding: 0.2em;
     }
 }
 
@@ -49,8 +50,8 @@ window#quicksettings .quicksettings {
     }
 
     .header {
-        @include spacing(.5);
-        color: transparentize($fg, .15);
+        @include spacing(0.5);
+        color: transparentize($base05, 0.15);
 
         button {
             @include button;
@@ -68,25 +69,25 @@ window#quicksettings .quicksettings {
 
         button {
             @include button($flat: true);
-            padding: $padding * .5;
+            padding: $padding * 0.5;
         }
 
         .volume button.arrow:last-child {
-            margin-left: $spacing * .4;
+            margin-left: $spacing * 0.4;
         }
 
         .volume,
         .brightness {
-            padding: $padding * .5;
+            padding: $padding * 0.5;
         }
 
         scale {
             @include slider;
-            margin: 0 ($spacing * .5);
+            margin: 0 ($spacing * 0.5);
 
             &.muted highlight {
                 background-image: none;
-                background-color: transparentize($fg, $amount: .2);
+                background-color: transparentize($base05, $amount: 0.2);
             }
         }
     }
@@ -102,8 +103,8 @@ window#quicksettings .quicksettings {
         margin-top: $spacing;
 
         .icon {
-            margin: 0 ($spacing * .5);
-            margin-left: $spacing * .2;
+            margin: 0 ($spacing * 0.5);
+            margin-left: $spacing * 0.2;
         }
 
         .title {
@@ -111,21 +112,21 @@ window#quicksettings .quicksettings {
         }
 
         separator {
-            margin: ($radius * .5);
-            background-color: $border-color;
+            margin: ($radius * 0.5);
+            background-color: $base0E;
         }
 
         button {
             @include button($flat: true);
-            padding: ($padding * .5);
+            padding: ($padding * 0.5);
 
             image:first-child {
-                margin-right: $spacing * .5;
+                margin-right: $spacing * 0.5;
             }
         }
 
         .bluetooth-devices {
-            @include spacing(.5);
+            @include spacing(0.5);
         }
 
         switch {
@@ -134,16 +135,16 @@ window#quicksettings .quicksettings {
     }
 
     .sliders-box .menu {
-        margin: ($spacing * .5) 0;
+        margin: ($spacing * 0.5) 0;
 
         &.app-mixer {
             .mixer-item {
-                padding: $padding * .5;
+                padding: $padding * 0.5;
                 padding-left: 0;
                 padding-right: $padding * 2;
 
                 scale {
-                    @include slider($width: .5em);
+                    @include slider($width: 0.5em);
                 }
 
                 image {
@@ -163,7 +164,7 @@ window#quicksettings .quicksettings {
         }
 
         label {
-            margin-left: $spacing * .3;
+            margin-left: $spacing * 0.3;
         }
 
         button {
@@ -176,18 +177,18 @@ window#quicksettings .quicksettings {
             }
 
             &:last-child {
-                padding: $padding * .5;
+                padding: $padding * 0.5;
                 border-top-left-radius: 0;
                 border-bottom-left-radius: 0;
             }
         }
 
         &.active {
-            background-color: $primary-bg;
+            background-color: $base00;
 
             label,
             image {
-                color: $primary-fg;
+                color: $base05;
             }
         }
     }
@@ -198,7 +199,7 @@ window#quicksettings .quicksettings {
         padding: $padding * 1.2;
 
         label {
-            margin-left: $spacing * .3;
+            margin-left: $spacing * 0.3;
         }
 
         image {
@@ -224,12 +225,12 @@ window#quicksettings .quicksettings {
             // margin-right: $spacing;
 
             >label {
-                margin-left: $radius * .5;
+                margin-left: $radius * 0.5;
             }
 
             button {
                 @include button;
-                padding: $padding*.7 $padding;
+                padding: $padding * 0.7 $padding;
             }
         }
 
@@ -260,18 +261,17 @@ window#quicksettings .quicksettings {
     }
 
     .media-btn {
-        background-color: $widget-bg;
+        background-color: $base00;
         padding: 0;
 
         label {
             font-size: $font-size * 1.5;
-            margin: 0 $spacing * .2;
-            color: $secondary-bg;
+            margin: 0 $spacing * 0.2;
+            color: $base02;
         }
     }
 
     .play-pause label {
-        color: $primary-bg;
+        color: $base05;
     }
-
 }
