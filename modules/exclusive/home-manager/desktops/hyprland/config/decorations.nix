@@ -5,7 +5,7 @@
 }: let
   inherit (osConfig) modules;
 
-  inherit (modules.themes) colorsFile;
+  inherit (modules.themes) colors;
 
   parseYaml = file:
     builtins.fromJSON (
@@ -16,7 +16,7 @@
       )
     );
   # Parse the yaml colors file
-  colors = parseYaml osConfig.modules.themes.colorsFile;
+  # colors = parseYaml osConfig.modules.themes.colorsFile;
 in {
   wayland.windowManager.hyprland.settings = {
     decoration = {

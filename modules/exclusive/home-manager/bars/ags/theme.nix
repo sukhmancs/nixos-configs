@@ -4,6 +4,9 @@
   pkgs,
   ...
 }: let
+  inherit (osConfig) modules;
+  inherit (modules.themes) colors;
+
   # This will first convert the yaml file to json and then convert the json to a nix attrset
   parseYaml = file:
     builtins.fromJSON (
@@ -14,7 +17,7 @@
       )
     );
   # Parse the yaml colors file
-  colors = parseYaml osConfig.modules.themes.colorsFile;
+  # colors = parseYaml osConfig.modules.themes.colorsFile;
 
   # Generate SCSS content from the parsed colors
   scssContent = ''
