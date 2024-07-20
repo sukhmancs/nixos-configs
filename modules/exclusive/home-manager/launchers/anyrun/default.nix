@@ -130,7 +130,7 @@ in {
       #   source = ./styles/dark.scss;
       # });
 
-      extraCss = builtins.readFile ./styles/dark.css;
+      extraCss = builtins.readFile ./styles/dark.scss;
     };
     home.file.".config/anyrun/variables.scss".text = builtins.readFile theme;
   };
