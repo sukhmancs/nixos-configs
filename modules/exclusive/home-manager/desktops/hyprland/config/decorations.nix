@@ -1,4 +1,19 @@
-{
+{osConfig, ...}: let
+  inherit (osConfig) modules;
+
+  inherit (modules.themes) colorsFile;
+
+  parseYaml = file:
+    builtins.fromJSON (
+      builtins.readFile (
+        pkgs.runCommand "converted-yaml.json" {} ''
+          ${pkgs.yj}/bin/yj < "${file}" > $out
+        ''
+      )
+    );
+  # Parse the yaml colors file
+  colors = parseYaml osConfig.modules.themes.colorsFile;
+in {
   wayland.windowManager.hyprland.settings = {
     decoration = {
       # fancy corners
@@ -26,7 +41,7 @@
       shadow_range = 20;
       shadow_offset = "0 2";
       shadow_render_power = 4;
-      "col.shadow" = "rgba($base01, 0.5)";
+      "col.shadow" = "0xff${colors.base01}";
 
       # Dim
       dim_inactive = false;
@@ -40,8 +55,8 @@
       # focus on the window that has just been moved out of the group
       focus_removed_window = true;
 
-      "col.border_active" = "rgba($base0E, 0.5)";
-      "col.border_inactive" = "rgba($base02, 0.5)";
+      "col.border_active" = "0xff${colors.base0E}";
+      "col.border_inactive" = "0xff${colors.base02}";
 
       groupbar = {
         # groupbar stuff

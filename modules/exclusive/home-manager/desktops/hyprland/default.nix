@@ -11,18 +11,6 @@
   inherit (lib.modules) mkIf;
   inherit (lib.strings) hasSuffix;
   inherit (osConfig) modules;
-  inherit (modules.themes) colorsFile;
-
-  parseYaml = file:
-    builtins.fromJSON (
-      builtins.readFile (
-        pkgs.runCommand "converted-yaml.json" {} ''
-          ${pkgs.yj}/bin/yj < "${file}" > $out
-        ''
-      )
-    );
-  # Parse the yaml colors file
-  colors = parseYaml osConfig.modules.themes.colorsFile;
 
   inherit (import ./packages {inherit inputs' pkgs;}) grimblast hyprshot dbus-hyprland-env hyprpicker;
 in {
