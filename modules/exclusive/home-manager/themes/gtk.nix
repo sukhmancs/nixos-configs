@@ -40,7 +40,7 @@ in {
       iconTheme = {
         name = "Papirus-Dark";
         package = pkgs.catppuccin-papirus-folders.override {
-          accent = "blue";
+          accent = "mauve"; #"blue";
           flavor = "mocha";
         };
       };

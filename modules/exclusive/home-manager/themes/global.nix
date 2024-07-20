@@ -1,13 +1,15 @@
+#
+# Cursor theme
+#
 {
   osConfig,
   pkgs,
   ...
 }: {
-  # cursor theme
   home = {
     pointerCursor = {
-      package = pkgs.bibata-cursors; # pkgs.catppuccin-cursors.mochaDark;
-      name = "bibata-cursors"; # "catppuccin-mocha-dark-cursors";
+      package = pkgs.catppuccin-cursors.mochaDark; # pkgs.bibata-cursors;
+      name = "catppuccin-mocha-dark-cursors"; # "bibata-cursors";
       size = 24;
       gtk.enable = true;
       x11.enable = true;
