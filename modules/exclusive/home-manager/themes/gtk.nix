@@ -24,7 +24,7 @@ in {
 
       sessionVariables = {
         # set GTK theme to the name specified by the gtk theme package
-        GTK_THEME = "Catppuccin-Mocha-Standard-Blue-dark";
+        GTK_THEME = "Catppuccin-Mocha-Standard-Mauve-black";
 
         # gtk applications should use filepickers specified by xdg
         GTK_USE_PORTAL = "${toString (lib.boolToNum true)}";
@@ -33,14 +33,14 @@ in {
 
     gtk = {
       theme = {
-        name = "Catppuccin-Mocha-Standard-Blue-dark";
+        name = "Catppuccin-Mocha-Standard-Mauve-black";
         package = pkgs.catppuccin-gtk;
       };
 
       iconTheme = {
         name = "Papirus-Dark";
         package = pkgs.catppuccin-papirus-folders.override {
-          accent = "blue"; # "mauve";
+          accent = "mauve"; # "blue";
           flavor = "mocha";
         };
       };
