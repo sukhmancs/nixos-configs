@@ -130,8 +130,8 @@ in {
       #   source = ./styles/dark.scss;
       # });
 
-      extraCss = builtins.readFile ./styles/dark.scss;
+      extraCss = builtins.readFile ./styles/dark.css;
     };
-    home.file.".config/anyrun/variables.scss".text = builtins.readFile theme;
+    home.file.".config/anyrun/variables.css".text = builtins.readFile theme;
   };
 }
