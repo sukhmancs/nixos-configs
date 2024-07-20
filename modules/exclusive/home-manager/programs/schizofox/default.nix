@@ -7,6 +7,8 @@
   ...
 }: let
   inherit (lib) mkIf;
+  inherit (osConfig) modules;
+  inherit (modules.themes) colors;
 in {
   imports = [inputs.schizofox.homeManagerModule];
   config = mkIf config.programs.firefox.enable {
@@ -15,9 +17,9 @@ in {
       theme = {
         font = "Inter";
         colors = {
-          background-darker = "181825";
-          background = "1e1e2e";
-          foreground = "cdd6f4";
+          background-darker = "${colors.base01}"; # "181825";
+          background = "${colors.base02}"; # "1e1e2e";
+          foreground = "${colors.base05}"; # "cdd6f4";
         };
       };
 
