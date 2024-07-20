@@ -14,7 +14,11 @@ window#launcher .launcher {
     }
 
     entry {
-        @include button;
+        all: unset;
+        transition: $transition;
+        border-radius: $radius;
+        color: $base0E;
+        background-color: $base00;
         padding: $padding;
         margin: $spacing;
 
@@ -25,18 +29,18 @@ window#launcher .launcher {
 
         label,
         image {
-            color: $base00;
+            color: $base0E;
         }
     }
 
     image.spinner {
-        color: $base00;
+        color: $base05;
         margin-right: $spacing;
     }
 
     separator {
         margin: 4pt 0;
-        background-color: $base0E;
+        background-color: $base02;
     }
 
     button.app-item {
@@ -53,11 +57,11 @@ window#launcher .launcher {
             transition: $transition;
 
             &.title {
-                color: $base00;
+                color: $base05;
             }
 
             &.description {
-                color: transparentize($base00, 0.3);
+                color: transparentize($base05, 0.3);
             }
         }
 
@@ -68,15 +72,15 @@ window#launcher .launcher {
         &:hover,
         &:focus {
             .title {
-                color: $base00;
+                color: $base0E;
             }
 
             .description {
-                color: transparentize($base00, 0.4);
+                color: transparentize($base0E, 0.4);
             }
 
             image {
-                -gtk-icon-shadow: 2px 2px $base00;
+                -gtk-icon-shadow: 3px 3px $base03;
             }
         }
 
@@ -86,7 +90,7 @@ window#launcher .launcher {
             box-shadow: inset 0 0 0 $border-width $base0E;
 
             .title {
-                color: $base00;
+                color: $base05;
             }
         }
     }
