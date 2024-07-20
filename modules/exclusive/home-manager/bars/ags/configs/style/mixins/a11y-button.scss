@@ -1,4 +1,4 @@
-@import '../variables.js';
+@import '../variables.scss';
 @import './button';
 
 @mixin accs-button($flat: false, $reactive: true) {
