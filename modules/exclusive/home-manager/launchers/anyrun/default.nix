@@ -125,10 +125,12 @@ in {
 
       # this compiles the SCSS file from the given path into CSS
       # by default, `-t expanded` as the args to the sass compiler
-      extraCss = builtins.readFile (lib.compileSCSS pkgs {
-        name = "style-dark";
-        source = ./styles/dark.scss;
-      });
+      # extraCss = builtins.readFile (lib.compileSCSS pkgs {
+      #   name = "style-dark";
+      #   source = ./styles/dark.scss;
+      # });
+
+      extraCss = builtins.readFile ./styles/dark.css;
     };
     home.file.".config/anyrun/variables.scss".text = builtins.readFile theme;
   };

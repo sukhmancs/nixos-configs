@@ -18,7 +18,7 @@ in {
         font = "Inter";
         colors = {
           background-darker = "${colors.base01}"; # "181825";
-          background = "${colors.base02}"; # "1e1e2e";
+          background = "${colors.base00}"; # "1e1e2e";
           foreground = "${colors.base05}"; # "cdd6f4";
         };
       };
