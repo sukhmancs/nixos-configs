@@ -5,8 +5,7 @@
   lib,
   ...
 }: let
-  inherit (osConfig.modules.style.colorScheme) slug colors;
-  inherit (lib) mkIf;
+  inherit (osConfig.modules.style.colorScheme) colors;
 in {
   config = {
     home.packages = with pkgs; [
@@ -64,7 +63,7 @@ in {
           uri-characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.,~:;/?#@!$&%*+=\"'()[]";
         };
 
-        colors = import ./presets/${slug}/colors.nix {inherit colors;} // {alpha = "0.85";};
+        colors = import ./presets/colors.nix {inherit colors;} // {alpha = "0.85";};
       };
     };
   };

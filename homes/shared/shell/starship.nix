@@ -1,11 +1,15 @@
 {
   config,
+  osConfig,
   lib,
   pkgs,
   ...
 }: let
   inherit (builtins) map;
   inherit (lib.strings) concatStrings;
+  inherit (osConfig) modules;
+  inherit (modules.themes) colors;
+
   hostname = builtins.getEnv "HOST";
   userStyle =
     if builtins.getEnv "USER" == "root"
@@ -14,26 +18,26 @@
   hostStyle = lib.lists.foldl' (acc: x:
     if x.key == hostname
     then x.value
-    else acc) "yellow" [
+    else acc) "${base0E}" [
     {
-      key = "mz-doy1";
-      value = "bright-white";
+      key = "xi";
+      value = "${base05}";
     }
     {
-      key = "tozt";
-      value = "bright-yellow";
+      key = "xilain";
+      value = "${base09}";
     }
     {
-      key = "partofme";
-      value = "purple";
+      key = "guest";
+      value = "${base06}";
     }
     {
-      key = "mail";
-      value = "green";
+      key = "nort";
+      value = "${base0B}";
     }
     {
       key = "hornet";
-      value = "red";
+      value = "${base0A}";
     }
   ];
   charSymbol =
