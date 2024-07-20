@@ -19,30 +19,30 @@ $button-radius: $radius;
 }
 
 .bar {
-    background: #1e1e2e;
+    background: $base00;
     border-radius: 14px;
     padding: 2px;
 
     .barLeft {
         margin: 7px 7px 7px 7px;
-        background-color: #313244; //${base02};
-        border: .5px solid #00384d; //${base01};
+        background-color: $base02;
+        border: .5px solid $base01;
         border-radius: 15px;
         padding: 2px 2px;
     }
 
     .barCenter {
         margin: 7px 7px 7px 7px;
-        background-color: #313244; //${base02};
-        border: .5px solid #00384d; //${base01};
+        background-color: $base02;
+        border: .5px solid $base01;
         border-radius: 15px;
         padding: 2px 0px 2px 0px;
     }
 
     .barRight {
         margin: 7px 7px 7px 7px;
-        background-color: #313244; //${base02};
-        border: .5px solid #00384d; //${base01};
+        background-color: $base02;
+        border: .5px solid $base01;
         border-radius: 15px;
         padding: 2px 0px 2px 0px;
     }
@@ -86,12 +86,9 @@ $button-radius: $radius;
     }
 
     .launcher {
-        .colored {
-            color: transparentize($primary-bg, 0.2);
-        }
 
-        &:hover .colored {
-            color: $primary-bg;
+        &:hover {
+            background-color: $base00;
         }
 
         image {

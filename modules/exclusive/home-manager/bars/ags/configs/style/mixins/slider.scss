@@ -1,20 +1,26 @@
-@import './unset';
+@import "./unset";
 
-@mixin slider($width: 0.7em, $slider-width: .5em, $gradient: $active-gradient, $slider: true, $focusable: true, $radius: $radius) {
+@mixin slider($width: 0.7em,
+    $slider-width: 0.5em,
+    $gradient: $active-gradient,
+    $slider: true,
+    $focusable: true,
+    $radius: $radius) {
     @include unset($rec: true);
 
     trough {
         transition: $transition;
         border-radius: $radius;
         border: $border;
-        background-color: $widget-bg;
+        background-color: $base00;
         min-height: $width;
         min-width: $width;
 
         highlight,
         progress {
             border-radius: max($radius - $border-width, 0);
-            background-image: $gradient;
+            // background-image: linear-gradient(to right, $base0E, $base05);
+            background-color: $base0E;
             min-height: $width;
             min-width: $width;
         }
@@ -33,13 +39,13 @@
 
     &:hover {
         trough {
-            background-color: $hover-bg;
+            background-color: $base03;
         }
 
         slider {
             @if $slider {
-                background-color: $fg;
-                border-color: $border-color;
+                background-color: $base05;
+                border-color: $base0E;
 
                 @if $shadows {
                     box-shadow: 0 0 3px 0 $shadow-color;
@@ -52,23 +58,22 @@
 
         highlight,
         progress {
-            background-color: transparentize($fg, 0.4);
+            background-color: transparentize($base05, 0.4);
             background-image: none;
         }
     }
 
     @if $focusable {
         trough:focus {
-            background-color: $hover-bg;
-            box-shadow: inset 0 0 0 $border-width $primary-bg;
+            background-color: $base03;
+            box-shadow: inset 0 0 0 $border-width $base05;
 
             slider {
                 @if $slider {
-                    background-color: $fg;
-                    box-shadow: inset 0 0 0 $border-width $primary-bg;
+                    background-color: $base05;
+                    box-shadow: inset 0 0 0 $border-width $base05;
                 }
             }
         }
-
     }
 }

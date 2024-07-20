@@ -5,8 +5,11 @@
 
     margin: max($spacing, 8px);
     border: $border-width solid $popover-border-color;
-    background-color: $bg;
-    color: $fg;
+    background-color: rgba($base00, 0.8);
+    color: $base05;
     border-radius: $popover-radius;
     padding: $popover-padding;
+    background-image: linear-gradient(to right,
+        rgba($base02, 0.8),
+        rgba($base02, 0.5));
 }

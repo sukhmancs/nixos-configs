@@ -19,24 +19,24 @@ window#launcher .launcher {
         margin: $spacing;
 
         selection {
-            color: color.mix($fg, $bg, 50%);
+            color: color.mix($base05, $base00, 50%);
             background-color: transparent;
         }
 
         label,
         image {
-            color: $fg;
+            color: $base00;
         }
     }
 
     image.spinner {
-        color: $primary-bg;
+        color: $base00;
         margin-right: $spacing;
     }
 
     separator {
         margin: 4pt 0;
-        background-color: $popover-border-color;
+        background-color: $base0E;
     }
 
     button.app-item {
@@ -53,11 +53,11 @@ window#launcher .launcher {
             transition: $transition;
 
             &.title {
-                color: $fg;
+                color: $base00;
             }
 
             &.description {
-                color: transparentize($fg, 0.3);
+                color: transparentize($base00, 0.3);
             }
         }
 
@@ -68,25 +68,25 @@ window#launcher .launcher {
         &:hover,
         &:focus {
             .title {
-                color: $primary-bg;
+                color: $base00;
             }
 
             .description {
-                color: transparentize($primary-bg, .4);
+                color: transparentize($base00, 0.4);
             }
 
             image {
-                -gtk-icon-shadow: 2px 2px $primary-bg;
+                -gtk-icon-shadow: 2px 2px $base00;
             }
         }
 
         &:active {
-            background-color: transparentize($primary-bg, 0.5);
+            background-color: transparentize($base00, 0.5);
             border-radius: $radius;
-            box-shadow: inset 0 0 0 $border-width $border-color;
+            box-shadow: inset 0 0 0 $border-width $base0E;
 
             .title {
-                color: $fg;
+                color: $base00;
             }
         }
     }
@@ -94,11 +94,11 @@ window#launcher .launcher {
     button.help,
     button.nix-item {
         @include button($flat: true, $reactive: false);
-        padding: 0 ($padding * .5);
+        padding: 0 ($padding * 0.5);
 
         label {
             transition: $transition;
-            color: $fg;
+            color: $base00;
         }
 
         .name {
@@ -107,7 +107,7 @@ window#launcher .launcher {
         }
 
         .description {
-            color: transparentize($fg, .3)
+            color: transparentize($base00, 0.3);
         }
 
         &:hover,
@@ -118,25 +118,25 @@ window#launcher .launcher {
 
             .name,
             .version {
-                color: $primary-bg;
+                color: $base00;
             }
 
             .description {
-                color: transparentize($primary-bg, .3)
+                color: transparentize($base00, 0.3);
             }
         }
     }
 
     button.sh-item {
         @include button($flat: true, $reactive: false);
-        padding: 0 ($padding * .5);
+        padding: 0 ($padding * 0.5);
 
         transition: $transition;
-        color: $fg;
+        color: $base00;
 
         &:hover,
         &:focus {
-            color: $primary-bg;
+            color: $base00;
             text-shadow: $text-shadow;
         }
     }
