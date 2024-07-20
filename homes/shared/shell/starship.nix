@@ -18,26 +18,26 @@
   hostStyle = lib.lists.foldl' (acc: x:
     if x.key == hostname
     then x.value
-    else acc) "${base0E}" [
+    else acc) "${colors.base0E}" [
     {
       key = "xi";
-      value = "${base05}";
+      value = "${colors.base05}";
     }
     {
       key = "xilain";
-      value = "${base09}";
+      value = "${colors.base09}";
     }
     {
       key = "guest";
-      value = "${base06}";
+      value = "${colors.base06}";
     }
     {
       key = "nort";
-      value = "${base0B}";
+      value = "${colors.base0B}";
     }
     {
       key = "hornet";
-      value = "${base0A}";
+      value = "${colors.base0A}";
     }
   ];
   charSymbol =
