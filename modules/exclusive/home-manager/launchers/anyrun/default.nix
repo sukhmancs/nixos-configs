@@ -9,6 +9,10 @@
   inherit (lib) mkIf;
   inherit (osConfig) modules;
 
+  theme = import ./theme.nix {
+    inherit osConfig pkgs;
+  };
+
   env = modules.home;
 in {
   imports = [inputs.anyrun.homeManagerModules.default];
@@ -126,5 +130,6 @@ in {
         source = ./styles/dark.scss;
       });
     };
+    home.file.".config/anyrun/variables.scss".text = builtins.readFile theme;
   };
 }
