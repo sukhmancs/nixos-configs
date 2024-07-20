@@ -5,7 +5,7 @@
   lib,
   ...
 }: let
-  inherit (osConfig.modules.style.colorScheme) colors;
+  inherit (osConfig.modules.themes) colors;
 in {
   config = {
     home.packages = with pkgs; [
