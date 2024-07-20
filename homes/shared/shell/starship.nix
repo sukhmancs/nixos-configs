@@ -1,11 +1,15 @@
 {
   config,
+  osConfig,
   lib,
   pkgs,
   ...
 }: let
   inherit (builtins) map;
   inherit (lib.strings) concatStrings;
+  inherit (osConfig) modules;
+  inherit (modules.themes) colors;
+
   hostname = builtins.getEnv "HOST";
   userStyle =
     if builtins.getEnv "USER" == "root"
@@ -14,26 +18,26 @@
   hostStyle = lib.lists.foldl' (acc: x:
     if x.key == hostname
     then x.value
-    else acc) "yellow" [
+    else acc) "${colors.base0E}" [
     {
-      key = "mz-doy1";
-      value = "bright-white";
+      key = "milkyway";
+      value = "${colors.base05}";
     }
     {
-      key = "tozt";
-      value = "bright-yellow";
+      key = "andromeda";
+      value = "${colors.base09}";
     }
     {
-      key = "partofme";
-      value = "purple";
+      key = "leto";
+      value = "${colors.base06}";
     }
     {
-      key = "mail";
-      value = "green";
+      key = "erebus";
+      value = "${colors.base0B}";
     }
     {
-      key = "hornet";
-      value = "red";
+      key = "gaea";
+      value = "${colors.base0A}";
     }
   ];
   charSymbol =
@@ -52,7 +56,7 @@ in {
       scan_timeout = 2;
       command_timeout = 2000; # nixpkgs makes starship implode with lower values
       format = ''
-        [\(](${hostStyle})$os$directory([|](${hostStyle})$shell$nix_shell)([|](${hostStyle})$git_branch$git_commit$git_status([|](${hostStyle})$git_state))[\)](${hostStyle})( $python) $fill ($cmd_duration )($battery )$username[@](bg)$hostname [\[](${hostStyle})$time[\]](${hostStyle}) $line_break$status [${charSymbol}](${userStyle})
+        [\(](host)$os$directory([|](host)$shell$nix_shell)([|](host)$git_branch$git_commit$git_status([|](host)$git_state))[\)](host)( $python) $fill ($cmd_duration )($battery )$username[@](bg)$hostname [\[](host)$time[\]](host) $line_break$status [${charSymbol}](user)
       '';
       right_format = "$character";
       add_newline = false;

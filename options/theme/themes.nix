@@ -2,11 +2,21 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   inherit (lib.options) mkOption;
   inherit (lib) serializeTheme;
-  inherit (lib.types) str nullOr enum mkOptionType path;
+  inherit (lib.types) str nullOr enum mkOptionType path attrsOf coercedTo;
+  inherit (lib.strings) removePrefix hasPrefix isString;
+
+  hexColorType = mkOptionType {
+    name = "hex-color";
+    descriptionClass = "noun";
+    description = "RGB color in hex format";
+    check = x: isString x && !(hasPrefix "#" x);
+  };
+  colorType = attrsOf (coercedTo str (removePrefix "#") hexColorType);
 
   cfg = config.modules.theme;
   slug = serializeTheme "${toString cfg.colorscheme.name}";
@@ -20,6 +30,17 @@
     if builtins.pathExists ../../themes/${slug}/polarity.txt
     then builtins.readFile ../../themes/${slug}/polarity.txt
     else throw "The following colorscheme was imported but not found: ${slug}";
+
+  parseYaml = file:
+    builtins.fromJSON (
+      builtins.readFile (
+        pkgs.runCommand "converted-yaml.json" {} ''
+          ${pkgs.yj}/bin/yj < "${file}" > $out
+        ''
+      )
+    );
+  # Parse the yaml colors file
+  colors = parseYaml config.modules.themes.colorsFile;
 in {
   options.modules.themes = {
     # choose a colorscheme
@@ -37,6 +58,14 @@ in {
       default = getColorsFile config.modules.themes.colorscheme.name;
       description = ''
         The path to the colorscheme file.
+      '';
+    };
+
+    colors = mkOption {
+      type = colorType;
+      default = colors;
+      description = ''
+        The colorscheme.
       '';
     };
 

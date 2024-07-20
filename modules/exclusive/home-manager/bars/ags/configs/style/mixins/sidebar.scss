@@ -1,6 +1,7 @@
 // Import the variables file
-@import './material.scss';
-@import './sidebar-colors.scss';
+@import "./material.scss";
+@import "./sidebar-colors.scss";
+@import "../variables.scss";
 
 $sidebar_chat_textboxareaColor: mix($onSurfaceVariant, $surfaceVariant, 40%);
 
@@ -14,7 +15,7 @@ $sidebar_chat_textboxareaColor: mix($onSurfaceVariant, $surfaceVariant, 40%);
     @include elevation2;
     border-radius: $rounding_large - $elevation_margin + 0.068rem;
     min-width: 27.818rem;
-    background-color: $background;
+    background-color: $base02;
     padding: 1.023rem;
 }
 
@@ -24,19 +25,19 @@ $sidebar_chat_textboxareaColor: mix($onSurfaceVariant, $surfaceVariant, 40%);
     @include elevation2;
     border-radius: $rounding_large - $elevation_margin + 0.068rem;
     min-width: 27.818rem;
-    background-color: $background;
+    background-color: $base02;
     padding: 1.023rem;
 }
 
 .sidebar-group {
     @include normal-rounding;
     @include group-padding;
-    background-color: $layer1;
+    background-color: $base0E; // $layer1;
 }
 
 .sidebar-group-nopad {
     @include normal-rounding;
-    background-color: $layer1;
+    background-color: $base0E; // $layer1;
 }
 
 .sidebar-group-invisible {
@@ -50,7 +51,7 @@ $sidebar_chat_textboxareaColor: mix($onSurfaceVariant, $surfaceVariant, 40%);
 .sidebar-togglesbox {
     @include full-rounding;
     @include group-padding;
-    background-color: $layer1;
+    background-color: $base0E;
 }
 
 .sidebar-iconbutton {
@@ -293,7 +294,9 @@ $sidebar_chat_textboxareaColor: mix($onSurfaceVariant, $surfaceVariant, 40%);
 }
 
 .sidebar-todo-crosser {
-    transition: margin 200ms cubic-bezier(0.1, 1, 0, 1), background-color 0ms;
+    transition:
+        margin 200ms cubic-bezier(0.1, 1, 0, 1),
+        background-color 0ms;
     min-width: 0rem;
 }
 
@@ -517,7 +520,7 @@ $colorpicker_rounding: 0.341rem;
 }
 
 .sidebar-chat-wrapper-extended {
-    min-height: 7.500rem;
+    min-height: 7.5rem;
 }
 
 .sidebar-chat-send {
@@ -580,7 +583,11 @@ $skeleton-accent: mix($secondary, $onSecondary, 50%);
 
 .sidebar-chat-message-skeletonline-offset0 {
     background-repeat: no-repeat;
-    background: linear-gradient(to right, $layer3 0%, $skeleton-accent 25%, $layer3 50%, $layer3 100%);
+    background: linear-gradient(to right,
+            $layer3 0%,
+            $skeleton-accent 25%,
+            $layer3 50%,
+            $layer3 100%);
     background-size: 500% 500%;
     animation: sidebar-chat-message-skeletonline-anim 2s linear;
     animation-iteration-count: infinite;
@@ -588,7 +595,11 @@ $skeleton-accent: mix($secondary, $onSecondary, 50%);
 
 .sidebar-chat-message-skeletonline-offset1 {
     background-repeat: no-repeat;
-    background: linear-gradient(to right, $layer3 0%, $layer3 50%, $skeleton-accent 75%, $layer3 100%);
+    background: linear-gradient(to right,
+            $layer3 0%,
+            $layer3 50%,
+            $skeleton-accent 75%,
+            $layer3 100%);
     background-size: 500% 500%;
     animation: sidebar-chat-message-skeletonline-anim 2s linear;
     animation-iteration-count: infinite;
@@ -597,7 +608,12 @@ $skeleton-accent: mix($secondary, $onSecondary, 50%);
 .sidebar-chat-message-skeletonline-offset2 {
     margin-right: 5.795rem;
     background-repeat: no-repeat;
-    background: linear-gradient(to right, $layer3 0%, $layer3 25%, $skeleton-accent 50%, $layer3 75%, $layer3 100%);
+    background: linear-gradient(to right,
+            $layer3 0%,
+            $layer3 25%,
+            $skeleton-accent 50%,
+            $layer3 75%,
+            $layer3 100%);
     background-size: 500% 500%;
     animation: sidebar-chat-message-skeletonline-anim 2s linear;
     animation-iteration-count: infinite;
@@ -834,7 +850,10 @@ $waifu_image_overlay_transparency: 0.7;
     @include full-rounding;
     min-width: 1.875rem;
     min-height: 1.875rem;
-    background-color: rgba(0, 0, 0, $waifu_image_overlay_transparency ); // Fixed cuz on image
+    background-color: rgba(0,
+            0,
+            0,
+            $waifu_image_overlay_transparency ); // Fixed cuz on image
     color: rgba(255, 255, 255, $waifu_image_overlay_transparency);
 }
 
@@ -999,5 +1018,7 @@ $waifu_image_overlay_transparency: 0.7;
 }
 
 .sidebar-centermodules-scrollgradient-bottom {
-    background: linear-gradient(to top, $layer1 0%, transparentize($layer1, 1) 1.023rem);
+    background: linear-gradient(to top,
+            $layer1 0%,
+            transparentize($layer1, 1) 1.023rem);
 }

@@ -4,23 +4,10 @@
   ...
 }: let
   inherit (osConfig) modules;
-
-  inherit (modules.themes) colorsFile;
-
-  parseYaml = file:
-    builtins.fromJSON (
-      builtins.readFile (
-        pkgs.runCommand "converted-yaml.json" {} ''
-          ${pkgs.yj}/bin/yj < "${file}" > $out
-        ''
-      )
-    );
-  # Parse the yaml colors file
-  colors = parseYaml osConfig.modules.themes.colorsFile;
+  inherit (modules.themes) colors;
 in {
   wayland.windowManager.hyprland.settings = {
     decoration = {
-      # fancy corners
       rounding = 20;
 
       # blur
@@ -36,7 +23,7 @@ in {
         popups = true;
         popups_ignorealpha = 0.6;
         vibrancy = 0.2;
-        special = true; # expensive, but helps distinguish special workspaces
+        special = true; # expensive, but looks cool
       };
 
       # shadow config
