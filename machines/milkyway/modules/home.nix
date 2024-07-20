@@ -14,7 +14,7 @@
         swaylock.enable = true;
         mpv.enable = false;
       };
-      gtk.enable = true;
+      # gtk.enable = true;
       # qt.enable = true; #TODO - fix this
     };
 

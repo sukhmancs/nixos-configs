@@ -205,6 +205,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Theme generator
+    matugen = {
+      url = "github:/InioX/Matugen";
+      # If you need a specific version:
+      # ref = "refs/tags/matugen-v0.10.0"
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Spicetify for theming spotify
     spicetify = {
       url = "github:the-argus/spicetify-nix";
