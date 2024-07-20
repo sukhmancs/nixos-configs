@@ -1,4 +1,8 @@
-{osConfig, ...}: let
+{
+  osConfig,
+  pkgs,
+  ...
+}: let
   inherit (osConfig) modules;
 
   inherit (modules.themes) colorsFile;
