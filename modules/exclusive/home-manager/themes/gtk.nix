@@ -24,7 +24,7 @@ in {
 
       sessionVariables = {
         # set GTK theme to the name specified by the gtk theme package
-        GTK_THEME = "Catppuccin-Mocha-Standard-Blue-dark";
+        GTK_THEME = "catppuccin-mocha-blue-standard+normal"; # "Catppuccin-Mocha-Standard-Blue-dark";
 
         # gtk applications should use filepickers specified by xdg
         GTK_USE_PORTAL = "${toString (lib.boolToNum true)}";
@@ -33,8 +33,13 @@ in {
 
     gtk = {
       theme = {
-        name = "Catppuccin-Mocha-Standard-Blue-dark";
-        package = pkgs.catppuccin-gtk;
+        name = "catppuccin-mocha-blue-standard+normal"; # "Catppuccin-Mocha-Standard-Blue-dark";
+        package = pkgs.catppuccin-gtk.override {
+          variant = "mocha";
+          size = "standard";
+          accents = ["blue"];
+          tweaks = ["normal"];
+        };
       };
 
       iconTheme = {
@@ -61,6 +66,7 @@ in {
       };
 
       gtk3.extraConfig = {
+        gtk-application-prefer-dark-theme = true;
         gtk-toolbar-style = "GTK_TOOLBAR_BOTH";
         gtk-toolbar-icon-size = "GTK_ICON_SIZE_LARGE_TOOLBAR";
         gtk-decoration-layout = "appmenu:none";
@@ -72,10 +78,10 @@ in {
         gtk-xft-hinting = 1;
         gtk-xft-hintstyle = "hintslight";
         gtk-error-bell = 0;
-        gtk-application-prefer-dark-theme = true;
       };
 
       gtk4.extraConfig = {
+        gtk-application-prefer-dark-theme = true;
         gtk-decoration-layout = "appmenu:none";
         gtk-enable-event-sounds = 0;
         gtk-enable-input-feedback-sounds = 0;
@@ -83,8 +89,17 @@ in {
         gtk-xft-hinting = 1;
         gtk-xft-hintstyle = "hintslight";
         gtk-error-bell = 0;
-        gtk-application-prefer-dark-theme = true;
       };
+    };
+
+    # Store GTK css theme in a more easily discoverable location that some
+    # applications *might* be smart enough to look at: ~/.config/gtk-4.0
+    xdg.configFile = let
+      gtk4Dir = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0";
+    in {
+      "gtk-4.0/assets".source = "${gtk4Dir}/assets";
+      "gtk-4.0/gtk.css".source = "${gtk4Dir}/gtk.css";
+      "gtk-4.0/gtk-dark.css".source = "${gtk4Dir}/gtk-dark.css";
     };
   };
 }
