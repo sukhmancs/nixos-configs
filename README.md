@@ -5,7 +5,7 @@
 - [x] System-wide dynamic colors (?) - background, text, accent, overlay, secondary text
 - [ ] sww
 - [ ] portable workstation - niri, ags
-- [ ] gtk, qt
+- [ ] gtk (dynamic custom themes), qt
 
 ## Thanks
 
