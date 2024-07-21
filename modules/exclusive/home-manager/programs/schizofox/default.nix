@@ -20,6 +20,7 @@ in {
           background-darker = "${colors.base01}"; # "181825";
           background = "${colors.base00}"; # "1e1e2e";
           foreground = "${colors.base05}"; # "cdd6f4";
+          primary = "${colors.base0E}"; # "cba6f7";
         };
       };
 
