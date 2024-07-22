@@ -179,6 +179,10 @@ in {
       perl
     ];
 
+    programs.starship = {
+      enable = true;
+    };
+
     systemd.user.services.updateStarshipConfig = {
       Unit = {
         Description = "Update Starship Config";
