@@ -1,5 +1,8 @@
 #
-# Whether to enable GTK 2/3 configuration.
+# GTK 2/3/4 configurations
+#
+# This is fully dynamic custom gtk theme configuration. It is using adw-gtk3-dark as
+# the base theme and overrides it with the my own custom colors.
 #
 {
   osConfig,
@@ -10,7 +13,9 @@
 }: let
   inherit (lib) mkIf;
 
-  colorsPath = ".local/share/themes/gtk-colors";
+  colors = import ./theme.nix {
+    inherit osConfig pkgs;
+  };
 in {
   config = mkIf config.gtk.enable {
     xdg.systemDirs.data = let
@@ -39,13 +44,6 @@ in {
       recursive = true;
     };
 
-    # This is the location of the gtk color scheme that I use to override the
-    # base theme.
-    # home.file."${colorsPath}" = {
-    #   source = ./gtk-colors;
-    #   recursive = true;
-    # };
-
     gtk = {
       theme = {
         # I use adw-gtk3-dark as the base theme and override it with my own
@@ -72,15 +70,15 @@ in {
         size = 14;
       };
 
-      #   gtk2 = {
-      #     configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
-      #     extraConfig = ''
-      #       gtk-xft-antialias=1
-      #       gtk-xft-hinting=1
-      #       gtk-xft-hintstyle="hintslight"
-      #       gtk-xft-rgba="rgb"
-      #     '';
-      #   };
+      gtk2 = {
+        configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
+        extraConfig = ''
+          gtk-xft-antialias=1
+          gtk-xft-hinting=1
+          gtk-xft-hintstyle="hintslight"
+          gtk-xft-rgba="rgb"
+        '';
+      };
 
       gtk3.extraConfig = {
         # gtk-application-prefer-dark-theme = true;
@@ -112,10 +110,10 @@ in {
     # This will override the base theme with the colorscheme
     # defined in gtk.css
     xdg.configFile = let
-      gtkColors = "./gtk-colors/colors/variables.css";
+      gtkColors = builtins.readFile colors;
     in {
-      "gtk-3.0/gtk.css".source = "${gtkColors}";
-      "gtk-4.0/gtk.css".source = "${gtkColors}";
+      "gtk-3.0/gtk.css".text = gtkColors;
+      "gtk-4.0/gtk.css".text = gtkColors;
     };
   };
 }
