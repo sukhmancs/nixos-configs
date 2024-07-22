@@ -10,6 +10,7 @@ in {
       gist # manage github gists
       act # local github actions
       delta # pager
+      tig # repository browser
     ];
 
     programs.git = {

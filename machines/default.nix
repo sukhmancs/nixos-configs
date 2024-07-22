@@ -107,4 +107,29 @@ in {
     enableHome = true;
     inherit system agenix;
   };
+
+  # ISO - Portable Workstation
+  messier = mkNixosIso {
+    hostname = "messier";
+    system = "x86_64-linux";
+    specialArgs = {
+      inherit (self) keys;
+      inherit lib modulesPath;
+      inherit inputs self inputs' self';
+    };
+    modules =
+      [
+        ./${hostname}
+        # (TODO: modules/shared also enables - apparmor, selinux, clamav, auditd, virtualization
+        # so check the performance impact and disable accordingly)
+        # ../modules/shared # modules shared across all hosts, enabled by default
+        # ../modules/exclusive/nixos # modules shared across all hosts, but need to be enabled
+      ]
+      ++ isoRoles
+      ++ [
+        ../options
+        # agenix
+      ];
+    # ++ homes; (TODO: maybe also add shared home modules to iso)
+  };
 }
