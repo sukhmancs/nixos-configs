@@ -98,7 +98,9 @@
     format = '$all_status$ahead_behind'
     style = 'bold git'
     modified = '*'
+    deleted = '✘'
     stashed = ""
+    renamed = '»'
     diverged = '+$ahead_count-$behind_count'
     ahead = '+$count'
     behind = '-$count'
@@ -249,7 +251,7 @@ in {
         Description = "Timer for updating Starship Config";
       };
       Timer = {
-        OnBootSec = "5s"; # 5 seconds after boot
+        OnBootSec = "5s"; # 5 seconds after login
         Persistent = true;
       };
       Install = {
