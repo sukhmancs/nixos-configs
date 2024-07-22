@@ -172,35 +172,36 @@
     ${perlScript} > ${starshipConfigFile}
   '';
 in {
-  home.packages = with pkgs; [
-    perl
-  ];
+  config = {
+    home.packages = with pkgs; [
+      perl
+    ];
 
-  systemd.user.services.updateStarshipConfig = {
-    Unit = {
-      Description = "Update Starship Config";
-      After = ["network.target"];
+    systemd.user.services.updateStarshipConfig = {
+      Unit = {
+        Description = "Update Starship Config";
+      };
+      Service = {
+        Type = "oneshot";
+        ExecStart = "${shellScript}";
+        Restart = "on-failure";
+      };
+      Install = {
+        WantedBy = ["default.target"];
+      };
     };
-    Service = {
-      Type = "oneshot";
-      ExecStart = "${shellScript}";
-      Restart = "on-failure";
-    };
-    Install = {
-      WantedBy = ["default.target"];
-    };
-  };
 
-  systemd.user.timers.updateStarshipConfig = {
-    Unit = {
-      Description = "Timer for updating Starship Config";
-    };
-    Timer = {
-      OnCalendar = "*:0/5"; # Every 5 minutes
-      Persistent = true;
-    };
-    Install = {
-      WantedBy = ["timers.target"];
+    systemd.user.timers.updateStarshipConfig = {
+      Unit = {
+        Description = "Timer for updating Starship Config";
+      };
+      Timer = {
+        OnCalendar = "*:0/5"; # Every 5 minutes
+        Persistent = true;
+      };
+      Install = {
+        WantedBy = ["timers.target"];
+      };
     };
   };
 }
