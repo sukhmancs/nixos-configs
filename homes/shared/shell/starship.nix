@@ -17,10 +17,10 @@
     my $char = $ENV{USER} eq 'root' ? '#' : '\\\\$';
     my $user = $ENV{USER} eq 'root' ? 'bright-red' : 'bright-blue';
     my $host = {
-      'mz-doy1' => 'bright-white',
-      'tozt' => 'bright-yellow',
-      'partofme' => 'purple',
-      'mail' => 'green',
+      'milkyway' => '#cba6f7',
+      'andromeda' => 'bright-yellow',
+      'leto' => 'purple',
+      'gaea' => 'green',
       'hornet' => 'red',
     }->{$hostname} // 'yellow';
 
