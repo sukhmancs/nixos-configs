@@ -3859,6 +3859,7 @@
         "systems": "systems_11",
         "treefmt-nix": "treefmt-nix",
         "wallpkgs": "wallpkgs",
+        "wrapper-manager": "wrapper-manager",
         "xdg-portal-hyprland": "xdg-portal-hyprland"
       }
     },
@@ -4280,6 +4281,26 @@
       "original": {
         "owner": "NotAShelf",
         "repo": "wallpkgs",
+        "type": "github"
+      }
+    },
+    "wrapper-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1720446604,
+        "narHash": "sha256-RZ+Q04NnblBGq5nQAXiKcn69Gh87RqUjpl7mAk6BzSQ=",
+        "owner": "viperML",
+        "repo": "wrapper-manager",
+        "rev": "e1584a27f947c5a5d208c06ffcce09f13a3bd9a9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "repo": "wrapper-manager",
         "type": "github"
       }
     },
