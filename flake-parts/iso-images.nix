@@ -11,12 +11,12 @@ in {
   # and can be built with `nix build .#images.<hostname>`
   # alternatively hosts can be built with `nix build .#nixosConfigurations.hostName.config.system.build.isoImage`
   flake.images = let
-    gaea = self.nixosConfigurations."gaea";
+    messier = self.nixosConfigurations."messier";
     erebus = self.nixosConfigurations."erebus";
     atlas = self.nixosConfigurations."atlas".extendModules {modules = [installerModule];};
   in {
     # Installation iso
-    gaea = gaea.config.system.build.isoImage;
+    messier = messier.config.system.build.isoImage;
 
     # air-gapped VM
     erebus = erebus.config.system.build.isoImage;
