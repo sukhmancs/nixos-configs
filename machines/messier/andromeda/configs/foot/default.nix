@@ -4,7 +4,7 @@
   cfg,
   ...
 }: let
-  config = with cfg.theme.colors;
+  config = with cfg.colors;
     pkgs.writeText "foot.ini" ''
       [bell]
       command=notify-send bell
@@ -51,7 +51,7 @@
       pad=12x21 center
       resize-delay-ms=100
       selection-target=primary
-      shell=${cfg.nucleus}/bin/nucleus
+      shell=zsh
       term=xterm-256color
       title=foot
       vertical-letter-offset=-0.75

@@ -211,6 +211,12 @@
       inputs.nixpkgs.follows = "nixpkgs-small";
     };
 
+    # Post-modern configuration management
+    wrapper-manager = {
+      url = "github:viperML/wrapper-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Schizophrenic Firefox configuration
     schizofox = {
       url = "github:schizofox/schizofox";

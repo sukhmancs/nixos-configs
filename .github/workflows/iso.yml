@@ -17,7 +17,6 @@ jobs:
       matrix:
         image:
           - messier
-          #- erebus
 
     permissions:
       contents: write
