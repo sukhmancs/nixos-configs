@@ -19,8 +19,7 @@
   starshipConfigDir = "$HOME/.config";
   starshipConfigFile = "${starshipConfigDir}/starship.toml";
   perlScript = pkgs.writeScript "generate_starship_config.pl" ''
-    #! /usr/bin/env nix-shell
-    #! nix-shell -i perl -p perl
+    #!/usr/bin/env perl
 
     use 5.014;
     use warnings;
@@ -232,6 +231,10 @@ in {
     programs.starship = {
       enable = true;
     };
+
+    home.packages = with pkgs; [
+      perl
+    ];
 
     # Update Starship Config everytime user logs in. This way I can keep track
     # of the hostname and change the prompt accordingly.
