@@ -5,6 +5,7 @@
 }: let
   inherit (inputs) self nixpkgs;
   inherit (inputs.self) lib; # I need mkService
+  inherit (lib) mkNixosIso;
   # inherit (lib) mkNixosIso mkNixosSystem mkModuleTree';
   # inherit (lib.lists) concatLists flatten singleton;
 
