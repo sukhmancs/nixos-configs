@@ -16,8 +16,8 @@ jobs:
     strategy:
       matrix:
         image:
+          - messier
           #- erebus
-          - gaea
 
     permissions:
       contents: write
