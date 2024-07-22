@@ -39,7 +39,7 @@ in {
       "$MOD,F1,exec,firefox" # browser
       ''$MOD,F2,exec,run-as-service dolphin'' # file manager
       ''$MOD,RETURN,exec,run-as-service "${terminal}"'' # terminal
-      ''$MODSHIFT,RETURN,exec,run-as-service "${terminal}"'' # floating terminal (TODO)
+      ''$MODSHIFT,RETURN,exec,run-as-service "${terminal}"'' #TODO: floating terminal
       ''$MOD,D,exec, killall rofi || run-as-service $(rofi -show drun)'' # application launcher
       "$MOD,equal,exec, killall rofi || rofi -show calc" # calc plugin for rofi
       "$MOD,period,exec, killall rofi || rofi -show emoji" # emoji plugin for rofi
@@ -76,7 +76,7 @@ in {
       "$ALTSHIFT, R, exec, grimblast --notify --cursor copysave area" # copy selection area
 
       # OCR
-      "$MODSHIFT,O,exec,ocr"
+      "$MODSHIFT, O,exec, ocr"
 
       # Toggle Statusbar
       "$MODSHIFT,B,exec, ags -t bar"

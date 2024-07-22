@@ -6,6 +6,7 @@
 - [ ] sww
 - [ ] portable workstation - niri, ags
 - [ ] gtk (dynamic custom themes), qt
+- [ ] starship - dynamic fonts (todo)
 
 ## Thanks
 
