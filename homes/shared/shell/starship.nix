@@ -1,8 +1,12 @@
 {
   config,
   pkgs,
+  osConfig,
   ...
 }: let
+  inherit (osConfig) modules;
+  inherit (modules.themes) colors;
+
   starshipConfigDir = "/home/xi/.config";
   starshipConfigFile = "${starshipConfigDir}/starship.toml";
   perlScript = pkgs.writeScript "generate_starship_config.pl" ''
@@ -17,12 +21,12 @@
     my $char = $ENV{USER} eq 'root' ? '#' : '\\\\$';
     my $user = $ENV{USER} eq 'root' ? 'bright-red' : 'bright-blue';
     my $host = {
-      'milkyway' => '#cba6f7',
-      'andromeda' => 'bright-yellow',
-      'leto' => 'purple',
-      'gaea' => 'green',
-      'hornet' => 'red',
-    }->{$hostname} // 'yellow';
+      'milkyway' => '#${colors.base0E}',
+      'andromeda' => '#${colors.base0D}',
+      'leto' => '#${colors.base07}',
+      'gaea' => '#${colors.base0B}',
+      'hornet' => '#${colors.base08}',
+    }->{$hostname} // '#${colors.base06}';
 
     while (<DATA>) {
       s/\@\@CHAR\@\@/$char/;
@@ -33,12 +37,19 @@
 
     __DATA__
     format = """
-    \\($directory(|$git_branch$git_commit$git_status(|$git_state))\\)( $python) $fill ($cmd_duration )($battery )$username@$hostname [\\[](host)$time[\\]](host) $line_break\
+    \\([$os$directory](host)(|$git_branch$git_commit$git_status(|$git_state))\\)( $python) $fill ($cmd_duration )($battery )$username@[$hostname](host) [\\[](host)$time[\\]](host) $line_break\
     $status @@CHAR@@
     """
     right_format = '$character'
     add_newline = false
     palette = 'local'
+
+    [os]
+    disabled = false
+    format = '[ $symbol ]($style)'
+
+    [os.symbols]
+    NixOS = '󱄅'
 
     [directory]
     format = '$path$read_only'
@@ -46,6 +57,14 @@
     repo_root_format = '$before_root_path$repo_root$path$read_only'
     repo_root_style = 'git'
     fish_style_pwd_dir_length = 1
+
+    [directory.substitutions]
+    '~/Dev' = 'Dev'
+    '~/Documents' = '󰈙 '
+    '~/Downloads' = ' '
+    '~/Music' = ' '
+    '~/Pictures' = " '
+    '~' = ' '
 
     [git_state]
     format = '$state(:$progress_current/$progress_total)'
@@ -175,9 +194,9 @@
   '';
 in {
   config = {
-    home.packages = with pkgs; [
-      perl
-    ];
+    # home.packages = with pkgs; [
+    #   perl
+    # ];
 
     programs.starship = {
       enable = true;
