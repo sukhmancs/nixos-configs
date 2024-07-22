@@ -1,11 +1,12 @@
 ## TODO
 
-- [x] ags (?) - add system, todo, hidden group, ai chat
+- [x] ags (?) - need to add system, todo, hidden group, ai chat
 - [x] hyprland
-- [x] System-wide dynamic colors (?) - background, text, accent, overlay, secondary text
+- [x] System-wide dynamic colors - background, text, accent, overlay, secondary text (FULLY DONE)
 - [ ] sww
 - [ ] portable workstation - niri, ags
-- [ ] gtk (dynamic custom themes), qt
+- [x] gtk (fully dynamic custom themes)
+- [ ] qt
 - [ ] starship - dynamic fonts (todo)
 
 ## Thanks
