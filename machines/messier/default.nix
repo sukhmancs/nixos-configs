@@ -7,7 +7,8 @@
 in {
   imports = [
     ./system
-    ./module.nix
+
+    ./colors.nix
   ];
 
   services.getty.helpLine =

@@ -5,10 +5,7 @@
   pkgs,
   ...
 }: let
-  inherit (pkgs.stdenv.hostPlatform) system;
   inherit (lib) mkOption mkEnableOption types mkIf;
-
-  cfg = config.modules.themes;
 in {
   options.modules = {
     themes = {
@@ -85,10 +82,4 @@ in {
       };
     };
   };
-  config = {
-    environment.systemPackages =
-      import ./andromeda {inherit pkgs inputs cfg;};
-  };
-
-  #   imports = [./homix/gtk];
 }
