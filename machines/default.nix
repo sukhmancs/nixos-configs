@@ -114,9 +114,7 @@ in {
     hostname = "messier";
     system = "x86_64-linux";
     specialArgs = {
-      inherit (self) keys;
-      inherit lib modulesPath;
-      inherit inputs self inputs' self';
+      inherit lib;
     };
     modules =
       [
