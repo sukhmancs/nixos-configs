@@ -112,10 +112,10 @@ in {
     # This will override the base theme with the colorscheme
     # defined in gtk.css
     xdg.configFile = let
-      gtkColors = "./gtk-colors/colors/variables.css";
+      gtkColors = builtins.toPath ./gtk-colors/colors/variables.css;
     in {
-      "gtk-3.0/gtk.css".source = "${gtkColors}";
-      "gtk-4.0/gtk.css".source = "${gtkColors}";
+      "gtk-3.0/gtk.css".source = gtkColors;
+      "gtk-4.0/gtk.css".source = gtkColors;
     };
   };
 }
