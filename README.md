@@ -5,9 +5,10 @@
 - [x] System-wide dynamic colors - background, text, accent, overlay, secondary text (FULLY DONE)
 - [ ] sww
 - [ ] portable workstation - niri, ags
+- [ ] anyrun - dynamic colors
 - [x] gtk (fully dynamic custom themes)
 - [ ] qt
-- [ ] starship - dynamic fonts (todo)
+- [x] starship - dynamic colors
 
 ## Thanks
 
