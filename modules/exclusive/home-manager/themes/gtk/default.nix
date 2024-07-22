@@ -10,6 +10,10 @@
 }: let
   inherit (lib) mkIf;
 
+  colors = import ./theme.nix {
+    inherit osConfig pkgs;
+  };
+
   colorsPath = ".local/share/themes/gtk-colors";
 in {
   config = mkIf config.gtk.enable {
@@ -112,10 +116,10 @@ in {
     # This will override the base theme with the colorscheme
     # defined in gtk.css
     xdg.configFile = let
-      gtkColors = builtins.toPath ./gtk-colors/colors/variables.css;
+      gtkColors = builtins.readFile colors;
     in {
-      "gtk-3.0/gtk.css".source = gtkColors;
-      "gtk-4.0/gtk.css".source = gtkColors;
+      "gtk-3.0/gtk.css".text = gtkColors;
+      "gtk-4.0/gtk.css".text = gtkColors;
     };
   };
 }
