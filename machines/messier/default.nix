@@ -7,6 +7,7 @@
 in {
   imports = [
     ./system
+    ./module.nix
   ];
 
   services.getty.helpLine =
