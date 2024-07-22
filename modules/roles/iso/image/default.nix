@@ -26,7 +26,9 @@ in {
     # the format of the iso will always be uniform:
     # $hostname-$release-$rev-$arch
     # therefore we can set it once to avoid repetition later on
-    name = "${hostname}-${config.system.nixos.release}-${rev}-${pkgs.stdenv.hostPlatform.uname.processor}";
+    # name = "${hostname}-${config.system.nixos.release}-${rev}-${pkgs.stdenv.hostPlatform.uname.processor}";
+    #TODO: error when using above format because - 32 characetrs is the limit for volume ID
+    name = "${hostname}-${config.system.nixos.release}-${pkgs.stdenv.hostPlatform.uname.processor}";
   in {
     # this will cause the resulting .iso file to be named as follows:
     # $hostname-$release-$rev-$arch.iso
