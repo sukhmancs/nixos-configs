@@ -7,7 +7,7 @@
   inherit (osConfig) modules;
   inherit (modules.themes) colors;
 
-  starshipConfigDir = "/home/xi/.config";
+  starshipConfigDir = "$HOME/.config";
   starshipConfigFile = "${starshipConfigDir}/starship.toml";
   perlScript = pkgs.writeScript "generate_starship_config.pl" ''
     #! /usr/bin/env nix-shell
@@ -37,7 +37,7 @@
 
     __DATA__
     format = """
-    \\([$os$directory](host)(|$git_branch$git_commit$git_status(|$git_state))\\)( $python) $fill ($cmd_duration )($battery )$username@[$hostname](host) [\\[](host)$time[\\]](host) $line_break\
+    \\([$os$directory](host)(|$shell$nix_shell|$git_branch$git_commit$git_status(|$git_state))\\)( $python) $fill ($cmd_duration )($battery )$username@[$hostname](host) [\\[](host)$time[\\]](host) $line_break\
     $status @@CHAR@@
     """
     right_format = '$character'
@@ -63,7 +63,7 @@
     '~/Documents' = '󰈙 '
     '~/Downloads' = ' '
     '~/Music' = ' '
-    '~/Pictures' = " '
+    '~/Pictures' = ' '
     '~' = ' '
 
     [git_state]
@@ -109,6 +109,27 @@
     [python]
     format = '(🐍$virtualenv)'
     style = 'bg'
+
+    [lua]
+    symbol = '[ ](blue) '
+
+    [rust]
+    symbol = '[ ](red) '
+
+    [nix_shell]
+    symbol = '[󱄅 ](blue) '
+
+    [golang]
+    symbol = '[󰟓 ](blue)'
+
+    [c]
+    symbol = '[ ](black)'
+
+    [nodejs]
+    symbol = '[󰎙 ](yellow)'
+
+    [package]
+    symbol = '📦 '
 
     [fill]
     symbol = '─'
