@@ -57,9 +57,13 @@
     /* GTK NAMED COLORS
        ----------------
        use responsibly! */
+
+    /* Accent - hover, selection, etc */
     @define-color accent_bg_color #${colors.base0E};
     @define-color accent_fg_color #${colors.base05};
     @define-color accent_color #${colors.base00};
+
+    /* Common - these are always the same */
     @define-color destructive_bg_color @red_4;
     @define-color destructive_fg_color white;
     @define-color destructive_color #ff7b63;
@@ -72,13 +76,15 @@
     @define-color error_bg_color @red_4;
     @define-color error_fg_color white;
     @define-color error_color #ff7b63;
+
+    /* Base - text, background, etc */
     @define-color window_bg_color #${colors.base02};
     @define-color window_fg_color #${colors.base05};
     @define-color view_bg_color #${colors.base02};
     @define-color view_fg_color #${colors.base05};
-    @define-color headerbar_bg_color #${colors.base00};
+    @define-color headerbar_bg_color #${colors.base01};
     @define-color headerbar_fg_color #${colors.base05};
-    @define-color headerbar_border_color #${colors.base02};
+    @define-color headerbar_border_color #${colors.base00};
     @define-color headerbar_backdrop_color @window_bg_color;
     @define-color headerbar_shade_color rgba(0, 0, 0, 0.36);
     @define-color headerbar_darker_shade_color rgba(0, 0, 0, 0.9);
