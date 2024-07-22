@@ -37,7 +37,7 @@
 
     __DATA__
     format = """
-    \\([$os$directory](host)(|$shell$nix_shell|$git_branch$git_commit$git_status(|$git_state))\\)( $python) $fill ($cmd_duration )($battery )$username@[$hostname](host) [\\[](host)$time[\\]](host) $line_break\
+    \\([$os$directory](host)(|$shell$nix_shell|$git_branch$git_commit$git_status(|[$git_state](host)))\\)( $python) $fill ($cmd_duration )($battery )$username@[$hostname](host) [\\[](host)$time[\\]](host) $line_break\
     $status @@CHAR@@
     """
     right_format = '$character'
@@ -197,10 +197,13 @@
     format = '$status'
 
     [character]
-    format = '$symbol'
-    success_symbol = ""
-    error_symbol = ""
+    format = '[ $symbol ]($style)'
+    success_symbol = '[✓](bold green)'
+    error_symbol = '[✗](bold red)'
     vimcmd_symbol = '[\[NOR\]](bright-yellow)'
+    vimcmd_replace_one_symbol = '[R](bold green)'
+    vimcmd_replace_symbol = '[R](bold green)'
+    vimcmd_visual_symbol = '[V](bold green)'
 
     [palettes.local]
     bg = 'bright-black'
