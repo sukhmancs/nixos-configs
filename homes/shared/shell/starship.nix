@@ -1,3 +1,11 @@
+#
+# Starship Prompt
+#
+# This configuration also keeps track of the hostname and changes the prompt
+# accordingly. The prompt is a bit more colorful and has a few more features
+# than the default configuration. The prompt file is updated everytime user
+# logs in.
+#
 {
   config,
   pkgs,
@@ -58,13 +66,13 @@
     repo_root_style = 'git'
     fish_style_pwd_dir_length = 1
 
-    [directory.substitutions]
-    '~/Dev' = 'Dev'
-    '~/Documents' = '󰈙 '
-    '~/Downloads' = ' '
-    '~/Music' = ' '
-    '~/Pictures' = ' '
-    '~' = ' '
+    # [directory.substitutions]
+    # '~/Dev' = 'Dev'
+    # '~/Documents' = '󰈙 '
+    # '~/Downloads' = ' '
+    # '~/Music' = ' '
+    # '~/Pictures' = ' '
+    # '~' = ' '
 
     [git_state]
     format = '$state(:$progress_current/$progress_total)'
@@ -218,10 +226,6 @@
   '';
 in {
   config = {
-    # home.packages = with pkgs; [
-    #   perl
-    # ];
-
     programs.starship = {
       enable = true;
     };
@@ -245,7 +249,7 @@ in {
         Description = "Timer for updating Starship Config";
       };
       Timer = {
-        OnCalendar = "*:0/1"; # Every 1 minutes
+        OnBootSec = "5s"; # 5 seconds after boot
         Persistent = true;
       };
       Install = {
