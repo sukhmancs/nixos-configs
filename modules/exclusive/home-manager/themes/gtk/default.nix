@@ -2,9 +2,7 @@
 # GTK 2/3/4 configurations
 #
 # This is fully dynamic custom gtk theme configuration. It is using adw-gtk3-dark as
-# the base theme and overrides it with the my own custom colors. adw-gtk3-dark gtk theme does not
-# support gtk2, so I have manually set the gtk2 theme to catppuccin-gtk. The icon theme is set to
-# Papirus-Dark with the accent color blue. The font is set to Lexend with a size of 14.
+# the base theme and overrides it with the my own custom colors.
 #
 {
   osConfig,
