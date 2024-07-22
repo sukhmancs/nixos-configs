@@ -1,256 +1,265 @@
+#
+# Starship Prompt
+#
+# This configuration also keeps track of the hostname and changes the prompt
+# accordingly. The prompt is a bit more colorful and has a few more features
+# than the default configuration. The prompt file is updated everytime user
+# logs in. This prompt does not get applied to the root user (because we are
+# using home-manager).
+#
 {
   config,
-  osConfig,
-  lib,
   pkgs,
+  osConfig,
   ...
 }: let
-  inherit (builtins) map;
-  inherit (lib.strings) concatStrings;
   inherit (osConfig) modules;
   inherit (modules.themes) colors;
 
-  hostname = builtins.getEnv "HOST";
-  userStyle =
-    if builtins.getEnv "USER" == "root"
-    then "bright-red"
-    else "bright-blue";
-  hostStyle = lib.lists.foldl' (acc: x:
-    if x.key == hostname
-    then x.value
-    else acc) "${colors.base0E}" [
-    {
-      key = "milkyway";
-      value = "${colors.base05}";
+  starshipConfigDir = "$HOME/.config";
+  starshipConfigFile = "${starshipConfigDir}/starship.toml";
+  perlScript = pkgs.writeScript "generate_starship_config.pl" ''
+    #! /usr/bin/env nix-shell
+    #! nix-shell -i perl -p perl
+
+    use 5.014;
+    use warnings;
+
+    chomp(my $hostname = `hostname`);
+
+    my $char = $ENV{USER} eq 'root' ? '#' : '\\\\$';
+    my $user = $ENV{USER} eq 'root' ? 'bright-red' : 'bright-blue';
+    my $host = {
+      'milkyway' => '#${colors.base0E}',
+      'andromeda' => '#${colors.base0D}',
+      'leto' => '#${colors.base07}',
+      'gaea' => '#${colors.base0B}',
+      'hornet' => '#${colors.base08}',
+    }->{$hostname} // '#${colors.base06}';
+
+    while (<DATA>) {
+      s/\@\@CHAR\@\@/$char/;
+      s/\@\@USER\@\@/$user/;
+      s/\@\@HOST\@\@/$host/;
+      print;
     }
-    {
-      key = "andromeda";
-      value = "${colors.base09}";
-    }
-    {
-      key = "leto";
-      value = "${colors.base06}";
-    }
-    {
-      key = "erebus";
-      value = "${colors.base0B}";
-    }
-    {
-      key = "gaea";
-      value = "${colors.base0A}";
-    }
-  ];
-  charSymbol =
-    if builtins.getEnv "USER" == "root"
-    then "#"
-    else "\\$";
+
+    __DATA__
+    format = """
+    \\([$os$directory](host)(|$shell$nix_shell|$git_branch$git_commit$git_status(|[$git_state](host)))\\)( $python) $fill ($cmd_duration )($battery )$username@[$hostname](host) [\\[](host)$time[\\]](host) $line_break\
+    $status @@CHAR@@
+    """
+    right_format = '$character'
+    add_newline = false
+    palette = 'local'
+
+    [os]
+    disabled = false
+    format = '[ $symbol ]($style)'
+
+    [os.symbols]
+    NixOS = '󱄅'
+
+    [directory]
+    format = '$path$read_only'
+    style = 'bg'
+    repo_root_format = '$before_root_path$repo_root$path$read_only'
+    repo_root_style = 'git'
+    fish_style_pwd_dir_length = 1
+
+    # [directory.substitutions]
+    # '~/Dev' = 'Dev'
+    # '~/Documents' = '󰈙 '
+    # '~/Downloads' = ' '
+    # '~/Music' = ' '
+    # '~/Pictures' = ' '
+    # '~' = ' '
+
+    [git_state]
+    format = '$state(:$progress_current/$progress_total)'
+    style = 'git'
+    rebase = 'r'
+    merge = 'm'
+    revert = 'v'
+    cherry_pick = 'c'
+    bisect = 'b'
+    am = 'a'
+    am_or_rebase = 'r'
+
+    [git_branch]
+    format = '$branch(:$remote_branch)'
+    style = 'git'
+    ignore_branches = ['main', 'master', 'HEAD']
+
+    [git_commit]
+    format = '$hash$tag'
+    style = 'git'
+
+    [git_status]
+    format = '$all_status$ahead_behind'
+    style = 'bold git'
+    modified = '*'
+    deleted = '✘'
+    stashed = ""
+    renamed = '»'
+    diverged = '+$ahead_count-$behind_count'
+    ahead = '+$count'
+    behind = '-$count'
+
+    [kubernetes]
+    disabled = false
+    format = '$symbol$context'
+    symbol = '☸ '
+    style = 'bg'
+
+    [pulumi]
+    format = '$symbol$stack'
+    symbol = ' '
+    style = 'bg'
+
+    [python]
+    format = '(🐍$virtualenv)'
+    style = 'bg'
+
+    [lua]
+    symbol = '[ ](#${colors.base07}) '
+
+    [rust]
+    symbol = '[ ](#${colors.base08}) '
+
+    [nix_shell]
+    symbol = '[󱄅 ](#${colors.base07}) '
+
+    [golang]
+    symbol = '[󰟓 ](#${colors.base06})'
+
+    [c]
+    symbol = '[ ](#${colors.base01})'
+
+    [nodejs]
+    symbol = '[󰎙 ](#${colors.base0A})'
+
+    [package]
+    symbol = '📦 '
+
+    [fill]
+    symbol = '─'
+    style = 'bg'
+
+    [cmd_duration]
+    format = '\($duration\)'
+    style = 'bg'
+
+    [battery]
+    format = '$symbol'
+    unknown_symbol = ""
+
+    [[battery.display]]
+    threshold = 5
+    charging_symbol = '⚡️ '
+    discharging_symbol = ' '
+    style = 'bright-red'
+
+    [[battery.display]]
+    threshold = 15
+    charging_symbol = '⚡️ '
+    discharging_symbol = ' '
+    style = 'red'
+
+    [[battery.display]]
+    threshold = 40
+    charging_symbol = '⚡️ '
+    discharging_symbol = ' '
+    style = 'yellow'
+
+    [[battery.display]]
+    threshold = 80
+    charging_symbol = '⚡️ '
+    discharging_symbol = ' '
+    style = 'bright-black'
+
+    [[battery.display]]
+    threshold = 100
+    charging_symbol = '⚡️ '
+    discharging_symbol = ' '
+    style = 'green'
+
+    [username]
+    disabled = false
+    format = '$user'
+    style_user = 'user'
+    show_always = true
+
+    [hostname]
+    disabled = false
+    format = '$hostname'
+    style = 'host'
+    ssh_only = false
+
+    [time]
+    disabled = false
+    format = '$time'
+    style = 'bg'
+
+    [line_break]
+
+    [status]
+    disabled = false
+    format = '$status'
+
+    [character]
+    format = '[ $symbol ]($style)'
+    success_symbol = '[✓](bold green)'
+    error_symbol = '[✗](bold red)'
+    vimcmd_symbol = '[\[NOR\]](#${colors.base09})'
+    vimcmd_replace_one_symbol = '[R](bold green)'
+    vimcmd_replace_symbol = '[R](bold green)'
+    vimcmd_visual_symbol = '[V](bold green)'
+
+    [palettes.local]
+    bg = '#${colors.base04}'
+    git = '#${colors.base0B}'
+    user = '@@USER@@'
+    host = '@@HOST@@'
+  '';
+
+  shellScript = pkgs.writeScript "update_starship_config.sh" ''
+    #!/bin/sh
+    ${perlScript} > ${starshipConfigFile}
+  '';
 in {
-  home = {
-    sessionVariables = {
-      STARSHIP_CACHE = "${config.xdg.cacheHome}/starship";
+  config = {
+    programs.starship = {
+      enable = true;
     };
-  };
-  programs.starship = {
-    enable = true;
-    settings = {
-      scan_timeout = 2;
-      command_timeout = 2000; # nixpkgs makes starship implode with lower values
-      format = ''
-        [\(](host)$os$directory([|](host)$shell$nix_shell)([|](host)$git_branch$git_commit$git_status([|](host)$git_state))[\)](host)( $python) $fill ($cmd_duration )($battery )$username[@](bg)$hostname [\[](host)$time[\]](host) $line_break$status [${charSymbol}](user)
-      '';
-      right_format = "$character";
-      add_newline = false;
-      palette = "local";
 
-      directory = {
-        truncation_length = 2;
-        substitutions = {
-          "~/Dev" = "Dev";
-          "~/Documents" = "󰈙 ";
-          "~/Downloads" = " ";
-          "~/Music" = " ";
-          "~/Pictures" = " ";
-          "~" = " ";
-        };
-        format = "[$path]($style)[$read_only]($read_only_style) ";
-        style = "bg";
-        repo_root_format = "[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)";
-        repo_root_style = "git";
-        fish_style_pwd_dir_length = 1;
+    # Update Starship Config everytime user logs in. This way I can keep track
+    # of the hostname and change the prompt accordingly.
+    systemd.user.services.updateStarshipConfig = {
+      Unit = {
+        Description = "Update Starship Config";
       };
-
-      os = {
-        disabled = false;
-        format = "[ $symbol ]($style)";
+      Service = {
+        Type = "oneshot";
+        ExecStart = "${shellScript}";
+        Restart = "on-failure";
       };
-
-      # os
-      os.symbols = {
-        NixOS = "󱄅";
+      Install = {
+        WantedBy = ["default.target"];
       };
+    };
 
-      # git
-      git_state = {
-        format = "[$state(:$progress_current/$progress_total)]($style)";
-        style = "git";
-        rebase = "r";
-        merge = "m";
-        revert = "v";
-        cherry_pick = "c";
-        bisect = "b";
-        am = "a";
-        am_or_rebase = "r";
+    systemd.user.timers.updateStarshipConfig = {
+      Unit = {
+        Description = "Timer for updating Starship Config";
       };
-
-      git_commit = {
-        format = "[$hash$tag]($style)";
-        style = "git";
-        commit_hash_length = 7;
+      Timer = {
+        OnBootSec = "5s"; # 5 seconds after login
+        Persistent = true;
       };
-
-      git_branch = {
-        format = "[$branch(:$remote_branch)]($style)";
-        style = "bold purple"; #git
-        ignore_branches = ["main" "master" "HEAD"];
+      Install = {
+        WantedBy = ["timers.target"];
       };
-
-      git_status = {
-        format = "[$all_status$ahead_behind]($style)";
-        style = "bold git";
-        modified = "!";
-        stashed = "";
-        deleted = "✘ ";
-        conflicted = " ";
-        untracked = "?";
-        renamed = "»";
-        diverged = "+$ahead_count-$behind_count";
-        ahead = "+$count";
-        behind = "-$count";
-      };
-
-      kubernetes = {
-        disabled = false;
-        format = "[$symbol$context]($style)";
-        symbol = "☸ ";
-        style = "bg";
-      };
-
-      pulumi = {
-        format = "[$symbol$stack]($style)";
-        symbol = " ";
-        style = "bg";
-      };
-
-      python = {
-        format = "([🐍$virtualenv]($style))";
-        symbol = "[ ](blue) ";
-        style = "bg";
-      };
-
-      fill = {
-        symbol = "─";
-        style = "bg";
-      };
-
-      cmd_duration = {
-        disabled = false;
-        format = "[ 󱦟 $duration ]($style)";
-        show_milliseconds = true;
-        min_time = 0;
-        style = "bg";
-      };
-
-      battery = {
-        format = "[$symbol]($style)";
-        unknown_symbol = "";
-        display = [
-          {
-            threshold = 5;
-            charging_symbol = "⚡️ ";
-            discharging_symbol = " ";
-            style = "bright-red";
-          }
-          {
-            threshold = 15;
-            charging_symbol = "⚡️ ";
-            discharging_symbol = " ";
-            style = "red";
-          }
-          {
-            threshold = 40;
-            charging_symbol = "⚡️ ";
-            discharging_symbol = " ";
-            style = "yellow";
-          }
-          {
-            threshold = 80;
-            charging_symbol = "⚡️ ";
-            discharging_symbol = " ";
-            style = "bright-black";
-          }
-          {
-            threshold = 100;
-            charging_symbol = "⚡️ ";
-            discharging_symbol = " ";
-            style = "green";
-          }
-        ];
-      };
-
-      username = {
-        disabled = false;
-        format = "[$user]($style)";
-        style_user = "user";
-        show_always = true;
-      };
-
-      hostname = {
-        disabled = false;
-        format = "[$hostname]($style)";
-        style = "host";
-        ssh_only = false;
-      };
-
-      time = {
-        disabled = false;
-        format = "[$time]($style)";
-        style = "bg";
-      };
-
-      line_break = {};
-
-      status = {
-        disabled = false;
-        format = "[$status]($style)";
-      };
-
-      character = {
-        format = "[ $symbol ]($style)";
-        success_symbol = "[](bold green)";
-        error_symbol = "[](bold red)";
-        vimcmd_symbol = "[\\[NOR\\]](bright-yellow)";
-        vimcmd_replace_one_symbol = "[R](bold green)";
-        vimcmd_replace_symbol = "[R](bold green)";
-        vimcmd_visual_symbol = "[V](bold green)";
-      };
-
-      palettes = {
-        local = {
-          bg = "bright-black";
-          git = "green";
-          user = userStyle;
-          host = hostStyle;
-        };
-      };
-      # language configurations
-      # the whitespaces at the end *are* necessary for proper formatting
-      lua.symbol = "[ ](blue) ";
-      rust.symbol = "[ ](red) ";
-      nix_shell.symbol = "[󱄅 ](blue) ";
-      golang.symbol = "[󰟓 ](blue)";
-      c.symbol = "[ ](black)";
-      nodejs.symbol = "[󰎙 ](yellow)";
-      package.symbol = "📦 ";
     };
   };
 }
