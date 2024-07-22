@@ -126,7 +126,7 @@ in {
       ]
       ++ isoRoles
       ++ [
-        ../options
+        # ../options
         # agenix
       ];
     # ++ homes; (TODO: maybe also add shared home modules to iso)
