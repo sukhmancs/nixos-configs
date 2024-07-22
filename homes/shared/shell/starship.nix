@@ -6,7 +6,9 @@
   starshipConfigDir = "/home/xi/.config";
   starshipConfigFile = "${starshipConfigDir}/starship.toml";
   perlScript = pkgs.writeScript "generate_starship_config.pl" ''
-    #!/usr/bin/env perl
+    #! /usr/bin/env nix-shell
+    #! nix-shell -i perl -p perl
+
     use 5.014;
     use warnings;
 
