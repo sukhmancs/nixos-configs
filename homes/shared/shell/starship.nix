@@ -111,22 +111,22 @@
     style = 'bg'
 
     [lua]
-    symbol = '[ ](blue) '
+    symbol = '[ ](#${colors.base07}) '
 
     [rust]
-    symbol = '[ ](red) '
+    symbol = '[ ](#${colors.base08}) '
 
     [nix_shell]
-    symbol = '[󱄅 ](blue) '
+    symbol = '[󱄅 ](#${colors.base07}) '
 
     [golang]
-    symbol = '[󰟓 ](blue)'
+    symbol = '[󰟓 ](#${colors.base06})'
 
     [c]
-    symbol = '[ ](black)'
+    symbol = '[ ](#${colors.base01})'
 
     [nodejs]
-    symbol = '[󰎙 ](yellow)'
+    symbol = '[󰎙 ](#${colors.base0A})'
 
     [package]
     symbol = '📦 '
@@ -200,14 +200,14 @@
     format = '[ $symbol ]($style)'
     success_symbol = '[✓](bold green)'
     error_symbol = '[✗](bold red)'
-    vimcmd_symbol = '[\[NOR\]](bright-yellow)'
+    vimcmd_symbol = '[\[NOR\]](#${colors.base09})'
     vimcmd_replace_one_symbol = '[R](bold green)'
     vimcmd_replace_symbol = '[R](bold green)'
     vimcmd_visual_symbol = '[V](bold green)'
 
     [palettes.local]
-    bg = 'bright-black'
-    git = 'green'
+    bg = '#${colors.base04}'
+    git = '#${colors.base0B}'
     user = '@@USER@@'
     host = '@@HOST@@'
   '';
@@ -245,7 +245,7 @@ in {
         Description = "Timer for updating Starship Config";
       };
       Timer = {
-        OnCalendar = "*:0/5"; # Every 5 minutes
+        OnCalendar = "*:0/1"; # Every 1 minutes
         Persistent = true;
       };
       Install = {
