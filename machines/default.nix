@@ -119,6 +119,7 @@ in {
     modules =
       [
         ./messier
+        ../modules/roles/iso
         # (TODO: modules/shared also enables - apparmor, selinux, clamav, auditd, virtualization
         # so check the performance impact and disable accordingly)
         # ../modules/shared # modules shared across all hosts, enabled by default
@@ -129,7 +130,7 @@ in {
         #   home-manager.useUserPackages = true;
         # }
       ]
-      ++ isoRoles
+      # ++ isoRoles
       ++ [
         # ../options
         # agenix
