@@ -8,8 +8,8 @@
   #  <https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/profiles/hardened.nix>
   #  <https://github.com/fort-nix/nix-bitcoin/blob/master/modules/presets/hardened-extended.nix>
   imports = [
-    ./apparmor.nix # apparmor configuration and policies
-    ./auditd.nix # auditd
+    # ./apparmor.nix # apparmor configuration and policies
+    # ./auditd.nix # auditd
     #TODO: enable this (breaks some builds on server)
     # ./clamav.nix # clamav antivirus
     ./impurity-tracker.nix # find applications that depend on /bin/sh or /usr/bin/env
@@ -18,7 +18,7 @@
     ./pam.nix # pam configuration
     ./pki.nix # pki certificate bundles
     ./polkit.nix # polkit configuration
-    ./selinux.nix # selinux support + kernel patches
+    # ./selinux.nix # selinux support + kernel patches
     ./sudo.nix # sudo rules and configuration
     ./virtualization.nix # hypervisor hardening
     ./usbguard.nix # usbguard
