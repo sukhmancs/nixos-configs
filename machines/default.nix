@@ -123,12 +123,17 @@ in {
         # so check the performance impact and disable accordingly)
         # ../modules/shared # modules shared across all hosts, enabled by default
         # ../modules/exclusive/nixos # modules shared across all hosts, but need to be enabled
+        # inputs.home-manager.nixosModules.home-manager
+        # {
+        #   home-manager.useGlobalPkgs = true;
+        #   home-manager.useUserPackages = true;
+        # }
       ]
       ++ isoRoles
-      # ++ [
-      #   ../options
-      #   agenix
-      # ]
-      ++ homes; # (TODO: maybe also add shared home modules to iso)
+      ++ [
+        # ../options
+        # agenix
+      ];
+    # ++ homes; # (TODO: maybe also add shared home modules to iso)
   };
 }

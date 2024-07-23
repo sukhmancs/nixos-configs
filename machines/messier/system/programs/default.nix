@@ -1,9 +1,10 @@
 {
   imports = [
     ./neovim
-    ./river
+    # ./river
 
     ./git.nix
     ./ssh.nix
+    ./sway.nix
   ];
 }
