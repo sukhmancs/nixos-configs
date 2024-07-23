@@ -4,7 +4,7 @@
 - [x] hyprland
 - [x] System-wide dynamic colors - background, text, accent, overlay, secondary text (FULLY DONE)
 - [ ] sww
-- [ ] portable workstation - niri, ags
+- [ ] portable workstation - sway, ags
 - [ ] anyrun - dynamic colors
 - [x] gtk (fully dynamic custom themes)
 - [ ] qt

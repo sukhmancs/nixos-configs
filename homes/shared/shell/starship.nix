@@ -257,7 +257,8 @@ in {
         Description = "Timer for updating Starship Config";
       };
       Timer = {
-        OnBootSec = "5s"; # 5 seconds after login
+        # call it every 10 minutes
+        OnCalendar = "*:0/10";
         Persistent = true;
       };
       Install = {

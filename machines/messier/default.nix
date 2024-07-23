@@ -8,6 +8,7 @@ in {
   imports = [
     ./system
 
+    ./graphical.nix
     ./colors.nix
   ];
 
