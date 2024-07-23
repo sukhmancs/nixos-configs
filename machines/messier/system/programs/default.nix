@@ -4,6 +4,6 @@
 
     ./git.nix
     ./ssh.nix
-    ./sway.nix
+    # ./sway.nix
   ];
 }
