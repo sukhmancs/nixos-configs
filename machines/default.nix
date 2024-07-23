@@ -125,10 +125,10 @@ in {
         # ../modules/exclusive/nixos # modules shared across all hosts, but need to be enabled
       ]
       ++ isoRoles
-      ++ [
-        # ../options
-        # agenix
-      ];
-    # ++ homes; (TODO: maybe also add shared home modules to iso)
+      # ++ [
+      #   ../options
+      #   agenix
+      # ]
+      ++ homes; # (TODO: maybe also add shared home modules to iso)
   };
 }
