@@ -11,7 +11,7 @@
   c = config.modules.themes.colors;
 in {
   config = {
-    wlwm.enable = true;
+    # wlwm.enable = true;
 
     environment = {
       loginShellInit = ''
@@ -34,10 +34,10 @@ in {
       ];
     };
 
-    xdg.portal = {
-      enable = true;
-      wlr.enable = true;
-    };
+    # xdg.portal = {
+    #   enable = true;
+    #   wlr.enable = true;
+    # };
 
     home-manager.users.xi = {
       home.file = {
