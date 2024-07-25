@@ -120,6 +120,8 @@ in {
       [
         ./messier
         ../modules/roles/iso
+        # ./messier/home.nix
+        # hm
         # (TODO: modules/shared also enables - apparmor, selinux, clamav, auditd, virtualization
         # so check the performance impact and disable accordingly)
         # ../modules/shared # modules shared across all hosts, enabled by default
@@ -132,9 +134,35 @@ in {
       ]
       # ++ isoRoles
       ++ [
-        # ../options
+        ../options
         # agenix
-      ];
-    # ++ homes; # (TODO: maybe also add shared home modules to iso)
+      ]
+      ++ [
+        hm
+        ./messier/home.nix
+      ]; # (TODO: maybe also add shared home modules to iso)
+  };
+
+  iso = lib.nixosSystem {
+    modules =
+      [
+        # provides options for modifying the ISO image
+        "${nixpkgs}/nixos/modules/installer/cd-dvd/iso-image.nix"
+
+        # bootstrap channels with the ISO image to avoid fetching them during installation
+        "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+
+        # make sure our installer can detect and interact with all hardware that is supported in Nixpkgs
+        # this loads basically every hardware related kernel module
+        "${nixpkgs}/nixos/modules/profiles/all-hardware.nix"
+        ./iso
+        ../options
+      ]
+      ++ homes;
+    specialArgs = {
+      inherit (self) keys;
+      inherit lib modulesPath;
+      inherit inputs self;
+    };
   };
 }

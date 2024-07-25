@@ -8,8 +8,9 @@ in {
   imports = [
     ./system
 
-    ./graphical.nix
-    ./colors.nix
+    # ./colors.nix
+    ./device.nix
+    # ./graphical.nix
   ];
 
   services.getty.helpLine =

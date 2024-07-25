@@ -9,6 +9,7 @@ with lib; {
   # KDE complains if power management is disabled (to be precise, if
   # there is no power management backend such as upower).
   powerManagement.enable = true;
+  fonts.fontconfig.enable = lib.mkDefault true;
 
   # Enable sound in graphical iso's.
   hardware.pulseaudio.enable = true;
@@ -24,7 +25,7 @@ with lib; {
   # virtualisation.virtualbox.guest.enable = false;
 
   # Enable plymouth
-  boot.plymouth.enable = true;
+  # boot.plymouth.enable = true;
 
   environment.defaultPackages = with pkgs; [
     # Firefox for reading the manual.

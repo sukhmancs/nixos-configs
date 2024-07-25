@@ -8,10 +8,10 @@
     users = {
       root.initialPassword = "";
 
-      nixos = {
+      xi = {
         isNormalUser = true;
         uid = 1000;
-        initialPassword = "nixos";
+        initialPassword = "changeme";
         extraGroups = ["wheel"];
       };
     };

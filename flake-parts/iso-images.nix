@@ -23,5 +23,7 @@ in {
 
     # Raspberry Pi 400
     atlas = atlas.config.system.build.sdImage;
+
+    iso = self.nixosConfigurations."iso".config.system.build.isoImage;
   };
 }
