@@ -1,7 +1,8 @@
 import Cava from "./buttons/Cava"
 import Date from "./buttons/Date"
 // import Launcher from "./buttons/Launcher"
-import Left from "./buttons/Launcher"
+import Launcher from "./buttons/Launcher"
+import Chat from "./buttons/Chat"
 import Media from "./buttons/Media"
 import PowerMenu from "./buttons/PowerMenu"
 import SysTray from "./buttons/SysTray"
@@ -39,6 +40,7 @@ export default (monitor: number) => Widget.Window({
     name: `bar${monitor}`,
     exclusivity: "exclusive",
     anchor: ['top', 'left', 'right'],
+    layer: "top",
     margins: [8, 8, 0, 8],
     child: Widget.CenterBox({
         css: "min-height: 1px; min-width: 1px;",
@@ -48,7 +50,8 @@ export default (monitor: number) => Widget.Window({
                 Widget.Box({
                     className: "barLeft",
                     children: [
-                        Left(),
+                        Launcher(),
+                        Chat(),
                         Media(monitor, "start"),
                         // RoundedAngleEnd("topright", {class_name: "angle"})
                     ]

@@ -28,6 +28,7 @@ export default {
         close: "window-close-symbolic",
         colorpicker: "color-select-symbolic",
         info: "info-symbolic",
+        ai: "chatgpt-symbolic",
         link: "external-link-symbolic",
         lock: "system-lock-screen-symbolic",
         menu: "open-menu-symbolic",

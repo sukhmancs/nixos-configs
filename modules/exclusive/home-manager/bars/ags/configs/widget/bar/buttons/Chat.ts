@@ -1,11 +1,10 @@
 import App from 'resource:///com/github/Aylur/ags/app.js';
 import options from "options"
 
-const { icon } = options.bar.launcher
+const { icon } = options.bar.chat
 
-const Launcher = () => Widget.EventBox({
-  on_primary_click_release: () => {App.toggleWindow('launcher')},
-  // on_secondary_click_release: () => {App.toggleWindow('sideleft')},
+const Chat = () => Widget.EventBox({
+  on_primary_click_release: () => {App.toggleWindow('sideleft')},
   child: Widget.Box({
     class_name: "launcher panel-button",
     children: [
@@ -16,4 +15,4 @@ const Launcher = () => Widget.EventBox({
   }),
 });
 
-export default Launcher;
+export default Chat;
