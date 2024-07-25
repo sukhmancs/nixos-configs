@@ -18,10 +18,10 @@
       Comment=Start Terminal On Startup
     '';
 
-    home = {
-      username = lib.mkDefault "nixos";
-      homeDirectory = lib.mkDefault "/home/${config.home.username}";
-      stateVersion = lib.mkDefault "23.05";
-    };
+    # home = {
+    #   username = lib.mkDefault "nixos";
+    #   homeDirectory = lib.mkForce "/home/${config.home.username}";
+    #   stateVersion = lib.mkDefault "23.05";
+    # };
   };
 }

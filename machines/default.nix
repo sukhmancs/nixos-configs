@@ -132,18 +132,25 @@ in {
       ]
       # ++ isoRoles
       ++ [
-        # ../options
+        ../options
         # agenix
-      ];
-    # ++ homes; # (TODO: maybe also add shared home modules to iso)
+      ]
+      ++ homes; # (TODO: maybe also add shared home modules to iso)
   };
 
   iso = lib.nixosSystem {
-    modules = [
-      "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix"
-      "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
-      ./iso
-    ];
-    specialArgs = {inherit inputs;};
+    modules =
+      [
+        "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix"
+        "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+        ./iso
+        ../options
+      ]
+      ++ homes;
+    specialArgs = {
+      inherit (self) keys;
+      inherit lib modulesPath;
+      inherit inputs self;
+    };
   };
 }

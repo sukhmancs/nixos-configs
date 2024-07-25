@@ -38,7 +38,7 @@ in {
 
       home = {
         username = "xi";
-        homeDirectory = "/home/xi";
+        homeDirectory = lib.mkForce "/home/xi";
         # Specify additional outputs to install, such as documentation
         extraOutputsToInstall = ["doc" "devdoc"];
 
