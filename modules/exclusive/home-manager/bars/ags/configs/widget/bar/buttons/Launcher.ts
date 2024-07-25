@@ -3,9 +3,9 @@ import options from "options"
 
 const { icon } = options.bar.launcher
 
-const Left = () => Widget.EventBox({
+const Launcher = () => Widget.EventBox({
   on_primary_click_release: () => {App.toggleWindow('launcher')},
-  on_secondary_click_release: () => {App.toggleWindow('sideleft')},
+  // on_secondary_click_release: () => {App.toggleWindow('sideleft')},
   child: Widget.Box({
     class_name: "launcher panel-button",
     children: [
@@ -16,4 +16,4 @@ const Left = () => Widget.EventBox({
   }),
 });
 
-export default Left;
+export default Launcher;

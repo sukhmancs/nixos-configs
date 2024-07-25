@@ -1,7 +1,7 @@
 import Cava from "./buttons/Cava"
 import Date from "./buttons/Date"
 // import Launcher from "./buttons/Launcher"
-import Left from "./buttons/Launcher"
+import Launcher from "./buttons/Launcher"
 import Chat from "./buttons/Chat"
 import Media from "./buttons/Media"
 import PowerMenu from "./buttons/PowerMenu"
@@ -49,7 +49,7 @@ export default (monitor: number) => Widget.Window({
                 Widget.Box({
                     className: "barLeft",
                     children: [
-                        Left(),
+                        Launcher(),
                         Chat(),
                         Media(monitor, "start"),
                         // RoundedAngleEnd("topright", {class_name: "angle"})

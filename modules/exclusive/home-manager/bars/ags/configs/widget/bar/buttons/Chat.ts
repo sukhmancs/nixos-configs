@@ -1,7 +1,7 @@
 import App from 'resource:///com/github/Aylur/ags/app.js';
 import options from "options"
 
-const { icon } = options.bar.launcher
+const { icon } = options.bar.chat
 
 const Chat = () => Widget.EventBox({
   on_primary_click_release: () => {App.toggleWindow('sideleft')},

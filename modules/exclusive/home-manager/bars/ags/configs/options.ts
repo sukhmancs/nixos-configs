@@ -107,6 +107,12 @@ const options = mkOptions(OPTIONS, {
             },
             action: opt(() => App.toggleWindow("launcher")),
         },
+        chat: {
+            icon: {
+                colored: opt(true),
+                icon: "chatgpt-symbolic",
+            },
+        },
         date: {
             format: opt("  %a, %d %b, %R"),
             action: opt(() => App.toggleWindow("calendarsettings")),
