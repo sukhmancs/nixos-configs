@@ -40,6 +40,7 @@ export default (monitor: number) => Widget.Window({
     name: `bar${monitor}`,
     exclusivity: "exclusive",
     anchor: ['top', 'left', 'right'],
+    layer: "top",
     margins: [8, 8, 0, 8],
     child: Widget.CenterBox({
         css: "min-height: 1px; min-width: 1px;",
