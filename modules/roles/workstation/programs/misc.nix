@@ -21,7 +21,15 @@
 
   environment = {
     systemPackages = with pkgs; [
+      qbittorrent
       bitwarden-desktop
+      (symlinkJoin {
+        name = "Obsidian";
+        paths = with pkgs; [
+          obsidian
+          pandoc
+        ];
+      })
     ];
   };
 }
