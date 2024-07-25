@@ -10,7 +10,7 @@ in {
 
     ./colors.nix
     ./device.nix
-    ./graphical.nix
+    # ./graphical.nix
   ];
 
   services.getty.helpLine =
