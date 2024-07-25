@@ -79,7 +79,8 @@
       modules = concatLists [
         [
           # provides options for modifying the ISO image
-          "${nixpkgs}/nixos/modules/installer/cd-dvd/iso-image.nix"
+          # "${nixpkgs}/nixos/modules/installer/cd-dvd/iso-image.nix"
+          "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix"
 
           # bootstrap channels with the ISO image to avoid fetching them during installation
           "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
