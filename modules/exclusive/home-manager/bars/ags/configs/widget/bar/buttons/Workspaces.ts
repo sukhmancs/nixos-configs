@@ -118,8 +118,7 @@ const WorkspaceButton = (i) => Widget.EventBox({
     button.visible = !hideEmptyWorkspaces.value || wsVisible(i, button);
   }, "notify::workspaces")
   .hook(Hyprland.active.workspace, (button) => {
-    const active = JSON.parse(Hyprland.message("j/monitors")).map(mon => mon.activeWorkspace.id).includes(i) && wsVisible(i, button);
-
+    const active = JSON.parse(Hyprland.message("j/monitors")).map(mon => mon.activeWorkspace.id).includes(i);
     button.toggleClassName("active", active);
   });
 
