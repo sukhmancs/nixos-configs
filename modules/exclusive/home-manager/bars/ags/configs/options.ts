@@ -110,7 +110,7 @@ const options = mkOptions(OPTIONS, {
         chat: {
             icon: {
                 colored: opt(true),
-                icon: "chatgpt-symbolic",
+                icon: opt(icon("chatgpt", icons.ui.ai)), // only fallback icon work in this case
             },
         },
         date: {
