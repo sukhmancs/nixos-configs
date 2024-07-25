@@ -3,9 +3,9 @@
     ./foot
     # ./neovim
     # ./programs
-    ./services
+    # ./services
     # ./shell
 
-    ./shared.nix
+    # ./shared.nix
   ];
 }
