@@ -1,10 +1,10 @@
 {
   imports = [
     ./foot
-    ./neovim
-    ./programs
+    # ./neovim
+    # ./programs
     ./services
-    ./shell
+    # ./shell
 
     ./shared.nix
   ];

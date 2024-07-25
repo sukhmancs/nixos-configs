@@ -134,7 +134,7 @@ in {
       ]
       # ++ isoRoles
       ++ [
-        ../options
+        # ../options
         # agenix
       ]
       ++ [
