@@ -15,12 +15,65 @@
 - [ ] **QT**
 
 
-## System
+## Host
 Following hosts are available:
-- `milkyway` - main workstation
-- `triangulum` - server
-- `andromeda` - laptop
-- `messier` - iso
+
+| Host       | Type      |
+| ------------ | ---------------- |
+| `milkyway`   | Main Workstation |
+| `triangulum` | Server           |
+| `andromeda`  | Laptop           |
+| `messier`    | Iso              |
+## Color Scheme
+Following color schemes are available:
+
+| Scheme             | Variants                                                                                            |
+| ------------------ | --------------------------------------------------------------------------------------------------- |
+| `cappuccino-mocha` | default (with <span style="background-color: #cba6f7; color: black">mauve</span> as the base color) |
+| `dracula`          | -                                                                                                   |
+| `gruvbox`          | light, dark, medium, hard                                                                           |
+| `henna`            | -                                                                                                   |
+| `helios`           | -                                                                                                   |
+| `horizon`          | dark                                                                                                |
+| `nord`             | -                                                                                                   |
+| `monokai`          | -                                                                                                   |
+| `selenized`        | dark, light                                                                                         |
+| `solarized`        | dark, light                                                                                         |
+| `tomorrow-night`   | -                                                                                                   |
+| `twilight`         | -                                                                                                   |
+| `ubuntu`           | -                                                                                                   |
+| `uwunicorn`        | -                                                                                                   |
+| `windows-95`       | -                                                                                                   |
+| `doom-one`         | -                                                                                                   |
+| `alph`             | -                                                                                                   |
+| `ashes`            | -                                                                                                   |
+| `atelier`          | cave, dune, estuary, forest, heath, lakeside, meadow, plateu, savanna, seaside, studio, sulphurpool |
+| `ayu-dark`         | -                                                                                                   |
+| `bespin`           | -                                                                                                   |
+| `caret`            | -                                                                                                   |
+| `darkmoss`         | -                                                                                                   |
+| `ember`            | -                                                                                                   |
+| `emil`             | -                                                                                                   |
+| `eris`             | -                                                                                                   |
+| `eva`              | -                                                                                                   |
+| `everforest`       | -                                                                                                   |
+| `fairy-floss`      | -                                                                                                   |
+| `gigavolt`         | -                                                                                                   |
+| `io`               | -                                                                                                   |
+| `isotope`          | -                                                                                                   |
+| `manegarm`         | -                                                                                                   |
+| `material-vivid`   | -                                                                                                   |
+| `miramare`         | -                                                                                                   |
+| `monokai`          | -                                                                                                   |
+| `oceanic-next`     | -                                                                                                   |
+| `old-hope`         | -                                                                                                   |
+| `outrun-dark`      | -                                                                                                   |
+| `spaceduck`        | -                                                                                                   |
+| `stella`           | -                                                                                                   |
+| `summerfruit-dark` | -                                                                                                   |
+| `woodland`         | -                                                                                                   |
+| `xcode-dusk`       | -                                                                                                   |
+
 
 ## Installation
 ### Partition and mount the drives using disko
