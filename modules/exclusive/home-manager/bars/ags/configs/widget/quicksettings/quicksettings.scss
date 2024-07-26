@@ -184,11 +184,11 @@ window#quicksettings .quicksettings {
         }
 
         &.active {
-            background-color: $base00;
+            background-color: $base0E;
 
             label,
             image {
-                color: $base05;
+                color: $base00;
             }
         }
     }
