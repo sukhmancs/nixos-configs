@@ -20,8 +20,8 @@ in {
       # "col.active_border" = "rgba(0DB7D4FF)";
       # "col.inactive_border" = "rgba(31313600)";
 
-      "col.active_border" = "0xff#${colors.base0E}";
-      "col.inactive_border" = "0xff#${colors.base02}";
+      "col.active_border" = "#${colors.base0E}";
+      "col.inactive_border" = "#${colors.base02}";
 
       resize_on_border = true;
       no_focus_fallback = true;
