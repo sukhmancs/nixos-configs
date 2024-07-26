@@ -1,9 +1,6 @@
 {osConfig, ...}: let
   inherit (osConfig) modules;
-
-  # theming
-  inherit (modules.style) colorScheme;
-  inherit (colorScheme) colors;
+  inherit (modules.themes) colors;
 in {
   wayland.windowManager.hyprland.settings = {
     general = {
@@ -20,8 +17,11 @@ in {
       border_size = 2;
 
       # Fallback colors
-      "col.active_border" = "rgba(0DB7D4FF)";
-      "col.inactive_border" = "rgba(31313600)";
+      # "col.active_border" = "rgba(0DB7D4FF)";
+      # "col.inactive_border" = "rgba(31313600)";
+
+      "col.active_border" = "rgb(${colors.base0E})";
+      "col.inactive_border" = "rgb(${colors.base02})";
 
       resize_on_border = true;
       no_focus_fallback = true;

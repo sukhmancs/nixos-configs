@@ -32,7 +32,7 @@ in {
       shadow_range = 20;
       shadow_offset = "0 2";
       shadow_render_power = 4;
-      "col.shadow" = "0xff#${colors.base01}";
+      "col.shadow" = "rgb(${colors.base01})";
 
       # Dim
       dim_inactive = false;
@@ -46,8 +46,8 @@ in {
       # focus on the window that has just been moved out of the group
       focus_removed_window = true;
 
-      "col.border_active" = "0xff#${colors.base0E}";
-      "col.border_inactive" = "0xff#${colors.base02}";
+      "col.border_active" = "rgb(${colors.base0E})";
+      "col.border_inactive" = "rgb(${colors.base02})";
 
       groupbar = {
         # groupbar stuff

@@ -12,7 +12,7 @@
         vscode.enable = true;
         mangohud.enable = false;
         swaylock.enable = true;
-        mpv.enable = false;
+        mpv.enable = true;
       };
       gtk.enable = true;
       # qt.enable = true; #TODO - fix this

@@ -5,7 +5,7 @@ import options from "options"
 
 const { bar, calendarsettings } = options
 const layout = Utils.derive([bar.position, calendarsettings.position], (bar, qs) =>
-    `${bar}-${qs}` as const,
+    `${bar}-${qs}` as const, // default "tog-right"
 )
 
 const Row = (
