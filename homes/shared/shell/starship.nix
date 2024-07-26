@@ -19,7 +19,7 @@
   starshipConfigDir = "$HOME/.config";
   starshipConfigFile = "${starshipConfigDir}/starship.toml";
   perlScript = pkgs.writeScript "generate_starship_config.pl" ''
-    #!/usr/bin/env perl
+    #!/usr/bin/env -S perl
 
     use 5.014;
     use warnings;

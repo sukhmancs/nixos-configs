@@ -76,7 +76,7 @@ in {
       "$ALTSHIFT, R, exec, grimblast --notify --cursor copysave area" # copy selection area
 
       # OCR
-      "$MODSHIFT, O,exec, ocr"
+      "$MODSHIFT,O,exec, ocr"
 
       # Toggle Statusbar
       "$MODSHIFT,B,exec, ags -t bar"
