@@ -29,7 +29,8 @@ in {
     };
     xdg.configFile."hypr/hyprpaper.conf" = {
       text = let
-        wallpaper = "${wallpkgs.catppuccin}/share/wallpapers/catppuccin/01.png";
+        #wallpaper = "${wallpkgs.catppuccin}/share/wallpapers/catppuccin/01.png";
+        wallpaper = "./assets/wall1.jpg";
       in ''
         preload=${wallpaper}
         ${concatStringsSep "\n" (map (monitor: ''wallpaper=${monitor},${wallpaper}'') monitors)}
