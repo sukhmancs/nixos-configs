@@ -6,8 +6,9 @@
       text (Finally)
 - [ ] sww
 - [ ] portable workstation - sway, ags
-- [ ] anyrun - custom dynamic colors
+- [x] anyrun - custom dynamic colors
 - [x] gtk (fully dynamic custom themes)
+- [ ] Modularize - anyrun, ...
 - [ ] qt
 - [x] starship - dynamic colors
 

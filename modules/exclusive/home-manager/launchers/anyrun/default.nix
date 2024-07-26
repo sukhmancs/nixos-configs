@@ -10,10 +10,6 @@
   inherit (osConfig) modules;
   inherit (modules.themes) colors;
 
-  # theme = import ./theme.nix {
-  #   inherit osConfig pkgs;
-  # };
-
   env = modules.home;
 
   # Theme
@@ -197,9 +193,6 @@ in {
           }
         '';
       });
-
-      # extraCss = builtins.readFile ./styles/dark.css;
     };
-    # home.file.".config/anyrun/variables.css".text = builtins.readFile theme;
   };
 }
