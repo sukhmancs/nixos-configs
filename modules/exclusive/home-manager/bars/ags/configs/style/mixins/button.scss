@@ -2,7 +2,7 @@
 
 @mixin button-focus() {
     background-color: $base0E;
-    color: $base05;
+    color: $base00;
 }
 
 @mixin button-hover() {
@@ -12,7 +12,7 @@
 
 @mixin button-active() {
     background-color: $base0E;
-    color: $base02;
+    color: $base00;
 }
 
 @mixin button-disabled() {
