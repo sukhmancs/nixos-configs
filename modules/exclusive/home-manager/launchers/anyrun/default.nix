@@ -8,12 +8,43 @@
 }: let
   inherit (lib) mkIf;
   inherit (osConfig) modules;
+  inherit (modules.themes) colors;
 
-  theme = import ./theme.nix {
-    inherit osConfig pkgs;
-  };
+  # theme = import ./theme.nix {
+  #   inherit osConfig pkgs;
+  # };
 
   env = modules.home;
+
+  # Theme
+  # Define your custom variables here
+  customVariables = {
+    fontSize = "1.3rem";
+    fontFamily = "'Lexend', sans-serif";
+    transparentColor = "transparent";
+    selectedbg = "#${colors.base0E}";
+    selectedfg = "#${colors.base00}";
+    bgColor = "#${colors.base00}";
+    borderColor = "#${colors.base02}";
+    borderRadius = "16px";
+    paddingValue = "8px";
+  };
+
+  # Generate the variables.scss file content dynamically
+  variablesScss = ''
+    $fontSize: ${customVariables.fontSize};
+    $fontFamily: ${customVariables.fontFamily};
+    $transparentColor: ${customVariables.transparentColor};
+    $selectedbg: ${customVariables.selectedbg};
+    $selectedfg: ${customVariables.selectedfg};
+    $bgColor: ${customVariables.bgColor};
+    $borderColor: ${customVariables.borderColor};
+    $borderRadius: ${customVariables.borderRadius};
+    $paddingValue: ${customVariables.paddingValue};
+  '';
+
+  # Write the variables.scss file
+  variablesScssFile = pkgs.writeText "variables.scss" variablesScss;
 in {
   imports = [inputs.anyrun.homeManagerModules.default];
   config = mkIf env.programs.anyrun.enable {
@@ -45,7 +76,7 @@ in {
         hidePluginInfo = true;
         closeOnClick = true;
         showResultsImmediately = false;
-        maxEntries = null;
+        maxEntries = 3;
       };
 
       extraConfigFiles = {
@@ -125,13 +156,50 @@ in {
 
       # this compiles the SCSS file from the given path into CSS
       # by default, `-t expanded` as the args to the sass compiler
-      # extraCss = builtins.readFile (lib.compileSCSS pkgs {
-      #   name = "style-dark";
-      #   source = ./styles/dark.scss;
-      # });
+      extraCss = builtins.readFile (lib.compileSCSS pkgs {
+        name = "style-dark";
+        source = pkgs.writeText "dark.scss" ''
+          @import '${variablesScssFile}';
+          * {
+          transition: 200ms ease;
+          font-family: $fontFamily;
+          font-size: $fontSize;
+          }
 
-      extraCss = builtins.readFile ./styles/dark.css;
+          #window,
+          #match,
+          #entry,
+          #plugin,
+          #main {
+              background: $transparentColor;
+          }
+
+          #match:selected {
+              background: $selectedbg;
+              color: $selectedfg;
+          }
+
+          #match {
+              padding: 3px;
+              border-radius: $borderRadius;
+          }
+
+          #entry,
+          #plugin:hover {
+              border-radius: $borderRadius;
+          }
+
+          box#main {
+              background: $bgColor;
+              border: 1px solid $borderColor;
+              border-radius: $borderRadius;
+              padding: $paddingValue;
+          }
+        '';
+      });
+
+      # extraCss = builtins.readFile ./styles/dark.css;
     };
-    home.file.".config/anyrun/variables.css".text = builtins.readFile theme;
+    # home.file.".config/anyrun/variables.css".text = builtins.readFile theme;
   };
 }
