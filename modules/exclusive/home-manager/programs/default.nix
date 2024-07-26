@@ -1,5 +1,6 @@
 {
   imports = [
+    ./hyprpaper
     ./schizofox
     ./thunderbird
 
@@ -8,7 +9,6 @@
     ./discord.nix
     ./element.nix
     ./gammastep.nix
-    ./hyprpaper.nix
     ./librewolf.nix
     ./nextcloud.nix
     ./obs.nix
