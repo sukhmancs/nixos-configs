@@ -25,6 +25,20 @@ Following hosts are available:
 | `andromeda`  | Laptop           |
 | `messier`    | Iso              |
 
+## Tools
+Here are the tools I am using:
+
+| Tool              | Description      |
+| ----------------- | ---------------- |
+| 🪟 Window Manager  | Hyprland         |
+| 🖥️ Display Manager | swaylock         |
+| 📊 Bar             | AGS              |
+| 🚀 Launcher        | Anyrun, Rofi     |
+| 🎨 GTK Theme       | Cappuccino Mocha |
+| 🖥️ Terminal        | Foot             |
+| 🔔 Notifications   | Dunst, AGS            |
+
+
 ## Color Scheme
 ### Default Color Scheme: `cappuccino-mocha`
 
