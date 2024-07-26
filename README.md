@@ -1,3 +1,10 @@
+<p id="preview" align="center">
+  <br/>
+  <img src=".github/assets/desktop_preview.png" alt="Desktop Preview" />
+  <br/>
+  <!-- Screenshot last updated <b>2024-03-19</b> -->
+</p>
+
 ## Todo
 
 ### Completed 🎉
