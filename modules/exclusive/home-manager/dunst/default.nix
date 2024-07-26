@@ -6,7 +6,7 @@
 }: let
   inherit (lib) mkIf;
   inherit (osConfig) modules;
-  inherit (modules.style.colorScheme) colors;
+  inherit (modules.themes) colors;
 in {
   config = mkIf config.services.dunst.enable {
     services.dunst = {
