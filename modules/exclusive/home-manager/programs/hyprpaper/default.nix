@@ -19,6 +19,10 @@
   wallpkgs = inputs.wallpkgs.packages.${pkgs.stdenv.system};
 in {
   config = mkIf prg.hyprpaper.enable {
+    xdg.configFile."hypr/assets" = {
+      source = ./assets;
+    };
+
     systemd.user.services.hyprpaper = lib.mkHyprlandService {
       Unit.Description = "Hyprland wallpaper daemon";
       Service = {
@@ -27,10 +31,11 @@ in {
         Restart = "on-failure";
       };
     };
+
     xdg.configFile."hypr/hyprpaper.conf" = {
       text = let
         #wallpaper = "${wallpkgs.catppuccin}/share/wallpapers/catppuccin/01.png";
-        wallpaper = "./assets/wall1.jpg";
+        wallpaper = "$HOME/.config/hypr/assets/wall1.jpg";
       in ''
         preload=${wallpaper}
         ${concatStringsSep "\n" (map (monitor: ''wallpaper=${monitor},${wallpaper}'') monitors)}
