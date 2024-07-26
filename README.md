@@ -24,12 +24,24 @@ Following hosts are available:
 | `triangulum` | Server           |
 | `andromeda`  | Laptop           |
 | `messier`    | Iso              |
+
 ## Color Scheme
-Following color schemes are available:
+### Default Color Scheme: `cappuccino-mocha`
+
+| Element                                                    | Color Name | Hex Code  |
+| ---------------------------------------------------------- | ---------- | --------- |
+| Background Color                                           | base00     | `#1e1e1e` |
+| Secondary Background Color                                 | base02     | `#313244` |
+| Text Color                                                 | base05     | `#cdd6f4` |
+| Secondary Text Color                                       | base00     | `#1e1e1e` |
+| Accent Color (Button focused, Border color, Button active) | base0E     | `#cba6f7` |
+| Overlay Color (Button hover, Button disabled)              | base03     | `#45475a` |
+
+### Available Color Schemes
 
 | Scheme             | Variants                                                                                            |
 | ------------------ | --------------------------------------------------------------------------------------------------- |
-| `cappuccino-mocha` | default (with <span style="background-color: #cba6f7; color: black">mauve</span> as the base color) |
+| `cappuccino` | mocha, frappe  |
 | `dracula`          | -                                                                                                   |
 | `gruvbox`          | light, dark, medium, hard                                                                           |
 | `henna`            | -                                                                                                   |
