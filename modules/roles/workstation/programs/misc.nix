@@ -22,6 +22,7 @@
   environment = {
     systemPackages = with pkgs; [
       qbittorrent
+      calibre
       bitwarden-desktop
       (symlinkJoin {
         name = "Obsidian";
