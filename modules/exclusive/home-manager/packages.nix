@@ -42,11 +42,7 @@ in {
       pamixer
       nix-tree
       tgpt
-
-      # get ani-cli and mov-cli from my own derivations
-      # I don't want to wait for nixpkgs
-      inputs'.nyxpkgs.packages.mov-cli
-      inputs'.nyxpkgs.packages.ani-cli
+      ani-cli
 
       # Recording
       grim
