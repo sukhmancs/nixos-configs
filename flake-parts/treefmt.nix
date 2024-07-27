@@ -14,7 +14,7 @@
       programs = {
         alejandra = {
           enable = true;
-          package = inputs'.nyxpkgs.packages.alejandra-no-ads;
+          #package = inputs'.nyxpkgs.packages.alejandra-no-ads;
         };
         black.enable = true;
         deadnix.enable = false;
