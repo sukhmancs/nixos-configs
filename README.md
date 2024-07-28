@@ -18,7 +18,7 @@
 ### In Progress
 - [ ] **SWW**
 - [ ] **Portable Workstation** - Sway, AGS
-- [ ] **Modularize** - Anyrun, ...
+- [ ] **Modularize** - Anyrun, qt.nix, ...
 - [ ] **QT**
 
 
