@@ -48,7 +48,7 @@ in {
     ];
 
     qt = {
-      # platformTheme.name = "qtct"; #"gtk"; # just an override for QT_QPA_PLATFORMTHEME, takes “gtk”, “gnome”, “qtct” or “kde”
+      platformTheme.name = "qtct"; #"gtk"; # just an override for QT_QPA_PLATFORMTHEME, takes “gtk”, “gnome”, “qtct” or “kde”
       style.name = "kvantum"; # just an override for QT_STYLE_OVERRIDE, takes “kvantum” or “fusion”
       # style = {
       #   name = "Catppuccin-Mocha-Dark";
@@ -67,7 +67,7 @@ in {
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       DISABLE_QT5_COMPAT = "0";
       CALIBRE_USE_DARK_PALETTE = "1";
-      QT_QPA_PLATFORMTHEME = "qt5ct:qt6ct";
+      # QT_QPA_PLATFORMTHEME = "qt5ct:qt6ct";
     };
 
     xdg.configFile = {
