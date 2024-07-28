@@ -12,14 +12,14 @@
 in {
   home-manager = {
     # Enable verbose logging for Home Manager
-    verbose = true;
+    # verbose = true;
 
     # Synchronize package sets between NixOS and Home Manager
     useGlobalPkgs = true;
 
     # enable the usage user packages through
     # the users.users.<name>.packages option
-    useUserPackages = true;
+    # useUserPackages = true;
 
     # Define a standard file extension for backup files created by Home Manager
     backupFileExtension = "hm.backup";

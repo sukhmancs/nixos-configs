@@ -45,7 +45,7 @@
 
     __DATA__
     format = """
-    \\([$os$directory](host)(|$shell$nix_shell|$git_branch$git_commit$git_status(|[$git_state](host)))\\)( $python) $fill ($cmd_duration )($battery )$username@[$hostname](host) [\\[](host)$time[\\]](host) $line_break\
+    \\([$os$directory](host)(|$shell$nix_shell|[$git_branch$git_commit$git_status(|$git_state)](host))\\)( $python) $fill ($cmd_duration )($battery )$username@[$hostname](host) [\\[](host)$time[\\]](host) $line_break\
     $status @@CHAR@@
     """
     right_format = '$character'
@@ -98,7 +98,6 @@
     format = '$all_status$ahead_behind'
     style = 'bold git'
     modified = '*'
-    deleted = '✘'
     stashed = ""
     renamed = '»'
     diverged = '+$ahead_count-$behind_count'

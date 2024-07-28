@@ -15,7 +15,7 @@
         mpv.enable = true;
       };
       gtk.enable = true;
-      # qt.enable = true; #TODO - fix this
+      qt.enable = true; #TODO - fix this
     };
 
     modules.home.programs = {

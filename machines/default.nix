@@ -110,14 +110,18 @@ in {
   };
 
   # ISO - Portable Workstation
-  messier = mkNixosIso {
-    hostname = "messier";
-    system = "x86_64-linux";
+  messier = lib.nixosSystem {
+    # hostname = "messier";
+    # system = "x86_64-linux";
+    inherit system;
     specialArgs = {
-      inherit lib;
+      inherit lib inputs self;
     };
     modules =
       [
+        "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix"
+        "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+
         ./messier
         ../modules/roles/iso
         # (TODO: modules/shared also enables - apparmor, selinux, clamav, auditd, virtualization
