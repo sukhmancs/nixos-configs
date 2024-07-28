@@ -52,7 +52,7 @@ in {
     ];
 
     qt = {
-      platformTheme.name = "gtk"; #"gtk"; # just an override for QT_QPA_PLATFORMTHEME, takes “gtk”, “gnome”, “qtct” or “kde”
+      platformTheme.name = "qtct"; #"gtk"; # just an override for QT_QPA_PLATFORMTHEME, takes “gtk”, “gnome”, “qtct” or “kde”
       style.name = "kvantum"; # just an override for QT_STYLE_OVERRIDE, takes “kvantum” or “fusion”
       # style = {
       #   name = "Catppuccin-Mocha-Dark";
