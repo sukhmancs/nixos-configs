@@ -167,6 +167,7 @@ in {
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       DISABLE_QT5_COMPAT = "0";
       CALIBRE_USE_DARK_PALETTE = "1";
+      QT_QPA_PLATFORMTHEME = "qt5ct:qt6ct";
     };
 
     xdg.configFile = {
