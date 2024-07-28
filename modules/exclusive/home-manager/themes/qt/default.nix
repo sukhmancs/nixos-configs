@@ -82,6 +82,10 @@ in {
         source = ./default/default.kvconfig;
       };
 
+      "Kvantum/default/default.svg" = {
+        source = ./default/default.svg;
+      };
+
       # "Kvantum/catppuccin/catppuccin.kvconfig".source = builtins.fetchurl {
       #   url = "${baseGhUrl}/main/src/Catppuccin-Mocha-Blue/Catppuccin-Mocha-Blue.kvconfig";
       #   sha256 = "1f8xicnc5696g0a7wak749hf85ynfq16jyf4jjg4dad56y4csm6s";
