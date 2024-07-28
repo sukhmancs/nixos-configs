@@ -257,7 +257,8 @@ in {
       };
       Timer = {
         # call it every 10 minutes
-        OnCalendar = "*:0/10";
+        OnBootSec = "5s";
+        OnUnitActiveSec = "10min";
         Persistent = true;
       };
       Install = {
