@@ -22,6 +22,7 @@
   environment = {
     systemPackages = with pkgs; [
       qbittorrent
+      dolphin
       calibre
       bitwarden-desktop
       (symlinkJoin {
