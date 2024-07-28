@@ -29,7 +29,7 @@
     # services.seatd.enable = true;
     xdg.portal.enable = true;
     services.tailscale.enable = false; #TODO setup headscale first
-
+    services.printing.enable = true;
     modules.system = {
       mainUser = "xi";
       impermanence.root.enable = true;

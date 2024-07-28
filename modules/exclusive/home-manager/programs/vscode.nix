@@ -105,7 +105,7 @@ in {
         "terminal.integrated.automationShell.linux" = "nix-shell";
         "terminal.integrated.defaultProfile.linux" = "zsh";
         "terminal.integrated.cursorBlinking" = true;
-        "terminal.integrated.enableBell" = false;
+        "terminal.integrated.enableVisualBell" = false;
         "editor.formatOnPaste" = true;
         "editor.formatOnSave" = true;
         "editor.formatOnType" = false;

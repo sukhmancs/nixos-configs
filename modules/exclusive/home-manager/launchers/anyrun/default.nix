@@ -171,8 +171,7 @@ in {
           }
 
           #match:selected {
-              background: $selectedbg;
-              color: $selectedfg;
+              border: 1px solid $selectedbg;
           }
 
           #match {

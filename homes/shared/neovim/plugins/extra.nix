@@ -72,11 +72,6 @@ in {
       after = ["treesitter"];
     };
 
-    smart-splits = {
-      package = pluginSources.smart-splits;
-      setup = "require('smart-splits').setup {}";
-    };
-
     neotab-nvim = {
       package = pluginSources.neotab-nvim;
       setup = ''

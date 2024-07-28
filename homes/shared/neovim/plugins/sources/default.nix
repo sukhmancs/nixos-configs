@@ -13,11 +13,6 @@
       src = pins."hmts.nvim";
     };
 
-    smart-splits = buildVimPlugin {
-      name = "smart-splits";
-      src = pins."smart-splits.nvim";
-    };
-
     slides-nvim = buildVimPlugin {
       name = "slides.nvim";
       src = pins."slides.nvim";

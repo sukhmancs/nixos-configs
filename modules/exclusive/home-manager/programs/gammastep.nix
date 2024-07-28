@@ -1,3 +1,6 @@
+#
+# GammaStep - A tool to adjust the color temperature of your screen
+#
 {
   lib,
   osConfig,
