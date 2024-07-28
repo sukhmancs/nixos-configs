@@ -77,10 +77,11 @@ export default (monitor: number) =>
                         children: [
                             // RoundedAngleEnd("topleft", {class_name: "angle", click_through: true}),
                             // Cava(monitor, "end"),
+                            // TODO: re-enable below
                             SysTray(monitor, "end"),
                             BatteryBar(monitor, "end"),
-                            SystemIndicators(monitor, "end"),
-                            Date(monitor, "last"),
+                            // SystemIndicators(monitor, "end"),
+                            // Date(monitor, "last"),
                         ],
                     }),
                 ],

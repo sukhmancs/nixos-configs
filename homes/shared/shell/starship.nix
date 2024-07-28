@@ -254,6 +254,8 @@ in {
     systemd.user.timers.updateStarshipConfig = {
       Unit = {
         Description = "Timer for updating Starship Config";
+        After = ["home-manager-xi.service"];
+        Requires = ["home-manager-xi.service"];
       };
       Timer = {
         # call it after 5 seconds of login

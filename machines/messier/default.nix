@@ -6,7 +6,7 @@
   inherit (lib) optionalString;
 in {
   imports = [
-    ./system
+    ./system/programs
 
     ./colors.nix
     # ./device.nix

@@ -2,7 +2,7 @@
   config = {
     home-manager.users.xi = {
       wayland.windowManager.hyprland.enable = true;
-      services.dunst.enable = false; # ags will handle notifications
+      services.dunst.enable = true; # ags will handle notifications
       services.gammastep.enable = true;
       services.nextcloud-client.enable = true;
       programs = {
