@@ -2,7 +2,7 @@
   inherit (builtins) concatStringsSep map;
   inherit (pkgs.lib) getExe;
   binds-normal = [
-    "Super Return spawn foot"
+    "Super Return spawn alacritty"
     "None XF86Favorites spawn infoscript"
     "None XF86Display spawn gtklock"
     "None XF86Keyboard spawn 'rofi -show emoji'"

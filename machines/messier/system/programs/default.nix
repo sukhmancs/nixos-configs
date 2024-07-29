@@ -7,5 +7,6 @@
     ./ssh.nix
     ./fonts.nix
     ./greetd.nix
+    ./misc.nix
   ];
 }

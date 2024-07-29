@@ -6,5 +6,6 @@
     ./waybar
 
     ./swaylock.nix
+    ./alacritty.nix
   ];
 }

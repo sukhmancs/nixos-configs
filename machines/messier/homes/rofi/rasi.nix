@@ -6,6 +6,17 @@
   inherit (osConfig) modules;
   inherit (modules.themes) colors;
 in ''
+  configuration {
+          modi:                       "drun,calc,emoji,filebrowser";
+          show-icons:                 false;
+          display-drun:               " ";
+          display-run:                " ";
+          display-filebrowser:        " ";
+          display-calc:               " ";
+          display-emoji:              " ";
+          drun-display-format:        "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+          window-format:              "{w} · {c} · {t}";
+  }
   * {
       background:     #${colors.base01}ff;
       background-alt: #${colors.base00}ff;

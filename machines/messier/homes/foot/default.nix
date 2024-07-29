@@ -87,7 +87,7 @@ in {
   # flags = ["--config=${config}"];
 
   programs.foot = {
-    enable = true;
+    enable = false;
     package = pkgs.foot;
   };
 
