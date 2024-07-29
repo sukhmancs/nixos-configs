@@ -10,6 +10,7 @@
   # };
   imports = [
     ./programs
+    ./nixpkgs.nix
     # ./boot.nix
     ./users.nix
     ./console.nix
