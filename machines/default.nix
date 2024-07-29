@@ -115,19 +115,24 @@ in {
     specialArgs = {
       inherit lib inputs self;
     };
-    modules = [
-      {networking.hostName = "messier";}
-      "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix"
+    modules =
+      [
+        {networking.hostName = "messier";}
+        "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix"
 
-      # bootstrap channels with the ISO image to avoid fetching them during installation
-      "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+        # bootstrap channels with the ISO image to avoid fetching them during installation
+        "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
 
-      # make sure our installer can detect and interact with all hardware that is supported in Nixpkgs
-      # this loads basically every hardware related kernel module
-      # "${nixpkgs}/nixos/modules/profiles/all-hardware.nix"
+        # make sure our installer can detect and interact with all hardware that is supported in Nixpkgs
+        # this loads basically every hardware related kernel module
+        # "${nixpkgs}/nixos/modules/profiles/all-hardware.nix"
 
-      ./messier
-      ../modules/roles/iso
-    ];
+        ./messier
+        # ../modules/roles/iso
+      ]
+      ++ [
+        hm
+        ./messier/home.nix
+      ];
   };
 }

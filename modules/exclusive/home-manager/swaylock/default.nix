@@ -6,7 +6,8 @@
   ...
 }: let
   inherit (lib) mkIf;
-  inherit (osConfig.modules.style.colorScheme) colors;
+  inherit (osConfig) modules;
+  inherit (modules.themes) colors;
 in {
   config = mkIf config.programs.swaylock.enable {
     programs.swaylock = {

@@ -3,6 +3,7 @@
     ./neovim
 
     ./git.nix
+    ./river.nix
     ./ssh.nix
     ./fonts.nix
   ];
