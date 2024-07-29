@@ -9,24 +9,21 @@ in {
     # Force systemd-boot to be disabled.
     loader.systemd-boot.enable = mkForce false;
 
-    # use the latest Linux kernel instead of the default LTS kernel
-    # this is useful for hardware support and bug fixes
+    # Latest kernel
     kernelPackages = pkgs.linuxPackages_latest;
 
-    # ground control to kernel
-    # talk to me kernel
+    # Kernel parameters
+    # "noquiet" shows more boot messages, useful for debugging
+    # "toram" loads the entire system into RAM, improving performance for a live environment
     kernelParams = mkAfter ["noquiet" "toram"];
 
-    # no need for systemd in the initrd stage on an installation media
-    # being put in to recovery mode, or having systemd in stage one is
-    # entirely pointless as this is a live recovery environment.
+    # Wou don't need systemd in the initrd stage
     initrd.systemd = {
       enable = mkImageMediaOverride false;
       emergencyAccess = mkImageMediaOverride false;
     };
 
-    # Needed for https://github.com/NixOS/nixpkgs/issues/58959
-    # tl;dr: ZFS is problematic and we don't want it
+    # This are the filesystems that will be supported by the installer
     supportedFilesystems = mkForce [
       "btrfs"
       "vfat"
@@ -36,7 +33,9 @@ in {
       "cifs"
     ];
 
-    # disable software RAID
+    # RAID means Redundant Array of Independent Disks and is used to combine
+    # multiple disks into a single logical unit to improve performance and
+    # redundancy. This is not needed for an installer environment.
     swraid.enable = mkForce false;
   };
 }

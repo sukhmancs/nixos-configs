@@ -30,6 +30,7 @@
     xdg.portal.enable = true;
     services.tailscale.enable = false; #TODO setup headscale first
     services.printing.enable = true;
+    virtualisation.libvirtd.enable = true; # qemu
     modules.system = {
       mainUser = "xi";
       impermanence.root.enable = true;

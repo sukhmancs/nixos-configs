@@ -9,11 +9,11 @@
     modules = [
       {
         wrappers = {
-          #   foot = import ./configs/foot {inherit inputs pkgs cfg;};
+          foot = import ./configs/foot {inherit inputs pkgs config;};
 
-          #   gtklock = import ./configs/gtklock {inherit pkgs;};
+          gtklock = import ./configs/gtklock {inherit pkgs;};
           #   mako = import ./configs/mako {inherit pkgs cfg;};
-          #   rofi = import ./configs/rofi {inherit pkgs cfg;};
+          rofi = import ./configs/rofi {inherit pkgs config;};
           #   swayidle = import ./configs/swayidle {inherit pkgs;};
         };
       }

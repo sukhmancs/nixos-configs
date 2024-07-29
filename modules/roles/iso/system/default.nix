@@ -3,11 +3,11 @@
     ./misc
     ./services
 
-    ./boot.nix
-    ./environment.nix
-    ./hardware.nix
+    # ./boot.nix
+    # ./environment.nix
+    # ./hardware.nix
     ./networking.nix
-    ./nix.nix
+    # ./nix.nix
     ./security.nix
     ./users.nix
   ];

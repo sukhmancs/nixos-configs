@@ -8,5 +8,8 @@
     environment.systemPackages =
       import ./wrapper {inherit pkgs inputs config;};
   };
-  imports = [./programs];
+  imports = [
+    ./programs
+    ./boot.nix
+  ];
 }

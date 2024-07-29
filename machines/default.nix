@@ -109,50 +109,25 @@ in {
     inherit system agenix;
   };
 
-  # ISO - Portable Workstation
+  # Graphical ISO - Portable Workstation
   messier = lib.nixosSystem {
-    # hostname = "messier";
-    # system = "x86_64-linux";
     inherit system;
     specialArgs = {
       inherit lib inputs self;
     };
-    modules =
-      [
-        # "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix"
-        # "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
-        # provides options for modifying the ISO image
-        # "${nixpkgs}/nixos/modules/installer/cd-dvd/iso-image.nix"
-        # "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix"
-        "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix"
+    modules = [
+      {networking.hostName = "messier";}
+      "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix"
 
-        # bootstrap channels with the ISO image to avoid fetching them during installation
-        "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+      # bootstrap channels with the ISO image to avoid fetching them during installation
+      "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
 
-        # make sure our installer can detect and interact with all hardware that is supported in Nixpkgs
-        # this loads basically every hardware related kernel module
-        "${nixpkgs}/nixos/modules/profiles/all-hardware.nix"
+      # make sure our installer can detect and interact with all hardware that is supported in Nixpkgs
+      # this loads basically every hardware related kernel module
+      # "${nixpkgs}/nixos/modules/profiles/all-hardware.nix"
 
-        ./messier
-        ../modules/roles/iso
-        # (TODO: modules/shared also enables - apparmor, selinux, clamav, auditd, virtualization
-        # so check the performance impact and disable accordingly)
-        # ../modules/shared # modules shared across all hosts, enabled by default
-        # ../modules/exclusive/nixos # modules shared across all hosts, but need to be enabled
-        # inputs.home-manager.nixosModules.home-manager
-        # {
-        #   home-manager.useGlobalPkgs = true;
-        #   home-manager.useUserPackages = true;
-        # }
-      ]
-      # ++ isoRoles
-      ++ [
-        # ../options
-        # agenix
-      ]
-      ++ [
-        hm
-        ./messier/home.nix
-      ];
+      ./messier
+      ../modules/roles/iso
+    ];
   };
 }
