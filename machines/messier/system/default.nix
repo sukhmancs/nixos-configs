@@ -12,5 +12,6 @@
     ./programs
     # ./boot.nix
     ./users.nix
+    ./console.nix
   ];
 }

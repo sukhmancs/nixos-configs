@@ -6,9 +6,9 @@
     mutableUsers = false;
 
     users = {
-      root.initialPassword = "";
+      root.initialPassword = "changeme";
 
-      xi = {
+      nixos = {
         isNormalUser = true;
         uid = 1000;
         initialPassword = "changeme";

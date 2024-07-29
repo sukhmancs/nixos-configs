@@ -13,7 +13,7 @@ in {
 
   services.getty.helpLine =
     ''
-      The "xi" and "root" accounts have changeme passwords.
+      The "nixos" and "root" accounts have changeme passwords.
       An ssh daemon is running. You then must set a password
       for either "root" or "nixos" with `passwd` or add an ssh key
       to /home/nixos/.ssh/authorized_keys be able to login.

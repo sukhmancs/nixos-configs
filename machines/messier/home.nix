@@ -28,14 +28,14 @@ in {
     extraSpecialArgs = specialArgs;
 
     # per-user Home Manager configuration
-    users.xi = {
+    users.nixos = {
       imports = [
         ./homes
       ];
 
       home = {
-        username = "xi";
-        homeDirectory = lib.mkForce "/home/xi";
+        username = "nixos";
+        homeDirectory = lib.mkForce "/home/nixos";
         # Specify additional outputs to install, such as documentation
         extraOutputsToInstall = ["doc" "devdoc"];
 

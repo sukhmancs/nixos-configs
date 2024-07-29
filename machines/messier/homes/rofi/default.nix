@@ -10,7 +10,8 @@
   inherit (lib) mkForce;
 
   # rofiTheme = pkgs.writeText "andromeda.rasi" (import ./rasi.nix {inherit osConfig;});
-  rofiThemePath = import ./rasi.nix {inherit osConfig pkgs;};
+  rofiTheme = import ./rasi.nix {inherit osConfig pkgs;};
+  # rofiRasi = pkgs.writeText "rofi.rasi" rofiThemePath;
 in {
   programs.rofi = {
     enable = true;
@@ -40,6 +41,6 @@ in {
       display-emoji = " ";
     };
 
-    theme = "${rofiThemePath}";
+    theme = rofiTheme;
   };
 }
