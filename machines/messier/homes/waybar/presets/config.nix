@@ -9,7 +9,7 @@
 in {
   mainBar = {
     layer = "top";
-    position = "right";
+    position = "left";
     # monitor configuration, kind of dirty since it assumes DP-1 is my main monitor
     # output = primaryMonitor osConfig; #builtins.elemAt monitors 0;
     width = 55;
@@ -22,11 +22,11 @@ in {
     exclusive = true;
     modules-left = [
       "custom/search"
-      "group/info"
+      # "group/info"
     ];
     modules-center = ["hyprland/workspaces"];
     modules-right = [
-      "group/info-right"
+      # "group/info-right"
       # "battery"
       "group/network"
       "clock"

@@ -87,9 +87,12 @@ in {
   # flags = ["--config=${config}"];
 
   programs.foot = {
-    enable = false;
-    package = pkgs.foot;
+    enable = true;
   };
+
+  home.packages = with pkgs; [
+    foot
+  ];
 
   home.file.".config/foot/foot.ini" = {
     source = config;

@@ -3,18 +3,27 @@
   pkgs,
   ...
 }: {
-  # we don't need fontconfig on a server
-  # since there are no fonts to be configured outside the console
   fonts.fontconfig.enable = lib.mkDefault true;
   fonts.packages = with pkgs; [
+    # desktop fonts
+    corefonts # MS fonts
+    b612 # high legibility
+    material-icons # used in widgets and such
+    material-design-icons
+    work-sans
+    comic-neue
+    source-sans
+    inter
+    lato
+    lexend
+    dejavu_fonts
     noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    liberation_ttf
-    fira-code
-    fira-code-symbols
-    mplus-outline-fonts.githubRelease
-    dina-font
-    proggyfonts
+    noto-fonts-cjk-sans
+
+    # emojis
+    noto-fonts-color-emoji
+    twemoji-color-font
+    openmoji-color
+    openmoji-black
   ];
 }
