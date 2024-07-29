@@ -5,6 +5,7 @@
   pkgs,
   lib,
   osConfig,
+  config,
   ...
 }: let
   inherit (lib) mkForce;
