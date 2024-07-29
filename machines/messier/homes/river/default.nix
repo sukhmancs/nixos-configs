@@ -52,7 +52,7 @@ in {
       riverctl input $TRACKPOINT pointer-accel -0.3
 
       # riverctl keyboard-layout -options "caps:escape" pl
-      riverctl keyboard-layout us dvorak
+      riverctl keyboard-layout 'us(dvorak)'
 
       riverctl set-repeat 30 350
 

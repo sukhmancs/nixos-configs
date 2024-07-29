@@ -2,7 +2,7 @@
   inherit (builtins) concatStringsSep map;
   inherit (pkgs.lib) getExe;
   binds-normal = [
-    "Super+Shift Return spawn foot"
+    "Super Return spawn foot"
     "None XF86Favorites spawn infoscript"
     "None XF86Display spawn gtklock"
     "None XF86Keyboard spawn 'rofi -show emoji'"
@@ -19,7 +19,7 @@
     "Super+Shift J swap previous"
 
     # yoinks focused view into top of layout stack
-    "Super Return zoom"
+    "Super+Shift Return zoom"
 
     "Super H send-layout-cmd rivertile 'main-ratio -0.05'"
     "Super L send-layout-cmd rivertile 'main-ratio +0.05'"
