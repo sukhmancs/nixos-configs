@@ -5,7 +5,7 @@
       services.dunst.enable = true; # notification daemon
       services.gammastep.enable = true; # display color control
       services.nextcloud-client.enable = true; # syncronization client
-      # services.swayidle.enable = true; # screen idle
+      services.swayidle.enable = true; # screen idle
       programs = {
         rofi.enable = true; # application launcher
         firefox.enable = true; # browser (schizofox)
@@ -16,7 +16,7 @@
         mpv.enable = true; # media player
       };
       gtk.enable = true; # gtk theme
-      # qt.enable = true; # TODO : some glitches with apps when enabled
+      qt.enable = false; # TODO : some glitches with apps when enabled
     };
 
     modules.home.programs = {

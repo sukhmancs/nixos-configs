@@ -231,9 +231,9 @@ in {
       enable = true;
     };
 
-    home.packages = with pkgs; [
-      (perl.withPackages (ps: [ps.XMLSimple]))
-    ];
+    # home.packages = with pkgs; [
+    #   (perl.withPackages (ps: [ps.XMLSimple]))
+    # ];
 
     # Update Starship Config everytime user logs in. This way I can keep track
     # of the hostname and change the prompt accordingly.
