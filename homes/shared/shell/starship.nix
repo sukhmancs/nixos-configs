@@ -10,11 +10,18 @@
 {
   config,
   pkgs,
+  lib,
   osConfig,
   ...
 }: let
   inherit (osConfig) modules;
   inherit (modules.themes) colors;
+  inherit (lib.modules) mkForce;
+  inherit (lib.strings) makeBinPath;
+
+  dependencies = with pkgs; [
+    perl
+  ];
 
   starshipConfigDir = "$HOME/.config";
   starshipConfigFile = "${starshipConfigDir}/starship.toml";
@@ -243,6 +250,7 @@ in {
       };
       Service = {
         Type = "oneshot";
+        Environment.PATH = mkForce "/run/wrappers/bin:${makeBinPath dependencies}";
         ExecStart = "${shellScript}";
         Restart = "on-failure";
       };
