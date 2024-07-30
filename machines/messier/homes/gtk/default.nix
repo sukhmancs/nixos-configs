@@ -99,7 +99,14 @@ in {
     #   };
     # };
 
-    xdg.configFile = {
+    # This will override the base theme with the colorscheme
+    # defined in gtk.css
+    xdg.configFile = let
+      gtkColors = builtins.readFile colors;
+    in {
+      "gtk-3.0/gtk.css".text = gtkColors;
+      "gtk-4.0/gtk.css".text = gtkColors;
+
       "gtk-2.0/gtkrc".text = ''
         gtk-cursor-theme-name = "catppuccin-mocha-dark-cursors"
         gtk-cursor-theme-size = 24
@@ -160,15 +167,6 @@ in {
         gtk-xft-hinting=1
         gtk-xft-hintstyle=hintslight
       '';
-    };
-
-    # This will override the base theme with the colorscheme
-    # defined in gtk.css
-    xdg.configFile = let
-      gtkColors = builtins.readFile colors;
-    in {
-      "gtk-3.0/gtk.css".text = gtkColors;
-      "gtk-4.0/gtk.css".text = gtkColors;
     };
   };
 }
