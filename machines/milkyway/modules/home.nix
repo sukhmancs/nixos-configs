@@ -16,7 +16,7 @@
         mpv.enable = true; # media player
       };
       gtk.enable = true; # gtk theme
-      qt.enable = true; # qt theme
+      # qt.enable = true; # TODO : some glitches with apps when enabled
     };
 
     modules.home.programs = {
