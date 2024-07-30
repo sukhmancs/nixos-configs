@@ -5,7 +5,7 @@
       services.dunst.enable = true; # notification daemon
       services.gammastep.enable = true; # display color control
       services.nextcloud-client.enable = true; # syncronization client
-      services.swayidle.enable = true; # screen idle
+      # services.swayidle.enable = true; # screen idle
       programs = {
         rofi.enable = true; # application launcher
         firefox.enable = true; # browser (schizofox)
