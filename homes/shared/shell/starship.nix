@@ -232,7 +232,7 @@ in {
     };
 
     home.packages = with pkgs; [
-      perl
+      (perl.withPackages (ps: [ps.XMLSimple]))
     ];
 
     # Update Starship Config everytime user logs in. This way I can keep track

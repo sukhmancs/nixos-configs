@@ -8,5 +8,6 @@
     rsync
     nixos-install-tools
     ranger
+    libnotify
   ];
 }
