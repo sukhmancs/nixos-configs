@@ -42,6 +42,9 @@ in {
       recursive = true;
     };
 
+    #TODO: for some reason below doesn't work in ISO (settings.ini files were not present in .config/gtk-3.0/4.0),
+    # so i have to manually copy using xdg.configFile
+
     # gtk = {
     #   theme = {
     #     # I use adw-gtk3-dark as the base theme and override it with my own
