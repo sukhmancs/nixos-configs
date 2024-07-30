@@ -3,7 +3,7 @@
     ./foot # terminal
     ./gtk # gtk theme
     ./river # window manager
-    ./rofi # application launcher
+    # ./rofi # application launcher #TODO: fix rofi style
     ./waybar # status bar
 
     ./alacritty.nix # terminal (default)
@@ -11,5 +11,6 @@
     ./starship.nix # prompt
     ./swaylock.nix # screen locker
     ./swayidle.nix # screen idle
+    ./tofi.nix # minimalistic application launcher
   ];
 }
