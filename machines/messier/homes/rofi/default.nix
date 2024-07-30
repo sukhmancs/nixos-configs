@@ -94,9 +94,9 @@ in {
         padding = "0px";
         border = "0px solid";
         border-radius = "8px";
-        border-color = mkLiteral "@borderColour";
+        border-color = "@borderColour";
         cursor = "default";
-        background-color = mkLiteral "@backgroundColour";
+        background-color = "@backgroundColour";
       };
       "mainbox" = {
         enabled = true;
@@ -265,8 +265,8 @@ in {
         cursor = "pointer";
       };
       "button selected" = {
-        background-color = mkLiteral "@selected";
-        text-color = mkLiteral "@foreground";
+        background-color = "@selected";
+        text-color = "@foreground";
       };
 
       "message" = {
@@ -282,16 +282,16 @@ in {
       "textbox" = {
         padding = mkLiteral "12px";
         border-radius = mkLiteral "100%";
-        background-color = mkLiteral "@background-alt";
-        text-color = mkLiteral "@foreground";
+        background-color = "@background-alt";
+        text-color = "@foreground";
         vertical-align = mkLiteral "0.5";
         horizontal-align = mkLiteral "0.0";
       };
       "error-message" = {
         padding = mkLiteral "12px";
         border-radius = mkLiteral "20px";
-        background-color = mkLiteral "@background";
-        text-color = mkLiteral "@foreground";
+        background-color = "@background";
+        text-color = "@foreground";
       };
     };
   };

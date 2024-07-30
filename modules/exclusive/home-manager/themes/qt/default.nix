@@ -66,10 +66,12 @@ in {
       # write ~/.config/kdeglobals based on the kdeglobals file the user has specified
       # this option is a catch-all and not a set path because some programs specify different
       # paths inside their kdeglobals package
-      "kdeglobals".source = "${qtThemePackage}/share/color-schemes/CatppuccinMochaBlue.colors";
+      # "kdeglobals".source = "${qtThemePackage}/share/color-schemes/CatppuccinMochaBlue.colors";
 
+      # Kvantum configuration files
       "Kvantum/kvantum.kvconfig".text = kvantumConfig;
 
+      # Kvantum theme files
       "Kvantum/default/default.kvconfig" = {
         source = ./default/default.kvconfig;
       };

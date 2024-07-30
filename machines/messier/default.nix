@@ -6,11 +6,13 @@
   inherit (lib) optionalString;
 in {
   imports = [
-    ./system
+    ./nixos # Nixos system modules
 
-    ./colors.nix
+    ./colors.nix # color scheme for the system
   ];
 
+  # getty is the program that manages the virtual terminals
+  # we can set the helpLine, which is displayed below the login prompt
   services.getty.helpLine =
     ''
       The "nixos" and "root" accounts have changeme passwords.

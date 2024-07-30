@@ -1,11 +1,14 @@
 {
   imports = [
-    ./foot
-    ./river
-    ./rofi
-    ./waybar
+    ./foot # terminal
+    ./gtk # gtk theme
+    ./river # window manager
+    ./rofi # application launcher
+    ./waybar # status bar
 
-    ./swaylock.nix
-    ./alacritty.nix
+    ./alacritty.nix # terminal (default)
+    ./mako.nix # notification daemon
+    ./starship.nix # prompt
+    ./swaylock.nix # screen locker
   ];
 }

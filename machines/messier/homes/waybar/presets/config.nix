@@ -22,56 +22,25 @@ in {
     exclusive = true;
     modules-left = [
       "custom/search"
-      # "group/info"
+      "group/info"
     ];
-    modules-center = ["hyprland/workspaces"];
+    modules-center = ["river/tags"];
     modules-right = [
-      # "group/info-right"
-      # "battery"
+      "group/info-right"
+      "battery"
       "group/network"
       "clock"
-      "custom/lock"
+      # "custom/lock"
     ];
 
-    "hyprland/workspaces" = let
-      hyprctl = config.wayland.windowManager.hyprland.package + "/bin/hyprctl";
-    in {
-      on-click = "activate";
-      on-scroll-up = "${hyprctl} dispatch workspace m+1";
-      on-scroll-down = "${hyprctl} dispatch workspace m-1";
-      format = "{icon}";
-      active-only = false;
-      all-outputs = true;
-      persistent-workspaces = {
-        "1" = [];
-        "2" = [];
-        "3" = [];
-        "4" = [];
-        "5" = [];
-        "6" = [];
-        "7" = [];
-        "8" = [];
-      };
-      format-icons = {
-        "1" = "一";
-        "2" = "二";
-        "3" = "三";
-        "4" = "四";
-        "5" = "五";
-        "6" = "六";
-        "7" = "七";
-        "8" = "八";
-        "9" = "九";
-        "10" = "十";
-      };
-    };
-
+    ##### LEFT MODULES #####
     "custom/search" = {
       format = " ";
       tooltip = false;
       on-click = "${lib.getExe pkgs.killall} rofi || run-as-service $(rofi -show drun)";
     };
 
+    #### INFO MODULE - START ####
     "group/info" = {
       orientation = "inherit";
       drawer = {
@@ -86,43 +55,12 @@ in {
       ];
     };
 
-    "group/info-right" = {
-      orientation = "inherit";
-      drawer = {
-        "transition-duration" = 500;
-        "transition-left-to-right" = false;
-      };
-      modules = [
-        "custom/dmark-up"
-        "pulseaudio"
-        "backlight"
-        # "bluetooth"
-        "tray"
-      ];
-    };
-
-    "group/network" = {
-      orientation = "inherit";
-      drawer = {
-        "transition-duration" = 500;
-        "transition-left-to-right" = true;
-      };
-      modules = [
-        "network"
-        "network#speed"
-      ];
-    };
-
     "custom/dmark" = {
       format = "";
       tooltip = false;
     };
 
-    "custom/dmark-up" = {
-      format = "";
-      tooltip = false;
-    };
-
+    #### CPU MODULE - START ####
     "group/gcpu" = {
       orientation = "inherit";
       modules = [
@@ -140,6 +78,7 @@ in {
       format = "<b>{usage}󱉸</b>";
       "on-click" = "foot btop";
     };
+    ##### CPU MODULE - END #####
 
     memory = {
       format = "<b>  \n{:2}󱉸</b>";
@@ -150,15 +89,142 @@ in {
       format = "<b> 󰋊 \n{percentage_used}󱉸</b>";
       path = "/";
     };
+    #### INFO MODULE - END ####
+
+    ##### CENTER MODULES #####
+    "river/tags" = {
+      num-tags = 5;
+      tag-labels = ["一" "二" "三" "四" "五" "六" "七" "八" "九" "十"];
+    };
+
+    ##### RIGHT MODULES #####
+    ##### RIGHT INFO MODULE - START ####
+    "group/info-right" = {
+      orientation = "inherit";
+      drawer = {
+        "transition-duration" = 500;
+        "transition-left-to-right" = false;
+      };
+      modules = [
+        "custom/dmark-up"
+        "pulseaudio"
+        "backlight"
+        # "bluetooth"
+        "tray"
+      ];
+    };
+
+    "custom/dmark-up" = {
+      format = "";
+      tooltip = false;
+    };
+
+    pulseaudio = {
+      scroll-step = 5;
+      tooltip = true;
+      tooltip-format = "{volume}";
+      on-click = "${pkgs.killall}/bin/killall pavucontrol || ${pkgs.pavucontrol}/bin/pavucontrol";
+      format = "{icon}";
+      format-muted = "󰝟";
+      format-icons = {
+        default = ["" "" ""];
+      };
+    };
+
+    backlight = let
+      brightnessctl = lib.getExe pkgs.brightnessctl;
+    in {
+      format = "{icon}";
+      format-icons = ["󰋙" "󰫃" "󰫄" "󰫅" "󰫆" "󰫇" "󰫈"];
+      on-scroll-up = "${brightnessctl} s 5%-";
+      on-scroll-down = "${brightnessctl} s +5%";
+      tooltip = true;
+      tooltip-format = "Brightness: {percent}% ";
+      smooth-scrolling-threshold = 1;
+    };
+
+    bluetooth = {
+      # controller = "controller1", // specify the alias of the controller if there are more than 1 on the system
+      format = "";
+      format-disabled = "󰂲"; # an empty format will hide the module
+      format-connected = "󰂱";
+      tooltip-format = "{controller_alias}\t{controller_address}";
+      tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{device_enumerate}";
+      tooltip-format-disabled = "";
+      tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
+    };
+
+    "tray" = {
+      spacing = 10;
+    };
+
+    ##### RIGHT INFO MODULE - END ####
+
+    battery = {
+      rotate = 270;
+      states = {
+        good = 80;
+        warning = 30;
+        critical = 15;
+      };
+      format = "{icon}";
+      format-charging = "<b>{icon} </b>";
+      format-full = "<span color='#82A55F'><b>{icon}</b></span>";
+      format-plugged = "󰂄";
+      format-icons = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+      tooltip-format = "{timeTo} {capacity} % | {power} W";
+    };
+
+    #### NETWORK MODULE - START ####
+    "group/network" = {
+      orientation = "inherit";
+      drawer = {
+        "transition-duration" = 500;
+        "transition-left-to-right" = true;
+      };
+      modules = [
+        "network"
+        "network#speed"
+      ];
+    };
+
+    network = {
+      format-wifi = "󰤨";
+      format-ethernet = "󰈀";
+      format-alt = "󱛇";
+      format-disconnected = "󰤭";
+    };
+
+    "network#speed" = let
+      nm-editor = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
+    in {
+      format = " {bandwidthDownBits} ";
+      rotate = 90;
+      interval = 5;
+      tooltip-format = "{ipaddr}";
+      tooltip-format-wifi = "{essid} ({signalStrength}%)   \n{ipaddr} | {frequency} MHz{icon} ";
+      tooltip-format-ethernet = "{ifname} 󰈀 \n{ipaddr} | {frequency} MHz{icon} ";
+      tooltip-format-disconnected = "Not Connected to any type of Network";
+      tooltip = true;
+      on-click = "${nm-editor}";
+    };
+
+    #### NETWORK MODULE - END ####
+
+    clock = {
+      format = ''
+        {:%H
+        %M}'';
+      tooltip-format = ''
+        <big>{:%Y %B}</big>
+        <tt><small>{calendar}</small></tt>
+      '';
+    };
 
     "custom/lock" = {
       tooltip = false;
       on-click = "${pkgs.bash}/bin/bash -c '(sleep 0.5s; ${lib.getExe pkgs.swaylock-effects} --grace 0)' & disown";
       format = "";
-    };
-
-    "tray" = {
-      spacing = 10;
     };
 
     "custom/power" = {
@@ -187,86 +253,6 @@ in {
           fi
         '';
       format = "󰐥";
-    };
-    clock = {
-      format = ''
-        {:%H
-        %M}'';
-      tooltip-format = ''
-        <big>{:%Y %B}</big>
-        <tt><small>{calendar}</small></tt>
-      '';
-    };
-
-    backlight = let
-      brightnessctl = lib.getExe pkgs.brightnessctl;
-    in {
-      format = "{icon}";
-      format-icons = ["󰋙" "󰫃" "󰫄" "󰫅" "󰫆" "󰫇" "󰫈"];
-      on-scroll-up = "${brightnessctl} s 5%-";
-      on-scroll-down = "${brightnessctl} s +5%";
-      tooltip = true;
-      tooltip-format = "Brightness: {percent}% ";
-      smooth-scrolling-threshold = 1;
-    };
-
-    battery = {
-      rotate = 270;
-      states = {
-        good = 80;
-        warning = 30;
-        critical = 15;
-      };
-      format = "{icon}";
-      format-charging = "<b>{icon} </b>";
-      format-full = "<span color='#82A55F'><b>{icon}</b></span>";
-      format-plugged = "󰂄";
-      format-icons = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
-      tooltip-format = "{timeTo} {capacity} % | {power} W";
-    };
-
-    network = {
-      format-wifi = "󰤨";
-      format-ethernet = "󰈀";
-      format-alt = "󱛇";
-      format-disconnected = "󰤭";
-    };
-
-    "network#speed" = let
-      nm-editor = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
-    in {
-      format = " {bandwidthDownBits} ";
-      rotate = 90;
-      interval = 5;
-      tooltip-format = "{ipaddr}";
-      tooltip-format-wifi = "{essid} ({signalStrength}%)   \n{ipaddr} | {frequency} MHz{icon} ";
-      tooltip-format-ethernet = "{ifname} 󰈀 \n{ipaddr} | {frequency} MHz{icon} ";
-      tooltip-format-disconnected = "Not Connected to any type of Network";
-      tooltip = true;
-      on-click = "${nm-editor}";
-    };
-
-    pulseaudio = {
-      scroll-step = 5;
-      tooltip = true;
-      tooltip-format = "{volume}";
-      on-click = "${pkgs.killall}/bin/killall pavucontrol || ${pkgs.pavucontrol}/bin/pavucontrol";
-      format = "{icon}";
-      format-muted = "󰝟";
-      format-icons = {
-        default = ["" "" ""];
-      };
-    };
-
-    bluetooth = {
-      # controller = "controller1", // specify the alias of the controller if there are more than 1 on the system
-      format = "";
-      format-disabled = "󰂲"; # an empty format will hide the module
-      format-connected = "󰂱";
-      tooltip-format = "{controller_alias}\t{controller_address}";
-      tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{device_enumerate}";
-      tooltip-format-disabled = "";
-      tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
     };
   };
 }
