@@ -46,6 +46,10 @@ jobs:
         shell: bash
         run: nix build .#images.${{ matrix.image }} -o ${{ matrix.image }} --print-build-logs
 
+      - name: Compress ISO Image
+        run: |
+          xz -z -9 -e ${{ matrix.image }}/iso/*.iso
+
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.image }}-iso-image
@@ -53,7 +57,7 @@ jobs:
 
   # publish built images
   publish-images:
-    name: "Build ISO Images"
+    name: "Publish ISO Images"
     runs-on: ubuntu-latest
     needs: build-images
 
