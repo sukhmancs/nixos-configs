@@ -17,8 +17,8 @@
     fi
   '';
 in {
-  config = mkIf config.services.swayidle.enable {
-    systemd.user.services.swayidle.Install.WantedBy = ["hyprland-session.target"];
+  config = {
+    # systemd.user.services.swayidle.Install.WantedBy = ["hyprland-session.target"];
 
     # screen idle
     services.swayidle = {
@@ -37,11 +37,6 @@ in {
         {
           timeout = 900;
           command = suspendScript.outPath;
-        }
-        {
-          timeout = 1200;
-          command = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
-          resumeCommand = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on";
         }
       ];
     };

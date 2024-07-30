@@ -10,5 +10,6 @@
     ./mako.nix # notification daemon
     ./starship.nix # prompt
     ./swaylock.nix # screen locker
+    ./swayidle.nix # screen idle
   ];
 }
