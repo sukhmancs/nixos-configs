@@ -68,8 +68,6 @@ in {
 
       rivertile -view-padding 3 -outer-padding 3 &
 
-      riverctl spawn "waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css" &
-
       mako &
     '';
   };

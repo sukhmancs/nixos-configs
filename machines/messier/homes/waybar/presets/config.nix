@@ -30,7 +30,7 @@ in {
       "battery"
       "group/network"
       "clock"
-      # "custom/lock"
+      "custom/lock"
     ];
 
     ##### LEFT MODULES #####
@@ -93,7 +93,7 @@ in {
 
     ##### CENTER MODULES #####
     "river/tags" = {
-      num-tags = 5;
+      num-tags = 6;
       tag-labels = ["一" "二" "三" "四" "五" "六" "七" "八" "九" "十"];
     };
 
@@ -109,7 +109,7 @@ in {
         "custom/dmark-up"
         "pulseaudio"
         "backlight"
-        # "bluetooth"
+        "bluetooth"
         "tray"
       ];
     };

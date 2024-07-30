@@ -11,10 +11,6 @@
           bold = {style = "Bold";};
           size = 11;
         };
-        offset = {
-          x = -1;
-          y = 0;
-        };
       };
     };
   };

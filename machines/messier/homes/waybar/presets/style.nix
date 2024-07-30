@@ -59,7 +59,7 @@ in ''
   #battery,
   #backlight,
   #memory,
-  #workspaces,
+  #tags,
   #custom-search,
   #custom-power,
   #custom-todo,
@@ -79,7 +79,7 @@ in ''
     border-radius: 15px;
   }
 
-  #workspaces button {
+  #tags button {
     background-color: transparent;
     /* Use box-shadow instead of border so the text isn't offset */
     color: #${base07};
@@ -88,18 +88,18 @@ in ''
     box-shadow: inset 0 -3px transparent;
   }
 
-  #workspaces button:hover {
+  #tags button:hover {
     color: #${base08};
     box-shadow: inherit;
     text-shadow: inherit;
     border-radius: 15px;
   }
 
-  #workspaces button.active {
+  #tags button.active {
     color: #${base0A};
   }
 
-  #workspaces button.urgent {
+  #tags button.urgent {
     color: #${base08};
   }
 
@@ -108,7 +108,7 @@ in ''
     margin-bottom: 7px;
   }
 
-  #workspaces {
+  #tags {
     background-color: #${base02};
   }
 
