@@ -46,17 +46,10 @@ jobs:
         shell: bash
         run: nix build .#images.${{ matrix.image }} -o ${{ matrix.image }} --print-build-logs
 
-      - name: Change permissions for ISO files
-        run: chmod -R 755 ${{ matrix.image }}/iso
-
-      - name: Compress ISO Image
-        run: |
-          xz -z -9 -e ${{ matrix.image }}/iso/*.iso
-
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.image }}-iso-image
-          path: ${{ matrix.image }}/iso/*.iso.xz
+          path: ${{ matrix.image }}/iso/*.iso
 
   # publish built images
   publish-images:
