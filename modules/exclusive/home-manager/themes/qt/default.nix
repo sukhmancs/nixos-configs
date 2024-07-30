@@ -35,8 +35,8 @@ in {
       # libraries to ensure that "gtk" platform theme works
       # as intended after the following PR:
       # <https://github.com/nix-community/home-manager/pull/5156>
-      libsForQt5.qtstyleplugins
-      qt6Packages.qt6gtk2
+      # libsForQt5.qtstyleplugins
+      # qt6Packages.qt6gtk2
 
       # kvantum as a library and a program to theme qt applications
       # this added here, however, this will not have an effect
