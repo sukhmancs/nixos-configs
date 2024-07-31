@@ -21,6 +21,7 @@
 
   dependencies = with pkgs; [
     perl
+    hostname
   ];
 
   starshipConfigDir = "$HOME/.config";
