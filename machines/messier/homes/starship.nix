@@ -21,6 +21,7 @@
 
   dependencies = with pkgs; [
     perl
+    hostname
   ];
 
   starshipConfigDir = "$HOME/.config";
@@ -238,10 +239,6 @@ in {
       enable = true;
     };
 
-    # home.packages = with pkgs; [
-    #   (perl.withPackages (ps: [ps.XMLSimple]))
-    # ];
-
     # Update Starship Config everytime user logs in. This way I can keep track
     # of the hostname and change the prompt accordingly.
     systemd.user.services.updateStarshipConfig = {
@@ -250,7 +247,7 @@ in {
       };
       Service = {
         Type = "oneshot";
-        Environment = mkForce "PATH=${pkgs.perl}/bin:${makeBinPath dependencies}";
+        Environment = mkForce "PATH=/run/wrappers/bin:${makeBinPath dependencies}";
         ExecStart = "${shellScript}";
         Restart = "on-failure";
       };
