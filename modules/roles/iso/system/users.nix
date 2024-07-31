@@ -8,7 +8,7 @@
     users = {
       root.initialPassword = "";
 
-      xi = {
+      nixos = {
         isNormalUser = true;
         uid = 1000;
         initialPassword = "changeme";

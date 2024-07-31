@@ -128,7 +128,8 @@ in {
         "${nixpkgs}/nixos/modules/profiles/all-hardware.nix"
 
         ./messier
-        # ../modules/roles/iso
+        ../modules/roles/iso
+        ../modules/roles/graphical
       ]
       ++ [
         hm
