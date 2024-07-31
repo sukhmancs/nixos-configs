@@ -10,5 +10,6 @@
     ./river.nix # window manager
     ./ssh.nix # openssh server and ssh client configuration
     ./thunar.nix # file manager
+    ./zsh.nix # shell
   ];
 }

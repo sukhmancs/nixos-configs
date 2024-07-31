@@ -6,8 +6,8 @@
     "None XF86Favorites spawn infoscript"
     "None XF86Display spawn '${getExe pkgs.swaylock-effects}'"
     "None XF86Keyboard spawn 'rofi -show emoji'"
-    # "Super Space spawn 'rofi -show drun'"
-    ''Super Space spawn "tofi-drun --prompt-text '  Run'"''
+    "Super D spawn 'rofi -show drun'"
+    "Super Space spawn 'rofi-rbw'"
     "Super+Shift B spawn 'waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css'"
     "Super+Shift S spawn '${getExe pkgs.slurp} | ${getExe pkgs.grim} -g - - | ${pkgs.wl-clipboard}/bin/wl-copy'"
 
