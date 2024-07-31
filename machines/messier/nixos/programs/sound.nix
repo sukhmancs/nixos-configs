@@ -20,6 +20,10 @@
     };
   };
 
+  hardware.pulseaudio = {
+    enable = false; # Disable PulseAudio, as PipeWire is the primary sound server
+  };
+
   systemd.user.services = {
     pipewire.wantedBy = ["default.target"];
     pipewire-pulse.wantedBy = ["default.target"];
