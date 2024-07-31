@@ -26,9 +26,9 @@ Following hosts are available:
 
 | Host       | Type      |
 | ------------ | ---------------- |
-| `milkyway`   | Main Workstation |
+| `milkyway`   | Laptop           |
 | `triangulum` | Server           |
-| `andromeda`  | Laptop           |
+| `andromeda`  | Desktop          |
 | `messier`    | ISO              |
 
 ## Tools
