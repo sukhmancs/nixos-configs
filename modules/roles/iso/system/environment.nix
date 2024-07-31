@@ -7,11 +7,6 @@
   inherit (lib.modules) mkForce;
 in {
   environment = {
-    # our installer is a minimal, TUI-only environment. I don't find any
-    # good reason to keep X11 libs around while we will not be depending
-    # on any GUI frameworks.
-    # noXlibs = true;
-
     # 24.04 has brought in a stub-ld that will throw a warning if you try to run a
     # dynamically linked binary. This is an installer, so we probably won't try to run
     # dynamically linked binaries on this system. Besides, it's annoying.
@@ -23,15 +18,16 @@ in {
     # defaultPackages = mkForce [];
 
     # packages I might want on an installer environment
-    # systemPackages = with pkgs; [
-    #   gitMinimal
-    #   curl
-    #   wget
-    #   pciutils
-    #   lshw
-    #   rsync
-    #   nixos-install-tools
-    # ];
+    systemPackages = with pkgs; [
+      gitMinimal
+      curl
+      wget
+      pciutils
+      lshw
+      rsync
+      nixos-install-tools
+      ranger
+    ];
 
     etc = {
       # link a copy of our nixpkgs input as the nixpkgs channel

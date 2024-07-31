@@ -129,7 +129,6 @@ in {
 
         ./messier
         ../modules/roles/iso
-        ../modules/roles/graphical
       ]
       ++ [
         hm
