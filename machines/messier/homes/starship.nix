@@ -250,7 +250,7 @@ in {
       };
       Service = {
         Type = "oneshot";
-        Environment.PATH = mkForce "/run/wrappers/bin:${makeBinPath dependencies}";
+        Environment = mkForce "PATH=${pkgs.perl}/bin:${makeBinPath dependencies}";
         ExecStart = "${shellScript}";
         Restart = "on-failure";
       };

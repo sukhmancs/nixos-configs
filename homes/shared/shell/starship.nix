@@ -38,8 +38,8 @@
     my $host = {
       'milkyway' => '#${colors.base0E}',
       'andromeda' => '#${colors.base0D}',
-      'leto' => '#${colors.base07}',
-      'gaea' => '#${colors.base0B}',
+      'messier' => '#${colors.base07}',
+      'triangulum' => '#${colors.base0B}',
       'hornet' => '#${colors.base08}',
     }->{$hostname} // '#${colors.base06}';
 
@@ -250,7 +250,8 @@ in {
       };
       Service = {
         Type = "oneshot";
-        Environment = mkForce "PATH=${pkgs.perl}/bin:${makeBinPath dependencies}";
+        # Environment = mkForce "PATH=${pkgs.perl}/bin:${makeBinPath dependencies}";
+        Environment = mkForce "PATH=/run/wrappers/bin:${makeBinPath dependencies}";
         ExecStart = "${shellScript}";
         Restart = "on-failure";
       };
