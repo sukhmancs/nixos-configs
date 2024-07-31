@@ -8,19 +8,18 @@
 ## Todo
 
 ### Completed 🎉
-- [x] **AGS** - Need to add system, todo, hidden group, AI chat
+- [x] **AGS** - Add system(+)
 - [x] **Hyprland** - Custom & dynamic colors
 - [x] **System-wide dynamic colors** - Background, text, accent, overlay, secondary text
 - [x] **Anyrun** - Custom dynamic colors
 - [x] **GTK** - Fully dynamic custom themes
-- [x] **Starship** - Dynamic colors
+- [x] **Starship** - Auto-updating `starship.toml` using perl script
+- [x] **Portable Workstation** - River, Waybar
 
 ### In Progress
 - [ ] **SWW**
-- [ ] **Portable Workstation** - Sway, AGS
 - [ ] **Modularize** - Anyrun, qt.nix, ...
 - [ ] **QT**
-
 
 ## Host
 Following hosts are available:
@@ -30,7 +29,7 @@ Following hosts are available:
 | `milkyway`   | Main Workstation |
 | `triangulum` | Server           |
 | `andromeda`  | Laptop           |
-| `messier`    | Iso              |
+| `messier`    | ISO              |
 
 ## Tools
 Here are the tools I am using:
