@@ -9,6 +9,7 @@
     ./misc.nix # miscellaneous programs
     ./river.nix # window manager
     ./ssh.nix # openssh server and ssh client configuration
+    ./sound.nix # pipewire sound server
     ./thunar.nix # file manager
     ./zsh.nix # shell
   ];
