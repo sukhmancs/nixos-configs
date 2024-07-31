@@ -6,8 +6,6 @@
   inherit (inputs) self nixpkgs;
   inherit (inputs.self) lib; # I need mkService
   inherit (lib) mkNixosIso;
-  # inherit (lib) mkNixosIso mkNixosSystem mkModuleTree';
-  # inherit (lib.lists) concatLists flatten singleton;
 
   # Inputs
   hw = inputs.nixos-hardware.nixosModules; # hardware compat for pi4 and other quirky devices
@@ -129,6 +127,7 @@ in {
 
         ./messier
         ../modules/roles/iso
+        ../modules/roles/graphical
       ]
       ++ [
         hm

@@ -83,15 +83,13 @@ with osConfig.modules.themes.colors; let
 
   '';
 in {
-  # basePackage = pkgs.foot;
-  # flags = ["--config=${config}"];
-
   programs.foot = {
-    enable = false;
+    enable = true;
+    server.enable = false;
   };
 
   home.packages = with pkgs; [
-    foot
+    libsixel # for displaying images
   ];
 
   home.file.".config/foot/foot.ini" = {

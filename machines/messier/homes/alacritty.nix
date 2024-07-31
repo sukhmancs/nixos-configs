@@ -7,10 +7,10 @@
       enable = true;
       settings = {
         font = {
-          # normal.family = "FiraCode Nerd Font";
           bold = {style = "Bold";};
           size = 14;
         };
+        shell.program = "${pkgs.zsh}/bin/zsh";
       };
     };
   };
