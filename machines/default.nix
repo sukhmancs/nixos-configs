@@ -125,7 +125,7 @@ in {
 
         # make sure our installer can detect and interact with all hardware that is supported in Nixpkgs
         # this loads basically every hardware related kernel module
-        # "${nixpkgs}/nixos/modules/profiles/all-hardware.nix"
+        "${nixpkgs}/nixos/modules/profiles/all-hardware.nix"
 
         ./messier
         # ../modules/roles/iso
