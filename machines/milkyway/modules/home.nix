@@ -2,7 +2,7 @@
   config = {
     home-manager.users.xi = {
       wayland.windowManager.hyprland.enable = true; # window manager
-      services.dunst.enable = true; # notification daemon
+      services.dunst.enable = false; # notification daemon
       services.gammastep.enable = false; # display color control #TODO : not working
       services.nextcloud-client.enable = true; # syncronization client
       services.swayidle.enable = true; # screen idle
@@ -15,7 +15,7 @@
         swaylock.enable = true; # screen locker
         mpv.enable = true; # media player
       };
-      gtk.enable = false; # gtk theme
+      gtk.enable = true; # gtk theme
       qt.enable = false; # TODO : some glitches with apps when enabled
     };
 
