@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   # Enable PipeWire sound server and additional emulation layers
   # for all kinds of backwards compatibility. Audio on Linux has
   # always been finicky, and this is the best way to ensure that
