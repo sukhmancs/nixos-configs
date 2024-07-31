@@ -1,7 +1,7 @@
 #
 #  Terminal Emulator
 #
-{
+{pkgs, ...}: {
   programs = {
     alacritty = {
       enable = true;
