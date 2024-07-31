@@ -15,7 +15,7 @@ in {
     # 24.04 has brought in a stub-ld that will throw a warning if you try to run a
     # dynamically linked binary. This is an installer, so we probably won't try to run
     # dynamically linked binaries on this system. Besides, it's annoying.
-    stub-ld.enable = mkForce false;
+    # stub-ld.enable = mkForce false;
 
     # NixOS bundles a few packages by default
     # it's not too large of a list, but I don't need it and I prefer

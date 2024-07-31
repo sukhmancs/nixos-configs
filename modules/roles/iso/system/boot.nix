@@ -10,7 +10,7 @@ in {
     loader.systemd-boot.enable = mkForce false;
 
     # Latest kernel
-    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_latest;
 
     # Kernel parameters
     # "noquiet" shows more boot messages, useful for debugging
