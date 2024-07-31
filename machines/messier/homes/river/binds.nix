@@ -2,7 +2,7 @@
   inherit (builtins) concatStringsSep map;
   inherit (pkgs.lib) getExe;
   binds-normal = [
-    "Super Return spawn alacritty"
+    "Super Return spawn foot"
     "None XF86Favorites spawn infoscript"
     "None XF86Display spawn '${getExe pkgs.swaylock-effects}'"
     "None XF86Keyboard spawn 'rofi -show emoji'"

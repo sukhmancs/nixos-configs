@@ -6,7 +6,7 @@
     ./rofi # application launcher #TODO: fix rofi style
     ./waybar # status bar
 
-    ./alacritty.nix # terminal (default)
+    # ./alacritty.nix # terminal
     ./mako.nix # notification daemon
     ./starship.nix # prompt
     ./swaylock.nix # screen locker

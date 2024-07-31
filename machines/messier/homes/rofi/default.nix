@@ -1,6 +1,6 @@
 {
   imports = [
     ./rofi.nix
-    ./rofi-rbw.nix
+    # ./rofi-rbw.nix
   ];
 }

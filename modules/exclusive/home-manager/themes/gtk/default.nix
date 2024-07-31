@@ -49,18 +49,12 @@ in {
         # I use adw-gtk3-dark as the base theme and override it with my own
         # gtk color scheme
         name = "adw-gtk3-dark";
-        # package = pkgs.catppuccin-gtk.override {
-        #   variant = "mocha";
-        #   size = "standard";
-        #   accents = ["blue"];
-        #   tweaks = ["normal"];
-        # };
       };
 
       iconTheme = {
         name = "Papirus-Dark";
         package = pkgs.catppuccin-papirus-folders.override {
-          accent = "blue"; # "mauve";
+          accent = "blue";
           flavor = "mocha";
         };
       };

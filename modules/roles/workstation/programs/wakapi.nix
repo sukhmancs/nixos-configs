@@ -112,7 +112,7 @@ in {
     };
   };
 
-  config = {
+  config = mkIf false {
     users.users.wakapi = {
       inherit group;
       isSystemUser = true;

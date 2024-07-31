@@ -17,7 +17,7 @@ in {
     margin-left = null;
     margin-top = 6;
     margin-bottom = 6;
-    margin-right = 6;
+    margin-right = null;
     fixed-center = true;
     exclusive = true;
     modules-left = [
