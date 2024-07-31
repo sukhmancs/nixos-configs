@@ -21,7 +21,7 @@
   };
 
   hardware.pulseaudio = {
-    enable = false; # Disable PulseAudio, as PipeWire is the primary sound server
+    enable = lib.mkForce false; # Disable PulseAudio, as PipeWire is the primary sound server
   };
 
   systemd.user.services = {
