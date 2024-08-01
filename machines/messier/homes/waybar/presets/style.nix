@@ -88,14 +88,17 @@ in ''
   }
 
   #tags button:hover {
-    color: #${base08};
-    box-shadow: inherit;
-    text-shadow: inherit;
-    border-radius: 15px;
+    color: #${base05};
+    background-color: #${base03};
   }
 
-  #tags button.active {
-    color: #${base0A};
+  #tags button.focused * {
+    border-radius: 20px;
+    border-color: #${base0E};
+  }
+
+  #tags button.occupied {
+    color: #${base0E};
   }
 
   #tags button.urgent {

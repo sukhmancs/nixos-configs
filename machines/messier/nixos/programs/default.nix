@@ -3,7 +3,7 @@
     ./neovim # text editor
 
     ./fonts.nix # default fonts (required for widgets)
-    ./firefox.nix # hardened firefox
+    # ./firefox.nix # hardened firefox
     ./git.nix # version control
     # ./greetd.nix # display manager
     ./misc.nix # miscellaneous programs

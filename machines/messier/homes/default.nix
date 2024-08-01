@@ -8,6 +8,7 @@
 
     ./alacritty.nix # terminal (just a backup terminal)
     ./mako.nix # notification daemon
+    ./schizofox.nix # firefox but hardened
     ./starship.nix # prompt
     ./swaylock.nix # screen locker
     ./swayidle.nix # screen idle
