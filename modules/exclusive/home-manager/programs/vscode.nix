@@ -147,48 +147,48 @@ in {
         "extensions.experimental.affinity" = {
           "asvetliakov.vscode-neovim" = 1;
         };
-               "flake8.severity" = {
-                 "E" = "Information";
-                 "F" = "Hint";
-                 "W" = "Error";
-               };
+        "flake8.severity" = {
+          "E" = "Information";
+          "F" = "Hint";
+          "W" = "Error";
+        };
         "window.titleSeparator" = " | ";
         "terminal.integrated.enableMultiLinePasteWarning" = false;
         "explorer.openEditors.visible" = 1;
-        "editor.cursorBlinking" = "phase";
+        # "editor.cursorBlinking" = "phase";
         "terminal.integrated.tabs.separator" = " | ";
         "git.autofetch" = true;
         "explorer.confirmDragAndDrop" = false;
         "explorer.autoReveal" = false;
-               "errorLens.gutterIconsEnabled" = true;
-               "errorLens.gutterIconSize" = "115%";
-               "errorLens.messageBackgroundMode" = "message";
-               "errorLens.enabledDiagnosticLevels" = [
-                 "error"
-                 "warning"
-                 "info"
-                 "hint"
-               ];
+        "errorLens.gutterIconsEnabled" = true;
+        "errorLens.gutterIconSize" = "115%";
+        "errorLens.messageBackgroundMode" = "message";
+        "errorLens.enabledDiagnosticLevels" = [
+          "error"
+          "warning"
+          "info"
+          "hint"
+        ];
         "window.title" = "!Neovim";
-        
-           "python.linting.flake8Args" = [
+
+        "python.linting.flake8Args" = [
           "--extend-ignore=E501"
-        ]
-        
-         "python.linting.flake8CategorySeverity.F" = "Warning";
-                # "vscode-neovim.highlightGroups.highlights" = {
-                #   "IncSearch" = {
-                #     "backgroundColor" = "theme.editor.findMatchBackground";
-                #     "borderColor" = "theme.editor.findMatchBorder";
-                #   };
-                #   "Search" = {
-                #     "backgroundColor" = "theme.editor.findMatchHighlightBackground";
-                #     "borderColor" = "theme.editor.findMatchHighlightBorder";
-                #   };
-                #   "Visual" = {
-                #     "backgroundColor" = "theme.editor.selectionBackground";
-                #   };
-                # };
+        ];
+
+        "python.linting.flake8CategorySeverity.F" = "Warning";
+        # "vscode-neovim.highlightGroups.highlights" = {
+        #   "IncSearch" = {
+        #     "backgroundColor" = "theme.editor.findMatchBackground";
+        #     "borderColor" = "theme.editor.findMatchBorder";
+        #   };
+        #   "Search" = {
+        #     "backgroundColor" = "theme.editor.findMatchHighlightBackground";
+        #     "borderColor" = "theme.editor.findMatchHighlightBorder";
+        #   };
+        #   "Visual" = {
+        #     "backgroundColor" = "theme.editor.selectionBackground";
+        #   };
+        # };
         "breadcrumbs.enabled" = true;
         "github.copilot.enable" = {
           "markdown" = true;
