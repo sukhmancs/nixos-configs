@@ -29,6 +29,7 @@ in {
           ms-python.vscode-pylance
           ms-vscode-remote.remote-ssh
           ms-vscode.cpptools
+
           naumovs.color-highlight
           svelte.svelte-vscode
           ms-vsliveshare.vsliveshare
@@ -96,9 +97,18 @@ in {
         "workbench.colorTheme" = "Catppuccin Macchiato";
         "catppuccin.accentColor" = "mauve";
         "editor.fontFamily" = "JetBrainsMono Nerd Font, Material Design Icons, 'monospace', monospace";
+        "editor.inlayHints.enabled" = "off";
+        "git.openRepositoryInParentFolders" = "always";
+        "editor.lineNumbers" = "relative";
+        "breadcrumbs.filePath" = "off";
+        "workbench.layoutControl.enabled" = false;
+        "editor.lightbulb.enabled" = "off";
+        "notebook.breadcrumbs.showCodeCells" = false;
+        "workbench.editor.enablePreview" = false;
+        "editor.scrollbar.verticalScrollbarSize" = 6;
         "editor.fontSize" = 16;
-        "editor.fontLigatures" = true;
-        "workbench.fontAliasing" = "antialiased";
+        #"editor.fontLigatures" = true;
+        # "workbench.fontAliasing" = "antialiased";
         "files.trimTrailingWhitespace" = true;
         "terminal.integrated.fontFamily" = "JetBrainsMono Nerd Font Mono";
         "window.titleBarStyle" = "custom";
@@ -127,7 +137,58 @@ in {
         "workbench.startupEditor" = "none";
         "workbench.list.smoothScrolling" = true;
         "security.workspace.trust.enabled" = false;
+
+        # "terminal.integrated.tabs.enabled" = true;
+        "editor.scrollbar.horizontalScrollbarSize" = 0;
+        "git.enableSmartCommit" = true;
+        "git.confirmSync" = false;
         "explorer.confirmDelete" = false;
+        # "redhat.telemetry.enabled" = false;
+        # "extensions.experimental.affinity" = {
+        #   "asvetliakov.vscode-neovim" = 1;
+        # };
+        #        "flake8.severity" = {
+        #          "E" = "Information";
+        #          "F" = "Hint";
+        #          "W" = "Error";
+        #        };
+        # "window.titleSeparator" = " | ";
+        # "terminal.integrated.enableMultiLinePasteWarning" = false;
+        # "explorer.openEditors.visible" = 1;
+        "editor.cursorBlinking" = "phase";
+        # "terminal.integrated.tabs.separator" = " | ";
+        "git.autofetch" = true;
+        "explorer.confirmDragAndDrop" = false;
+        "explorer.autoReveal" = false;
+        #        "errorLens.gutterIconsEnabled" = true;
+        #        "errorLens.gutterIconSize" = "115%";
+        #        "errorLens.messageBackgroundMode" = "message";
+        #        "errorLens.enabledDiagnosticLevels" = [
+        #          "error"
+        #          "warning"
+        #          "info"
+        #          "hint"
+        #        ];
+        "window.title" = "!Neovim";
+        /*
+           "python.linting.flake8Args" = [
+          "--extend-ignore=E501"
+        ]
+        */
+        # "python.linting.flake8CategorySeverity.F" = "Warning";
+        #//        "vscode-neovim.highlightGroups.highlights" = {
+        #//          "IncSearch" = {
+        #//            "backgroundColor" = "theme.editor.findMatchBackground";
+        #//            "borderColor" = "theme.editor.findMatchBorder";
+        #//          };
+        #//          "Search" = {
+        #//            "backgroundColor" = "theme.editor.findMatchHighlightBackground";
+        #//            "borderColor" = "theme.editor.findMatchHighlightBorder";
+        #//          };
+        #//          "Visual" = {
+        #//            "backgroundColor" = "theme.editor.selectionBackground";
+        #//          };
+        #//        };
         "breadcrumbs.enabled" = true;
         "github.copilot.enable" = {
           "markdown" = true;

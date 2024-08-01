@@ -99,21 +99,21 @@
           Value = true;
         };
       };
-      #   SanitizeOnShutdown = {
-      #     # Delete data on quit
-      #     Cache = true;
-      #     Cookies = true;
-      #     Downloads = false;
-      #     FormData = true;
-      #     History = false;
-      #     Sessions = false;
-      #     SiteSettings = false;
-      #     OfflineApps = true;
-      #     Locked = true;
-      #   };
+      SanitizeOnShutdown = {
+        # Delete data on quit
+        Cache = true;
+        Cookies = true;
+        Downloads = false;
+        FormData = true;
+        History = false;
+        Sessions = false;
+        SiteSettings = false;
+        OfflineApps = true;
+        Locked = true;
+      };
       SearchEngines = {
         # Prevent installing custom search engines
-        PreventInstalls = true;
+        PreventInstalls = false;
       };
       UserMessaging = {
         # Disable FireFox from showing messages
@@ -176,12 +176,17 @@
         # };
         "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
           # Vimium
-          installation_mode = "allowed";
+          installation_mode = "force_installed";
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi";
         };
         "addon@darkreader.org" = {
           installation_mode = "force_installed";
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
+        };
+        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+          # Bitwarden
+          installation_mode = "force_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
         };
       };
       Homepage = {

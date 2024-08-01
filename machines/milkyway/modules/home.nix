@@ -15,7 +15,7 @@
         swaylock.enable = true; # screen locker
         mpv.enable = true; # media player
       };
-      gtk.enable = true; # gtk theme
+      # gtk.enable = true; # gtk theme
       qt.enable = false; # TODO : some glitches with apps when enabled
     };
 

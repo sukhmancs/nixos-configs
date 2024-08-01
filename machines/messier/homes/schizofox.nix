@@ -60,7 +60,7 @@ in {
       };
 
       extensions = {
-        simplefox.enable = false;
+        simplefox.enable = true;
         darkreader.enable = true;
         extraExtensions = {
           "{1018e4d6-728f-4b20-ad56-37578a4de76b}".install_url = "https://addons.mozilla.org/firefox/downloads/latest/flagfox/latest.xpi";

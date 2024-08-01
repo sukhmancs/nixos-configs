@@ -21,7 +21,7 @@ in {
           width = 320;
           height = 280;
           origin = "top-center";
-          alignment = "left";
+          alignment = "center";
           vertical_alignment = "center";
           ellipsize = "middle";
           offset = "17x17";
@@ -43,13 +43,14 @@ in {
           corner_radius = 8;
           transparency = 0;
           gap_size = 8;
-          line_height = 0;
+          line_height = 5;
           notification_limit = 3;
           idle_threshold = 120;
-          history_length = 20;
+          history_length = 30;
           show_age_threshold = 60;
           markup = "full";
-          font = "Iosevka 16";
+          format = "<b>%s</b>\n%b";
+          font = "JetBrainsMono Nerd Font Medium 9";
           word_wrap = "yes";
           sort = "yes";
           shrink = "no";

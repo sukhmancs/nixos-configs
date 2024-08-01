@@ -1,6 +1,6 @@
 {
   imports = [
-    ./neovim # text editor
+    # ./neovim # text editor
 
     ./fonts.nix # default fonts (required for widgets)
     # ./firefox.nix # hardened firefox
