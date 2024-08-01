@@ -52,7 +52,7 @@ export default (monitor: number) =>
                         className: "barLeft",
                         children: [
                             Launcher(),
-                            // Chat(),
+                            Chat(),
                             Media(monitor, "start"),
                             // RoundedAngleEnd("topright", {class_name: "angle"})
                         ],
@@ -80,8 +80,8 @@ export default (monitor: number) =>
                             // TODO: re-enable below
                             SysTray(monitor, "end"),
                             BatteryBar(monitor, "end"),
-                            // SystemIndicators(monitor, "end"),
-                            // Date(monitor, "last"),
+                            SystemIndicators(monitor, "end"),
+                            Date(monitor, "last"),
                         ],
                     }),
                 ],
