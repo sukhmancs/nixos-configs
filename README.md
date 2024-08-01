@@ -1,9 +1,14 @@
+## Preview
+
 <p id="preview" align="center">
   <br/>
-  <img src=".github/assets/desktop_preview.png" alt="Desktop Preview" />
+  <img src=".github/assets/desktop_preview.png" alt="Laptop Preview" />
+  Laptop Preview (milkyway)
+  <img src=".github/assets/iso_preview.png" alt="ISO Preview" />
+  ISO Preview (messier)
   <br/>
-  <!-- Screenshot last updated <b>2024-03-19</b> -->
 </p>
+
 
 ## Todo
 
