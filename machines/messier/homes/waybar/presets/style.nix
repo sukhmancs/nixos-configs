@@ -92,7 +92,7 @@ in ''
     background-color: #${base03};
   }
 
-  #tags button.focused * {
+  #tags button.focused {
     border-radius: 20px;
     border-color: #${base0E};
   }
