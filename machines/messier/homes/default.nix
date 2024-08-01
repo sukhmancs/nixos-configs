@@ -2,6 +2,7 @@
   imports = [
     ./foot # terminal
     ./gtk # gtk theme
+    ./neovim # full-featured text editor
     ./river # window manager
     ./rofi # application launcher #TODO: fix rofi style
     ./waybar # status bar

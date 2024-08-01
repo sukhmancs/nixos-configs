@@ -21,6 +21,27 @@
 - [ ] **Modularize** - Anyrun, qt.nix, ...
 - [ ] **QT**
 
+## Privacy and Security
+<details>
+
+<summary>🛡️ Measures</summary>
+
+</br>
+
+- **Firewall** - `nftables`
+- **DNS** - `adguard`
+- **VPN** - `wireguard`
+- **Secrets** - `agenix`
+- **Encryption** - `LUKS`
+- **Sandboxing** - `firejail`
+- **Security Profiles** - `apparmor`, `selinux`
+- **Physical Security** - `yubikey`
+- **Ban IPs** - `fail2ban`
+- **Malware scanner** - `clamav`
+- **Hardened Firefox** - `Schizofox`
+
+</details>
+
 ## Host
 Following hosts are available:
 
@@ -34,16 +55,18 @@ Following hosts are available:
 ## Tools
 Here are the tools I am using:
 
-| Tool              | Description      |
-| ----------------- | ---------------- |
-| 🪟 Window Manager  | Hyprland         |
-| 🖥️ Display Manager | swaylock         |
-| 📊 Bar             | AGS              |
-| 🚀 Launcher        | Anyrun, Rofi     |
-| 🎨 GTK Theme       | Cappuccino Mocha |
-| 🖥️ Terminal        | Foot             |
-| 🔔 Notifications   | Dunst, AGS            |
+| Tool               | Milkyway/Andromeda  | Messier |
+| -----------------  | ------------- | ------------- |
+| 🪟 Window Manager  | Hyprland      | River         |
+| 🖥️ Display Manager | swaylock      | swaylock      |
+| 📊 Bar             | AGS           | Waybar        |
+| 🚀 Launcher        | Anyrun, Rofi  | Rofi          |
+| 🎨 GTK Theme       | adw-gtk3-dark | adw-gtk3-dark |
+| 🖥️ Terminal        | Foot          | Foot          |
+| 🔔 Notifications   | Dunst, AGS    | Mako          |
 
+> [!NOTE]
+> **Triangulum** is a headless server, so no graphical stuff there.
 
 ## Color Scheme
 ### Default Color Scheme: `cappuccino-mocha`
