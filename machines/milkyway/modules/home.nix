@@ -5,7 +5,7 @@
       services.dunst.enable = false; # notification daemon
       services.gammastep.enable = false; # display color control #TODO : not working
       services.nextcloud-client.enable = true; # syncronization client
-      # services.swayidle.enable = true; # screen idle
+      services.swayidle.enable = true; # screen idle
       programs = {
         rofi.enable = true; # application launcher
         firefox.enable = true; # browser (schizofox)
@@ -22,7 +22,7 @@
     modules.home.programs = {
       ags.enable = true; # widgets
       clipboard.enable = true;
-      # hyprpaper.enable = true; # wallpaper manager
+      hyprpaper.enable = true; # wallpaper manager
       spotify.enable = false; # music player
       element.enable = false; # matrix client
       discord.enable = false;
