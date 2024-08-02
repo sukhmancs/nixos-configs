@@ -254,9 +254,13 @@ mount -o subvol=log,compress=zstd,noatime /dev/mapper/crypted /mnt/var/log
 mkfs.vfat -n BOOT "$DISK"1
 mount --mkdir "$DISK"1 /mnt/boot
 ```
-**Generate the NixOS configuration**
+
+</details>
+
+### Install NixOS
 
 ```bash
+# Generate the configuration
 nixos-generate-config --root /mnt
 ```
 
@@ -279,9 +283,8 @@ nixos-generate-config --root /mnt
 >  };
 > ```
 
-Then finally run `nixos-install` to install NixOS.
+Run `nixos-install` to install NixOS.
 
-</details>
 
 
 ### Install the dotfiles
