@@ -44,6 +44,7 @@
 - **Ban IPs** - `fail2ban`
 - **Malware scanner** - `clamav`
 - **Hardened Firefox** - `Schizofox`
+- **Stateless System** - `Impermanence`
 
 </details>
 
@@ -181,7 +182,7 @@ nix --experimental-features "nix-command flakes" run github:nix-community/disko\
 
 </br>
 
-Create the partitions using parted:
+**Create Partitions**
 
 ```bash
 # Create boot, swap, and root partitions
