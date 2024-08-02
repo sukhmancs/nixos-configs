@@ -232,7 +232,7 @@ mkdir /mnt/boot
 mount "$DISK"1 /mnt/boot
 
 nixos-generate-config --root /mnt
-
+```
 
 > [!NOTE]
 > We need to add the neededForBoot = true; to some mounted subvolumes in hardware-configuration.nix. It will look something like this:
