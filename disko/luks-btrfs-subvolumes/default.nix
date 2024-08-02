@@ -42,7 +42,7 @@
               size = "100%";
               content = {
                 type = "luks";
-                name = "enc";
+                name = "crypted";
                 # disable settings.keyFile if you want to use interactive password entry
                 #passwordFile = "/tmp/secret.key"; # Interactive
                 settings = {
@@ -72,10 +72,6 @@
                     "log" = {
                       mountpoint = "/var/log";
                       mountOptions = ["compress=zstd" "noatime"];
-                    };
-                    "/swap" = {
-                      mountpoint = "/.swapvol";
-                      swap.swapfile.size = "20M";
                     };
                   };
                 };
