@@ -2,8 +2,8 @@
   config = {
     home-manager.users.xi = {
       wayland.windowManager.hyprland.enable = true; # window manager
-      services.dunst.enable = false; # notification daemon
-      services.gammastep.enable = false; # display color control #TODO : not working
+      services.dunst.enable = true; # notification daemon
+      services.gammastep.enable = true; # display color control #TODO: not working
       services.nextcloud-client.enable = true; # syncronization client
       services.swayidle.enable = true; # screen idle
       programs = {
@@ -16,7 +16,7 @@
         mpv.enable = true; # media player
       };
       gtk.enable = true; # gtk theme
-      qt.enable = false; # TODO : some glitches with apps when enabled
+      qt.enable = false; # TODO: some glitches with apps when enabled
     };
 
     modules.home.programs = {

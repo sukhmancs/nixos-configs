@@ -21,7 +21,7 @@ import {
 import userOptions from "./sideleft/.configuration/user_options.js";
 import { setupQuickSettings } from "widget/quicksettings/QuickSettings";
 import { setupCalendarSettings } from "widget/calendarsettings/CalendarSettings";
-// import SideLeft from "sideleft/main.js";
+import SideLeft from "sideleft/main.js";
 import hyprland from "lib/hyprland";
 
 App.config({
@@ -41,12 +41,12 @@ App.config({
         ...forMonitors(NotificationPopups),
         // ...forMonitors(ScreenCorners),
         ...forMonitors(OSD),
-        // SideLeft(), // TODO:: core dump
-        //      Launcher(),
-        //     Overview(),
-        //       PowerMenu(),
-        //      SettingsDialog(),
-        //      Verification(),
+        SideLeft(),
+        Launcher(),
+        Overview(),
+        PowerMenu(),
+        SettingsDialog(),
+        Verification(),
         // CornerTopleft(),
         // CornerTopright(),
         // CornerBottomright(),
