@@ -181,32 +181,31 @@ nix --experimental-features "nix-command flakes" run github:nix-community/disko\
 
 </br>
 
-Boot Partition
+Create the partitions using parted:
 
 ```bash
-# Change the disk name according to your system
+# Create boot, swap, and root partitions
 DISK=/dev/sda
 
 parted "$DISK" -- mklabel gpt
 parted "$DISK" -- mkpart ESP fat32 1MiB 1GiB
 parted "$DISK" -- set 1 boot on
 
-mkfs.vfat -n BOOT "$DISK"1
+parted "$DISK" -- mkpart Swap linux-swap 1GiB 9GiB
+
+parted "$DISK" -- mkpart primary 9GiB 100%
 ```
 
-Swap Partition
+**Setup Swap Partition**
 
 ```bash
-parted "$DISK" -- mkpart Swap linux-swap 1GiB 9GiB
 mkswap -L SWAP "$DISK"2
 swapon "$DISK"2
 ```
 
-Btrfs with LUKS (Root Partition)
+**Btrfs with LUKS (Root Partition)**
 
 ```bash
-parted "$DISK" -- mkpart primary 9GiB 100%
-
 cryptsetup --verify-passphrase -v luksFormat "$DISK"3 # /dev/sda3
 cryptsetup open "$DISK"3 crypted
 
@@ -214,18 +213,20 @@ mkfs.btrfs -L NIXOS /dev/mapper/crypted
 
 mount -t btrfs /dev/mapper/crypted /mnt
 
-# First we create the subvolumes, those may differ as per your preferences
+# Setups subvolumes
 btrfs subvolume create /mnt/root
 btrfs subvolume create /mnt/home
 btrfs subvolume create /mnt/nix
-btrfs subvolume create /mnt/persist # some people may choose to put /persist in /mnt/nix, I am not one of those people.
+btrfs subvolume create /mnt/persist
 btrfs subvolume create /mnt/log
 
+# Blank snapshot of the root subvolume
 btrfs subvolume snapshot -r /mnt/root /mnt/root-blank
 
-# Make sure to unmount, or nixos-rebuild will try to remove /mnt and fail
+# Unmount the root partition
 umount /mnt
 
+# Mount the subvolumes
 # /
 mount -o subvol=root,compress=zstd,noatime /dev/mapper/crypted /mnt
 
@@ -244,11 +245,17 @@ mount -o subvol=persist,compress=zstd,noatime /dev/mapper/crypted /mnt/persist
 # /var/log
 mkdir -p /mnt/var/log
 mount -o subvol=log,compress=zstd,noatime /dev/mapper/crypted /mnt/var/log
+```
 
-# do not forget to mount the boot partition
-mkdir /mnt/boot
-mount "$DISK"1 /mnt/boot
+**Setup Boot Partition**
 
+```bash
+mkfs.vfat -n BOOT "$DISK"1
+mount --mkdir "$DISK"1 /mnt/boot
+```
+**Generate the NixOS configuration**
+
+```bash
 nixos-generate-config --root /mnt
 ```
 
