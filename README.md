@@ -160,7 +160,7 @@ nix --experimental-features "nix-command flakes" run github:nix-community/disko\
 
 <details>
 
-<summary>Option 2 - Manual Partitioning based on NotaShelfs' blog</summary>
+<summary>Option 2 - Manual Partitioning based on NotAShelf's blog</summary>
 
 </br>
 
