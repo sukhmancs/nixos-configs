@@ -1,3 +1,4 @@
+# Original Code by NotAShelf - https://github.com/notashelf/nyx
 {
   boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/fa8a6d23-2705-4ff4-8f17-8e4dafe952cd";
 
