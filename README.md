@@ -250,6 +250,7 @@ nixos-generate-config --root /mnt
 >    options = ["subvol=log"];
 >    neededForBoot = true; # <- add this
 >  };
+> ```
 
 Then finally run `nixos-install` to install NixOS.
 
