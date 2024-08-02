@@ -160,7 +160,7 @@ nix --experimental-features "nix-command flakes" run github:nix-community/disko\
 
 <details>
 
-<summary>Option 2 - Manual Partitioning</summary>
+<summary>Option 2 - Manual Partitioning based on NotaShelfs' blog</summary>
 
 </br>
 
@@ -168,9 +168,8 @@ Boot Partition
 
 ```bash
 # Change the disk name according to your system
-DISK=/dev/vda
+DISK=/dev/sda
 
-# set up the boot partition
 parted "$DISK" -- mklabel gpt
 parted "$DISK" -- mkpart ESP fat32 1MiB 1GiB
 parted "$DISK" -- set 1 boot on
@@ -181,12 +180,13 @@ mkfs.vfat -n BOOT "$DISK"1
 Swap Partition
 
 ```bash
-# set up the swap partition
 parted "$DISK" -- mkpart Swap linux-swap 1GiB 9GiB
 mkswap -L SWAP "$DISK"2
 swapon "$DISK"2
 ```
+
 Btrfs with LUKS
+
 ```bash
 cryptsetup --verify-passphrase -v luksFormat "$DISK"3 # /dev/sda3
 cryptsetup open "$DISK"3 enc
@@ -232,7 +232,8 @@ mkdir /mnt/boot
 mount "$DISK"1 /mnt/boot
 
 nixos-generate-config --root /mnt
-```
+
+
 > [!NOTE]
 > We need to add the neededForBoot = true; to some mounted subvolumes in hardware-configuration.nix. It will look something like this:
 > ```nix
@@ -249,7 +250,6 @@ nixos-generate-config --root /mnt
 >    options = ["subvol=log"];
 >    neededForBoot = true; # <- add this
 >  };
->  ```
 
 Then finally run `nixos-install` to install NixOS.
 
@@ -257,6 +257,7 @@ Then finally run `nixos-install` to install NixOS.
 
 
 ### Install the dotfiles
+
 ```bash
 git clone https://this.repo.url/ ~/.config/nixos-configs
 cd ~/.config/nixos-configs
@@ -273,6 +274,7 @@ cd ~/.config/nixos-configs
 ```bash
 nixos-rebuild switch --flake .#<host>
 ```
+
 ## Thanks
 
 - [raf](https://github.com/notashelf/nyx)
