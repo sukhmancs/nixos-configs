@@ -266,7 +266,8 @@ nixos-generate-config --root /mnt
 
 > [!NOTE]
 >
-> We need to add the neededForBoot = true; to some mounted subvolumes in hardware-configuration.nix. It will look something like this:
+> If impermanence is enabled, we need to add the `neededForBoot = true` to some mounted subvolumes in hardware-configuration.nix. It will look something like this:
+>
 > ```nix
 > fileSystems."/persist" = {
 >    device = "/dev/disk/by-uuid/b79d3c8b-d511-4d66-a5e0-641a75440ada";
