@@ -39,7 +39,8 @@
               };
             };
             luks = {
-              size = "100%";
+              start = "9G";
+              end = "100%";
               content = {
                 type = "luks";
                 name = "crypted";
@@ -51,7 +52,10 @@
                 };
                 # additionalKeyFiles = ["/tmp/additionalSecret.key"];
                 content = {
-                  type = "btrfs";
+                  # type = "btrfs";
+                  type = "filesystem";
+                  format = "btrfs";
+                  mountpoint = "/";
                   subvolumes = {
                     "/root" = {
                       mountpoint = "/";
@@ -73,6 +77,14 @@
                       mountpoint = "/var/log";
                       mountOptions = ["compress=zstd" "noatime"];
                     };
+                    # "cache" = {
+                    #   mountpoint = "/var/cache";
+                    #   mountOptions = ["compress=zstd" "noatime"];
+                    # };
+                    # "tmp" = {
+                    #   mountpoint = "/var/tmp";
+                    #   mountOptions = ["compress=zstd" "noatime"];
+                    # };
                   };
                 };
               };

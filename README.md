@@ -138,6 +138,23 @@ Here are the tools I am using:
 ## Installation
 ### Disk Partitioning
 
+Here is what our disk partitioning will look like:
+
+```plaintext
++-----------------------+------------------------+-----------------------+
+| Boot partition        | Swap partition         | LUKS encrypted root   |
+|                       |                        | partition             |
+|                       |                        |                       |
+| /boot                 | [SWAP]                 | /                     |
+|                       |                        |                       |
+|                       |                        | /dev/mapper/crypted   |
+|                       |                        |                       |
+| /dev/sda1             | /dev/sda2              | /dev/sda3             |
+|                       |                        |                       |
+| 1GB                   | 8GB                    | Remaining space       |
++-----------------------+------------------------+-----------------------+
+```
+
 <details>
 
 <summary>Option 1 - Partition and mount the drives using disko</summary>
@@ -160,7 +177,7 @@ nix --experimental-features "nix-command flakes" run github:nix-community/disko\
 
 <details>
 
-<summary>Option 2 - Manual Partitioning based on NotAShelf's blog</summary>
+<summary>Option 2 - Manual Partitioning</summary>
 
 </br>
 
@@ -185,16 +202,17 @@ mkswap -L SWAP "$DISK"2
 swapon "$DISK"2
 ```
 
-Btrfs with LUKS
+Btrfs with LUKS (Root Partition)
 
 ```bash
-cryptsetup --verify-passphrase -v luksFormat "$DISK"3 # /dev/sda3
-cryptsetup open "$DISK"3 enc
-
 parted "$DISK" -- mkpart primary 9GiB 100%
-mkfs.btrfs -L NIXOS /dev/mapper/enc
 
-mount -t btrfs /dev/mapper/enc /mnt
+cryptsetup --verify-passphrase -v luksFormat "$DISK"3 # /dev/sda3
+cryptsetup open "$DISK"3 crypted
+
+mkfs.btrfs -L NIXOS /dev/mapper/crypted
+
+mount -t btrfs /dev/mapper/crypted /mnt
 
 # First we create the subvolumes, those may differ as per your preferences
 btrfs subvolume create /mnt/root
@@ -209,23 +227,23 @@ btrfs subvolume snapshot -r /mnt/root /mnt/root-blank
 umount /mnt
 
 # /
-mount -o subvol=root,compress=zstd,noatime /dev/mapper/enc /mnt
+mount -o subvol=root,compress=zstd,noatime /dev/mapper/crypted /mnt
 
 # /home
 mkdir /mnt/home
-mount -o subvol=home,compress=zstd,noatime /dev/mapper/enc /mnt/home
+mount -o subvol=home,compress=zstd,noatime /dev/mapper/crypted /mnt/home
 
 # /nix
 mkdir /mnt/nix
-mount -o subvol=nix,compress=zstd,noatime /dev/mapper/enc /mnt/nix
+mount -o subvol=nix,compress=zstd,noatime /dev/mapper/crypted /mnt/nix
 
 # /persist
 mkdir /mnt/persist
-mount -o subvol=persist,compress=zstd,noatime /dev/mapper/enc /mnt/persist
+mount -o subvol=persist,compress=zstd,noatime /dev/mapper/crypted /mnt/persist
 
 # /var/log
 mkdir -p /mnt/var/log
-mount -o subvol=log,compress=zstd,noatime /dev/mapper/enc /mnt/var/log
+mount -o subvol=log,compress=zstd,noatime /dev/mapper/crypted /mnt/var/log
 
 # do not forget to mount the boot partition
 mkdir /mnt/boot
@@ -235,6 +253,7 @@ nixos-generate-config --root /mnt
 ```
 
 > [!NOTE]
+>
 > We need to add the neededForBoot = true; to some mounted subvolumes in hardware-configuration.nix. It will look something like this:
 > ```nix
 > fileSystems."/persist" = {
