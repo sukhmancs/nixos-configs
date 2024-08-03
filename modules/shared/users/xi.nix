@@ -19,8 +19,8 @@
     # nix-shell -p mkpasswd --run 'mkpasswd -sm bcrypt'
     # If option Impermanence is enabled, the hashedPasswordFile is used
     # instead, so this option is ignored because of precedence.
-    initialHashedPassword = "$2b$05$3sBXYiZC2RifZXJawMctfewnKzErqiK8MW0uEixXZ7hk9qvnMbmGK";
-    # initialPassword = "changeme";
+    # initialHashedPassword = "$2b$05$3sBXYiZC2RifZXJawMctfewnKzErqiK8MW0uEixXZ7hk9qvnMbmGK";
+    initialPassword = "changeme";
     openssh.authorizedKeys.keys = [keys.xi];
     extraGroups = [
       "wheel"
