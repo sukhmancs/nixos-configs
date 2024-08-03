@@ -20,13 +20,20 @@
 - [x] **Portable Workstation** - River, Waybar
 - [x] **Foot, Dunst, Mako**
 
-### In Progress
+### In Progress 🚧
 
-- [ ] **ZFS**
+- [ ] **Tailnet** - TailScale, WireGuard, ...
+- [ ] **Terminal Tools** - git, gh, lazygit, eza, bottom, bat, nix-init, nix-index, fzf, ...
+- [ ] **IDS** - lynis, vulnix
+- [ ] **IDE** - VSCode, Neovim, ...
+- [ ] **Rofi** - Custom colors
+- [ ] **Credit More Gracefully** - Add Name, Repo, etc.
+- [ ] **ZFS** - Switch to ZFS
+- [ ] **Hardened Systemd**
 - [ ] **Modularize** - Anyrun, qt.nix, ...
 - [ ] **QT**
 - [ ] **fastfetch** - Add custom colors (How?)
-- [ ] **Credit More Gracefully** - Add Name, Repo, etc.
+- [ ] **Refactor** - Remove dead code, unused files, ...
 
 ## Privacy and Security
 
