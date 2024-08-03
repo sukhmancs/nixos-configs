@@ -13,29 +13,22 @@ in {
     ];
     programs.foot = {
       enable = true;
-      # package = inputs'.nyxpkgs.packages.foot-transparent;
       server.enable = false;
       settings = {
         main = {
           app-id = "foot";
-          title = "foot";
           locked-title = "no";
-          term = "xterm-256color";
-          # pad = "16x16 center";
+          title = "foot";
           pad = "12x21 center";
+          term = "xterm-256color";
           shell = "zsh";
           resize-delay-ms = 100;
           word-delimiters = ",│`|:\"'()[]{}<>";
-
-          # notifications
           notify = "notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
           selection-target = "clipboard";
-
-          # font and font rendering
-          dpi-aware = true; # this looks more readable on a laptop, but it's unreasonably large
-          font = "Iosevka Nerd Font:size=14";
-          font-bold = "Iosevka Nerd Font:size=14";
-          # vertical-letter-offset = "-0.90";
+          dpi-aware = true;
+          font = "Iosevka Nerd Font:size=9";
+          font-bold = "Iosevka Nerd Font:size=9";
           vertical-letter-offset = "-0.75";
           bold-text-in-bright = "no";
         };
@@ -90,7 +83,6 @@ in {
           uri-characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.,~:;/?#@!$&%*+=\"'()[]";
         };
 
-        # colors = import ./presets/colors.nix {inherit colors;} // {alpha = "0.85";};
         colors = {
           alpha = "0.85";
           background = "${colors.base00}";

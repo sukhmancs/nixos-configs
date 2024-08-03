@@ -7,5 +7,6 @@
     ./shell
 
     ./shared.nix
+    ./wezterm
   ];
 }
