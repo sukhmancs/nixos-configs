@@ -1,3 +1,4 @@
+# Original Code by NotAShelf - https://github.com/notashelf/nyx
 {inputs, ...}: let
   # add `pins` to self so that the flake may refer it freely
   # pins can be updated via `npins update` in current directory

@@ -1,3 +1,4 @@
+# Original Code by NotAShelf - https://github.com/notashelf/nyx
 let
   inherit (builtins) attrValues concatLists foldl' map;
 

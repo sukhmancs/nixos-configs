@@ -12,6 +12,6 @@
 
     ./args.nix
     ./treefmt.nix
-    ./iso-images.nix
+    ./live-media.nix
   ];
 }

@@ -26,7 +26,7 @@
             black
             setuptools
             pylint
-            #            poetry
+            #poetry
           ]);
         shellHook = ''
           # Define shell aliases
