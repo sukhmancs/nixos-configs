@@ -28,7 +28,7 @@ in {
 
       {
         kernelModules = [
-          "amd-pstate" # load pstate module in case the device has a newer gpu
+          # "amd-pstate" # load pstate module in case the device has a newer gpu
           "zenpower" # zenpower is for reading cpu info, i.e voltage
           "msr" # x86 CPU MSR access device
         ];

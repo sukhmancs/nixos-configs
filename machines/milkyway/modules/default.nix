@@ -5,6 +5,6 @@
     ./home.nix
     ./system.nix
     ./theme.nix
-    ./wireguard.nix
+    # ./wireguard.nix
   ];
 }

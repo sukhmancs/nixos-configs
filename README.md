@@ -76,7 +76,7 @@ Here are the tools I am using:
 | 🖥️ Terminal        | Foot               | Foot          |
 | 🔔 Notifications   | Dunst, AGS         | Mako          |
 
-> [!NOTE] > **Triangulum** is a headless server, so no graphical stuff there.
+> [!NOTE] **Triangulum** is a headless server, so no graphical stuff there.
 
 ## Color Scheme
 
@@ -299,7 +299,8 @@ git clone https://this.repo.url/ ~/.config/nixos-configs
 cd ~/.config/nixos-configs
 ```
 
-> [!CAUTION] If <span style="color: red; font-size: larger;"> > <strong>Impermanence is enabled</strong></span>, ensure that the password
+> [!CAUTION] If <span style="color: red; font-size: larger;"> >
+> <strong>Impermanence is enabled</strong></span>, ensure that the password
 > files are located in a volume marked with `neededForBoot = true` otherwise the
 > user will not be able to login.
 >
