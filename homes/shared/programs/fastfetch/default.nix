@@ -17,11 +17,11 @@
       "fastfetch/config.jsonc".text = builtins.toJSON {
         "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
         logo = {
-          source = "$HOME/.config/fastfetch/assets/hollow_samurai_new.png";
-          width = 32;
-          height = 17;
+          # source = "$HOME/.config/fastfetch/assets/hollow_samurai_new.png";
+          # width = 32;
+          # height = 17;
           padding = {
-            top = 3;
+            top = 2;
             left = 1;
             right = 1;
           };
@@ -42,11 +42,9 @@
         };
         modules = [
           "break"
-          "break"
-          "break"
           {
             type = "custom";
-            format = "\\\u001b[90m  \\\u001b[31m  \\\u001b[32m  \\\u001b[33m  \\\u001b[34m  \\\u001b[35m  \\\u001b[36m  \\\u001b[37m";
+            format = "\\\\u001b[90m  \\\\u001b[31m  \\\\u001b[32m  \\\\u001b[33m  \\\\u001b[34m  \\\\u001b[35m  \\\\u001b[36m  \\\\u001b[37m";
           }
           "break"
           {
@@ -82,10 +80,6 @@
             #           keyColor = "bright_cyan";
             key = "  󰍹";
           }
-          # {
-          #   type = "custom";
-          #   format = "├──────────────────── \\u001b[1m󰍹 \\u001b[0m ──────────────────┤";
-          # }
           {
             type = "os";
             key = "  ";
@@ -116,10 +110,6 @@
             type = "lm";
             key = "  󰧨";
           }
-          # {
-          #   type = "custom";
-          #   format = "├──────────────────── \u001b[1m \u001b[0m ──────────────────┤";
-          # }
           {
             type = "terminalfont";
             #           keyColor = "bright_magenta";
@@ -158,10 +148,6 @@
             key = "  󰃲";
             text = "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days";
           }
-          # {
-          #   type = "custom";
-          #   format = "└──────────────────────────────────────────┘";
-          # }
           {
             type = "colors";
             paddingLeft = 1;
@@ -173,7 +159,6 @@
             type = "custom";
             format = ''\u001b[90m  \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[37m'';
           }
-          "break"
           "break"
         ];
       };
