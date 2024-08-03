@@ -105,7 +105,7 @@
     [git_status]
     format = '$all_status$ahead_behind'
     style = 'bold git'
-    modified = '*'
+    modified = ' *'
     stashed = ""
     renamed = '»'
     diverged = '+$ahead_count-$behind_count'
