@@ -1,3 +1,5 @@
+# Original code by NotAShelf - https://github.com/notashelf/nyx
+
 {
   pkgs,
   lib,

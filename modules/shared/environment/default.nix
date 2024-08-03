@@ -1,6 +1,5 @@
 {
   imports = [
-    ./aliases.nix
     ./etc.nix
     ./locale.nix
     ./packages.nix
