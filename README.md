@@ -1,11 +1,9 @@
-## Preview
-
 <p id="preview" align="center">
   <br/>
   <img src=".github/assets/desktop_preview.png" alt="Laptop Preview" />
-  Laptop Preview (milkyway)
+  Laptop (milkyway)
   <img src=".github/assets/iso_preview.png" alt="ISO Preview" />
-  ISO Preview (messier)
+  ISO (messier)
   <br/>
 </p>
 
@@ -15,18 +13,20 @@
 
 - [x] **AGS** - Add system(+)
 - [x] **Hyprland** - Custom & dynamic colors
-- [x] **System-wide dynamic colors** - Background, text, accent, overlay,
-      secondary text
+- [x] **System-wide dynamic colors** - Background, text, accent, overlay, secondary text
 - [x] **Anyrun** - Custom dynamic colors
 - [x] **GTK** - Fully dynamic custom themes
 - [x] **Starship** - Auto-updating `starship.toml` using perl script
 - [x] **Portable Workstation** - River, Waybar
+- [x] **Foot, Dunst, Mako**
 
 ### In Progress
 
 - [ ] **ZFS**
 - [ ] **Modularize** - Anyrun, qt.nix, ...
 - [ ] **QT**
+- [ ] **fastfetch** - Add custom colors (How?)
+- [ ] **Credit More Gracefully** - Add Name, Repo, etc.
 
 ## Privacy and Security
 
@@ -76,7 +76,8 @@ Here are the tools I am using:
 | 🖥️ Terminal        | Foot               | Foot          |
 | 🔔 Notifications   | Dunst, AGS         | Mako          |
 
-> [!NOTE] **Triangulum** is a headless server, so no graphical stuff there.
+> [!NOTE]
+> **Triangulum** is a headless server, so no graphical stuff there.
 
 ## Color Scheme
 
@@ -231,24 +232,17 @@ btrfs subvolume snapshot -r /mnt/root /mnt/root-blank
 # Unmount the root partition
 umount /mnt
 
-# Mount the subvolumes
-# /
-mount -o subvol=root,compress=zstd,noatime /dev/mapper/crypted /mnt
-
-# /home
+# Create mount points
 mkdir /mnt/home
-mount -o subvol=home,compress=zstd,noatime /dev/mapper/crypted /mnt/home
-
-# /nix
 mkdir /mnt/nix
-mount -o subvol=nix,compress=zstd,noatime /dev/mapper/crypted /mnt/nix
-
-# /persist
 mkdir /mnt/persist
-mount -o subvol=persist,compress=zstd,noatime /dev/mapper/crypted /mnt/persist
-
-# /var/log
 mkdir -p /mnt/var/log
+
+# Mount the subvolumes
+mount -o subvol=root,compress=zstd,noatime /dev/mapper/crypted /mnt
+mount -o subvol=home,compress=zstd,noatime /dev/mapper/crypted /mnt/home
+mount -o subvol=nix,compress=zstd,noatime /dev/mapper/crypted /mnt/nix
+mount -o subvol=persist,compress=zstd,noatime /dev/mapper/crypted /mnt/persist
 mount -o subvol=log,compress=zstd,noatime /dev/mapper/crypted /mnt/var/log
 ```
 
@@ -299,8 +293,8 @@ git clone https://this.repo.url/ ~/.config/nixos-configs
 cd ~/.config/nixos-configs
 ```
 
-> [!CAUTION] If <span style="color: red; font-size: larger;"> >
-> <strong>Impermanence is enabled</strong></span>, ensure that the password
+> [!CAUTION]
+> If <strong>Impermanence is enabled</strong>, ensure that the password
 > files are located in a volume marked with `neededForBoot = true` otherwise the
 > user will not be able to login.
 >
@@ -314,9 +308,10 @@ cd ~/.config/nixos-configs
 nixos-rebuild switch --flake .#<host>
 ```
 
-## Thanks
+## Thanks to these amazing people
 
-- [raf](https://github.com/notashelf/nyx)
 - [MatthiasBenaets](https://github.com/MatthiasBenaets/nix-config/)
+- [raf](https://github.com/notashelf/nyx)
 - [end-4](https://github.com/end-4/dots-hyprland)
 - [aylur](https://github.com/Aylur/dotfiles/)
+- will add more

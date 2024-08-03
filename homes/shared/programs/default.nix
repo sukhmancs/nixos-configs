@@ -1,6 +1,5 @@
 {
   imports = [
-    ./fastfetch
     ./neomutt
     ./newsboat
     ./scripts
@@ -12,6 +11,7 @@
     ./dircolors.nix
     ./editorconfig.nix
     ./eza.nix
+    ./fastfetch.nix
     ./fzf.nix
     ./git.nix
     ./gh.nix
