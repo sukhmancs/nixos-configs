@@ -1,3 +1,4 @@
+# Original Code by NotAShelf - https://github.com/notashelf/nyx
 {config, ...}: let
   revision =
     if config.system.configurationRevision != null

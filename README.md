@@ -9,24 +9,27 @@
   <br/>
 </p>
 
-
 ## Todo
 
 ### Completed 🎉
+
 - [x] **AGS** - Add system(+)
 - [x] **Hyprland** - Custom & dynamic colors
-- [x] **System-wide dynamic colors** - Background, text, accent, overlay, secondary text
+- [x] **System-wide dynamic colors** - Background, text, accent, overlay,
+      secondary text
 - [x] **Anyrun** - Custom dynamic colors
 - [x] **GTK** - Fully dynamic custom themes
 - [x] **Starship** - Auto-updating `starship.toml` using perl script
 - [x] **Portable Workstation** - River, Waybar
 
 ### In Progress
-- [ ] **SWW**
+
+- [ ] **ZFS**
 - [ ] **Modularize** - Anyrun, qt.nix, ...
 - [ ] **QT**
 
 ## Privacy and Security
+
 <details>
 
 <summary>🛡️ Measures</summary>
@@ -49,32 +52,34 @@
 </details>
 
 ## Host
+
 Following hosts are available:
 
-| Host       | Type      |
-| ------------ | ---------------- |
-| `milkyway`   | Laptop           |
-| `triangulum` | Server           |
-| `andromeda`  | Desktop          |
-| `messier`    | ISO              |
+| Host         | Type    |
+| ------------ | ------- |
+| `milkyway`   | Laptop  |
+| `triangulum` | Server  |
+| `andromeda`  | Desktop |
+| `messier`    | ISO     |
 
 ## Tools
+
 Here are the tools I am using:
 
-| Tool               | Milkyway/Andromeda  | Messier |
-| -----------------  | ------------- | ------------- |
-| 🪟 Window Manager  | Hyprland      | River         |
-| 🖥️ Display Manager | swaylock      | swaylock      |
-| 📊 Bar             | AGS           | Waybar        |
-| 🚀 Launcher        | Anyrun, Rofi  | Rofi          |
-| 🎨 GTK Theme       | adw-gtk3-dark | adw-gtk3-dark |
-| 🖥️ Terminal        | Foot          | Foot          |
-| 🔔 Notifications   | Dunst, AGS    | Mako          |
+| Tool               | Milkyway/Andromeda | Messier       |
+| ------------------ | ------------------ | ------------- |
+| 🪟 Window Manager  | Hyprland           | River         |
+| 🖥️ Display Manager | swaylock           | swaylock      |
+| 📊 Bar             | AGS                | Waybar        |
+| 🚀 Launcher        | Anyrun, Rofi       | Rofi          |
+| 🎨 GTK Theme       | adw-gtk3-dark      | adw-gtk3-dark |
+| 🖥️ Terminal        | Foot               | Foot          |
+| 🔔 Notifications   | Dunst, AGS         | Mako          |
 
-> [!NOTE]
-> **Triangulum** is a headless server, so no graphical stuff there.
+> [!NOTE] > **Triangulum** is a headless server, so no graphical stuff there.
 
 ## Color Scheme
+
 ### Default Color Scheme: `cappuccino-mocha`
 
 | Element                                                    | Color Name | Hex Code  |
@@ -90,7 +95,7 @@ Here are the tools I am using:
 
 | Scheme             | Variants                                                                                            |
 | ------------------ | --------------------------------------------------------------------------------------------------- |
-| `cappuccino` | mocha, frappe  |
+| `cappuccino`       | mocha, frappe                                                                                       |
 | `dracula`          | -                                                                                                   |
 | `gruvbox`          | light, dark, medium, hard                                                                           |
 | `henna`            | -                                                                                                   |
@@ -135,8 +140,8 @@ Here are the tools I am using:
 | `woodland`         | -                                                                                                   |
 | `xcode-dusk`       | -                                                                                                   |
 
-
 ## Installation
+
 ### Disk Partitioning
 
 Here is what our disk partitioning will look like:
@@ -174,7 +179,6 @@ nix --experimental-features "nix-command flakes" run github:nix-community/disko\
 ```
 
 </details>
-
 
 <details>
 
@@ -266,7 +270,9 @@ nixos-generate-config --root /mnt
 
 > [!NOTE]
 >
-> If impermanence is enabled, we need to add the `neededForBoot = true` to some mounted subvolumes in hardware-configuration.nix. It will look something like this:
+> If impermanence is enabled, we need to add the `neededForBoot = true` to some
+> mounted subvolumes in hardware-configuration.nix. It will look something like
+> this:
 >
 > ```nix
 > fileSystems."/persist" = {
@@ -286,8 +292,6 @@ nixos-generate-config --root /mnt
 
 Run `nixos-install` to install NixOS.
 
-
-
 ### Install the dotfiles
 
 ```bash
@@ -295,8 +299,10 @@ git clone https://this.repo.url/ ~/.config/nixos-configs
 cd ~/.config/nixos-configs
 ```
 
-> [!CAUTION]
-> If <span style="color: red; font-size: larger;"> <strong>Impermanence is enabled</strong></span>, ensure that the password files are located in a volume marked with `neededForBoot = true` otherwise the user will not be able to login.
+> [!CAUTION] If <span style="color: red; font-size: larger;"> > <strong>Impermanence is enabled</strong></span>, ensure that the password
+> files are located in a volume marked with `neededForBoot = true` otherwise the
+> user will not be able to login.
+>
 > ```bash
 > mkdir -p /persist/passwords/root /persist/passwords/<user>
 > mkpasswd -m sha-512 > /persist/passwords/<user>

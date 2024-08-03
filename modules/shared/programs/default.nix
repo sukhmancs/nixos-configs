@@ -6,7 +6,7 @@
     ./direnv.nix
     ./journald.nix
     ./misc.nix
-    ./nano.nix
+    # ./nano.nix
     ./zsh.nix
   ];
 }
