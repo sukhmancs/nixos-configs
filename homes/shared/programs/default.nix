@@ -1,6 +1,6 @@
 {
   imports = [
-    ./latex.nix
+    ./fastfetch
     ./neomutt
     ./newsboat
     ./scripts
@@ -12,11 +12,11 @@
     ./dircolors.nix
     ./editorconfig.nix
     ./eza.nix
-    ./fastfetch.nix
     ./fzf.nix
     ./git.nix
     ./gh.nix
     ./gpg.nix
+    ./latex.nix
     ./man.nix
     ./nix-direnv.nix
     ./nix-index.nix
