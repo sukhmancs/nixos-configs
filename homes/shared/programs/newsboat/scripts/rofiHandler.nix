@@ -8,6 +8,13 @@ in
     # It is meant to be used with newsboat, but can be used with any program that
     # outputs URLs to stdout.
     # Make sure $BROWSER, $TERMINAL, and $EDITOR are set in your environment.
+
+    # Check if required environment variables are set
+    if [ -z "$BROWSER" ] || [ -z "$TERMINAL" ] || [ -z "$EDITOR" ]; then
+      echo "Error: Required environment variables BROWSER, TERMINAL, or EDITOR are not set."
+      exit 1
+    fi
+
     if [ -z "$1" ]; then
       echo "Error: No URL provided."
       exit 1
