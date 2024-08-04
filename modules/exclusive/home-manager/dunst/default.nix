@@ -9,6 +9,13 @@
   inherit (modules.themes) colors;
 in {
   config = mkIf config.services.dunst.enable {
+    xdg.configFile = {
+      "dunst/assets" = {
+        source = ./assets;
+        recursive = true;
+      };
+    };
+
     services.dunst = {
       iconTheme = {
         package = config.gtk.iconTheme.package;
@@ -27,6 +34,7 @@ in {
           offset = "17x17";
           padding = 15;
           horizontal_padding = 15;
+          icon_path = "$HOME/.config/dunst/assets";
           text_icon_padding = 15;
           icon_position = "left";
           min_icon_size = 48;
@@ -40,7 +48,7 @@ in {
           frame_width = 2;
           frame_color = "#${colors.base0E}";
           separator_color = "frame";
-          corner_radius = 8;
+          corner_radius = 10;
           transparency = 0;
           gap_size = 8;
           line_height = 5;
@@ -55,6 +63,7 @@ in {
           sort = "yes";
           shrink = "no";
           indicate_hidden = "yes";
+          allow_markup = "yes";
           sticky_history = "yes";
           ignore_newline = "no";
           show_indicators = "no";
@@ -70,6 +79,22 @@ in {
         };
 
         fullscreen_delay_everything = {fullscreen = "delay";};
+
+        frame = {
+          color = "#${colors.base02}";
+          width = 5;
+        };
+
+        shortcuts = {
+          close = "ctrl+space";
+          close_all = "ctrl+shift+space";
+          context = "ctrl+shift+period";
+          history = "ctrl+grave";
+          # close_current = "ctrl+shift+q";
+          # do_action = "ctrl+shift+a";
+          # history_pop = "ctrl+shift+grave";
+          # history_push = "ctrl+grave";
+        };
 
         urgency_low = {
           timeout = 3;
@@ -92,6 +117,80 @@ in {
           foreground = "#${colors.base05}";
           highlight = "#${colors.base08}";
         };
+
+        Discord = {
+          appname = "Discord";
+          format = "<b>%s</b>\n%b";
+          new_icon = "Discord";
+        };
+
+        TelegramDesktop = {
+          appname = "*elegram*";
+          format = "<b>%s</b>\n%b";
+          new_icon = "Telegram";
+        };
+
+        Slack = {
+          appname = "*lack*";
+          format = "<b>%s</b>\n%b";
+          new_icon = "slack";
+        };
+
+        WMail = {
+          appname = "Electron";
+          format = "<b>%s</b>\n%b";
+        };
+
+        NCMPCPP = {
+          appname = "mpc";
+          format = "<b>Now Playing:</b>\n%s\n%b";
+        };
+
+        spotify = {
+          appname = "Spotify AdKiller";
+          format = "<b>Now Playing:</b>\n%s\n%b";
+        };
+
+        Transmission = {
+          appname = "Transmission";
+          format = "<b>%s</b>\n%b";
+        };
+
+        #         [Discord]
+        #     appname = Discord
+        #     format = "<b>%s</b>\n%b"
+        #     #new_icon = Discord
+
+        # [TelegramDesktop]
+        #     appname = *elegram*
+        #     format = "<b>%s</b>\n%b"
+        #     #new_icon = Telegram
+
+        # [Slack]
+        #     appname = *lack*
+        #     format = "<b>%s</b>\n%b"
+        #     new_icon = slack
+
+        # [WMail]
+        #     appname = Electron
+        #     format = "<b>%s</b>\n%b"
+        #     new_icon = WMail
+
+        # [NCMPCPP]
+        #     appname = mpc
+        #     format = "<b>Now Playing:</b>\n%s\n%b"
+        #     #format = "<b>%s</b>\n%b"
+        #     new_icon = NCMPCPP
+
+        # [spotify]
+        #     appname = "Spotify AdKiller"
+        #     format = "<b>Now Playing:</b>\n%s\n%b"
+        #     #new_icon = Spotify
+
+        # [Transmission]
+        #     appname = Transmission
+        #     format = "<b>%s</b>\n%b"
+        #     new_icon = Transmission
       };
     };
   };
