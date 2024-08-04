@@ -42,7 +42,9 @@
     }
 
     # Unsorted
-    {url = "https://nitter.net/GergelyOrosz/rss";}
+    # {url = "https://nitter.net/GergelyOrosz/rss";}
+    {url = "https://xeiaso.net/blog.rss";}
+    {url = "https://grahamc.com/feed";}
     {url = "https://feeds.feedburner.com/ThePragmaticEngineer";}
     {url = "https://www.reddit.com/r/ExperiencedDevs/.rss";}
     {url = "https://news.ycombinator.com/rss";}
