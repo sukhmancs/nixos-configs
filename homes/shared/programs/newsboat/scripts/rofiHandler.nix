@@ -1,9 +1,9 @@
 {pkgs, ...}: let
   inherit (pkgs.lib) getExe;
 
-  imv = ${pkgs.lib.getExe' pkgs.imv "imv"};
-  lynx = ${getExe pkgs.lynx};
-  zathura = ${getExe pkgs.zathura};
+  imv = ''${pkgs.lib.getExe' pkgs.imv "imv"}'';
+  lynx = "${getExe pkgs.lynx}";
+  zathura = "${getExe pkgs.zathura}";
 in
   pkgs.writeShellScriptBin "rofiHandler" ''
     #!/bin/sh
@@ -36,7 +36,7 @@ in
         browser) setsid -f $BROWSER "$feed" >/dev/null 2>&1 ;;
         nimv) curl -sL "$feed" > "/tmp/$(echo "$feed" | sed "s|.*/||;s/%20/ /g")" && ${imv} "/tmp/$(echo "$feed" | sed "s|.*/||;s/%20/ /g")"  >/dev/null 2>&1 ;;
         PDF) curl -sL "$feed" > "/tmp/$(echo "$feed" | sed "s|.*/||;s/%20/ /g")" && ${zathura} "/tmp/$(echo "$feed" | sed "s|.*/||;s/%20/ /g")"  >/dev/null 2>&1 ;;
-        lynx) ${lynx} -anonymous -accept_all_cookies $feed >/dev/null 2>&1 ;;
+        lynx) "${lynx} -anonymous -accept_all_cookies $feed" >/dev/null 2>&1 ;;
         vim) curl -sL "$feed" > "/tmp/$(echo "$feed" | sed "s|.*/||;s/%20/ /g")" && setsid -f "$TERMINAL" -e "$EDITOR" "/tmp/$(echo "$feed" | sed "s|.*/||;s/%20/ /g")" >/dev/null 2>&1 ;;
         mpv) setsid -f mpv -quiet "$feed" >/dev/null 2>&1 ;;
         "mpv loop") setsid -f mpv -quiet --loop "$feed" >/dev/null 2>&1 ;;
