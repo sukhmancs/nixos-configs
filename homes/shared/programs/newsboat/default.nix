@@ -118,7 +118,7 @@ in {
         # user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
         html-renderer "${pandoc} --from=html -t markdown_github-raw_html"
         pager "${glow} --pager --width 72"
-        macro r set browser "echo %u | wl-copy && rofiHandler" ; open-in-browser ; set browser "firefox %u"
+        macro r set browser "rofiHandler %u" ; open-in-browser ; set browser "firefox %u"
         macro t set browser "firefox %u" ; open-in-browser ; set browser "firefox %u"
         macro v set browser "setsid -f mpv" ; open-in-browser ; set browser "firefox %u"
         macro c set browser "echo %u | wl-copy -r -sel c" ; open-in-browser ; set browser "firefox %u"
