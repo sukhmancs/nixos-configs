@@ -10,8 +10,20 @@
   mpv = "${getExe pkgs.mpv}";
   glow = "${getExe pkgs.glow}";
   pandoc = "${getExe pkgs.pandoc}";
+  urs = "${getExe pkgs.urlscan}";
+  tsp = "${getExe pkgs.tsduck}";
+  lynx = "${getExe pkgs.lynx}";
+
+  rofiHandler = import ./scripts/menuHandler.nix {
+    inherit (pkgs);
+  };
 in {
   config = {
+    home.packages = with pkgs; [
+      lynx
+      rofiHandler
+    ];
+
     programs.newsboat = {
       enable = true;
       autoReload = true;
@@ -72,9 +84,9 @@ in {
 
 
                 #show-read-feeds no
-        # auto-reload yes
+        auto-reload yes
 
-        external-url-viewer "urlscan -dc -r 'linkhandler {}'"
+        external-url-viewer "${urs} -dc -r '"firefox %u" {}'"
 
         bind-key j down
         bind-key k up
@@ -102,17 +114,20 @@ in {
         color info red black bold
         color article white default bold
 
-        browser linkhandler
+        browser "firefox %u"
         macro , open-in-browser
-        macro t set browser "qndl" ; open-in-browser ; set browser linkhandler
-        macro a set browser "tsp yt-dlp --embed-metadata -xic -f bestaudio/best --restrict-filenames" ; open-in-browser ; set browser linkhandler
-        macro v set browser "setsid -f mpv" ; open-in-browser ; set browser linkhandler
-        macro w set browser "lynx" ; open-in-browser ; set browser linkhandler
-        macro d set browser "dmenuhandler" ; open-in-browser ; set browser linkhandler
-        macro c set browser "echo %u | xclip -r -sel c" ; open-in-browser ; set browser linkhandler
-        macro C set browser "youtube-viewer --comments=%u" ; open-in-browser ; set browser linkhandler
-        macro p set browser "peertubetorrent %u 480" ; open-in-browser ; set browser linkhandler
-        macro P set browser "peertubetorrent %u 1080" ; open-in-browser ; set browser linkhandler
+        user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
+        html-renderer "${pandoc} --from=html -t markdown_github-raw_html"
+        pager "${glow} --pager --width 72"
+        macro t set browser "firefox %u" ; open-in-browser ; set browser "firefox %u"
+        macro a set browser "${tsp} yt-dlp --embed-metadata -xic -f bestaudio/best --restrict-filenames" ; open-in-browser ; set browser "firefox %u"
+        macro v set browser "setsid -f mpv" ; open-in-browser ; set browser "firefox %u"
+        macro w set browser "${lynx}" ; open-in-browser ; set browser "firefox %u"
+        macro d set browser "rofiHandler" ; open-in-browser ; set browser "firefox %u"
+        macro c set browser "echo %u | wl-clipboard -r -sel c" ; open-in-browser ; set browser "firefox %u"
+        macro C set browser "youtube-viewer --comments=%u" ; open-in-browser ; set browser "firefox %u"
+        # macro p set browser "peertubetorrent %u 480" ; open-in-browser ; set browser "firefox %u"
+        # macro P set browser "peertubetorrent %u 1080" ; open-in-browser ; set browser "firefox %u"
 
         highlight all "---.*---" yellow
         highlight feedlist ".*(0/0))" black
