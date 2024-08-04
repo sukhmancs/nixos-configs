@@ -34,7 +34,7 @@ in {
           offset = "17x17";
           padding = 15;
           horizontal_padding = 15;
-          icon_path = "$HOME/.config/dunst/assets";
+          # icon_path = "$HOME/.config/dunst/assets";
           text_icon_padding = 15;
           icon_position = "left";
           min_icon_size = 48;
@@ -63,7 +63,6 @@ in {
           sort = "yes";
           shrink = "no";
           indicate_hidden = "yes";
-          allow_markup = "yes";
           sticky_history = "yes";
           ignore_newline = "no";
           show_indicators = "no";
@@ -79,22 +78,6 @@ in {
         };
 
         fullscreen_delay_everything = {fullscreen = "delay";};
-
-        frame = {
-          color = "#${colors.base02}";
-          width = 5;
-        };
-
-        shortcuts = {
-          close = "ctrl+space";
-          close_all = "ctrl+shift+space";
-          context = "ctrl+shift+period";
-          history = "ctrl+grave";
-          # close_current = "ctrl+shift+q";
-          # do_action = "ctrl+shift+a";
-          # history_pop = "ctrl+shift+grave";
-          # history_push = "ctrl+grave";
-        };
 
         urgency_low = {
           timeout = 3;
@@ -119,78 +102,56 @@ in {
         };
 
         Discord = {
-          appname = "Discord";
+          appname = "*cord"; # Discord, Webcord
           format = "<b>%s</b>\\n%b";
-          new_icon = "Discord";
+          # new_icon = "$HOME/.config/dunst/assets/Discord.png";
+          new_icon = "discord";
+        };
+
+        Vesktop = {
+          appname = "Vesktop";
+          format = "<b>%s</b>\\n%b";
+          # new_icon = "$HOME/.config/dunst/assets/Discord.png";
+          new_icon = "discord";
         };
 
         TelegramDesktop = {
           appname = "*elegram*";
           format = "<b>%s</b>\\n%b";
-          new_icon = "Telegram";
+          # new_icon = "$HOME/.config/dunst/assets/Telegram.png";
+          new_icon = "telegram";
         };
 
         Slack = {
           appname = "*lack*";
           format = "<b>%s</b>\\n%b";
+          # new_icon = "$HOME/.config/dunst/assets/slack.png";
           new_icon = "slack";
         };
 
         WMail = {
           appname = "Electron";
           format = "<b>%s</b>\\n%b";
+          new_icon = "mail";
         };
 
         NCMPCPP = {
           appname = "mpc";
           format = "<b>Now Playing:</b>\\n%s\\n%b";
+          new_icon = "mpd";
         };
 
         spotify = {
           appname = "Spotify AdKiller";
           format = "<b>Now Playing:</b>\\n%s\\n%b";
+          new_icon = "spotify";
         };
 
         Transmission = {
           appname = "Transmission";
           format = "<b>%s</b>\\n%b";
+          new_icon = "transmission";
         };
-
-        #         [Discord]
-        #     appname = Discord
-        #     format = "<b>%s</b>\n%b"
-        #     #new_icon = Discord
-
-        # [TelegramDesktop]
-        #     appname = *elegram*
-        #     format = "<b>%s</b>\n%b"
-        #     #new_icon = Telegram
-
-        # [Slack]
-        #     appname = *lack*
-        #     format = "<b>%s</b>\n%b"
-        #     new_icon = slack
-
-        # [WMail]
-        #     appname = Electron
-        #     format = "<b>%s</b>\n%b"
-        #     new_icon = WMail
-
-        # [NCMPCPP]
-        #     appname = mpc
-        #     format = "<b>Now Playing:</b>\n%s\n%b"
-        #     #format = "<b>%s</b>\n%b"
-        #     new_icon = NCMPCPP
-
-        # [spotify]
-        #     appname = "Spotify AdKiller"
-        #     format = "<b>Now Playing:</b>\n%s\n%b"
-        #     #new_icon = Spotify
-
-        # [Transmission]
-        #     appname = Transmission
-        #     format = "<b>%s</b>\n%b"
-        #     new_icon = Transmission
       };
     };
   };
