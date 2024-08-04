@@ -104,12 +104,17 @@ in {
         bind-key U show-urls
         bind-key x pb-delete
 
-        color listnormal cyan default
-        color listfocus black yellow standout bold
-        color listnormal_unread blue default
-        color listfocus_unread yellow default bold
-        color info red black bold
-        color article white default bold
+        color listnormal         cyan default
+        color listfocus          black yellow standout bold
+        color listnormal_unread  blue default
+        color listfocus_unread   yellow default bold
+        color info               red black bold
+        color article            white default bold
+        color background         default default
+        color end-of-text-marker color8  default
+        color hint-separator     default color8
+        color hint-description   default color8
+        color title              color14 color8
 
         browser "firefox %u"
         macro , open-in-browser
