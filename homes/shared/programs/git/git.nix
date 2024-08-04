@@ -1,3 +1,6 @@
+#
+# Original Code by NotAShelf - https://github.com/notashelf/nyx
+#
 {
   osConfig,
   pkgs,
@@ -19,7 +22,7 @@ in {
 
       # my credentials
       userName = "racoot";
-      userEmail = "63659772+sukhmancs@users.noreply.github.com"; # i wonder why i don't wanna reveal my email
+      userEmail = "63659772+sukhmancs@users.noreply.github.com";
 
       # lets sign using our own key
       # this must be provided by the host

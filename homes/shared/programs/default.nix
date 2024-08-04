@@ -1,20 +1,17 @@
 {
   imports = [
-    ./neomutt
-    ./newsboat
-    ./scripts
+    ./git
+    # ./scripts
     ./yazi
-    ./zellij
 
     ./bat.nix
-    ./bottom.nix
+    # ./bottom.nix
+    ./btop.nix
     ./dircolors.nix
     ./editorconfig.nix
     ./eza.nix
     ./fastfetch.nix
     ./fzf.nix
-    ./git.nix
-    ./gh.nix
     ./gpg.nix
     ./latex.nix
     ./man.nix

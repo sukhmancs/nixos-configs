@@ -1,5 +1,4 @@
 # Original code by NotAShelf - https://github.com/notashelf/nyx
-
 {lib, ...}: let
   inherit (lib.strings) concatStringsSep;
   pagerArgs = [
