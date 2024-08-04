@@ -28,12 +28,12 @@ in {
         scroll-page-aware = "true";
         scroll-full-overlap = "0.01";
         scroll-step = "100";
-        smooth-scroll = true;
-        zoom-min = "10";
-        guioptions = "none";
-        statusbar-h-padding = "0";
-        statusbar-v-padding = "0";
-        page-padding = "1";
+        # smooth-scroll = true;
+        # zoom-min = "10";
+        # guioptions = "none";
+        # statusbar-h-padding = "0";
+        # statusbar-v-padding = "0";
+        # page-padding = "1";
       };
 
       mappings = {

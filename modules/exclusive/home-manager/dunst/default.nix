@@ -9,13 +9,6 @@
   inherit (modules.themes) colors;
 in {
   config = mkIf config.services.dunst.enable {
-    # xdg.configFile = {
-    #   "dunst/assets" = {
-    #     source = ./assets;
-    #     recursive = true;
-    #   };
-    # };
-
     services.dunst = {
       iconTheme = {
         package = config.gtk.iconTheme.package;
@@ -34,7 +27,6 @@ in {
           offset = "17x17";
           padding = 15;
           horizontal_padding = 15;
-          # icon_path = "$HOME/.config/dunst/assets";
           text_icon_padding = 15;
           icon_position = "left";
           min_icon_size = 48;
@@ -104,28 +96,24 @@ in {
         Discord = {
           appname = "*cord"; # Discord, Webcord
           format = "<b>%s</b>\\n%b";
-          # new_icon = "$HOME/.config/dunst/assets/Discord.png";
           new_icon = "discord";
         };
 
         Vesktop = {
           appname = "Vesktop";
           format = "<b>%s</b>\\n%b";
-          # new_icon = "$HOME/.config/dunst/assets/Discord.png";
           new_icon = "discord";
         };
 
         TelegramDesktop = {
           appname = "*elegram*";
           format = "<b>%s</b>\\n%b";
-          # new_icon = "$HOME/.config/dunst/assets/Telegram.png";
           new_icon = "telegram";
         };
 
         Slack = {
           appname = "*lack*";
           format = "<b>%s</b>\\n%b";
-          # new_icon = "$HOME/.config/dunst/assets/slack.png";
           new_icon = "slack";
         };
 
