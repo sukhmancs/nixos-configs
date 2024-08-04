@@ -12,7 +12,8 @@
     ./fzf.nix
     ./gpg.nix
     ./man.nix
-    ./nix-direnv.nix
+    ./direnv.nix
+    ./newsboat
     ./nix-index.nix
     ./nix-init.nix
     # ./pass.nix

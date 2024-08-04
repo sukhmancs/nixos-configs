@@ -20,11 +20,9 @@
     commands = import ./commands.nix;
   in {
     devShells.default = inputs'.devshell.legacyPackages.mkShell {
-      name = "nixos-dotfiles";
+      name = "nixos-configs";
       commands = commands;
       env = env;
-      # packages to include in the shell
-      # inputsFrom = [config.treefmt.build.devShell];
       packages = packages;
     };
   };

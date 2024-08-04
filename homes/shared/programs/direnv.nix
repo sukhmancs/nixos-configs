@@ -16,18 +16,7 @@
     enable = true;
     # nix-direnv enables the use of use_nix and use_flake in .envrc files.
     nix-direnv.enable = true;
-    # stdlib = ''
-    #   : ''${XDG_CACHE_HOME:=$HOME/.cache}
-    #   declare -A direnv_layout_dirs
-    #   direnv_layout_dir() {
-    #       echo "''${direnv_layout_dirs[$PWD]:=$(
-    #           echo -n "$XDG_CACHE_HOME"/direnv/layouts/
-    #           echo -n "$PWD" | ${pkgs.perl}/bin/shasum| cut -d ' ' -f 1
-    #       )}"
-    #   }
-    # '';
-
-    # we should probably do this ourselves
+    # Enable zsh integration for direnv.
     enableZshIntegration = true;
   };
 }
