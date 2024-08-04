@@ -13,15 +13,14 @@
   urs = "${getExe pkgs.urlscan}";
   tsp = "${getExe pkgs.tsduck}";
   lynx = "${getExe pkgs.lynx}";
-
-  rofiHandler = import ./scripts/menuHandler.nix {
-    inherit (pkgs);
-  };
+  yt = "${getExe pkgs.yt-dlp}";
+  wlc = "${getExe pkgs.wl-clipboard}";
+  #   rofiHandler = import ./scripts/menuHandler.nix {inherit pkgs;};
 in {
   config = {
     home.packages = with pkgs; [
-      lynx
-      rofiHandler
+      #   lynx
+      (import ./scripts/rofiHandler.nix {inherit pkgs;})
     ];
 
     programs.newsboat = {
@@ -86,7 +85,7 @@ in {
                 #show-read-feeds no
         auto-reload yes
 
-        external-url-viewer "${urs} -dc -r '"firefox %u" {}'"
+        external-url-viewer "${urs} -dc -r 'firefox {}'"
 
         bind-key j down
         bind-key k up
@@ -116,16 +115,16 @@ in {
 
         browser "firefox %u"
         macro , open-in-browser
-        user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
+        # user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
         html-renderer "${pandoc} --from=html -t markdown_github-raw_html"
         pager "${glow} --pager --width 72"
+        macro r set browser "echo %u | wl-copy && rofiHandler" ; open-in-browser ; set browser "firefox %u"
         macro t set browser "firefox %u" ; open-in-browser ; set browser "firefox %u"
-        macro a set browser "${tsp} yt-dlp --embed-metadata -xic -f bestaudio/best --restrict-filenames" ; open-in-browser ; set browser "firefox %u"
         macro v set browser "setsid -f mpv" ; open-in-browser ; set browser "firefox %u"
+        macro c set browser "echo %u | wl-copy -r -sel c" ; open-in-browser ; set browser "firefox %u"
+        macro a set browser "${tsp} ${yt-dlp} --embed-metadata -xic -f bestaudio/best --restrict-filenames" ; open-in-browser ; set browser "firefox %u"
         macro w set browser "${lynx}" ; open-in-browser ; set browser "firefox %u"
-        macro d set browser "rofiHandler" ; open-in-browser ; set browser "firefox %u"
-        macro c set browser "echo %u | wl-clipboard -r -sel c" ; open-in-browser ; set browser "firefox %u"
-        macro C set browser "youtube-viewer --comments=%u" ; open-in-browser ; set browser "firefox %u"
+        # macro C set browser "youtube-viewer --comments=%u" ; open-in-browser ; set browser "firefox %u"
         # macro p set browser "peertubetorrent %u 480" ; open-in-browser ; set browser "firefox %u"
         # macro P set browser "peertubetorrent %u 1080" ; open-in-browser ; set browser "firefox %u"
 

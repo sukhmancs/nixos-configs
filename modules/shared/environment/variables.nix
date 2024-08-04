@@ -14,6 +14,8 @@ in {
   environment.variables = {
     SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
 
+    TERMINAL = "foot";
+
     # editors
     EDITOR = "nvim";
     VISUAL = "nvim";
