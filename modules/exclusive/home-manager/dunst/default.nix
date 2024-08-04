@@ -57,7 +57,7 @@ in {
           history_length = 30;
           show_age_threshold = 60;
           markup = "full";
-          format = "<b>%s</b>\n%b";
+          format = "<b>%s</b>\\n%b";
           font = "JetBrainsMono Nerd Font Medium 14";
           word_wrap = "yes";
           sort = "yes";
@@ -120,40 +120,40 @@ in {
 
         Discord = {
           appname = "Discord";
-          format = "<b>%s</b>\n%b";
+          format = "<b>%s</b>\\n%b";
           new_icon = "Discord";
         };
 
         TelegramDesktop = {
           appname = "*elegram*";
-          format = "<b>%s</b>\n%b";
+          format = "<b>%s</b>\\n%b";
           new_icon = "Telegram";
         };
 
         Slack = {
           appname = "*lack*";
-          format = "<b>%s</b>\n%b";
+          format = "<b>%s</b>\\n%b";
           new_icon = "slack";
         };
 
         WMail = {
           appname = "Electron";
-          format = "<b>%s</b>\n%b";
+          format = "<b>%s</b>\\n%b";
         };
 
         NCMPCPP = {
           appname = "mpc";
-          format = "<b>Now Playing:</b>\n%s\n%b";
+          format = "<b>Now Playing:</b>\\n%s\\n%b";
         };
 
         spotify = {
           appname = "Spotify AdKiller";
-          format = "<b>Now Playing:</b>\n%s\n%b";
+          format = "<b>Now Playing:</b>\\n%s\\n%b";
         };
 
         Transmission = {
           appname = "Transmission";
-          format = "<b>%s</b>\n%b";
+          format = "<b>%s</b>\\n%b";
         };
 
         #         [Discord]
