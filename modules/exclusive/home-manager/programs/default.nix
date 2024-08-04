@@ -3,6 +3,7 @@
     ./hyprpaper
     ./schizofox
     ./thunderbird
+    ./zathura
 
     ./chromium.nix
     ./clipboard.nix
@@ -16,7 +17,6 @@
     ./spotify.nix
     ./vscode.nix
     ./webcord.nix
-    ./zathura.nix
     ./swayidle.nix
     ./rbw.nix
     ./wlogout.nix

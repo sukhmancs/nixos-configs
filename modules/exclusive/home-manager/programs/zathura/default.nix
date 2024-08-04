@@ -8,13 +8,17 @@
   inherit (lib) mkIf;
 in {
   config = mkIf config.programs.zathura.enable {
-    xdg.configFile."zathura/catppuccin-mocha".source = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/catppuccin/zathura/main/src/catppuccin-mocha";
-      hash = "sha256-POxMpm77Pd0qywy/jYzZBXF/uAKHSQ0hwtXD4wl8S2Q=";
+    # xdg.configFile."zathura/catppuccin-mocha".source = pkgs.fetchurl {
+    #   url = "https://raw.githubusercontent.com/catppuccin/zathura/main/src/catppuccin-mocha";
+    #   hash = "sha256-POxMpm77Pd0qywy/jYzZBXF/uAKHSQ0hwtXD4wl8S2Q=";
+    # };
+
+    xdg.configFile."zathura/custom-theme" = {
+      text = import ./custom-theme.nix {inherit osConfig;};
     };
 
     programs.zathura = {
-      extraConfig = "include catppuccin-mocha";
+      extraConfig = "include custom-theme";
 
       options = {
         font = "Iosevka 15";
