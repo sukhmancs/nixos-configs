@@ -32,7 +32,9 @@ in
 
     feed="$1"
 
-    case "$(printf "<span font='FontAwesome'>\uf268 </span> browser\n<span font='FontAwesome'>\uf03e </span> imv\n<span font='FontAwesome'>\uf1c1 </span> PDF\n<span font='FontAwesome'>\uf0c1 </span> lynx\n<span font='FontAwesome'>\uf044 </span> vim\n<span font='FontAwesome'>\uf144 </span> mpv\n<span font='FontAwesome'>\uf144 </span> mpv loop\n<span font='FontAwesome'>\uf144 </span> mpv float\n" | rofi -dmenu -i -p "Open it with?" -markup-rows | sed 's/.*span> //; s/%$//')" in
+    case "$(printf "<span font='FontAwesome'>\uf0ea </span> copy\n<span font='FontAwesome'>\uf268 </span> browser\n<span font='FontAwesome'>\uf03e </span> imv\n<span font='FontAwesome'>\uf1c1 </span> PDF\n<span font='FontAwesome'>\uf0c1 </span> lynx\n<span font='FontAwesome'>\uf044 </span> vim\n<span font='FontAwesome'>\uf144 </span> mpv\n<span font='FontAwesome'>\uf144 </span> mpv loop\n<span font='FontAwesome'>\uf144 </span> mpv float\n" | rofi -dmenu -i -p "Open it with?" -markup-rows | sed 's/.*span> //; s/%$//')" in
+        # add another case to copy the url
+        copy) echo "$feed" | wl-copy && wl-copy --clear >/dev/null 2>&1 ;;
         browser) setsid -f $BROWSER "$feed" >/dev/null 2>&1 ;;
         nimv) curl -sL "$feed" > "/tmp/$(echo "$feed" | sed "s|.*/||;s/%20/ /g")" && ${imv} "/tmp/$(echo "$feed" | sed "s|.*/||;s/%20/ /g")"  >/dev/null 2>&1 ;;
         PDF) curl -sL "$feed" > "/tmp/$(echo "$feed" | sed "s|.*/||;s/%20/ /g")" && ${zathura} "/tmp/$(echo "$feed" | sed "s|.*/||;s/%20/ /g")"  >/dev/null 2>&1 ;;
