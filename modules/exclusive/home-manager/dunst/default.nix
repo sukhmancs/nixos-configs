@@ -9,12 +9,12 @@
   inherit (modules.themes) colors;
 in {
   config = mkIf config.services.dunst.enable {
-    xdg.configFile = {
-      "dunst/assets" = {
-        source = ./assets;
-        recursive = true;
-      };
-    };
+    # xdg.configFile = {
+    #   "dunst/assets" = {
+    #     source = ./assets;
+    #     recursive = true;
+    #   };
+    # };
 
     services.dunst = {
       iconTheme = {
