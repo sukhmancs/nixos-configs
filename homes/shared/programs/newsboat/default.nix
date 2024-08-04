@@ -122,7 +122,7 @@ in {
         macro t set browser "firefox %u" ; open-in-browser ; set browser "firefox %u"
         macro v set browser "setsid -f mpv" ; open-in-browser ; set browser "firefox %u"
         macro c set browser "echo %u | wl-copy -r -sel c" ; open-in-browser ; set browser "firefox %u"
-        macro a set browser "${tsp} ${yt-dlp} --embed-metadata -xic -f bestaudio/best --restrict-filenames" ; open-in-browser ; set browser "firefox %u"
+        macro a set browser "${tsp} ${yt} --embed-metadata -xic -f bestaudio/best --restrict-filenames" ; open-in-browser ; set browser "firefox %u"
         macro w set browser "${lynx}" ; open-in-browser ; set browser "firefox %u"
         # macro C set browser "youtube-viewer --comments=%u" ; open-in-browser ; set browser "firefox %u"
         # macro p set browser "peertubetorrent %u 480" ; open-in-browser ; set browser "firefox %u"
