@@ -11,7 +11,7 @@
   glow = "${getExe pkgs.glow}";
   pandoc = "${getExe pkgs.pandoc}";
   urs = "${getExe pkgs.urlscan}";
-  tsp = "${getExe' pkgs.tsduck "tsp"}";
+  tsp = "${getExe pkgs.tsduck "tsp"}";
   lynx = "${getExe pkgs.lynx}";
   yt = "${getExe pkgs.yt-dlp}";
   wlc = "${getExe pkgs.wl-clipboard}";
