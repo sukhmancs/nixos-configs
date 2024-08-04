@@ -19,11 +19,11 @@
 - [x] **Starship** - Auto-updating `starship.toml` using perl script
 - [x] **Portable Workstation** - River, Waybar
 - [x] **Foot, Dunst, Mako**
+- [x] **Newsboat** - Add Rofi, lynx, vim, imv, pdf, browser, mpv, mpv loop, mpv float integration
 
 ### In Progress 🚧
 
 - [ ] **Tailnet** - TailScale, WireGuard, ...
-- [ ] **Newsboat** - Add Rofi, lynx, vim, imv, pdf, browser, mpv, mpv loop, mpv float integration
 - [ ] **Terminal Tools** - git, gh, lazygit, eza, bottom, bat, nix-init, nix-index, fzf, ...
 - [ ] **IDS** - lynis, vulnix
 - [ ] **IDE** - VSCode, Neovim, ...
