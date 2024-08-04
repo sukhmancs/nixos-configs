@@ -1,3 +1,4 @@
+# Original code by NotAShelf - https://github.com/notashelf/nyx
 {
   config,
   pkgs,

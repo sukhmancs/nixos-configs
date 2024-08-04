@@ -1,21 +1,25 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  osConfig,
+  ...
+}: {
   programs.btop = {
     enable = true;
     package = pkgs.btop;
     settings = {
-      color_theme = "Default";
+      color_theme = "custom";
       theme_background = false;
       truecolor = true;
       force_tty = false;
-      presets = "cpu:1:default,proc:0:default cpu:0:default,mem:0:default,net:0:default cpu:0:block,net:0:tty";
+      presets = "cpu:1:default,proc:0:default cpu:0:default,mem:0:default,net:0:default gpu0:0:tty,gpu1:1:tty,gpu2:0:tty,gpu3:1:tty,gpu4:0:tty,gpu5:1:tty";
       vim_keys = true;
       rounded_corners = true;
-      graph_symbol = "tty"; #"braille";
+      graph_symbol = "tty"; # Other options are "braille", "block";
       graph_symbol_cpu = "default";
       graph_symbol_mem = "default";
       graph_symbol_net = "default";
       graph_symbol_proc = "default";
-      shown_boxes = "proc cpu mem net gpu0 gpu1 gpu2 gpu3 gpu4 gpu5";
+      shown_boxes = "proc cpu mem net";
       update_ms = 1500;
       proc_sorting = "cpu lazy";
       proc_reversed = false;
@@ -65,5 +69,9 @@
       selected_battery = "Auto";
       log_level = "DEBUG";
     };
+  };
+
+  home.file.".config/btop/themes/custom.theme" = {
+    text = import ./themes.nix {inherit pkgs osConfig;};
   };
 }

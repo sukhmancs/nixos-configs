@@ -1,6 +1,6 @@
 {
   imports = [
-    ./bars
+    ./ags
     ./desktops
     ./dunst
     ./gaming

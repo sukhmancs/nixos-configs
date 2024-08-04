@@ -1,19 +1,16 @@
 {
   imports = [
+    ./btop
     ./git
-    # ./scripts
     ./yazi
 
     ./bat.nix
-    # ./bottom.nix
-    ./btop.nix
     ./dircolors.nix
     ./editorconfig.nix
     ./eza.nix
     ./fastfetch.nix
     ./fzf.nix
     ./gpg.nix
-    ./latex.nix
     ./man.nix
     ./nix-direnv.nix
     ./nix-index.nix

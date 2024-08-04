@@ -6,9 +6,9 @@
   pkgs,
   ...
 }: {
-  #   environment.systemPackages = with pkgs; [
-  #     lazygit
-  #   ];
+  home.packages = with pkgs; [
+    lazygit
+  ];
 
   programs.lazygit = {
     enable = true;
@@ -18,8 +18,8 @@
       gui = {
         theme = {
           unstagedChangesColor = ["red" "bold"];
-          selectedLineBgColor = "#263c42";
-          selectedRangeBgColor = "#263c42";
+          selectedLineBgColor = ["#263c42"];
+          selectedRangeBgColor = ["#263c42"];
         };
       };
 
