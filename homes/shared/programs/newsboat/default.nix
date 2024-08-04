@@ -120,7 +120,7 @@ in {
         macro v set browser "setsid -f mpv" ; open-in-browser ; set browser "firefox %u"
         macro c set browser "echo %u | wl-copy && wl-copy --clear" ; open-in-browser ; set browser "firefox %u"
         macro a set browser "${tsp} ${yt} --embed-metadata -xic -f bestaudio/best --restrict-filenames" ; open-in-browser ; set browser "firefox %u"
-        macro w set browser "${lynx}" -anonymous -accept_all_cookies ; open-in-browser ; set browser "firefox %u"
+        macro w set browser "${lynx}" -accept_all_cookies ; open-in-browser ; set browser "firefox %u"
 
         highlight all "---.*---" yellow
         highlight feedlist ".*(0/0))" black
