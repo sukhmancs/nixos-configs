@@ -50,7 +50,7 @@ in {
           show_age_threshold = 60;
           markup = "full";
           format = "<b>%s</b>\n%b";
-          font = "JetBrainsMono Nerd Font Medium 9";
+          font = "JetBrainsMono Nerd Font Medium 14";
           word_wrap = "yes";
           sort = "yes";
           shrink = "no";
