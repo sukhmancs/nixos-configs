@@ -1,3 +1,6 @@
+#
+# Newsboat - An RSS/Atom feed reader for the text console
+#
 {
   config,
   pkgs,

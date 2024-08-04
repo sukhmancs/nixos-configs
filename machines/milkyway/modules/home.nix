@@ -11,6 +11,7 @@
         firefox.enable = true; # browser (schizofox)
         thunderbird.enable = true; # email client
         vscode.enable = true; # code editor
+        zathura.enable = true; # pdf reader
         mangohud.enable = false; # game overlay
         swaylock.enable = true; # screen locker
         mpv.enable = true; # media player
