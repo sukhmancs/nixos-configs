@@ -12,7 +12,7 @@ in {
       url = "https://raw.githubusercontent.com/catppuccin/zathura/main/src/catppuccin-mocha";
       hash = "sha256-POxMpm77Pd0qywy/jYzZBXF/uAKHSQ0hwtXD4wl8S2Q=";
     };
-
+    #TODO: Hash colors scheme is not being detected
     # xdg.configFile."zathura/custom-theme" = {
     #   text = import ./custom-theme.nix {inherit osConfig;};
     # };

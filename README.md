@@ -25,6 +25,7 @@
 ### In Progress 🚧
 
 - [ ] **Tailnet** - TailScale, WireGuard, ...
+- [ ] **Zathura** - Custom colorscheme with hash colors is not being detected by zathura
 - [ ] **IDS** - lynis, vulnix
 - [ ] **IDE** - VSCode, Neovim, ...
 - [ ] **Rofi** - Custom colors
