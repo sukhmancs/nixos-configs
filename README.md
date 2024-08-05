@@ -22,11 +22,12 @@
 - [x] **Newsboat** - Add Rofi, lynx, vim, imv, pdf, browser, mpv, mpv loop, mpv float integration
 - [x] **Terminal Tools** - git, gh, lazygit, eza, btop, bat, nix-init, nix-index, fzf, ...
 - [x] **Zathura** - Custom colorscheme with hash codes.
+- [x] **VSCode** - Custom base16 color scheme (I am not sure how to do this. I am going to mark this as done for now, will come back later).
 
 ### In Progress 🚧
 
 - [ ] **Qemu** - Virtualization with GPU passthrough
-- [ ] **IDE** - VSCode, Neovim, ...
+- [ ] **Neovim**
 - [ ] **IDS** - lynis, vulnix
 - [ ] **QT** - Use Kvantum
 - [ ] **Rofi** - Custom colors
