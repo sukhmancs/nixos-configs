@@ -182,6 +182,13 @@
       };
     };
 
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs = {
+        nixpkgs.follows = "nixpkgs-small";
+      };
+    };
+
     # Notashelf' wallpapers repository to provide various
     # wallpapers as nix packages.
     wallpkgs = {

@@ -4,6 +4,7 @@
 {
   lib,
   pkgs,
+  inputs,
   osConfig,
   config,
   ...
@@ -16,7 +17,8 @@ in {
       mutableExtensionsDir = true;
       enableExtensionUpdateCheck = true;
       enableUpdateCheck = true;
-      extensions = with pkgs.vscode-extensions;
+      #extensions = with pkgs.vscode-extensions;
+      extensions = with inputs.nix-vscode-extensions.vscode-marketplace;
         [
           arrterian.nix-env-selector
           bbenoist.nix
