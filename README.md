@@ -329,3 +329,8 @@ nixos-rebuild switch --flake .#<host>
 - [end-4](https://github.com/end-4/dots-hyprland)
 - [aylur](https://github.com/Aylur/dotfiles/)
 - will add more
+
+
+## Credit and Attribution
+
+I don't mind people copying my code, so you don't have to give credit to me. Howevever, please make sure that you give credit to the original authors of the code that I have used in this repository.
