@@ -21,11 +21,11 @@
 - [x] **Foot, Dunst, Mako**
 - [x] **Newsboat** - Add Rofi, lynx, vim, imv, pdf, browser, mpv, mpv loop, mpv float integration
 - [x] **Terminal Tools** - git, gh, lazygit, eza, btop, bat, nix-init, nix-index, fzf, ...
+- [x] **Zathura** - Custom colorscheme with hash codes.
 
 ### In Progress 🚧
 
 - [ ] **Tailnet** - TailScale, WireGuard, ...
-- [ ] **Zathura** - Custom colorscheme with hash colors is not being detected by zathura
 - [ ] **IDS** - lynis, vulnix
 - [ ] **IDE** - VSCode, Neovim, ...
 - [ ] **Rofi** - Custom colors
@@ -57,8 +57,11 @@
 - **Physical Security** - `yubikey`
 - **Ban IPs** - `fail2ban`
 - **Malware scanner** - `clamav`
+- **USB Device Control** - `usbguard`
+- **Software auditing** - `lynis` `vulnix` `auditd`
 - **Hardened Firefox** - `Schizofox`
 - **Stateless System** - `Impermanence`
+- **Kernel Hardening**
 
 </details>
 
