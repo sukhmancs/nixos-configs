@@ -35,7 +35,7 @@ in {
           ms-vscode.cpptools
 
           naumovs.color-highlight
-          ms-python.black-formatter
+          #          ms-python.black-formatter
           svelte.svelte-vscode
           ms-vsliveshare.vsliveshare
           oderwat.indent-rainbow
@@ -98,96 +98,96 @@ in {
           }
         ];
       userSettings = {
-        "workbench.iconTheme" = "material-icon-theme";
-        "workbench.colorTheme" = "Catppuccin Macchiato";
-        "explorer.compactFolders" = false; # disable compact mode
-        "update.showReleaseNotes" = false; # disable update release notes
-        "catppuccin.accentColor" = "mauve";
-        "editor.fontFamily" = "JetBrainsMono Nerd Font, Material Design Icons, 'monospace', monospace";
-        "editor.inlayHints.enabled" = "off";
-        "git.openRepositoryInParentFolders" = "always";
-        "editor.lineNumbers" = "relative";
-        "breadcrumbs.filePath" = "off";
-        "workbench.layoutControl.enabled" = false;
-        "editor.lightbulb.enabled" = "off";
-        "notebook.breadcrumbs.showCodeCells" = false;
-        "workbench.editor.enablePreview" = false;
-        "editor.scrollbar.verticalScrollbarSize" = 6;
-        "editor.fontSize" = 16;
-        "editor.fontLigatures" = true;
-        "workbench.fontAliasing" = "antialiased";
-        "files.trimTrailingWhitespace" = true;
-        "terminal.integrated.fontFamily" = "JetBrainsMono Nerd Font Mono";
-        "window.titleBarStyle" = "custom";
-        "terminal.integrated.automationShell.linux" = "nix-shell";
-        "terminal.integrated.defaultProfile.linux" = "zsh";
-        "terminal.integrated.cursorBlinking" = true;
-        "terminal.integrated.enableVisualBell" = false;
-        "editor.formatOnPaste" = true;
-        "editor.formatOnSave" = true;
-        "editor.formatOnType" = false;
-        "editor.minimap.enabled" = false;
-        "editor.minimap.renderCharacters" = false;
-        "editor.overviewRulerBorder" = false;
-        "editor.renderLineHighlight" = "all";
-        "editor.inlineSuggest.enabled" = true;
-        "editor.smoothScrolling" = true;
-        "editor.suggestSelection" = "first";
-        "editor.guides.indentation" = true;
-        "editor.guides.bracketPairs" = true;
-        "editor.bracketPairColorization.enabled" = true;
-        "window.nativeTabs" = true;
-        "window.restoreWindows" = "all";
-        "window.menuBarVisibility" = "toggle";
-        "workbench.panel.defaultLocation" = "right";
-        "workbench.editor.tabCloseButton" = "left";
-        "workbench.startupEditor" = "none";
-        "workbench.list.smoothScrolling" = true;
-        "security.workspace.trust.enabled" = false;
-
-        "terminal.integrated.tabs.enabled" = true;
-        "editor.scrollbar.horizontalScrollbarSize" = 0;
-        "git.enableSmartCommit" = true;
-        "git.confirmSync" = false;
-        "explorer.confirmDelete" = false;
-        "redhat.telemetry.enabled" = false;
-        "extensions.experimental.affinity" = {
-          "asvetliakov.vscode-neovim" = 1;
-        };
-        "flake8.severity" = {
-          "E" = "Information";
-          "F" = "Hint";
-          "W" = "Error";
-        };
-        "window.titleSeparator" = " | ";
-        "terminal.integrated.enableMultiLinePasteWarning" = false;
-        "explorer.openEditors.visible" = 1;
-        # "editor.cursorBlinking" = "phase";
-        "terminal.integrated.tabs.separator" = " | ";
-        "git.autofetch" = true;
-        "explorer.confirmDragAndDrop" = false;
-        "explorer.autoReveal" = false;
-        "errorLens.gutterIconsEnabled" = true;
-        "errorLens.gutterIconSize" = "115%";
-        "errorLens.messageBackgroundMode" = "message";
-        "errorLens.enabledDiagnosticLevels" = [
-          "error"
-          "warning"
-          "info"
-          "hint"
-        ];
-        "window.title" = "!Neovim";
-
-        "python.linting.flake8Args" = [
-          "--extend-ignore=E501"
-        ];
-
-        "[python]" = {
-          # use black vs code extension to format python code
-          "editor.defaultFormatter" = "ms-python.black-formatter";
-          "editor.formatOnSave" = true;
-        };
-
+        #        "workbench.iconTheme" = "material-icon-theme";
+        #        "workbench.colorTheme" = "Catppuccin Macchiato";
+        #        "explorer.compactFolders" = false; # disable compact mode
+        #        "update.showReleaseNotes" = false; # disable update release notes
+        #        "catppuccin.accentColor" = "mauve";
+        #        "editor.fontFamily" = "JetBrainsMono Nerd Font, Material Design Icons, 'monospace', monospace";
+        #        "editor.inlayHints.enabled" = "off";
+        #        "git.openRepositoryInParentFolders" = "always";
+        #        "editor.lineNumbers" = "relative";
+        #        "breadcrumbs.filePath" = "off";
+        #        "workbench.layoutControl.enabled" = false;
+        #        "editor.lightbulb.enabled" = "off";
+        #        "notebook.breadcrumbs.showCodeCells" = false;
+        #        "workbench.editor.enablePreview" = false;
+        #        "editor.scrollbar.verticalScrollbarSize" = 6;
+        #        "editor.fontSize" = 16;
+        #        "editor.fontLigatures" = true;
+        #        "workbench.fontAliasing" = "antialiased";
+        #        "files.trimTrailingWhitespace" = true;
+        #        "terminal.integrated.fontFamily" = "JetBrainsMono Nerd Font Mono";
+        #        "window.titleBarStyle" = "custom";
+        #        "terminal.integrated.automationShell.linux" = "nix-shell";
+        #        "terminal.integrated.defaultProfile.linux" = "zsh";
+        #        "terminal.integrated.cursorBlinking" = true;
+        #        "terminal.integrated.enableVisualBell" = false;
+        #        "editor.formatOnPaste" = true;
+        #        "editor.formatOnSave" = true;
+        #        "editor.formatOnType" = false;
+        #        "editor.minimap.enabled" = false;
+        #        "editor.minimap.renderCharacters" = false;
+        #        "editor.overviewRulerBorder" = false;
+        #        "editor.renderLineHighlight" = "all";
+        #        "editor.inlineSuggest.enabled" = true;
+        #        "editor.smoothScrolling" = true;
+        #        "editor.suggestSelection" = "first";
+        #        "editor.guides.indentation" = true;
+        #        "editor.guides.bracketPairs" = true;
+        #        "editor.bracketPairColorization.enabled" = true;
+        #        "window.nativeTabs" = true;
+        #        "window.restoreWindows" = "all";
+        #        "window.menuBarVisibility" = "toggle";
+        #        "workbench.panel.defaultLocation" = "right";
+        #        "workbench.editor.tabCloseButton" = "left";
+        #        "workbench.startupEditor" = "none";
+        #        "workbench.list.smoothScrolling" = true;
+        #        "security.workspace.trust.enabled" = false;
+        #
+        #        "terminal.integrated.tabs.enabled" = true;
+        #        "editor.scrollbar.horizontalScrollbarSize" = 0;
+        #        "git.enableSmartCommit" = true;
+        #        "git.confirmSync" = false;
+        #        "explorer.confirmDelete" = false;
+        #        "redhat.telemetry.enabled" = false;
+        #        "extensions.experimental.affinity" = {
+        #          "asvetliakov.vscode-neovim" = 1;
+        #        };
+        #        "flake8.severity" = {
+        #          "E" = "Information";
+        #          "F" = "Hint";
+        #          "W" = "Error";
+        #        };
+        #        "window.titleSeparator" = " | ";
+        #        "terminal.integrated.enableMultiLinePasteWarning" = false;
+        #        "explorer.openEditors.visible" = 1;
+        #        # "editor.cursorBlinking" = "phase";
+        #        "terminal.integrated.tabs.separator" = " | ";
+        #        "git.autofetch" = true;
+        #        "explorer.confirmDragAndDrop" = false;
+        #        "explorer.autoReveal" = false;
+        #        "errorLens.gutterIconsEnabled" = true;
+        #        "errorLens.gutterIconSize" = "115%";
+        #        "errorLens.messageBackgroundMode" = "message";
+        #        "errorLens.enabledDiagnosticLevels" = [
+        #          "error"
+        #          "warning"
+        #          "info"
+        #          "hint"
+        #        ];
+        #        "window.title" = "!Neovim";
+        #
+        #        "python.linting.flake8Args" = [
+        #          "--extend-ignore=E501"
+        #        ];
+        #
+        #        "[python]" = {
+        #          # use black vs code extension to format python code
+        #          "editor.defaultFormatter" = "ms-python.black-formatter";
+        #          "editor.formatOnSave" = true;
+        #        };
+        #
         "python.linting.flake8CategorySeverity.F" = "Warning";
         # "vscode-neovim.highlightGroups.highlights" = {
         #   "IncSearch" = {
