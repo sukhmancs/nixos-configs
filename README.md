@@ -23,10 +23,10 @@
 - [x] **Terminal Tools** - git, gh, lazygit, eza, btop, bat, nix-init, nix-index, fzf, ...
 - [x] **Zathura** - Custom colorscheme with hash codes.
 - [x] **VSCode** - Custom base16 color scheme (I am not sure how to do this. I am going to mark this as done for now, will come back later).
-- [x] **QT** - Use Kvantum
 
 ### In Progress 🚧
 
+- [ ] **QT** - Use Kvantum
 - [ ] **Qemu** - Virtualization with GPU passthrough
 - [ ] **Neovim**
 - [ ] **IDS** - lynis, vulnix
@@ -117,8 +117,7 @@ Here are the tools I am using:
 | 🖥️ Terminal        | Foot               | Foot          |
 | 🔔 Notifications   | Dunst, AGS         | Mako          |
 
-> [!NOTE]
-> **Triangulum** is a headless server, so no graphical stuff there.
+> [!NOTE] > **Triangulum** is a headless server, so no graphical stuff there.
 
 ## Color Scheme
 
@@ -356,7 +355,6 @@ nixos-rebuild switch --flake .#<host>
 - [end-4](https://github.com/end-4/dots-hyprland)
 - [aylur](https://github.com/Aylur/dotfiles/)
 - will add more
-
 
 ## Credit and Attribution
 

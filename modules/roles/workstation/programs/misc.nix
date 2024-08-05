@@ -25,13 +25,13 @@
       kdePackages.dolphin
       calibre
       bitwarden-desktop
-     # (symlinkJoin {
-     #   name = "Obsidian";
-      #  paths = with pkgs; [
-       #   obsidian
-       #   pandoc
-       # ];
-      #})
+      (symlinkJoin {
+        name = "Obsidian";
+        paths = with pkgs; [
+          obsidian
+          pandoc
+        ];
+      })
     ];
   };
 }
