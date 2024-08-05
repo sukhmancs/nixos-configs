@@ -17,7 +17,7 @@
         mpv.enable = true; # media player
       };
       gtk.enable = true; # gtk theme
-      #qt.enable = true; # qt theme with kvantum
+      qt.enable = true; # qt theme with kvantum
     };
 
     modules.home.programs = {
