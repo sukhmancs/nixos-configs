@@ -41,65 +41,6 @@
 
 ## Structure
 
-- **`homes`** - Common home-manager configuration for all hosts.
-- **`hosts`** - Host-specific configurations.
-- **`modules`** - Contains the common modules used across all hosts.
-  - **`exclusive`** - Modules that needs to be enabled exclusively.
-  - **`roles`** - Roles that can be assigned to a host.
-  - **`shared`** - Modules that are shared across multiple hosts.
-- **`flake-parts`** - [flake.parts](https://flake.parts/).
-  - **`default`** - Packages that are available to all hosts.
-  - **`git-hooks`** - git-hooks
-  - **`lib`** - Common functions and variables.
-  - **`npins`** - Nix packages that are pinned.
-  - **`shell`** - Direnv shell for this project.
-  - **`templates`** - Flake templates for different languages.
-  - **`keys`** - Public keys for the hosts.
-  - **`live-media`** - Live media available for build.
-  - **`treefmt`** - treefmt configuration.
-- **`options`** - Custom options for the hosts.
-- **`secrets`** - Agenix secrets.
-- **`themes`** - Custom base16 themes.
-
-```plaintext
-homes 🏠
-├── Common home-manager configuration for all hosts
-hosts 💻
-├── Host-specific configurations
-modules 🔧
-├── exclusive 🚪
-│   └── Modules that need to be enabled exclusively
-├── roles 🎭
-│   └── Roles that can be assigned to a host
-└── shared 🤝
-    └── Modules that are shared across multiple hosts
-flake-parts ❄️
-├── default 📦
-│   └── Packages that are available to all hosts
-├── git-hooks 🔗
-│   └── git-hooks
-├── lib 📚
-│   └── Common functions and variables
-├── npins 📌
-│   └── Nix packages that are pinned
-├── shell 🐚
-│   └── Direnv shell for this project
-├── templates 🧩
-│   └── Flake templates for different languages
-├── keys 🔑
-│   └── Public keys for the hosts
-├── live-media 🎥
-│   └── Live media available for build
-└── treefmt 🌳
-    └── treefmt configuration
-options ⚙️
-├── Custom options for the hosts
-secrets 🔒
-├── Agenix secrets
-themes 🎨
-├── Custom base16 themes
-```
-
 ```plaintext
 .
 ├── homes 🏠          # Common home-manager configuration for all hosts.
