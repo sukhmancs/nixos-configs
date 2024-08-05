@@ -3,7 +3,6 @@
     ./hyprpaper
     ./schizofox
     ./thunderbird
-    ./zathura
 
     ./chromium.nix
     ./clipboard.nix
@@ -20,5 +19,6 @@
     ./swayidle.nix
     ./rbw.nix
     ./wlogout.nix
+    ./zathura.nix
   ];
 }
