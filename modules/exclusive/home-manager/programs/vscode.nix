@@ -10,8 +10,9 @@
 }: let
   inherit (lib) mkIf;
 in {
-  config = mkIf config.programs.vscode.enable {
+  config = mkIf true {
     programs.vscode = {
+      enable = true;
       enableExtensionUpdateCheck = true;
       enableUpdateCheck = true;
       extensions = with pkgs.vscode-extensions;
