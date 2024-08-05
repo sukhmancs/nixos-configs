@@ -43,7 +43,7 @@ in {
           ms-vscode.cpptools
 
           naumovs.color-highlight
-          ms-python.black-formatter
+          #ms-python.black-formatter
           svelte.svelte-vscode
           ms-vsliveshare.vsliveshare
           oderwat.indent-rainbow
@@ -190,11 +190,11 @@ in {
           "--extend-ignore=E501"
         ];
 
-        "[python]" = {
+        #"[python]" = {
           # use black vs code extension to format python code
-          "editor.defaultFormatter" = "ms-python.black-formatter";
-          "editor.formatOnSave" = true;
-        };
+          #"editor.defaultFormatter" = "ms-python.black-formatter";
+          #"editor.formatOnSave" = true;
+        #};
 
         "python.linting.flake8CategorySeverity.F" = "Warning";
         # "vscode-neovim.highlightGroups.highlights" = {

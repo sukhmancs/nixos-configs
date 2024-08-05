@@ -12,6 +12,7 @@
     ./librewolf.nix
     ./nextcloud.nix
     ./obs.nix
+    ./obsidian.nix
     ./office.nix
     ./spotify.nix
     ./vscode.nix
