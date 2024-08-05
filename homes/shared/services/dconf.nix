@@ -1,13 +1,11 @@
 {
   dconf.settings = {
-    # this is like a system-wide dark mode switch that some apps respect
-    # equivalent of the following dconf command:
-    # `conf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"`
+    # This will set the default color scheme to dark
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
     };
 
-    # tell virt-manager to use the system connection
+    # This will automatically add the virtualization connection to virt-manager
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = ["qemu:///system"];
       uris = ["qemu:///system"];

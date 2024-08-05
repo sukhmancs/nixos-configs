@@ -25,15 +25,16 @@
 
 ### In Progress 🚧
 
-- [ ] **Tailnet** - TailScale, WireGuard, ...
-- [ ] **IDS** - lynis, vulnix
+- [ ] **Qemu** - Virtualization with GPU passthrough
 - [ ] **IDE** - VSCode, Neovim, ...
+- [ ] **IDS** - lynis, vulnix
+- [ ] **QT** - Use Kvantum
 - [ ] **Rofi** - Custom colors
+- [ ] **Tailnet** - TailScale, WireGuard, ...
 - [ ] **Credit More Gracefully** - Add Name, Repo, etc.
 - [ ] **ZFS** - Switch to ZFS
 - [ ] **Hardened Systemd**
 - [ ] **Modularize** - Anyrun, qt.nix, ...
-- [ ] **QT**
 - [ ] **fastfetch** - Add custom colors (How?)
 - [ ] **Refactor** - Remove dead code, unused files, ...
 - [ ] **Templates** - Add flake templates for c, cpp, python, node, ...

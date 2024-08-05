@@ -34,15 +34,37 @@
       url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC9-y-6csu5WGm29I7JiwpnA";
       tags = ["tech" "youtube"];
     }
-    # Security news
+    # Security Blogs
     {
       title = "Krebson Security";
       url = "https://krebsonsecurity.com/feed/";
       tags = ["tech" "security"];
     }
 
-    # Unsorted
-    # {url = "https://nitter.net/GergelyOrosz/rss";}
+    {
+      title = "Alex Williamson Security Blog";
+      url = "https://rss.app/feeds/2DNE7VXqTCz48R02.xml";
+      tags = ["tech" "security"];
+    }
+
+    {
+      title = "The Register";
+      url = "https://www.theregister.com/security/headlines.atom";
+      tags = ["tech" "security"];
+    }
+
+    {
+      title = "Schneier on Security";
+      url = "https://www.schneier.com/feed/";
+      tags = ["tech" "security"];
+    }
+
+    {
+      title = "Troy Hunt";
+      url = "https://www.troyhunt.com/feed/";
+      tags = ["tech" "security"];
+    }
+
     {url = "https://xeiaso.net/blog.rss";}
     {url = "https://grahamc.com/feed";}
     {url = "https://feeds.feedburner.com/ThePragmaticEngineer";}

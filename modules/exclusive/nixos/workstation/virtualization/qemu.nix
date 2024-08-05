@@ -8,10 +8,14 @@
 in {
   config = mkIf config.virtualisation.libvirtd.enable {
     environment.systemPackages = with pkgs; [
-      virt-manager
-      virt-viewer
-      qemu_kvm
-      qemu
+      virt-manager # VM Interface
+      virt-viewer # Remote VM
+      qemu_kvm # Virtualizer
+      qemu # Virtualizer
+      OVMF # UEFI Firmware
+      gvfs # Shared Directory
+      swtpm # TPM
+      virglrenderer # Virtual OpenGL
     ];
 
     virtualisation = {

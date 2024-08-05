@@ -30,7 +30,13 @@
     xdg.portal.enable = true;
     services.tailscale.enable = false; #TODO setup headscale first
     services.printing.enable = true;
-    virtualisation.libvirtd.enable = true; # qemu
+    vfio = {
+      enable = true;
+      nvidiaGpu = true;
+      passGpuAtBoot = true;
+      pciIDs = ["10de:1f11" "10de:10f9" "10de:1ada" "10de:1adb"];
+    };
+    # virtualisation.libvirtd.enable = true; # qemu
     modules.system = {
       mainUser = "xi";
       impermanence.root.enable = true;
