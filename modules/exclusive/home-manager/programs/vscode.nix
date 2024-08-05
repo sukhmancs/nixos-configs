@@ -67,12 +67,12 @@ in {
             version = "1.67.7949";
             sha256 = "sha256-ZtUqQeWjXmTz49DUeYkuqSTdVHRC8OfgWv8fuhlHDVc=";
           }
-          {
-            name = "volar";
-            publisher = "vue";
-            version = "1.0.12";
-            sha256 = "sha256-D9E3KRUOlNVXH4oMv1W0+/mbqO8Se7+6E2F5P/KvCro=";
-          }
+          #          {
+          #            name = "volar";
+          #            publisher = "vue";
+          #            version = "1.0.12";
+          #            sha256 = "sha256-D9E3KRUOlNVXH4oMv1W0+/mbqO8Se7+6E2F5P/KvCro=";
+          #          }
           {
             name = "vscode-typescript-vue-plugin";
             publisher = "vue";
