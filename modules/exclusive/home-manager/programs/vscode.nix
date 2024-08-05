@@ -1,15 +1,16 @@
 #
 # VSCode - Visual Studio Code
 #
-{
-  lib,
-  pkgs,
-  osConfig,
-  config,
-  ...
-}: let
+{ lib
+, pkgs
+, osConfig
+, config
+, ...
+}:
+let
   inherit (lib) mkIf;
-in {
+in
+{
   config = mkIf true {
     programs.vscode = {
       enable = true;
@@ -188,7 +189,8 @@ in {
         #          "editor.formatOnSave" = true;
         #        };
         #
-        "python.linting.flake8CategorySeverity.F" = "Warning";
+
+        #"python.linting.flake8CategorySeverity.F" = "Warning";
         # "vscode-neovim.highlightGroups.highlights" = {
         #   "IncSearch" = {
         #     "backgroundColor" = "theme.editor.findMatchBackground";
