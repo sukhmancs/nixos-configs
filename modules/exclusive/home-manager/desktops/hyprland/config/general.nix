@@ -28,7 +28,7 @@ in {
       allow_tearing = true; # This just allows the `immediate` window rule to work
 
       # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
-      # apply_sens_to_raw = 0;
+      apply_sens_to_raw = 0;
     };
   };
 }

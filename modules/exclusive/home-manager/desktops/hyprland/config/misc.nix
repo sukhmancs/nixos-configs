@@ -14,7 +14,7 @@
       disable_hyprland_logo = true;
       disable_splash_rendering = true;
       force_default_wallpaper = 0;
-      # new_window_takes_over_fullscreen = 2;
+      new_window_takes_over_fullscreen = 2;
       allow_session_lock_restore = true;
       initial_workspace_tracking = false;
       mouse_move_enables_dpms = true; # enable dpms on mouse/touchpad action
