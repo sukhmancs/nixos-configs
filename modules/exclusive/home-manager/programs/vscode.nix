@@ -18,7 +18,7 @@ in {
       mutableExtensionsDir = true;
       enableExtensionUpdateCheck = true;
       enableUpdateCheck = true;
-      package = with extensions.vscode-marketplace; [
+      extensions = with extensions.vscode-marketplace; [
         golang.go
         vlanguage.vscode-vlang
       ];
