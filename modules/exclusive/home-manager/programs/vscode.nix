@@ -9,7 +9,7 @@
   ...
 }: let
   inherit (lib) mkIf;
-  extensions = inputs.nix-vscode-extensions.extensions.${system};
+  extensions = inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.system};
   inherit (pkgs) vscode-with-extensions vscodium;
 in {
   config = mkIf true {
