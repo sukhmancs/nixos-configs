@@ -11,6 +11,37 @@
   inherit (lib) mkIf;
   extensions = inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.system};
   inherit (pkgs) vscode-with-extensions vscodium;
+
+  vscodeMarketplaceExtensions = with extensions.vscode-marketplace; [
+    golang.go
+    vlanguage.vscode-vlang
+    ms-vscode.vscode-typescript-next
+    decaycs.decay
+    adolfdaniel.vscode-chromium-vector-icons
+    arrterian.nix-env-selector
+    bbenoist.nix
+    catppuccin.catppuccin-vsc
+    christian-kohler.path-intellisense
+    dbaeumer.vscode-eslint
+    eamodio.gitlens
+    esbenp.prettier-vscode
+    formulahendry.code-runner
+    golang.go
+    ibm.output-colorizer
+    kamadorueda.alejandra
+    ms-azuretools.vscode-docker
+    ms-python.python
+    ms-python.vscode-pylance
+    ms-vscode-remote.remote-ssh
+    ms-vscode.cpptools
+    naumovs.color-highlight
+    ms-python.black-formatter
+    svelte.svelte-vscode
+  ];
+
+  openVsxExtensions = with extensions.open-vsx-release; [
+    rust-lang.rust-analyzer
+  ];
 in {
   config = mkIf true {
     programs.vscode = {
@@ -18,55 +49,7 @@ in {
       mutableExtensionsDir = true;
       enableExtensionUpdateCheck = true;
       enableUpdateCheck = true;
-      extensions = with extensions; [
-      with vscode-marketplace; [
-         golang.go
-        vlanguage.vscode-vlang
-        ms-vscode.vscode-typescript-next
-        decaycs.decay
-        adolfdaniel.vscode-chromium-vector-icons
-
-        arrterian.nix-env-selector
-             bbenoist.nix
-             catppuccin.catppuccin-vsc
-             christian-kohler.path-intellisense
-             dbaeumer.vscode-eslint
-             eamodio.gitlens
-             esbenp.prettier-vscode
-             formulahendry.code-runner
-             golang.go
-             ibm.output-colorizer
-             kamadorueda.alejandra
-             ms-azuretools.vscode-docker
-             ms-python.python
-             ms-python.vscode-pylance
-             ms-vscode-remote.remote-ssh
-             ms-vscode.cpptools
-             naumovs.color-highlight
-             ms-python.black-formatter
-             svelte.svelte-vscode
-             ms-vsliveshare.vsliveshare
-             oderwat.indent-rainbow
-             pkief.material-icon-theme
-             rust-lang.rust-analyzer
-             shardulm94.trailing-spaces
-             sumneko.lua
-             timonwong.shellcheck
-             usernamehw.errorlens
-             xaver.clang-format
-             yzhang.markdown-all-in-one
-             james-yu.latex-workshop
-             redhat.vscode-yaml
-             ms-azuretools.vscode-docker
-             irongeek.vscode-env
-             github.vscode-pull-request-github
-             github.codespaces
-             astro-build.astro-vscode
-             wakatime.vscode-wakatime
-      ]
-    ] ++ with open-vsx-release; [
-      rust-lang.rust-analyzer
-    ];
+      extensions = vscodeMarketplaceExtensions ++ openVsxExtensions;
 #      extensions =
 #        [
 #          extensions.vscode-marketplace.golang.go
