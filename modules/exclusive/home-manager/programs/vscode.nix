@@ -11,6 +11,7 @@
 #
 # For more information: https://github.com/nix-community/nix-vscode-extensions#explore
 {
+  config,
   lib,
   pkgs,
   inputs,
@@ -78,9 +79,8 @@
     # Add released extensions here
   ];
 in {
-  config = mkIf true {
+  config = mkIf config.programs.vscode.enable {
     programs.vscode = {
-      enable = true;
       mutableExtensionsDir = true;
       enableExtensionUpdateCheck = true;
       enableUpdateCheck = true;
