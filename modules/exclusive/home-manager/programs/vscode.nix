@@ -37,6 +37,25 @@
     naumovs.color-highlight
     ms-python.black-formatter
     svelte.svelte-vscode
+
+    ms-vsliveshare.vsliveshare
+    oderwat.indent-rainbow
+    pkief.material-icon-theme
+    rust-lang.rust-analyzer
+    shardulm94.trailing-spaces
+    sumneko.lua
+    timonwong.shellcheck
+    usernamehw.errorlens
+    xaver.clang-format
+    yzhang.markdown-all-in-one
+    james-yu.latex-workshop
+    redhat.vscode-yaml
+    ms-azuretools.vscode-docker
+    irongeek.vscode-env
+    github.vscode-pull-request-github
+    github.codespaces
+    astro-build.astro-vscode
+    wakatime.vscode-wakatime
   ];
 
   openVsxExtensions = with extensions.open-vsx-release; [
@@ -49,23 +68,9 @@ in {
       mutableExtensionsDir = true;
       enableExtensionUpdateCheck = true;
       enableUpdateCheck = true;
-      extensions = vscodeMarketplaceExtensions ++ openVsxExtensions;
-#      extensions =
-#        [
-#          extensions.vscode-marketplace.golang.go
-#          extensions.vscode-marketplace.vlanguage.vscode-vlang
-#          extensions.vscode-marketplace.ms-vscode.vscode-typescript-next
-#          extensions.vscode-marketplace.decaycs.decay
-#          extensions.vscode-marketplace.adolfdaniel.vscode-chromium-vector-icons
-#          extensions.open-vsx-release.rust-lang.rust-analyzer
-#        ]
-        #      extensions = vscode-with-extensions.override {
-        #        vscode = vscodium;
-        #        vscodeExtensions = [
-        #          extensions.vscode-marketplace.golang.go
-        #          extensions.open-vsx-release.rust-lang.rust-analyzer
-        #        ];
-        #      };
+      extensions =
+        vscodeMarketplaceExtensions
+        ++ openVsxExtensions
         # extensions = with pkgs.vscode-extensions;
         #   [
         #     arrterian.nix-env-selector
@@ -106,9 +111,9 @@ in {
         #     astro-build.astro-vscode
         #     wakatime.vscode-wakatime
         #   ]
-        #   ++ [
-        #     pkgs.vscode-extensions."2gua".rainbow-brackets
-        #   ]
+        ++ [
+          pkgs.vscode-extensions."2gua".rainbow-brackets
+        ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
             name = "copilot-nightly";
@@ -122,30 +127,30 @@ in {
           #            version = "1.0.12";
           #            sha256 = "sha256-D9E3KRUOlNVXH4oMv1W0+/mbqO8Se7+6E2F5P/KvCro=";
           #          }
-          {
-            name = "vscode-typescript-vue-plugin";
-            publisher = "vue";
-            version = "1.0.12";
-            sha256 = "sha256-WiL+gc9+U861ubLlY/acR+ZcrFT7TdIDR0K1XNNidX8=";
-          }
-          {
-            name = "decay";
-            publisher = "decaycs";
-            version = "1.0.6";
-            sha256 = "sha256-Jtxj6LmHgF7UNaXtXxHkq881BbuPtIJGxR7kdhKr0Uo=";
-          }
-          {
-            name = "vscode-typescript-next";
-            publisher = "ms-vscode";
-            version = "5.0.202301100";
-            sha256 = "sha256-8d/L9F06ZaS9dTOXV6Q40ivI499nfZLQURcLdHXoTSM=";
-          }
-          {
-            name = "vscode-chromium-vector-icons";
-            publisher = "adolfdaniel";
-            version = "1.0.2";
-            sha256 = "sha256-Meo53e/3jUP6YDEXOA/40xghI77jj4iAQus3/S8RPZI=";
-          }
+          #          {
+          #            name = "vscode-typescript-vue-plugin";
+          #            publisher = "vue";
+          #            version = "1.0.12";
+          #            sha256 = "sha256-WiL+gc9+U861ubLlY/acR+ZcrFT7TdIDR0K1XNNidX8=";
+          #          }
+          #          {
+          #            name = "decay";
+          #            publisher = "decaycs";
+          #            version = "1.0.6";
+          #            sha256 = "sha256-Jtxj6LmHgF7UNaXtXxHkq881BbuPtIJGxR7kdhKr0Uo=";
+          #          }
+          #          {
+          #            name = "vscode-typescript-next";
+          #            publisher = "ms-vscode";
+          #            version = "5.0.202301100";
+          #            sha256 = "sha256-8d/L9F06ZaS9dTOXV6Q40ivI499nfZLQURcLdHXoTSM=";
+          #          }
+          #          {
+          #            name = "vscode-chromium-vector-icons";
+          #            publisher = "adolfdaniel";
+          #            version = "1.0.2";
+          #            sha256 = "sha256-Meo53e/3jUP6YDEXOA/40xghI77jj4iAQus3/S8RPZI=";
+          #          }
         ];
       userSettings = {
         "workbench.iconTheme" = "material-icon-theme";
