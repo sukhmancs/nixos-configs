@@ -4,7 +4,7 @@
       "tile, class:(dev.warp.Warp)"
       "float, title:^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$"
       "immediate,class:(steam_app)"
-      "noshadow,floating:0"
+      # "noshadow,floating:0"
     ];
     windowrule = [
       "float, ^(blueberry.py)$"

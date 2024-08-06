@@ -17,9 +17,6 @@ in {
       border_size = 2;
 
       # Fallback colors
-      # "col.active_border" = "rgba(0DB7D4FF)";
-      # "col.inactive_border" = "rgba(31313600)";
-
       "col.active_border" = "rgb(${colors.base0E})";
       "col.inactive_border" = "rgb(${colors.base02})";
 
@@ -31,7 +28,7 @@ in {
       allow_tearing = true; # This just allows the `immediate` window rule to work
 
       # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
-      apply_sens_to_raw = 0;
+      # apply_sens_to_raw = 0;
     };
   };
 }

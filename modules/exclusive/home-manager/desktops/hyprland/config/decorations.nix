@@ -22,8 +22,8 @@ in {
         noise = 0.01;
         popups = true;
         popups_ignorealpha = 0.6;
-        vibrancy = 0.2;
-        special = true; # expensive, but looks cool
+        # vibrancy = 0.2;
+        special = false; # expensive, but looks cool
       };
 
       # shadow config
