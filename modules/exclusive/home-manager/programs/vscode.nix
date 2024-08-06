@@ -191,13 +191,13 @@ in {
           "editor.formatOnSave" = true;
         };
 
-        "[nix]": {
-          "editor.defaultFormatter": "kamadorueda.alejandra",
-          "editor.formatOnPaste": true,
-          "editor.formatOnSave": true,
-          "editor.formatOnType": false
+        "[nix]" = {
+          "editor.defaultFormatter" = "kamadorueda.alejandra";
+          "editor.formatOnPaste" = true;
+          "editor.formatOnSave" = true;
+          "editor.formatOnType" = false;
         },
-        "alejandra.program": "alejandra",
+        "alejandra.program" = "alejandra";
 
         "python.linting.flake8CategorySeverity.F" = "Warning";
         "vscode-neovim.highlightGroups.highlights" = {
