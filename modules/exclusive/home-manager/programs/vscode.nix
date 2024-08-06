@@ -4,11 +4,12 @@
 {
   lib,
   pkgs,
+  inputs,
   ...
 }: let
   inherit (lib) mkIf;
 in {
-  import = [inputs.nix-vscode-extensions.packages.default];
+  imports = [inputs.nix-vscode-extensions.packages.default];
   config = mkIf true {
     programs.vscode = {
       enable = true;
