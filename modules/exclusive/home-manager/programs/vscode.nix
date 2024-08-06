@@ -19,12 +19,19 @@ in {
       enableExtensionUpdateCheck = true;
       enableUpdateCheck = true;
       extensions = vscode-with-extensions.override {
-        vscode = vscodium;
-        vscodeExtensions = [
-          extensions.vscode-marketplace.golang.go
-          extensions.open-vsx-release.rust-lang.rust-analyzer
+        #vscode = vscodium;
+        vscodeExtensions = with extensions.vscode-marketplace; [
+          golang.go
+          vlanguage.vscode-vlang
         ];
       };
+      #      extensions = vscode-with-extensions.override {
+      #        vscode = vscodium;
+      #        vscodeExtensions = [
+      #          extensions.vscode-marketplace.golang.go
+      #          extensions.open-vsx-release.rust-lang.rust-analyzer
+      #        ];
+      #      };
       # extensions = with pkgs.vscode-extensions;
       #   [
       #     arrterian.nix-env-selector
