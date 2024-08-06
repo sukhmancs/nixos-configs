@@ -94,11 +94,10 @@ in {
           # pkgs.vscode-extensions.aaron-bond.better-comments # Better Comments
           # pkgs.vscode-extensions.kamadorueda.alejandra # Alejandra formatter for nix
         ]
-        ++ pkgs.vscode-extensions [
-          # Add extensions from the Nixpkgs repository here
-          "aaron-bond".better-comments # Better Comments
-          "2gua".rainbow-brackets # Rainbow Brackets
-          "kamadorueda".alejandra # Alejandra formatter for nix
+        ++ [
+          pkgs.vscode-extensions."aaron-bond".better-comments # Better Comments
+          pkgs.vscode-extensions."2gua".rainbow-brackets # Rainbow Brackets
+          pkgs.vscode-extensions."kamadorueda".alejandra # Alejandra formatter for nix
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
