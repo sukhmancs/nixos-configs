@@ -13,49 +13,47 @@
   inherit (pkgs) vscode-with-extensions vscodium;
 
   vscodeMarketplaceExtensions = with extensions.vscode-marketplace; [
-    golang.go
-    vlanguage.vscode-vlang
-    ms-vscode.vscode-typescript-next
-    decaycs.decay
-    adolfdaniel.vscode-chromium-vector-icons
-    arrterian.nix-env-selector
-    bbenoist.nix
-    catppuccin.catppuccin-vsc
-    christian-kohler.path-intellisense
-    dbaeumer.vscode-eslint
-    eamodio.gitlens
-    esbenp.prettier-vscode
-    formulahendry.code-runner
-    golang.go
-    ibm.output-colorizer
-    kamadorueda.alejandra
-    ms-azuretools.vscode-docker
-    ms-python.python
-    ms-python.vscode-pylance
-    ms-vscode-remote.remote-ssh
-    ms-vscode.cpptools
-    naumovs.color-highlight
-    ms-python.black-formatter
-    svelte.svelte-vscode
-
-    ms-vsliveshare.vsliveshare
-    oderwat.indent-rainbow
-    pkief.material-icon-theme
-    rust-lang.rust-analyzer
-    shardulm94.trailing-spaces
-    sumneko.lua
-    timonwong.shellcheck
-    usernamehw.errorlens
-    xaver.clang-format
-    yzhang.markdown-all-in-one
-    james-yu.latex-workshop
-    redhat.vscode-yaml
-    ms-azuretools.vscode-docker
-    irongeek.vscode-env
-    github.vscode-pull-request-github
-    github.codespaces
-    astro-build.astro-vscode
-    wakatime.vscode-wakatime
+    golang.go # Go language support
+    vlanguage.vscode-vlang # support for Vlang
+    vue.vscode-typescript-vue-plugin # Vue
+    vue.volar # language server for Vue
+    ms-vscode.vscode-typescript-next # TypeScript
+    decaycs.decay # Decay color scheme
+    adolfdaniel.vscode-chromium-vector-icons # Chromium Vector Icons
+    arrterian.nix-env-selector # Nix environment selector
+    bbenoist.nix # Nix language support
+    catppuccin.catppuccin-vsc # Catppuccin Macchiato color scheme
+    christian-kohler.path-intellisense # Path Intellisense - autocompletion for file paths
+    dbaeumer.vscode-eslint # ESLint - JavaScript linting
+    eamodio.gitlens # GitLens - For enhanced Git integration
+    esbenp.prettier-vscode # Prettier - Code formatter
+    formulahendry.code-runner # Code Runner - run code snippet or code file for multiple languages
+    ibm.output-colorizer # Output Colorizer - colorize the output in the debug console
+    kamadorueda.alejandra # Alejandra formatter for nix
+    ms-azuretools.vscode-docker # Docker - Docker support
+    ms-python.python # Python - Python language support
+    ms-python.vscode-pylance # Pylance - Python language server
+    ms-vscode-remote.remote-ssh # Remote - SSH - SSH support
+    ms-vscode.cpptools # C/C++ - C/C++ language support
+    naumovs.color-highlight # Color Highlight - highlight web colors in your editor
+    ms-python.black-formatter # Black - Python code formatter
+    svelte.svelte-vscode # Svelte - Svelte language support
+    ms-vsliveshare.vsliveshare # Live Share - Real-time collaborative development
+    oderwat.indent-rainbow # Indent Rainbow - colorize indentation in front of your text
+    pkief.material-icon-theme # Material Icon Theme - Material Design icons
+    shardulm94.trailing-spaces # Trailing Spaces - highlight trailing spaces and delete them in a flash
+    sumneko.lua # Lua - Lua language support
+    timonwong.shellcheck # ShellCheck - Shell script linting
+    usernamehw.errorlens # Error Lens - display diagnostics inline
+    xaver.clang-format # Clang-Format - C/C++ code formatter
+    yzhang.markdown-all-in-one # Markdown All in One - Markdown language support
+    james-yu.latex-workshop # LaTeX Workshop - LaTeX language support
+    redhat.vscode-yaml # YAML - YAML language support
+    irongeek.vscode-env # .env - .env file support
+    github.vscode-pull-request-github # GitHub Pull Requests - GitHub pull request support
+    github.codespaces # GitHub Codespaces - GitHub Codespaces support
+    astro-build.astro-vscode # Astro - Astro language support
+    wakatime.vscode-wakatime # WakaTime - WakaTime support
   ];
 
   openVsxExtensions = with extensions.open-vsx-release; [
