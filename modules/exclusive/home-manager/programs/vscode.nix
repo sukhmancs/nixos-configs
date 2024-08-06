@@ -19,10 +19,10 @@ in {
       enableExtensionUpdateCheck = true;
       enableUpdateCheck = true;
       package = with extensions.vscode-marketplace; [
-          golang.go
-          vlanguage.vscode-vlang
-        ];
-      };
+        golang.go
+        vlanguage.vscode-vlang
+      ];
+
       #      extensions = vscode-with-extensions.override {
       #        vscode = vscodium;
       #        vscodeExtensions = [
