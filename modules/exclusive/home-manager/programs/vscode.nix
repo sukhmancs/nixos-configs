@@ -1,17 +1,27 @@
 #
 # VSCode - Visual Studio Code
 #
+# Explore available extensions:
+#
+# $ nix repl
+# nix-repl> :lf github:nix-community/nix-vscode-extensions/c43d9089df96cf8aca157762ed0e2ddca9fcd71e
+# nix-repl> t = extensions.<TAB>
+# nix-repl> t = extensions.x86_64-linux
+# nix-repl> t.<TAB>
+#
+# For more information: https://github.com/nix-community/nix-vscode-extensions#explore
 {
   lib,
   pkgs,
-  system,
   inputs,
   ...
 }: let
   inherit (lib) mkIf;
   extensions = inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.system};
-  inherit (pkgs) vscode-with-extensions vscodium;
 
+  # vscode-marketplace, open-vsx-release provides all the latest extensions including
+  # those in the vscode-marketplace-release and open-vsx-release channels
+  # If you want stable/released extensions, use vscode-marketplace-release and open-vsx-release
   vscodeMarketplaceExtensions = with extensions.vscode-marketplace; [
     golang.go # Go language support
     vlanguage.vscode-vlang # support for Vlang
@@ -57,7 +67,15 @@
   ];
 
   openVsxExtensions = with extensions.open-vsx-release; [
-    rust-lang.rust-analyzer
+    rust-lang.rust-analyzer # Rust - Rust language support
+  ];
+
+  vscodeMarketplaceExtensionsRelease = with extensions.vscode-marketplace-release; [
+    # Add released extensions here
+  ];
+
+  openVsxExtensionsRelease = with extensions.open-vsx-release; [
+    # Add released extensions here
   ];
 in {
   config = mkIf true {
@@ -69,46 +87,8 @@ in {
       extensions =
         vscodeMarketplaceExtensions
         ++ openVsxExtensions
-        # extensions = with pkgs.vscode-extensions;
-        #   [
-        #     arrterian.nix-env-selector
-        #     bbenoist.nix
-        #     catppuccin.catppuccin-vsc
-        #     christian-kohler.path-intellisense
-        #     dbaeumer.vscode-eslint
-        #     eamodio.gitlens
-        #     esbenp.prettier-vscode
-        #     formulahendry.code-runner
-        #     golang.go
-        #     ibm.output-colorizer
-        #     kamadorueda.alejandra
-        #     ms-azuretools.vscode-docker
-        #     ms-python.python
-        #     ms-python.vscode-pylance
-        #     ms-vscode-remote.remote-ssh
-        #     ms-vscode.cpptools
-        #     naumovs.color-highlight
-        #     ms-python.black-formatter
-        #     svelte.svelte-vscode
-        #     ms-vsliveshare.vsliveshare
-        #     oderwat.indent-rainbow
-        #     pkief.material-icon-theme
-        #     rust-lang.rust-analyzer
-        #     shardulm94.trailing-spaces
-        #     sumneko.lua
-        #     timonwong.shellcheck
-        #     usernamehw.errorlens
-        #     xaver.clang-format
-        #     yzhang.markdown-all-in-one
-        #     james-yu.latex-workshop
-        #     redhat.vscode-yaml
-        #     ms-azuretools.vscode-docker
-        #     irongeek.vscode-env
-        #     github.vscode-pull-request-github
-        #     github.codespaces
-        #     astro-build.astro-vscode
-        #     wakatime.vscode-wakatime
-        #   ]
+        ++ vscodeMarketplaceExtensionsRelease
+        ++ openVsxExtensionsRelease
         ++ [
           pkgs.vscode-extensions."2gua".rainbow-brackets
         ]
@@ -119,36 +99,6 @@ in {
             version = "1.67.7949";
             sha256 = "sha256-ZtUqQeWjXmTz49DUeYkuqSTdVHRC8OfgWv8fuhlHDVc=";
           }
-          #          {
-          #            name = "volar";
-          #            publisher = "vue";
-          #            version = "1.0.12";
-          #            sha256 = "sha256-D9E3KRUOlNVXH4oMv1W0+/mbqO8Se7+6E2F5P/KvCro=";
-          #          }
-          #          {
-          #            name = "vscode-typescript-vue-plugin";
-          #            publisher = "vue";
-          #            version = "1.0.12";
-          #            sha256 = "sha256-WiL+gc9+U861ubLlY/acR+ZcrFT7TdIDR0K1XNNidX8=";
-          #          }
-          #          {
-          #            name = "decay";
-          #            publisher = "decaycs";
-          #            version = "1.0.6";
-          #            sha256 = "sha256-Jtxj6LmHgF7UNaXtXxHkq881BbuPtIJGxR7kdhKr0Uo=";
-          #          }
-          #          {
-          #            name = "vscode-typescript-next";
-          #            publisher = "ms-vscode";
-          #            version = "5.0.202301100";
-          #            sha256 = "sha256-8d/L9F06ZaS9dTOXV6Q40ivI499nfZLQURcLdHXoTSM=";
-          #          }
-          #          {
-          #            name = "vscode-chromium-vector-icons";
-          #            publisher = "adolfdaniel";
-          #            version = "1.0.2";
-          #            sha256 = "sha256-Meo53e/3jUP6YDEXOA/40xghI77jj4iAQus3/S8RPZI=";
-          #          }
         ];
       userSettings = {
         "workbench.iconTheme" = "material-icon-theme";
