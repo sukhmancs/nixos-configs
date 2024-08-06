@@ -18,7 +18,7 @@ in {
       enableExtensionUpdateCheck = true;
       enableUpdateCheck = true;
       #extensions = with pkgs.vscode-extensions;
-      extensions = with inputs.nix-vscode-extensions.packages;
+      extensions = with inputs.nix-vscode-extensions.packages.default;
         [
           arrterian.nix-env-selector
           bbenoist.nix
