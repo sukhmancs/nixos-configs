@@ -40,7 +40,7 @@
     esbenp.prettier-vscode # Prettier - Code formatter
     formulahendry.code-runner # Code Runner - run code snippet or code file for multiple languages
     ibm.output-colorizer # Output Colorizer - colorize the output in the debug console
-    kamadorueda.alejandra # Alejandra formatter for nix
+    # kamadorueda.alejandra # Alejandra formatter for nix
     ms-azuretools.vscode-docker # Docker - Docker support
     ms-python.python # Python - Python language support
     ms-python.vscode-pylance # Pylance - Python language server
@@ -90,7 +90,9 @@ in {
         ++ vscodeMarketplaceExtensionsRelease
         ++ openVsxExtensionsRelease
         ++ [
-          pkgs.vscode-extensions."2gua".rainbow-brackets
+          pkgs.vscode-extensions."2gua".rainbow-brackets # Rainbow Brackets
+          pkgs.vscode-extensions.aaron-bond.better-comments # Better Comments
+          pkgs.vscode-extensions.kamadorueda.alejandra # Alejandra formatter for nix
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
