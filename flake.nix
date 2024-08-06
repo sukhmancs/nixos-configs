@@ -182,6 +182,8 @@
       };
     };
 
+    # This will provide us with the latest version of the
+    # vscode extensions.
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs = {
