@@ -29,6 +29,7 @@
     vue.vscode-typescript-vue-plugin # Vue
     vue.volar # language server for Vue
     ms-vscode.vscode-typescript-next # TypeScript
+    ms-toolsai.jupyter # Jupyter - Jupyter notebook support
     decaycs.decay # Decay color scheme
     adolfdaniel.vscode-chromium-vector-icons # Chromium Vector Icons
     arrterian.nix-env-selector # Nix environment selector
