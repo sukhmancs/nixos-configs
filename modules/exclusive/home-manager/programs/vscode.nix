@@ -18,7 +18,7 @@ in {
       mutableExtensionsDir = true;
       enableExtensionUpdateCheck = true;
       enableUpdateCheck = true;
-      package = vscode-with-extensions.override {
+      extensions = vscode-with-extensions.override {
         vscode = vscodium;
         vscodeExtensions = [
           extensions.vscode-marketplace.golang.go
