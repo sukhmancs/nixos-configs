@@ -196,7 +196,7 @@ in {
           "editor.formatOnPaste" = true;
           "editor.formatOnSave" = true;
           "editor.formatOnType" = false;
-        },
+        };
         "alejandra.program" = "alejandra";
 
         "python.linting.flake8CategorySeverity.F" = "Warning";
