@@ -24,11 +24,11 @@
       ags.enable = true; # widgets
       clipboard.enable = true;
       hyprpaper.enable = true; # wallpaper manager
-      spotify.enable = false; # music player
-      element.enable = false; # matrix client
+      spotify.enable = true; # music player
+      element.enable = true; # matrix client
       discord.enable = false;
       webcord.enable = true; # privacy respecting discord client
-      wlogout.enable = false; # logout menu
+      wlogout.enable = true; # logout menu
       anyrun.enable = true; # application launcher
       rbw.enable = true; # bitwarden password manager using rofi
     };
