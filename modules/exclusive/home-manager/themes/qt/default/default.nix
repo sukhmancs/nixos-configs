@@ -1,3 +1,12 @@
+{
+  osConfig,
+  pkgs,
+  ...
+}: let
+  inherit (osConfig) modules;
+  inherit (modules.themes) colors;
+
+  in ''
 [%General]
 author=Tsu Jan
 comment=A theme inspired by Enlightenment
@@ -353,3 +362,4 @@ frame.element=tooltip
 
 [Window]
 interior=false
+''

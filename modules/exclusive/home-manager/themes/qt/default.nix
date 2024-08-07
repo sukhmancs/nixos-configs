@@ -72,8 +72,13 @@ in {
       "Kvantum/kvantum.kvconfig".text = kvantumConfig;
 
       # Kvantum theme files
+      # "Kvantum/default/default.kvconfig" = {
+      #   source = ./default/default.kvconfig;
+      # };
       "Kvantum/default/default.kvconfig" = {
-        source = ./default/default.kvconfig;
+        text = import ./default/default.nix {
+          inherit osConfig pkgs;
+        };
       };
 
       "Kvantum/default/default.svg" = {
