@@ -70,7 +70,7 @@
     gpoore.codebraid-preview # Preview Pandoc Markdown in VS Code, and execute code blocks and inline code with Codebraid
   ];
 
-  openVsxExtensions = with extensions.open-vsx-release; [
+  openVsxExtensions = with extensions.open-vsx; [
     rust-lang.rust-analyzer # Rust - Rust language support
   ];
 
@@ -92,8 +92,10 @@ in {
       enableExtensionUpdateCheck = true;
       enableUpdateCheck = true;
       extensions =
-        with inputs.nix-vscode-marketplace.packages.${pkgs.system}.vscode;
-        with inputs.nix-vscode-marketplace.packages.${pkgs.system}.open-vsx;
+        # with inputs.nix-vscode-marketplace.packages.${pkgs.system}.vscode;
+        with extensions.vscode-marketplace;
+        with extensions.open-vsx;
+        # with inputs.nix-vscode-marketplace.packages.${pkgs.system}.open-vsx;
         with pkgs.vscode-extensions;
         [
           golang.go # Go language support
@@ -109,6 +111,7 @@ in {
           meraymond.idris-vscode
           ocamllabs.ocaml-platform
           bierner.markdown-mermaid
+          "2gua".rainbow-brackets
     vlanguage.vscode-vlang # support for Vlang
     vue.vscode-typescript-vue-plugin # Vue
     vue.volar # language server for Vue
