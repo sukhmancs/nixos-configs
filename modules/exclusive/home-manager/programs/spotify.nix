@@ -13,6 +13,14 @@
   prg = sys.programs;
 
   spicePkgs = inputs.spicetify.packages.${pkgs.stdenv.system}.default;
+
+      # use a different version of spicetify-themes than the one provided by
+      # spicetify-nix
+      officialThemesOLD = pkgs.fetchgit {
+        url = "https://github.com/spicetify/spicetify-themes";
+        rev = "c2751b48ff9693867193fe65695a585e3c2e2133";
+        sha256 = "0rbqaxvyfz2vvv3iqik5rpsa3aics5a7232167rmyvv54m475agk";
+      };
 in {
   imports = [inputs.spicetify.homeManagerModule];
   config = mkIf prg.spotify.enable {

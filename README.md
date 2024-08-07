@@ -27,6 +27,7 @@
 ### In Progress 🚧
 
 - [ ] **QT** - Use Kvantum
+- [ ] **Spotify** - Spicetify with custom colors
 - [ ] **Qemu** - Virtualization with GPU passthrough
 - [ ] **Neovim**
 - [ ] **IDS** - lynis, vulnix
