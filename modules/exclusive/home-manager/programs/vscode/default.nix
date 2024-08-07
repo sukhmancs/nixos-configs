@@ -154,14 +154,7 @@ in {
     astro-build.astro-vscode # Astro - Astro language support
     wakatime.vscode-wakatime # WakaTime - WakaTime support
     gpoore.codebraid-preview # Preview Pandoc Markdown in VS Code, and execute code blocks and inline code with Codebraid
-  ]   ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-          {
-            name = "copilot-nightly";
-            publisher = "github";
-            version = "1.67.7949";
-            sha256 = "sha256-ZtUqQeWjXmTz49DUeYkuqSTdVHRC8OfgWv8fuhlHDVc=";
-          }
-        ];
+  ];
       # extensions =
       #   vscodeMarketplaceExtensions
       #   ++ openVsxExtensions
