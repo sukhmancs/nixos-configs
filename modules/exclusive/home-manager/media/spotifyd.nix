@@ -1,3 +1,9 @@
+#
+# spotifyd - A spotify daemon just like official spotify client but more lightweight.
+#
+# Current Issues:
+# - Spotifyd will not work without Spotify Premium account. #TODO: Check if the issue is still present - https://github.com/Spotifyd/spotifyd
+#
 {
   osConfig,
   config,

@@ -11,18 +11,6 @@
     accents = ["blue"];
     winDecStyles = ["modern"];
   };
-
-  # Define the color scheme
-  customColors = {
-    background = "#1e1e1e";
-    foreground = "#cdd6f4";
-    accent = "#cba6f7";
-  };
-  # Create the Kvantum configuration file content
-  kvantumConfig = ''
-    [General]
-    theme=default
-  '';
 in {
   config = mkIf config.qt.enable {
     home.packages = with pkgs; [
@@ -66,10 +54,13 @@ in {
       # write ~/.config/kdeglobals based on the kdeglobals file the user has specified
       # this option is a catch-all and not a set path because some programs specify different
       # paths inside their kdeglobals package
-      # "kdeglobals".source = "${qtThemePackage}/share/color-schemes/CatppuccinMochaBlue.colors";
+      "kdeglobals".source = "${qtThemePackage}/share/color-schemes/CatppuccinMochaBlue.colors";
 
       # Kvantum configuration files
-      "Kvantum/kvantum.kvconfig".text = kvantumConfig;
+      "Kvantum/kvantum.kvconfig".text = ''
+        [General]
+        theme=default
+      '';
 
       # Kvantum theme files
       # "Kvantum/default/default.kvconfig" = {

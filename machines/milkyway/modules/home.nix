@@ -24,7 +24,7 @@
       ags.enable = true; # widgets
       clipboard.enable = true;
       hyprpaper.enable = true; # wallpaper manager
-      spotify.enable = false; # music player #TODO: not working
+      spotify.enable = true; # music player #TODO: not working
       element.enable = true; # matrix client
       discord.enable = false;
       webcord.enable = true; # privacy respecting discord client
