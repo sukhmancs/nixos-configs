@@ -82,9 +82,9 @@
     # Add released extensions here
   ];
 
-  custom-extensions = import ./extensions.nix {
-    inherit (pkgs.vscode-utils) buildVscodeMarketplaceExtension;
-  };
+  # custom-extensions = import ./extensions.nix {
+  #   inherit (pkgs.vscode-utils) buildVscodeMarketplaceExtension;
+  # };
 in {
   config = mkIf config.programs.vscode.enable {
     programs.vscode = {
