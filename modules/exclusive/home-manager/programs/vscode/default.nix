@@ -111,7 +111,7 @@ in {
           meraymond.idris-vscode
           ocamllabs.ocaml-platform
           bierner.markdown-mermaid
-          "2gua".rainbow-brackets
+          2gua.rainbow-brackets
     vlanguage.vscode-vlang # support for Vlang
     vue.vscode-typescript-vue-plugin # Vue
     vue.volar # language server for Vue
