@@ -3,6 +3,7 @@
     ./hyprpaper
     ./schizofox
     ./thunderbird
+    ./vscode
 
     ./chromium.nix
     ./clipboard.nix
@@ -14,7 +15,6 @@
     ./obs.nix
     ./office.nix
     ./spotify.nix
-    ./vscode.nix
     ./webcord.nix
     ./swayidle.nix
     ./rbw.nix
