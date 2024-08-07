@@ -93,10 +93,10 @@ in {
       enableUpdateCheck = true;
       extensions =
         # with inputs.nix-vscode-marketplace.packages.${pkgs.system}.vscode;
-        with extensions.vscode-marketplace;
         with extensions.open-vsx;
         # with inputs.nix-vscode-marketplace.packages.${pkgs.system}.open-vsx;
         with pkgs.vscode-extensions;
+        with extensions.vscode-marketplace;
         [
           golang.go # Go language support
           kahole.magit # Magit - Git support
