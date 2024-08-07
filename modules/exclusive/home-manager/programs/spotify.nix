@@ -25,7 +25,18 @@ in {
   imports = [inputs.spicetify.homeManagerModule];
   config = mkIf prg.spotify.enable {
     programs.spicetify = {
-      spotifyPackage = pkgs.spotify;
+      # spotifyPackage = pkgs.spotify;
+
+      spicetifyPackage = pkgs.spicetify-cli.overrideAttrs (oa: rec {
+        pname = "spicetify-cli";
+        version = "2.14.1";
+        src = pkgs.fetchgit {
+          url = "https://github.com/spicetify/${pname}";
+          rev = "v${version}";
+          sha256 = "sha256-262tnSKX6M9ggm4JIs0pANeq2JSNYzKkTN8awpqLyMM=";
+        };
+        vendorSha256 = "sha256-E2Q+mXojMb8E0zSnaCOl9xp5QLeYcuTXjhcp3Hc8gH4=";
+      });
       enable = true;
       # injectCss = true;
       # replaceColors = true;
