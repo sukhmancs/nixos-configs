@@ -95,8 +95,8 @@ in {
         # with inputs.nix-vscode-marketplace.packages.${pkgs.system}.vscode;
         with extensions.open-vsx;
         # with inputs.nix-vscode-marketplace.packages.${pkgs.system}.open-vsx;
-        with pkgs.vscode-extensions;
         with extensions.vscode-marketplace;
+        with pkgs.vscode-extensions;
         [
           golang.go # Go language support
           kahole.magit # Magit - Git support
@@ -113,8 +113,8 @@ in {
           bierner.markdown-mermaid
           # 2gua.rainbow-brackets
     vlanguage.vscode-vlang # support for Vlang
-    vue.vscode-typescript-vue-plugin # Vue
-    vue.volar # language server for Vue
+    # vue.vscode-typescript-vue-plugin # Vue
+    # vue.volar # language server for Vue
     ms-vscode.vscode-typescript-next # TypeScript
     ms-toolsai.jupyter # Jupyter - Jupyter notebook support
     decaycs.decay # Decay color scheme
