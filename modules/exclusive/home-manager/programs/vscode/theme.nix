@@ -970,7 +970,7 @@ in with builtins;
 pkgs.vscode-utils.buildVscodeExtension {
   inherit version themeZip;
   name = "${pname}-${version}";
-  src = "$out/theme.zip";
+  src = themeZip;
   vscodeExtUniqueId = "${publisher}.${pname}";
   vscodeExtPublisher = publisher;
   vscodeExtName = pname;
