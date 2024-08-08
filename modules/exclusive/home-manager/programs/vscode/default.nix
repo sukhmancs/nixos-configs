@@ -21,6 +21,16 @@
   inherit (lib) mkIf;
   extensions = inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.system};
 
+  myCustomExtension = pkgs.vscode-utils.buildVscodeExtension {
+    name = "catppuccino";
+    version = "0.0.0";
+    src = "/home/xi/catppuccin.catppuccin-vsc/themes";
+    vscodeExtPublisher = "catppuccino";
+    vscodeExtName = "catppuccino";
+    vscodeExtUniqueId = "catppuccino";
+    buildInputs = [ pkgs.nodejs pkgs.yarn ]; # Add necessary build inputs here
+
+  };
   # vscode-marketplace, open-vsx-release provides all the latest extensions including
   # those in the vscode-marketplace-release and open-vsx-release channels
   # If you want stable/released extensions, use vscode-marketplace-release and open-vsx-release
@@ -28,7 +38,30 @@
     golang.go # Go language support
     kahole.magit # Magit - Git support
 
-    # (pkgs.callPackage ./theme.nix {} osConfig.modules.themes.colors)
+    (pkgs.callPackage ./theme.nix {} osConfig.modules.themes.colors)
+    # (import ./theme.nix {
+    #   linkFarm = pkgs.linkFarm;
+
+    # }{
+    #   # colors = osConfig.modules.themes.colors;
+    #   base00 = "282c34";
+    #   base01 = "353b45";
+    #   base02 = "3e4451";
+    #   base03 = "545862";
+    #   base04 = "565c64";
+    #   base05 = "abb2bf";
+    #   base06 = "b6bdca";
+    #   base07 = "c8ccd4";
+    #   base08 = "e06c75";
+    #   base09 = "d19a66";
+    #   base0A = "e5c07b";
+    #   base0B = "98c379";
+    #   base0C = "56b6c2";
+    #   base0D = "61afef";
+    #   base0E = "c678dd";
+    #   base0F = "be5046";
+
+    # }) # Xi's generated theme
 
     dhall.dhall-lang
     hashicorp.terraform
@@ -85,7 +118,6 @@
 
   openVsxExtensions = with extensions.open-vsx; [
     rust-lang.rust-analyzer # Rust - Rust language support
-    (pkgs.callPackage ./theme.nix {} osConfig.modules.themes.colors)
   ];
 
   vscodeMarketplaceExtensionsRelease = with extensions.vscode-marketplace-release; [
@@ -95,10 +127,14 @@
   openVsxExtensionsRelease = with extensions.open-vsx-release; [
     # Add released extensions here
   ];
+
+  custom-extensions = import ./extensions.nix {
+    inherit (pkgs.vscode-utils) buildVscodeMarketplaceExtension;
+  };
 in {
   config = mkIf config.programs.vscode.enable {
     programs.vscode = {
-      package = pkgs.vscodium;
+      # package = pkgs.vscodium;
       mutableExtensionsDir = true;
       enableExtensionUpdateCheck = true;
       enableUpdateCheck = true;
@@ -113,6 +149,7 @@ in {
       #       kahole.magit # Magit - Git support
 
       #       # (pkgs.callPackage ./theme.nix {} osConfig.modules.themes.colors)
+
 
       #       dhall.dhall-lang
       #       hashicorp.terraform
@@ -191,6 +228,18 @@ in {
             sha256 = "sha256-ZtUqQeWjXmTz49DUeYkuqSTdVHRC8OfgWv8fuhlHDVc=";
           }
         ];
+        # ] ++ [
+        #   myCustomExtension
+        # ];
+    #     ] ++ pkgs.vscode-utils.buildVscodeExtension {
+    #       name = "catppuccino";
+    #       src = "$HOME/catppuccin.catppuccin-vsc";
+    #       version = "0.0.0";
+    #       vscodeExtPublisher = "catppuccino";
+    # vscodeExtName = "catppuccino";
+    # vscodeExtUniqueId = "catppuccino";
+    #     };
+
       userSettings = {
         "update.mode" = "none";
         "[nix]"."editor.tabSize" = 2;
@@ -231,8 +280,8 @@ in {
         # "terminal.integrated.cursorBlinking" = true;
         "terminal.integrated.enableVisualBell" = false;
         "editor.formatOnPaste" = true;
-        "editor.formatOnSave" = true;
-        "editor.formatOnType" = false;
+        # "editor.formatOnSave" = true;
+        # "editor.formatOnType" = false;
         # "editor.minimap.enabled" = false;
         # "editor.minimap.renderCharacters" = false;
         "editor.overviewRulerBorder" = false;
