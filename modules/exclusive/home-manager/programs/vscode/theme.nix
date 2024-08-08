@@ -936,4 +936,4 @@ in with builtins;
 linkFarm "balsoft.theme" (attrValues (mapAttrs (name: value: {
   name = "share/vscode/extensions/balsoft.theme/${name}";
   path = toFile (baseNameOf name) value;
-}) (removeAttrs theme ["scheme" "author"])))
+}) (removeAttrs theme)))
