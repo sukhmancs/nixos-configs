@@ -49,70 +49,25 @@ in {
   };
   config = {
     themes.colors = {
-      base00 = {
-        name = "base00";
-        value = "000000";
-      };
-      base01 = {
-        name = "base01";
-        value = "1a1a1a";
-      };
-      base02 = {
-        name = "base02";
-        value = "333333";
-      };
-      base03 = {
-        name = "base03";
-        value = "808080";
-      };
-      base04 = {
-        name = "base04";
-        value = "cccccc";
-      };
-      base05 = {
-        name = "base05";
-        value = "ffffff";
-      };
-      base06 = {
-        name = "base06";
-        value = "e6e6e6";
-      };
-      base07 = {
-        name = "base07";
-        value = "e6e6e6";
-      };
-      base08 = {
-        name = "base08";
-        value = "bf4040";
-      };
-      base09 = {
-        name = "base09";
-        value = "bf8040";
-      };
-      base0A = {
-        name = "base0A";
-        value = "bfbf40";
-      };
-      base0B = {
-        name = "base0B";
-        value = "80bf40";
-      };
-      base0C = {
-        name = "base0C";
-        value = "40bfbf";
-      };
-      base0D = {
-        name = "base0D";
-        value = "407fbf";
-      };
-      base0E = {
-        name = "base0E";
-        value = "7f40bf";
-      };
-      base0F = {
-        name = "base0F";
-        value = "bf40bf";
-      };
+      # H = 0, S = 0%
+      base00 = "000000"; # L = 0%
+      base01 = "1a1a1a"; # L = 10%
+      base02 = "333333"; # L = 20%
+      base03 = "808080"; # L = 50%
+      base04 = "cccccc"; # L = 80%
+      base05 = "ffffff"; # L = 100%
+      base06 = "e6e6e6"; # L = 90%
+      base07 = "e6e6e6"; # L = 90%
+      # L = 50%, S = 50%
+      base08 = "bf4040"; # H = 0    RED
+      base09 = "bf8040"; # H = 30   ORANGE
+      base0A = "bfbf40"; # H = 60   YELLOW-ish
+      base0B = "80bf40"; # H = 90   GREEN
+      # Whoa, a lot of hues are green!
+      base0C = "40bfbf"; # H = 180  TEAL
+      base0D = "407fbf"; # H = 210  BLUE
+      base0E = "7f40bf"; # H = 270  PURPLE
+      base0F = "bf40bf"; # H = 300  MAGENTA
     };
   };
 }
