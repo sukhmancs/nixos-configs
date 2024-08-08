@@ -22,38 +22,70 @@
   extensions = inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.system};
 
   colors = {
-    name = "base00";
-    value = "000000";
-    name = "base01";
-    value = "1a1a1a";
-    name = "base02";
-    value = "333333";
-    name = "base03";
-    value = "808080";
-    name = "base04";
-    value = "cccccc";
-    name = "base05";
-    value = "ffffff";
-    name = "base06";
-    value = "e6e6e6";
-    name = "base07";
-    value = "e6e6e6";
-    name = "base08";
-    value = "ff5a67";
-    name = "base09";
-    value = "f08e48";
-    name = "base0A";
-    value = "ffcc1b";
-    name = "base0B";
-    value = "7fc06e";
-    name = "base0C";
-    value = "14747e";
-    name = "base0D";
-    value = "5dd7b9";
-    name = "base0E";
-    value = "9a70a4";
-    name = "base0F";
-    value = "c43060";
+    base00 = {
+      name = "base00";
+      value = "000000";
+    };
+    base01 = {
+      name = "base01";
+      value = "1a1a1a";
+    };
+    base02 = {
+      name = "base02";
+      value = "333333";
+    };
+    base03 = {
+      name = "base03";
+      value = "808080";
+    };
+    base04 = {
+      name = "base04";
+      value = "cccccc";
+    };
+    base05 = {
+      name = "base05";
+      value = "ffffff";
+    };
+    base06 = {
+      name = "base06";
+      value = "e6e6e6";
+    };
+    base07 = {
+      name = "base07";
+      value = "e6e6e6";
+    };
+    base08 = {
+      name = "base08";
+      value = "bf4040";
+    };
+    base09 = {
+      name = "base09";
+      value = "bf8040";
+    };
+    base0A = {
+      name = "base0A";
+      value = "bfbf40";
+    };
+    base0B = {
+      name = "base0B";
+      value = "80bf40";
+    };
+    base0C = {
+      name = "base0C";
+      value = "40bfbf";
+    };
+    base0D = {
+      name = "base0D";
+      value = "407fbf";
+    };
+    base0E = {
+      name = "base0E";
+      value = "7f40bf";
+    };
+    base0F = {
+      name = "base0F";
+      value = "bf40bf";
+    };
   };
 
   # vscode-marketplace, open-vsx-release provides all the latest extensions including
@@ -116,7 +148,6 @@
   openVsxExtensionsRelease = with extensions.open-vsx-release; [
     # Add released extensions here
   ];
-
   # custom-extensions = import ./extensions.nix {
   #   inherit (pkgs.vscode-utils) buildVscodeMarketplaceExtension;
   # };
@@ -131,12 +162,11 @@ in {
         with extensions.open-vsx;
         # with inputs.nix-vscode-marketplace.packages.${pkgs.system}.open-vsx;
         with extensions.vscode-marketplace;
-        with pkgs.vscode-extensions;
-        [
+        with pkgs.vscode-extensions; [
           golang.go # Go language support
           kahole.magit # Magit - Git support
 
-          (pkgs.callPackage ./theme.nix { } colors )
+          (pkgs.callPackage ./theme.nix {} colors)
 
           dhall.dhall-lang
           hashicorp.terraform
@@ -147,49 +177,49 @@ in {
           ocamllabs.ocaml-platform
           bierner.markdown-mermaid
           # 2gua.rainbow-brackets
-    vlanguage.vscode-vlang # support for Vlang
-    # vue.vscode-typescript-vue-plugin # Vue
-    # vue.volar # language server for Vue
-    # ms-vscode.vscode-typescript-next # TypeScript
-    ms-toolsai.jupyter # Jupyter - Jupyter notebook support
-    decaycs.decay # Decay color scheme
-    adolfdaniel.vscode-chromium-vector-icons # Chromium Vector Icons
-    arrterian.nix-env-selector # Nix environment selector
-    bbenoist.nix # Nix language support
-    catppuccin.catppuccin-vsc # Catppuccin Macchiato color scheme
-    christian-kohler.path-intellisense # Path Intellisense - autocompletion for file paths
-    dbaeumer.vscode-eslint # ESLint - JavaScript linting
-    eamodio.gitlens # GitLens - For enhanced Git integration
-    esbenp.prettier-vscode # Prettier - Code formatter
-    formulahendry.code-runner # Code Runner - run code snippet or code file for multiple languages
-    ibm.output-colorizer # Output Colorizer - colorize the output in the debug console
-    kamadorueda.alejandra # Alejandra formatter for nix
-    ms-azuretools.vscode-docker # Docker - Docker support
-    ms-python.python # Python - Python language support
-    ms-python.vscode-pylance # Pylance - Python language server
-    ms-vscode-remote.remote-ssh # Remote - SSH - SSH support
-    ms-vscode.cpptools # C/C++ - C/C++ language support
-    naumovs.color-highlight # Color Highlight - highlight web colors in your editor
-    ms-python.black-formatter # Black - Python code formatter
-    svelte.svelte-vscode # Svelte - Svelte language support
-    ms-vsliveshare.vsliveshare # Live Share - Real-time collaborative development
-    oderwat.indent-rainbow # Indent Rainbow - colorize indentation in front of your text
-    pkief.material-icon-theme # Material Icon Theme - Material Design icons
-    shardulm94.trailing-spaces # Trailing Spaces - highlight trailing spaces and delete them in a flash
-    sumneko.lua # Lua - Lua language support
-    timonwong.shellcheck # ShellCheck - Shell script linting
-    usernamehw.errorlens # Error Lens - display diagnostics inline
-    xaver.clang-format # Clang-Format - C/C++ code formatter
-    # yzhang.markdown-all-in-one # Markdown All in One - Markdown language support
-    james-yu.latex-workshop # LaTeX Workshop - LaTeX language support
-    redhat.vscode-yaml # YAML - YAML language support
-    irongeek.vscode-env # .env - .env file support
-    github.vscode-pull-request-github # GitHub Pull Requests - GitHub pull request support
-    github.codespaces # GitHub Codespaces - GitHub Codespaces support
-    astro-build.astro-vscode # Astro - Astro language support
-    wakatime.vscode-wakatime # WakaTime - WakaTime support
-    gpoore.codebraid-preview # Preview Pandoc Markdown in VS Code, and execute code blocks and inline code with Codebraid
-  ];
+          vlanguage.vscode-vlang # support for Vlang
+          # vue.vscode-typescript-vue-plugin # Vue
+          # vue.volar # language server for Vue
+          # ms-vscode.vscode-typescript-next # TypeScript
+          ms-toolsai.jupyter # Jupyter - Jupyter notebook support
+          decaycs.decay # Decay color scheme
+          adolfdaniel.vscode-chromium-vector-icons # Chromium Vector Icons
+          arrterian.nix-env-selector # Nix environment selector
+          bbenoist.nix # Nix language support
+          catppuccin.catppuccin-vsc # Catppuccin Macchiato color scheme
+          christian-kohler.path-intellisense # Path Intellisense - autocompletion for file paths
+          dbaeumer.vscode-eslint # ESLint - JavaScript linting
+          eamodio.gitlens # GitLens - For enhanced Git integration
+          esbenp.prettier-vscode # Prettier - Code formatter
+          formulahendry.code-runner # Code Runner - run code snippet or code file for multiple languages
+          ibm.output-colorizer # Output Colorizer - colorize the output in the debug console
+          kamadorueda.alejandra # Alejandra formatter for nix
+          ms-azuretools.vscode-docker # Docker - Docker support
+          ms-python.python # Python - Python language support
+          ms-python.vscode-pylance # Pylance - Python language server
+          ms-vscode-remote.remote-ssh # Remote - SSH - SSH support
+          ms-vscode.cpptools # C/C++ - C/C++ language support
+          naumovs.color-highlight # Color Highlight - highlight web colors in your editor
+          ms-python.black-formatter # Black - Python code formatter
+          svelte.svelte-vscode # Svelte - Svelte language support
+          ms-vsliveshare.vsliveshare # Live Share - Real-time collaborative development
+          oderwat.indent-rainbow # Indent Rainbow - colorize indentation in front of your text
+          pkief.material-icon-theme # Material Icon Theme - Material Design icons
+          shardulm94.trailing-spaces # Trailing Spaces - highlight trailing spaces and delete them in a flash
+          sumneko.lua # Lua - Lua language support
+          timonwong.shellcheck # ShellCheck - Shell script linting
+          usernamehw.errorlens # Error Lens - display diagnostics inline
+          xaver.clang-format # Clang-Format - C/C++ code formatter
+          # yzhang.markdown-all-in-one # Markdown All in One - Markdown language support
+          james-yu.latex-workshop # LaTeX Workshop - LaTeX language support
+          redhat.vscode-yaml # YAML - YAML language support
+          irongeek.vscode-env # .env - .env file support
+          github.vscode-pull-request-github # GitHub Pull Requests - GitHub pull request support
+          github.codespaces # GitHub Codespaces - GitHub Codespaces support
+          astro-build.astro-vscode # Astro - Astro language support
+          wakatime.vscode-wakatime # WakaTime - WakaTime support
+          gpoore.codebraid-preview # Preview Pandoc Markdown in VS Code, and execute code blocks and inline code with Codebraid
+        ];
       # extensions =
       #   vscodeMarketplaceExtensions
       #   ++ openVsxExtensions
@@ -211,8 +241,7 @@ in {
         "update.mode" = "none";
         "[nix]"."editor.tabSize" = 2;
         "workbench.colorTheme" = "Balsoft's generated theme";
-        "terminal.integrated.profiles.linux".bash.path =
-          "/run/current-system/sw/bin/bash";
+        "terminal.integrated.profiles.linux".bash.path = "/run/current-system/sw/bin/bash";
         "terminal.integrated.defaultProfile.linux" = "bash";
         "editor.fontFamily" = "IBM Plex Mono";
         "nix.formatterPath" = "nixfmt";
