@@ -156,8 +156,8 @@ in {
     programs.vscode = {
       package = pkgs.vscodium;
       mutableExtensionsDir = true;
-      enableExtensionUpdateCheck = true;
-      enableUpdateCheck = true;
+      # enableExtensionUpdateCheck = true;
+      # enableUpdateCheck = true;
       extensions =
         # with inputs.nix-vscode-marketplace.packages.${pkgs.system}.vscode;
         with extensions.open-vsx;
