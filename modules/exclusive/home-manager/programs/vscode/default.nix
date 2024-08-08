@@ -269,7 +269,6 @@ in {
         # "editor.fontFamily" = "IBM Plex Mono";
         "nix.formatterPath" = "nixfmt";
         "git.autofetch" = true;
-        "redhat.telemetry.enabled" = false;
         "security.workspace.trust.untrustedFiles" = "open";
         "vim.useSystemClipboard" = true;
         "haskell.manageHLS" = "PATH";
@@ -303,8 +302,8 @@ in {
         "editor.formatOnPaste" = true;
         "editor.formatOnSave" = true;
         "editor.formatOnType" = false;
-        "editor.minimap.enabled" = false;
-        "editor.minimap.renderCharacters" = false;
+        # "editor.minimap.enabled" = false;
+        # "editor.minimap.renderCharacters" = false;
         "editor.overviewRulerBorder" = false;
         "editor.renderLineHighlight" = "all";
         "editor.inlineSuggest.enabled" = true;
