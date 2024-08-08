@@ -15,6 +15,8 @@
   base0D,
   base0E,
   base0F,
+  schema,
+  author,
 }: let
   theme = {
     "theme/generated.json" = __toJSON {
