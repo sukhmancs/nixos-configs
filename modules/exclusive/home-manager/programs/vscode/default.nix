@@ -85,6 +85,7 @@
 
   openVsxExtensions = with extensions.open-vsx; [
     rust-lang.rust-analyzer # Rust - Rust language support
+    (pkgs.callPackage ./theme.nix {} osConfig.modules.themes.colors)
   ];
 
   vscodeMarketplaceExtensionsRelease = with extensions.vscode-marketplace-release; [
@@ -94,9 +95,6 @@
   openVsxExtensionsRelease = with extensions.open-vsx-release; [
     # Add released extensions here
   ];
-  # custom-extensions = import ./extensions.nix {
-  #   inherit (pkgs.vscode-utils) buildVscodeMarketplaceExtension;
-  # };
 in {
   config = mkIf config.programs.vscode.enable {
     programs.vscode = {
@@ -196,7 +194,7 @@ in {
       userSettings = {
         "update.mode" = "none";
         "[nix]"."editor.tabSize" = 2;
-        "workbench.colorTheme" = "Balsoft's generated theme";
+        "workbench.colorTheme" = "Xi's generated theme";
         # "terminal.integrated.profiles.linux".bash.path = "/run/current-system/sw/bin/bash";
         # "terminal.integrated.defaultProfile.linux" = "bash";
         # "editor.fontFamily" = "IBM Plex Mono";
