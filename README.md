@@ -1,9 +1,9 @@
 <p id="preview" align="center">
   <br/>
   <img src=".github/assets/desktop_preview.png" alt="Laptop Preview" />
-  Laptop (milkyway)
+  <!-- Laptop (milkyway) -->
   <img src=".github/assets/iso_preview.png" alt="ISO Preview" />
-  ISO (messier)
+  <!-- ISO (messier) -->
   <br/>
 </p>
 
