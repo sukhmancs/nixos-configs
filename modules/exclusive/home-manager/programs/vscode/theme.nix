@@ -936,6 +936,7 @@
       version = "0.0.0";
       publisher = "balsoft";
       engines.vscode = "^1.22.0";
+      vscodeExtUniqueId = "balsoft.theme";
       contributes.themes = [
         {
           label = "Balsoft's generated theme";
