@@ -15,7 +15,7 @@
   base0D,
   base0E,
   base0F,
-  schema,
+  scheme,
   author,
 }: let
   theme = {
