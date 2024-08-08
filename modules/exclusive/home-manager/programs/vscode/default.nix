@@ -340,7 +340,6 @@ in {
         "explorer.openEditors.visible" = 1;
         # # "editor.cursorBlinking" = "phase";
         # "terminal.integrated.tabs.separator" = " | ";
-        "git.autofetch" = true;
         "explorer.confirmDragAndDrop" = false;
         "explorer.autoReveal" = false;
         "errorLens.gutterIconsEnabled" = true;
