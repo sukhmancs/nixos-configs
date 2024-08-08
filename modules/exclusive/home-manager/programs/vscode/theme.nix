@@ -932,13 +932,13 @@
     };
     "package.json" = __toJSON {
       name = "theme";
-      displayName = "Balsoft's generated theme";
+      displayName = "Xi's generated theme";
       version = "0.0.0";
-      publisher = "balsoft";
+      publisher = "Xi";
       engines.vscode = "^1.22.0";
       contributes.themes = [
         {
-          label = "Balsoft's generated theme";
+          label = "Xi's generated theme";
           uiTheme = "vs-dark";
           path = "./theme/generated.json";
         }
@@ -946,18 +946,6 @@
       capabilities = {
         untrustedWorkspaces.supported = true;
         virtualWorkspaces = true;
-      };
-      #      "__metadata": {
-      #   "publisherDisplayName": "Catppuccin",
-      #   "publisherId": "e7d2ed61-53e0-4dd4-afbe-f536c3bb4316",
-      #   "id": "69264e4d-cd3b-468a-8f2b-e69673c7d864",
-      #   "isPreReleaseVersion": false
-      # },
-      __metadata = {
-        publisherDisplayName = "Balsoft";
-        publisherId = "balsoft";
-        id = "69264e4d-cd3b-468a-8f2b-e69673c7d864";
-        isPreReleaseVersion = false;
       };
     };
   };
