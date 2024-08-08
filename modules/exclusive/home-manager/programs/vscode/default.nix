@@ -167,7 +167,7 @@ in {
           golang.go # Go language support
           kahole.magit # Magit - Git support
 
-          (pkgs.callPackage ./theme.nix {} osConfig.modules.themes.colors)
+          # (pkgs.callPackage ./theme.nix {} osConfig.modules.themes.colors)
 
           dhall.dhall-lang
           hashicorp.terraform
