@@ -1,5 +1,5 @@
 <p id="preview" align="center">
-  <br/>
+  <!-- <br/> -->
   <img src=".github/assets/desktop_preview.png" alt="Laptop Preview" />
   <!-- Laptop (milkyway) -->
   <img src=".github/assets/iso_preview.png" alt="ISO Preview" />
