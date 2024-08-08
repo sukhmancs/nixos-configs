@@ -21,6 +21,41 @@
   inherit (lib) mkIf;
   extensions = inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.system};
 
+  colors = {
+    name = "base00";
+    value = "000000";
+    name = "base01";
+    value = "1a1a1a";
+    name = "base02";
+    value = "333333";
+    name = "base03";
+    value = "808080";
+    name = "base04";
+    value = "cccccc";
+    name = "base05";
+    value = "ffffff";
+    name = "base06";
+    value = "e6e6e6";
+    name = "base07";
+    value = "e6e6e6";
+    name = "base08";
+    value = "ff5a67";
+    name = "base09";
+    value = "f08e48";
+    name = "base0A";
+    value = "ffcc1b";
+    name = "base0B";
+    value = "7fc06e";
+    name = "base0C";
+    value = "14747e";
+    name = "base0D";
+    value = "5dd7b9";
+    name = "base0E";
+    value = "9a70a4";
+    name = "base0F";
+    value = "c43060";
+  };
+
   # vscode-marketplace, open-vsx-release provides all the latest extensions including
   # those in the vscode-marketplace-release and open-vsx-release channels
   # If you want stable/released extensions, use vscode-marketplace-release and open-vsx-release
@@ -101,7 +136,7 @@ in {
           golang.go # Go language support
           kahole.magit # Magit - Git support
 
-          (pkgs.callPackage ./theme.nix { } osConfig.modules.themes.colors)
+          (pkgs.callPackage ./theme.nix { } colors )
 
           dhall.dhall-lang
           hashicorp.terraform
