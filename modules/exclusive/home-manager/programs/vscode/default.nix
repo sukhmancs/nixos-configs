@@ -154,6 +154,7 @@
 in {
   config = mkIf config.programs.vscode.enable {
     programs.vscode = {
+      package = pkgs.vscodium;
       mutableExtensionsDir = true;
       enableExtensionUpdateCheck = true;
       enableUpdateCheck = true;
