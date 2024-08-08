@@ -263,7 +263,7 @@ in {
       userSettings = {
         "update.mode" = "none";
         "[nix]"."editor.tabSize" = 2;
-        # "workbench.colorTheme" = "Balsoft's generated theme";
+        "workbench.colorTheme" = "Balsoft's generated theme";
         # "terminal.integrated.profiles.linux".bash.path = "/run/current-system/sw/bin/bash";
         # "terminal.integrated.defaultProfile.linux" = "bash";
         # "editor.fontFamily" = "IBM Plex Mono";
@@ -271,7 +271,6 @@ in {
         "git.autofetch" = true;
         "redhat.telemetry.enabled" = false;
         "security.workspace.trust.untrustedFiles" = "open";
-        "window.menuBarVisibility" = "toggle";
         "vim.useSystemClipboard" = true;
         "haskell.manageHLS" = "PATH";
         "extensions.autoCheckUpdates" = false;
