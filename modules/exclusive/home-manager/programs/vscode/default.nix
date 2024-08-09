@@ -56,7 +56,7 @@
     esbenp.prettier-vscode # Prettier - Code formatter
     formulahendry.code-runner # Code Runner - run code snippet or code file for multiple languages
     ibm.output-colorizer # Output Colorizer - colorize the output in the debug console
-    kamadorueda.alejandra # Alejandra formatter for nix
+    # kamadorueda.alejandra # Alejandra formatter for nix
     ms-azuretools.vscode-docker # Docker - Docker support
     ms-python.python # Python - Python language support
     ms-python.vscode-pylance # Pylance - Python language server
@@ -127,7 +127,7 @@ in {
       userSettings = {
         "update.mode" = "none";
         "[nix]"."editor.tabSize" = 2;
-        "workbench.colorTheme" = "Xi's generated theme";
+        # "workbench.colorTheme" = "Xi's generated theme"; #TODO: fix this
         # "terminal.integrated.profiles.linux".bash.path = "/run/current-system/sw/bin/bash";
         # "terminal.integrated.defaultProfile.linux" = "bash";
         # "editor.fontFamily" = "IBM Plex Mono";
@@ -139,10 +139,10 @@ in {
         "extensions.autoCheckUpdates" = false;
         "extensions.autoUpdate" = false;
         "workbench.iconTheme" = "material-icon-theme";
-        # "workbench.colorTheme" = "Catppuccin Macchiato";
+        "workbench.colorTheme" = "Catppuccin Macchiato"; #TODO: remove this once fixed the color scheme
+        "catppuccin.accentColor" = "mauve"; #TODO: remove this once fixed the color scheme
         "explorer.compactFolders" = false; # disable compact mode
         "update.showReleaseNotes" = false; # disable update release notes
-        # "catppuccin.accentColor" = "mauve";
         "editor.fontFamily" = "JetBrainsMono Nerd Font, Material Design Icons, 'monospace', monospace";
         "editor.inlayHints.enabled" = "off";
         "git.openRepositoryInParentFolders" = "always";
