@@ -26,7 +26,9 @@
 - [x] **QT** - Use Kvantum
 
 ### In Progress 🚧
-
+- [ ] **Enable `xdg.portal...` in `messier` ISO. Otherwise dialoges such as
+opening other windows from firefox, let's to download some file from firefox
+into thunar will not going to work.**
 - [ ] **Spotify** - Spicetify with custom colors
 - [ ] **Qemu** - Virtualization with GPU passthrough
 - [ ] **Neovim**
