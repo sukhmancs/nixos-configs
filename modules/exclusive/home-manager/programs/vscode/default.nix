@@ -33,7 +33,7 @@
     dhall.dhall-lang
     hashicorp.terraform
     # bungcip.better-toml # deprecated
-    # tamasfe.even-better-toml
+    tamasfe.even-better-toml
     llvm-vs-code-extensions.vscode-clangd
     stkb.rewrap
     meraymond.idris-vscode
@@ -56,7 +56,7 @@
     esbenp.prettier-vscode # Prettier - Code formatter
     formulahendry.code-runner # Code Runner - run code snippet or code file for multiple languages
     ibm.output-colorizer # Output Colorizer - colorize the output in the debug console
-    # kamadorueda.alejandra # Alejandra formatter for nix
+    kamadorueda.alejandra # Alejandra formatter for nix
     ms-azuretools.vscode-docker # Docker - Docker support
     ms-python.python # Python - Python language support
     ms-python.vscode-pylance # Pylance - Python language server
@@ -131,7 +131,7 @@ in {
         # "terminal.integrated.profiles.linux".bash.path = "/run/current-system/sw/bin/bash";
         # "terminal.integrated.defaultProfile.linux" = "bash";
         # "editor.fontFamily" = "IBM Plex Mono";
-        "nix.formatterPath" = "nixfmt";
+        # "nix.formatterPath" = "nixfmt";
         "git.autofetch" = true;
         "security.workspace.trust.untrustedFiles" = "open";
         "vim.useSystemClipboard" = true;
