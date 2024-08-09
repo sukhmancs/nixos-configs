@@ -21,25 +21,6 @@
   inherit (lib) mkIf;
   extensions = inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.system};
 
-  # turn /home/xi/catppuccin.catppuccin-vsc into a zip file
-
-  zippedTheme = pkgs.runCommand "catppuccino" {} ''
-    mkdir -p $out
-    cp -r /home/xi/catppuccin.catppuccin-vsc $out
-    cd $out
-    zip -r catppuccino.zip *
-  '';
-
-  myCustomExtension = pkgs.vscode-utils.buildVscodeExtension {
-    name = "catppuccino";
-    version = "0.0.0";
-    src = zippedTheme;
-    vscodeExtPublisher = "catppuccino";
-    vscodeExtName = "catppuccino";
-    vscodeExtUniqueId = "catppuccino";
-    buildInputs = [ pkgs.nodejs pkgs.yarn ]; # Add necessary build inputs here
-
-  };
   # vscode-marketplace, open-vsx-release provides all the latest extensions including
   # those in the vscode-marketplace-release and open-vsx-release channels
   # If you want stable/released extensions, use vscode-marketplace-release and open-vsx-release
@@ -47,30 +28,7 @@
     golang.go # Go language support
     kahole.magit # Magit - Git support
 
-    # (pkgs.callPackage ./theme.nix {} osConfig.modules.themes.colors)
-    # (import ./theme.nix {
-    #   linkFarm = pkgs.linkFarm;
-
-    # }{
-    #   # colors = osConfig.modules.themes.colors;
-    #   base00 = "282c34";
-    #   base01 = "353b45";
-    #   base02 = "3e4451";
-    #   base03 = "545862";
-    #   base04 = "565c64";
-    #   base05 = "abb2bf";
-    #   base06 = "b6bdca";
-    #   base07 = "c8ccd4";
-    #   base08 = "e06c75";
-    #   base09 = "d19a66";
-    #   base0A = "e5c07b";
-    #   base0B = "98c379";
-    #   base0C = "56b6c2";
-    #   base0D = "61afef";
-    #   base0E = "c678dd";
-    #   base0F = "be5046";
-
-    # }) # Xi's generated theme
+    # (pkgs.callPackage ./theme.nix {  } osConfig.modules.themes.colors)
 
     dhall.dhall-lang
     hashicorp.terraform
@@ -148,79 +106,6 @@ in {
       mutableExtensionsDir = true;
       enableExtensionUpdateCheck = true;
       enableUpdateCheck = true;
-      # extensions =
-      #   # with inputs.nix-vscode-marketplace.packages.${pkgs.system}.vscode;
-      #   with extensions.open-vsx;
-      #   # with inputs.nix-vscode-marketplace.packages.${pkgs.system}.open-vsx;
-      #   with extensions.vscode-marketplace;
-      #   with pkgs.vscode-extensions;
-      #     [
-      #       golang.go # Go language support
-      #       kahole.magit # Magit - Git support
-
-      #       # (pkgs.callPackage ./theme.nix {} osConfig.modules.themes.colors)
-
-
-      #       dhall.dhall-lang
-      #       hashicorp.terraform
-      #       bungcip.better-toml
-      #       llvm-vs-code-extensions.vscode-clangd
-      #       stkb.rewrap
-      #       meraymond.idris-vscode
-      #       ocamllabs.ocaml-platform
-      #       bierner.markdown-mermaid
-      #       # 2gua.rainbow-brackets
-      #       vlanguage.vscode-vlang # support for Vlang
-      #       # vue.vscode-typescript-vue-plugin # Vue
-      #       # vue.volar # language server for Vue
-      #       # ms-vscode.vscode-typescript-next # TypeScript
-      #       ms-toolsai.jupyter # Jupyter - Jupyter notebook support
-      #       decaycs.decay # Decay color scheme
-      #       adolfdaniel.vscode-chromium-vector-icons # Chromium Vector Icons
-      #       arrterian.nix-env-selector # Nix environment selector
-      #       bbenoist.nix # Nix language support
-      #       catppuccin.catppuccin-vsc # Catppuccin Macchiato color scheme
-      #       christian-kohler.path-intellisense # Path Intellisense - autocompletion for file paths
-      #       dbaeumer.vscode-eslint # ESLint - JavaScript linting
-      #       eamodio.gitlens # GitLens - For enhanced Git integration
-      #       esbenp.prettier-vscode # Prettier - Code formatter
-      #       formulahendry.code-runner # Code Runner - run code snippet or code file for multiple languages
-      #       ibm.output-colorizer # Output Colorizer - colorize the output in the debug console
-      #       kamadorueda.alejandra # Alejandra formatter for nix
-      #       ms-azuretools.vscode-docker # Docker - Docker support
-      #       ms-python.python # Python - Python language support
-      #       ms-python.vscode-pylance # Pylance - Python language server
-      #       ms-vscode-remote.remote-ssh # Remote - SSH - SSH support
-      #       ms-vscode.cpptools # C/C++ - C/C++ language support
-      #       naumovs.color-highlight # Color Highlight - highlight web colors in your editor
-      #       ms-python.black-formatter # Black - Python code formatter
-      #       svelte.svelte-vscode # Svelte - Svelte language support
-      #       ms-vsliveshare.vsliveshare # Live Share - Real-time collaborative development
-      #       oderwat.indent-rainbow # Indent Rainbow - colorize indentation in front of your text
-      #       pkief.material-icon-theme # Material Icon Theme - Material Design icons
-      #       shardulm94.trailing-spaces # Trailing Spaces - highlight trailing spaces and delete them in a flash
-      #       sumneko.lua # Lua - Lua language support
-      #       timonwong.shellcheck # ShellCheck - Shell script linting
-      #       usernamehw.errorlens # Error Lens - display diagnostics inline
-      #       xaver.clang-format # Clang-Format - C/C++ code formatter
-      #       # yzhang.markdown-all-in-one # Markdown All in One - Markdown language support
-      #       james-yu.latex-workshop # LaTeX Workshop - LaTeX language support
-      #       redhat.vscode-yaml # YAML - YAML language support
-      #       irongeek.vscode-env # .env - .env file support
-      #       github.vscode-pull-request-github # GitHub Pull Requests - GitHub pull request support
-      #       github.codespaces # GitHub Codespaces - GitHub Codespaces support
-      #       astro-build.astro-vscode # Astro - Astro language support
-      #       wakatime.vscode-wakatime # WakaTime - WakaTime support
-      #       gpoore.codebraid-preview # Preview Pandoc Markdown in VS Code, and execute code blocks and inline code with Codebraid
-      #     ]
-      #     ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-      #       {
-      #         name = "copilot-nightly";
-      #         publisher = "github";
-      #         version = "1.67.7949";
-      #         sha256 = "sha256-ZtUqQeWjXmTz49DUeYkuqSTdVHRC8OfgWv8fuhlHDVc=";
-      #       }
-      #     ];
       extensions =
         vscodeMarketplaceExtensions
         ++ openVsxExtensions
@@ -237,17 +122,7 @@ in {
             version = "1.67.7949";
             sha256 = "sha256-ZtUqQeWjXmTz49DUeYkuqSTdVHRC8OfgWv8fuhlHDVc=";
           }
-        ] ++ [
-          myCustomExtension
         ];
-    #     ] ++ pkgs.vscode-utils.buildVscodeExtension {
-    #       name = "catppuccino";
-    #       src = "$HOME/catppuccin.catppuccin-vsc";
-    #       version = "0.0.0";
-    #       vscodeExtPublisher = "catppuccino";
-    # vscodeExtName = "catppuccino";
-    # vscodeExtUniqueId = "catppuccino";
-    #     };
 
       userSettings = {
         "update.mode" = "none";

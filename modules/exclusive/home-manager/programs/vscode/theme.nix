@@ -1,7 +1,11 @@
-{ linkFarm, pkgs }:
+{ linkFarm, pkgs, lib }:
 { base00, base01, base02, base03, base04, base05, base06, base07, base08, base09
 , base0A, base0B, base0C, base0D, base0E, base0F, scheme, author, }:
 let
+  pname = "balsoft-theme";
+  publisher = "sukhmancs";
+  version = "0.0.1"; # Define the version of your extension
+
   theme = {
     "theme/generated.json" = __toJSON {
       "$schema" = "vscode://schemas/color-theme";
@@ -932,54 +936,50 @@ let
       };
     };
   };
-  pname = "balsoft-theme";
-  publisher = "balsoft";
-  version = "0.0.0";
-  themeJson = pkgs.writeTextFile {
-    name = "theme.json";
-    text = builtins.toJSON theme;
-  };
-
-  themeZip = pkgs.runCommand "theme.zip" {
-    buildInputs = [ pkgs.zip ];
-  } ''
-    mkdir -p $out/share/vscode/extension/${publisher}.${pname}
-    cp ${themeJson} $out/share/vscode/extension/${publisher}.${pname}/theme.json
-    cd $out
-    zip -r $out/theme.zip share
-  '';
-in with builtins;
+# in with builtins;
 # linkFarm "balsoft.theme" (attrValues (mapAttrs (name: value: {
 #   name = "share/vscode/extensions/balsoft.theme/${name}";
 #   path = toFile (baseNameOf name) value;
-#   vscodeExtUniqueId = "balsoft.theme";
 # }) theme))
 
-# pkgs.stdenv.mkDerivation {
-#   name = "balsoft.theme";
-#   src = theme;
+ themeDir = pkgs.runCommand "balsoft-theme-dir" {
+    buildInputs = [ pkgs.coreutils ];
+  } ''
+    mkdir -p $out/share/vscode/extensions/balsoft.theme
+    echo '${builtins.toJSON theme}' > $out/share/vscode/extensions/balsoft.theme/generated.json
+    echo "vscodeExtUniqueId = sukhmancs.theme" > $out/share/vscode/extensions/balsoft.theme/unique-id
+  '';
 
-#   installPhase = ''
-#     mkdir -p $out/share/vscode/extension/${vscodeExtUniqueId}
-#     for name in ${toString (builtins.attrNames theme)}; do
-#       cp ${toFile (baseNameOf name) (theme.${name})} $out/share/vscode/extension/${vscodeExtUniqueId}/$name
-#     done
-#   '';
-# }
+  themeZip = pkgs.runCommand "balsoft-theme-zip" {
+    buildInputs = [ pkgs.zip ];
+  } ''
+    mkdir -p $out
+    cd ${themeDir}/share/vscode/extensions
+    zip -r $out/${pname}.zip balsoft.theme
+  '';
 
+
+in
 pkgs.vscode-utils.buildVscodeExtension {
-  inherit version themeZip;
+  inherit version;
   name = "${pname}-${version}";
-  src = themeZip;
+  src = "${themeZip}/${pname}.zip";
   vscodeExtUniqueId = "${publisher}.${pname}";
   vscodeExtPublisher = publisher;
   vscodeExtName = pname;
 
-  # meta = with lib; {
-  #   description = "A custom theme for VSCode";
-  #   homepage = "https://github.com/balsoft/theme";
-  #   license = with licenses; [ mit ];
-  #   maintainers = with maintainers; [ ];
-  #   platforms = platforms.all;
-  # };
+  nativeBuildInputs = [
+    pkgs.jq
+    pkgs.moreutils
+  ];
+
+  meta = {
+    description = "A custom theme for VS Code";
+    homepage = "https://github.com/sukhmancs/balsoft-theme";
+    license = [
+      lib.licenses.mit
+    ];
+    maintainers = [ ];
+    platforms = lib.platforms.all;
+  };
 }
