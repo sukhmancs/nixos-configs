@@ -13,7 +13,7 @@ in {
 
       gaps_workspaces = 50;
 
-      # border thiccness
+      # border thickness
       border_size = 2;
 
       # Fallback colors

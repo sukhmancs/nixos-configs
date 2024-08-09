@@ -163,7 +163,7 @@ in {
         "terminal.integrated.defaultProfile.linux" = "zsh";
         # "terminal.integrated.cursorBlinking" = true;
         "terminal.integrated.enableVisualBell" = false;
-        "editor.formatOnPaste" = true;
+        # "editor.formatOnPaste" = true;
         # "editor.formatOnSave" = true;
         # "editor.formatOnType" = false;
         # "editor.minimap.enabled" = false;
