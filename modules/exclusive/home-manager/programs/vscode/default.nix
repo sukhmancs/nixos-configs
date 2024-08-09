@@ -21,10 +21,19 @@
   inherit (lib) mkIf;
   extensions = inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.system};
 
+  # turn /home/xi/catppuccin.catppuccin-vsc into a zip file
+
+  zippedTheme = pkgs.runCommand "catppuccino" {} ''
+    mkdir -p $out
+    cp -r /home/xi/catppuccin.catppuccin-vsc $out
+    cd $out
+    zip -r catppuccino.zip *
+  '';
+
   myCustomExtension = pkgs.vscode-utils.buildVscodeExtension {
     name = "catppuccino";
     version = "0.0.0";
-    src = "/home/xi/catppuccin.catppuccin-vsc/themes";
+    src = zippedTheme;
     vscodeExtPublisher = "catppuccino";
     vscodeExtName = "catppuccino";
     vscodeExtUniqueId = "catppuccino";
@@ -38,7 +47,7 @@
     golang.go # Go language support
     kahole.magit # Magit - Git support
 
-    (pkgs.callPackage ./theme.nix {} osConfig.modules.themes.colors)
+    # (pkgs.callPackage ./theme.nix {} osConfig.modules.themes.colors)
     # (import ./theme.nix {
     #   linkFarm = pkgs.linkFarm;
 
@@ -65,7 +74,8 @@
 
     dhall.dhall-lang
     hashicorp.terraform
-    bungcip.better-toml
+    # bungcip.better-toml # deprecated
+    # tamasfe.even-better-toml
     llvm-vs-code-extensions.vscode-clangd
     stkb.rewrap
     meraymond.idris-vscode
@@ -227,10 +237,9 @@ in {
             version = "1.67.7949";
             sha256 = "sha256-ZtUqQeWjXmTz49DUeYkuqSTdVHRC8OfgWv8fuhlHDVc=";
           }
+        ] ++ [
+          myCustomExtension
         ];
-        # ] ++ [
-        #   myCustomExtension
-        # ];
     #     ] ++ pkgs.vscode-utils.buildVscodeExtension {
     #       name = "catppuccino";
     #       src = "$HOME/catppuccin.catppuccin-vsc";

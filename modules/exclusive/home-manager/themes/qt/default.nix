@@ -63,9 +63,6 @@ in {
       '';
 
       # Kvantum theme files
-      # "Kvantum/default/default.kvconfig" = {
-      #   source = ./default/default.kvconfig;
-      # };
       "Kvantum/default/default.kvconfig" = {
         text = import ./default/default.nix {
           inherit osConfig pkgs;
