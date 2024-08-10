@@ -45,7 +45,7 @@
         hooks = {
           alejandra = makeHook {
             name = "alejandra";
-            package = inputs'.nyxpkgs.packages.alejandra-no-ads;
+            # package = inputs'.nyxpkgs.packages.alejandra-no-ads;
           };
           exiftool = makeHook {
             name = "exiftool";
