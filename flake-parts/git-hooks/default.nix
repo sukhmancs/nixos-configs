@@ -1,10 +1,16 @@
+#
+# Git hooks configuration
+#
+# Usage:
+#   nix flake check
+#
 {
   perSystem = {
     pkgs,
     inputs',
     ...
   }: let
-    excludes = ["flake.lock" "r'.+\.age$'" "r'.+\.sh$'"];
+    excludes = ["flake.lock" "r'.+\.age$'" "r'.+\.sh$'" "r'themes(/.*)?$'" "r'flake-parts(/.*)?$'"];
 
     # The core of this configuration is the makeHook function, which generates configurations for individual hooks
     # based on provided arguments (args).
@@ -24,7 +30,7 @@
         verbose = true;
         enable = true;
       };
-      specificSettings = builtins.removeAttrs args ["name"];
+      specificSettings = builtins.removeAttrs args ["name" "extraExcludes"];
       finalExcludes =
         if args ? extraExcludes && args.extraExcludes != []
         then excludes ++ args.extraExcludes
