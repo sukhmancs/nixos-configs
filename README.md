@@ -119,7 +119,9 @@ Here are the tools I am using:
 | 🖥️ Terminal        | Foot               | Foot          |
 | 🔔 Notifications   | Dunst, AGS         | Mako          |
 
-> [!NOTE] > **Triangulum** is a headless server, so no graphical stuff there.
+> [!NOTE]
+>
+> **Triangulum** is a headless server, so no graphical stuff there.
 
 ## Color Scheme
 
