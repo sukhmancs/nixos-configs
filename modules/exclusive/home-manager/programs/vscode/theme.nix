@@ -32,6 +32,8 @@
 
   theme = {
     "theme/generated.json" = __toJSON {
+      name = "${publisher}'s ${pname}";
+      type = "dark";
       "$schema" = "vscode://schemas/color-theme";
       colors = {
         "activityBar.activeBackground" = "#${base00}";
@@ -404,7 +406,6 @@
         "welcomePage.buttonHoverBackground" = "#${base02}";
         "widget.shadow" = "#${base00}";
       };
-      name = "Balsoft's generated theme";
       tokenColors = [
         {
           name = "Comment";
@@ -940,7 +941,6 @@
           settings = {foreground = "#${base0E}";};
         }
       ];
-      type = "dark";
     };
     "package.json" = __toJSON {
       name = "${pname}";
@@ -973,27 +973,6 @@
     })
     theme));
 in
-  # pkgs.vscode-utils.buildVscodeExtension {
-  #   inherit version;
-  #   name = "${pname}-${version}";
-  #   src = "${themeZip}/${pname}.zip";
-  #   vscodeExtUniqueId = "${publisher}.${pname}";
-  #   vscodeExtPublisher = publisher;
-  #   vscodeExtName = pname;
-  #   nativeBuildInputs = [
-  #     pkgs.jq
-  #     pkgs.moreutils
-  #   ];
-  #   meta = {
-  #     description = "A custom theme for VS Code";
-  #     homepage = "https://github.com/sukhmancs/balsoft-theme";
-  #     license = [
-  #       lib.licenses.mit
-  #     ];
-  #     maintainers = [ ];
-  #     platforms = lib.platforms.all;
-  #   };
-  # }
   pkgs.stdenv.mkDerivation {
     name = "${publisher}-${pname}-${version}";
     version = version;

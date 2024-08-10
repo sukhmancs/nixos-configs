@@ -127,7 +127,7 @@ in {
       userSettings = {
         "update.mode" = "none";
         "[nix]"."editor.tabSize" = 2;
-        # "workbench.colorTheme" = "Xi's generated theme"; #TODO: fix this
+        "workbench.colorTheme" = "Xi's theme"; #TODO: fix this
         # "terminal.integrated.profiles.linux".bash.path = "/run/current-system/sw/bin/bash";
         # "terminal.integrated.defaultProfile.linux" = "bash";
         # "editor.fontFamily" = "IBM Plex Mono";
@@ -139,7 +139,7 @@ in {
         "extensions.autoCheckUpdates" = false;
         "extensions.autoUpdate" = false;
         "workbench.iconTheme" = "material-icon-theme";
-        "workbench.colorTheme" = "Catppuccin Macchiato"; #TODO: remove this once fixed the color scheme
+        # "workbench.colorTheme" = "Catppuccin Macchiato"; #TODO: remove this once fixed the color scheme
         "catppuccin.accentColor" = "mauve"; #TODO: remove this once fixed the color scheme
         "explorer.compactFolders" = false; # disable compact mode
         "update.showReleaseNotes" = false; # disable update release notes
