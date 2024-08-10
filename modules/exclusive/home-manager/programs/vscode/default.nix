@@ -28,7 +28,7 @@
     golang.go # Go language support
     kahole.magit # Magit - Git support
 
-    (pkgs.callPackage ./theme.nix {  } osConfig.modules.themes.colors)
+    (pkgs.callPackage ./theme.nix {} osConfig.modules.themes.colors)
 
     dhall.dhall-lang
     hashicorp.terraform
@@ -124,10 +124,6 @@ in {
         "update.mode" = "none";
         "[nix]"."editor.tabSize" = 2;
         "workbench.colorTheme" = "Xi's theme";
-        # "terminal.integrated.profiles.linux".bash.path = "/run/current-system/sw/bin/bash";
-        # "terminal.integrated.defaultProfile.linux" = "bash";
-        # "editor.fontFamily" = "IBM Plex Mono";
-        # "nix.formatterPath" = "nixfmt";
         "git.autofetch" = true;
         "security.workspace.trust.untrustedFiles" = "open";
         "vim.useSystemClipboard" = true;
@@ -135,8 +131,6 @@ in {
         "extensions.autoCheckUpdates" = false;
         "extensions.autoUpdate" = false;
         "workbench.iconTheme" = "material-icon-theme";
-        # "workbench.colorTheme" = "Catppuccin Macchiato"; #TODO: remove this once fixed the color scheme
-        # "catppuccin.accentColor" = "mauve"; #TODO: remove this once fixed the color scheme
         "explorer.compactFolders" = false; # disable compact mode
         "update.showReleaseNotes" = false; # disable update release notes
         "editor.fontFamily" = "JetBrainsMono Nerd Font, Material Design Icons, 'monospace', monospace";
@@ -150,18 +144,18 @@ in {
         "workbench.editor.enablePreview" = false;
         "editor.scrollbar.verticalScrollbarSize" = 6;
         "editor.fontSize" = 16;
-        # "editor.fontLigatures" = true;
-        # "workbench.fontAliasing" = "antialiased";
-        # "files.trimTrailingWhitespace" = true;
+        #"editor.fontLigatures" = true;
+        #"workbench.fontAliasing" = "antialiased";
+        "files.trimTrailingWhitespace" = true;
         "terminal.integrated.fontFamily" = "JetBrainsMono Nerd Font Mono";
-        # "window.titleBarStyle" = "custom";
+        "window.titleBarStyle" = "custom";
         "terminal.integrated.automationShell.linux" = "nix-shell";
         "terminal.integrated.defaultProfile.linux" = "zsh";
         # "terminal.integrated.cursorBlinking" = true;
         "terminal.integrated.enableVisualBell" = false;
-        # "editor.formatOnPaste" = true;
-        # "editor.formatOnSave" = true;
-        # "editor.formatOnType" = false;
+        "editor.formatOnPaste" = true;
+        "editor.formatOnSave" = true;
+        "editor.formatOnType" = false;
         # "editor.minimap.enabled" = false;
         # "editor.minimap.renderCharacters" = false;
         "editor.overviewRulerBorder" = false;
@@ -180,7 +174,6 @@ in {
         "workbench.startupEditor" = "none";
         "workbench.list.smoothScrolling" = true;
         "security.workspace.trust.enabled" = false;
-
         "terminal.integrated.tabs.enabled" = true;
         "editor.scrollbar.horizontalScrollbarSize" = 0;
         "git.enableSmartCommit" = true;
@@ -195,11 +188,11 @@ in {
         #   "F" = "Hint";
         #   "W" = "Error";
         # };
-        # "window.titleSeparator" = " | ";
+        "window.titleSeparator" = " | ";
         "terminal.integrated.enableMultiLinePasteWarning" = false;
         "explorer.openEditors.visible" = 1;
         # # "editor.cursorBlinking" = "phase";
-        # "terminal.integrated.tabs.separator" = " | ";
+        "terminal.integrated.tabs.separator" = " | ";
         "explorer.confirmDragAndDrop" = false;
         "explorer.autoReveal" = false;
         "errorLens.gutterIconsEnabled" = true;
@@ -211,7 +204,7 @@ in {
           "info"
           "hint"
         ];
-        # "window.title" = "!Neovim";
+        "window.title" = "!Neovim";
 
         # "python.linting.flake8Args" = [
         #   "--extend-ignore=E501"
