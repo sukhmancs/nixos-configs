@@ -1,3 +1,4 @@
+# Original Code by NotAShelf - https://github.com/notashelf/nyx
 {lib, ...}: let
   # function to generate theme slugs from theme names
   # "A String With Whitespaces" -> "a-string-with-whitespaces"

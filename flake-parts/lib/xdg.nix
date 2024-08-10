@@ -1,3 +1,4 @@
+# Original Code by NotAShelf - https://github.com/notashelf/nyx
 system: let
   # copy paste done right
   XDG_CONFIG_HOME = "$HOME/.config";

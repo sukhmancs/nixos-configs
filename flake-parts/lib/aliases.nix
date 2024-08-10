@@ -1,3 +1,4 @@
+# Original Code by NotAShelf - https://github.com/notashelf/nyx
 _: let
   # this is a forced SSL template for Nginx
   # returns the attribute set with our desired settings

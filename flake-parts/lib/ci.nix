@@ -1,3 +1,4 @@
+# Original Code by NotAShelf - https://github.com/notashelf/nyx
 # Modified from https://github.com/nix-community/nix-github-actions
 # available under the MIT license.
 {lib, ...}: let

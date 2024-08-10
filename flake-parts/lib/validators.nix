@@ -1,3 +1,4 @@
+# Original Code by NotAShelf - https://github.com/notashelf/nyx
 {lib, ...}: let
   # a function that will append a list of groups if they exist in config.users.groups
   ifTheyExist = config: groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;

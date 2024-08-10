@@ -1,3 +1,4 @@
+# Original Code by NotAShelf - https://github.com/notashelf/nyx
 {inputs, ...}: let
   inherit (inputs.nixpkgs) lib;
 
