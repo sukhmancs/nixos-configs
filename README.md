@@ -22,10 +22,11 @@
 - [x] **Newsboat** - Add Rofi, lynx, vim, imv, pdf, browser, mpv, mpv loop, mpv float integration
 - [x] **Terminal Tools** - git, gh, lazygit, eza, btop, bat, nix-init, nix-index, fzf, ...
 - [x] **Zathura** - Custom colorscheme with hash codes.
-- [x] **VSCode** - Custom base16 color scheme (I am not sure how to do this. I am going to mark this as done for now, will come back later).
+- [x] **VSCode** - Custom base16 color scheme (Done).
 - [x] **QT** - Use Kvantum
 
 ### In Progress 🚧
+
 - [ ] **Spotify** - Spicetify with custom colors
 - [ ] **Qemu** - Virtualization with GPU passthrough
 - [ ] **Neovim**
@@ -40,7 +41,7 @@
 - [ ] **Refactor** - Remove dead code, unused files, ...
 - [ ] **Templates** - Add flake templates for c, cpp, python, node, ...
 - [ ] **Server (messier)** - nginx, mailserver, vaultwarden, monitoring tools, forgejo, ...
-- [ ] **IRC (messier)** -  `services.ergochat.enable`
+- [ ] **IRC (messier)** - `services.ergochat.enable`
 
 ## Structure
 

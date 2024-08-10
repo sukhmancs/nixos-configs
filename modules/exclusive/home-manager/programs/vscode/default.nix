@@ -120,43 +120,43 @@ in {
         ];
 
       userSettings = {
+        # General
         "update.mode" = "none";
-        "[nix]"."editor.tabSize" = 2;
-        "workbench.colorTheme" = "Xi's theme";
-        "git.autofetch" = true;
-        "security.workspace.trust.untrustedFiles" = "open";
-        "vim.useSystemClipboard" = true;
-        "haskell.manageHLS" = "PATH";
-        "extensions.autoCheckUpdates" = false;
-        "extensions.autoUpdate" = false;
-        "workbench.iconTheme" = "material-icon-theme";
-        "explorer.compactFolders" = false; # disable compact mode
         "update.showReleaseNotes" = false; # disable update release notes
-        "editor.fontFamily" = "JetBrainsMono Nerd Font, Material Design Icons, 'monospace', monospace";
-        "editor.inlayHints.enabled" = "off";
-        "git.openRepositoryInParentFolders" = "always";
-        "editor.lineNumbers" = "relative";
-        "breadcrumbs.filePath" = "off";
-        "workbench.layoutControl.enabled" = false;
-        "editor.lightbulb.enabled" = "off";
-        "notebook.breadcrumbs.showCodeCells" = false;
-        "workbench.editor.enablePreview" = false;
-        "editor.scrollbar.verticalScrollbarSize" = 6;
-        "editor.fontSize" = 16;
-        #"editor.fontLigatures" = true;
-        #"workbench.fontAliasing" = "antialiased";
+        "[nix]"."editor.tabSize" = 2;
         "files.trimTrailingWhitespace" = true;
+        "redhat.telemetry.enabled" = false;
+
+        # Security settings
+        "security.workspace.trust.untrustedFiles" = "open";
+        "security.workspace.trust.enabled" = false;
+
+        # BreadCrumbs settings
+        "breadcrumbs.enabled" = true;
+        "breadcrumbs.filePath" = "off";
+        "notebook.breadcrumbs.showCodeCells" = false;
+
+        # Terminal settings
         "terminal.integrated.fontFamily" = "JetBrainsMono Nerd Font Mono";
-        "window.titleBarStyle" = "custom";
         "terminal.integrated.automationShell.linux" = "nix-shell";
         "terminal.integrated.defaultProfile.linux" = "zsh";
-        # "terminal.integrated.cursorBlinking" = true;
         "terminal.integrated.enableVisualBell" = false;
+        "terminal.integrated.tabs.enabled" = true;
+        "terminal.integrated.enableMultiLinePasteWarning" = false;
+        "terminal.integrated.tabs.separator" = " | ";
+        # "terminal.integrated.cursorBlinking" = true;
+
+        # Editor settings
+        "editor.fontFamily" = "JetBrainsMono Nerd Font, Material Design Icons, 'monospace', monospace";
+        "editor.inlayHints.enabled" = "off";
+        "editor.lineNumbers" = "relative";
+        "editor.lightbulb.enabled" = "off";
+        "editor.scrollbar.verticalScrollbarSize" = 6;
+        "editor.fontSize" = 16;
+        "editor.fontLigatures" = true;
         "editor.formatOnPaste" = true;
         "editor.formatOnSave" = true;
         "editor.formatOnType" = false;
-        # "editor.minimap.enabled" = false;
-        # "editor.minimap.renderCharacters" = false;
         "editor.overviewRulerBorder" = false;
         "editor.renderLineHighlight" = "all";
         "editor.inlineSuggest.enabled" = true;
@@ -165,65 +165,46 @@ in {
         "editor.guides.indentation" = true;
         "editor.guides.bracketPairs" = true;
         "editor.bracketPairColorization.enabled" = true;
+        "editor.scrollbar.horizontalScrollbarSize" = 0;
+        # "editor.minimap.enabled" = false;
+        # "editor.minimap.renderCharacters" = false;
+        # "editor.cursorBlinking" = "phase";
+
+        # Window settings
+        "window.titleBarStyle" = "custom";
+        "window.titleSeparator" = " | ";
+        "window.title" = "!Neovim";
         "window.nativeTabs" = true;
         "window.restoreWindows" = "all";
         "window.menuBarVisibility" = "toggle";
+
+        # Workbench settings
+        "workbench.colorTheme" = "Xi's theme";
+        "workbench.iconTheme" = "material-icon-theme";
+        "workbench.layoutControl.enabled" = false;
+        "workbench.editor.enablePreview" = false;
+        "workbench.fontAliasing" = "antialiased";
         "workbench.panel.defaultLocation" = "right";
         "workbench.editor.tabCloseButton" = "left";
         "workbench.startupEditor" = "none";
         "workbench.list.smoothScrolling" = true;
-        "security.workspace.trust.enabled" = false;
-        "terminal.integrated.tabs.enabled" = true;
-        "editor.scrollbar.horizontalScrollbarSize" = 0;
+
+
+        # Git settings
+        "git.openRepositoryInParentFolders" = "always";
         "git.enableSmartCommit" = true;
         "git.confirmSync" = false;
-        "explorer.confirmDelete" = false;
-        "redhat.telemetry.enabled" = false;
-        # "extensions.experimental.affinity" = {
-        #   "asvetliakov.vscode-neovim" = 1;
-        # };
-        # "flake8.severity" = {
-        #   "E" = "Information";
-        #   "F" = "Hint";
-        #   "W" = "Error";
-        # };
-        "window.titleSeparator" = " | ";
-        "terminal.integrated.enableMultiLinePasteWarning" = false;
-        "explorer.openEditors.visible" = 1;
-        # # "editor.cursorBlinking" = "phase";
-        "terminal.integrated.tabs.separator" = " | ";
-        "explorer.confirmDragAndDrop" = false;
-        "explorer.autoReveal" = false;
-        "errorLens.gutterIconsEnabled" = true;
-        "errorLens.gutterIconSize" = "115%";
-        "errorLens.messageBackgroundMode" = "message";
-        "errorLens.enabledDiagnosticLevels" = [
-          "error"
-          "warning"
-          "info"
-          "hint"
-        ];
-        "window.title" = "!Neovim";
+        "git.autofetch" = true;
 
-        # "python.linting.flake8Args" = [
-        #   "--extend-ignore=E501"
-        # ];
-
-        # "[python]" = {
-        #   # use black vs code extension to format python code
-        #   "editor.defaultFormatter" = "ms-python.black-formatter";
-        #   "editor.formatOnSave" = true;
-        # };
-
-        "[nix]" = {
-          "editor.defaultFormatter" = "kamadorueda.alejandra";
-          "editor.formatOnPaste" = true;
-          "editor.formatOnSave" = true;
-          "editor.formatOnType" = false;
+        # Extension settings
+        "extensions.autoCheckUpdates" = false;
+        "extensions.autoUpdate" = false;
+        "github.copilot.enable" = {
+          "markdown" = true;
+          "plaintext" = true;
         };
-        "alejandra.program" = "alejandra";
-
-        # "python.linting.flake8CategorySeverity.F" = "Warning";
+        # "vim.useSystemClipboard" = true;
+        "haskell.manageHLS" = "PATH";
         # "vscode-neovim.highlightGroups.highlights" = {
         #   "IncSearch" = {
         #     "backgroundColor" = "theme.editor.findMatchBackground";
@@ -237,11 +218,54 @@ in {
         #     "backgroundColor" = "theme.editor.selectionBackground";
         #   };
         # };
-        "breadcrumbs.enabled" = true;
-        "github.copilot.enable" = {
-          "markdown" = true;
-          "plaintext" = true;
+        # "extensions.experimental.affinity" = {
+        #   "asvetliakov.vscode-neovim" = 1;
+        # };
+
+        # Explorer settings
+        "explorer.openEditors.visible" = 1;
+        "explorer.compactFolders" = false; # disable compact mode
+        "explorer.confirmDelete" = false;
+        "explorer.confirmDragAndDrop" = false;
+        "explorer.autoReveal" = false;
+
+        # Error Lens settings
+        "errorLens.gutterIconsEnabled" = true;
+        "errorLens.gutterIconSize" = "115%";
+        "errorLens.messageBackgroundMode" = "message";
+        "errorLens.enabledDiagnosticLevels" = [
+          "error"
+          "warning"
+          "info"
+          "hint"
+        ];
+
+        # Linters
+        # "python.linting.flake8Args" = [
+        #   "--extend-ignore=E501"
+        # ];
+        # "python.linting.flake8CategorySeverity.F" = "Warning";
+        # "flake8.severity" = {
+        #   "E" = "Information";
+        #   "F" = "Hint";
+        #   "W" = "Error";
+        # };
+
+        # Formatters for different languages
+        "[python]" = {
+          # use black vs code extension to format python code
+          "editor.defaultFormatter" = "ms-python.black-formatter";
+          "editor.formatOnSave" = true;
         };
+
+        "[nix]" = {
+          # use alejandra to format nix code
+          "editor.defaultFormatter" = "kamadorueda.alejandra";
+          "editor.formatOnPaste" = true;
+          "editor.formatOnSave" = true;
+          "editor.formatOnType" = false;
+        };
+        "alejandra.program" = "alejandra";
       };
       keybindings = [
         {
