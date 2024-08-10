@@ -2295,13 +2295,13 @@
 in
   pkgs.stdenv.mkDerivation {
     name = "${publisher}-${pname}-${version}";
-    version = version;
+    inherit version;
 
     passthru = {
       inherit vscodeExtPublisher vscodeExtName vscodeExtUniqueId;
     };
 
-    src = src;
+    inherit src;
 
     configurePhase = ''
       runHook preConfigure
