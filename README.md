@@ -24,9 +24,9 @@
 - [x] **Zathura** - Custom colorscheme with hash codes.
 - [x] **VSCode** - Custom base16 color scheme (I am not sure how to do this. I am going to mark this as done for now, will come back later).
 - [x] **QT** - Use Kvantum
+- [x] **Enable `xdg.portal...` in `messier` ISO. Otherwise dialoges such as
 
 ### In Progress 🚧
-- [ ] **Enable `xdg.portal...` in `messier` ISO. Otherwise dialoges such as
 opening other windows from firefox, let's to download some file from firefox
 into thunar will not going to work.**
 - [ ] **Spotify** - Spicetify with custom colors
