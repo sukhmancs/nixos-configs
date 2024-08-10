@@ -1,10 +1,34 @@
-{ linkFarm, pkgs, lib }:
-{ base00, base01, base02, base03, base04, base05, base06, base07, base08, base09
-, base0A, base0B, base0C, base0D, base0E, base0F, scheme, author, }:
-let
-  pname = "balsoft-theme";
-  publisher = "sukhmancs";
-  version = "0.0.1"; # Define the version of your extension
+{
+  linkFarm,
+  pkgs,
+  lib,
+}: {
+  base00,
+  base01,
+  base02,
+  base03,
+  base04,
+  base05,
+  base06,
+  base07,
+  base08,
+  base09,
+  base0A,
+  base0B,
+  base0C,
+  base0D,
+  base0E,
+  base0F,
+  scheme,
+  author,
+}: let
+  pname = "theme";
+  publisher = "Xi";
+  version = "0.0.0"; # Define the version of your extension
+
+  vscodeExtName = "${publisher}.${pname}";
+  vscodeExtUniqueId = "${publisher}.${pname}";
+  vscodeExtPublisher = "${publisher}";
 
   theme = {
     "theme/generated.json" = __toJSON {
@@ -384,7 +408,7 @@ let
       tokenColors = [
         {
           name = "Comment";
-          scope = [ "comment" "punctuation.definition.comment" ];
+          scope = ["comment" "punctuation.definition.comment"];
           settings = {
             fontStyle = "italic";
             foreground = "#${base03}";
@@ -399,32 +423,32 @@ let
             "entity.name.variable.local"
             "variable.parameter"
           ];
-          settings = { foreground = "#${base05}"; };
+          settings = {foreground = "#${base05}";};
         }
         {
           name = "Properties";
-          scope = [ "variable.other.object.property" ];
-          settings = { foreground = "#${base0D}"; };
+          scope = ["variable.other.object.property"];
+          settings = {foreground = "#${base0D}";};
         }
         {
           name = "Colors";
-          scope = [ "constant.other.color" ];
-          settings = { foreground = "#${base0B}"; };
+          scope = ["constant.other.color"];
+          settings = {foreground = "#${base0B}";};
         }
         {
           name = "Invalid";
-          scope = [ "invalid" "invalid.illegal" ];
-          settings = { foreground = "#${base08}"; };
+          scope = ["invalid" "invalid.illegal"];
+          settings = {foreground = "#${base08}";};
         }
         {
           name = "Invalid - Deprecated";
-          scope = [ "invalid.deprecated" ];
-          settings = { foreground = "#${base0F}"; };
+          scope = ["invalid.deprecated"];
+          settings = {foreground = "#${base0F}";};
         }
         {
           name = "Keyword, Storage";
-          scope = [ "keyword" "storage.modifier" ];
-          settings = { foreground = "#${base0E}"; };
+          scope = ["keyword" "storage.modifier"];
+          settings = {foreground = "#${base0E}";};
         }
         {
           name = "Keyword Control";
@@ -435,7 +459,7 @@ let
             "keyword.control.import"
             "keyword.control.as"
           ];
-          settings = { foreground = "#${base0E}"; };
+          settings = {foreground = "#${base0E}";};
         }
         {
           name = "Keyword";
@@ -453,17 +477,17 @@ let
             "variable.language.this"
             "storage.type.ts"
           ];
-          settings = { foreground = "#${base0E}"; };
+          settings = {foreground = "#${base0E}";};
         }
         {
           name = "Types, Primitives";
-          scope = [ "keyword.type" "storage.type.primitive" ];
-          settings = { foreground = "#${base0C}"; };
+          scope = ["keyword.type" "storage.type.primitive"];
+          settings = {foreground = "#${base0C}";};
         }
         {
           name = "Function";
-          scope = [ "storage.type.function" ];
-          settings = { foreground = "#${base0D}"; };
+          scope = ["storage.type.function"];
+          settings = {foreground = "#${base0D}";};
         }
         {
           name = "Operator, Misc";
@@ -480,18 +504,17 @@ let
             "keyword.other.template"
             "keyword.other.substitution"
           ];
-          settings = { foreground = "#${base04}"; };
+          settings = {foreground = "#${base04}";};
         }
         {
           name = "Embedded";
-          scope = [ "punctuation.section.embedded" "variable.interpolation" ];
-          settings = { foreground = "#${base0C}"; };
+          scope = ["punctuation.section.embedded" "variable.interpolation"];
+          settings = {foreground = "#${base0C}";};
         }
         {
           name = "Tag";
-          scope =
-            [ "entity.name.tag" "meta.tag.sgml" "markup.deleted.git_gutter" ];
-          settings = { foreground = "#${base08}"; };
+          scope = ["entity.name.tag" "meta.tag.sgml" "markup.deleted.git_gutter"];
+          settings = {foreground = "#${base08}";};
         }
         {
           name = "Function, Special Method";
@@ -502,17 +525,17 @@ let
             "support.function"
             "keyword.other.special-method"
           ];
-          settings = { foreground = "#${base0D}"; };
+          settings = {foreground = "#${base0D}";};
         }
         {
           name = "Block Level Variables";
-          scope = [ "meta.block variable.other" ];
-          settings = { foreground = "#${base08}"; };
+          scope = ["meta.block variable.other"];
+          settings = {foreground = "#${base08}";};
         }
         {
           name = "Other Variable, String Link";
-          scope = [ "support.other.variable" "string.other.link" ];
-          settings = { foreground = "#${base08}"; };
+          scope = ["support.other.variable" "string.other.link"];
+          settings = {foreground = "#${base08}";};
         }
         {
           name = "Number, Constant, Function Argument, Tag Attribute, Embedded";
@@ -525,7 +548,7 @@ let
             "keyword.other.unit"
             "keyword.other"
           ];
-          settings = { foreground = "#${base09}"; };
+          settings = {foreground = "#${base09}";};
         }
         {
           name = "String, Symbols, Inherited Class, Markup Heading";
@@ -555,7 +578,7 @@ let
             "markup.changed.git_gutter"
             "support.type.sys-types"
           ];
-          settings = { foreground = "#${base0A}"; };
+          settings = {foreground = "#${base0A}";};
         }
         {
           name = "Storage Type, Import Class";
@@ -564,17 +587,17 @@ let
             "storage.modifier.package"
             "storage.modifier.import"
           ];
-          settings = { foreground = "#${base0A}"; };
+          settings = {foreground = "#${base0A}";};
         }
         {
           name = "Fields";
-          scope = [ "entity.name.variable.field" ];
-          settings = { foreground = "#${base0D}"; };
+          scope = ["entity.name.variable.field"];
+          settings = {foreground = "#${base0D}";};
         }
         {
           name = "Entity Types";
-          scope = [ "support.type" ];
-          settings = { foreground = "#${base0C}"; };
+          scope = ["support.type"];
+          settings = {foreground = "#${base0C}";};
         }
         {
           name = "CSS Class and Support";
@@ -586,7 +609,7 @@ let
             "source.stylus support.type.property-name"
             "source.postcss support.type.property-name"
           ];
-          settings = { foreground = "#${base0C}"; };
+          settings = {foreground = "#${base0C}";};
         }
         {
           name = "Sub-methods";
@@ -595,11 +618,11 @@ let
             "variable.import.parameter.js"
             "variable.other.class.js"
           ];
-          settings = { foreground = "#${base08}"; };
+          settings = {foreground = "#${base08}";};
         }
         {
           name = "Language methods";
-          scope = [ "variable.language" ];
+          scope = ["variable.language"];
           settings = {
             fontStyle = "italic";
             foreground = "#${base08}";
@@ -607,7 +630,7 @@ let
         }
         {
           name = "entity.name.method.js";
-          scope = [ "entity.name.method.js" ];
+          scope = ["entity.name.method.js"];
           settings = {
             fontStyle = "italic";
             foreground = "#${base0D}";
@@ -619,12 +642,12 @@ let
             "meta.class-method.js entity.name.function.js"
             "variable.function.constructor"
           ];
-          settings = { foreground = "#${base0D}"; };
+          settings = {foreground = "#${base0D}";};
         }
         {
           name = "Attributes";
-          scope = [ "entity.other.attribute-name" ];
-          settings = { foreground = "#${base0D}"; };
+          scope = ["entity.other.attribute-name"];
+          settings = {foreground = "#${base0D}";};
         }
         {
           name = "HTML Attributes";
@@ -639,43 +662,43 @@ let
         }
         {
           name = "CSS Classes";
-          scope = [ "entity.other.attribute-name.class" ];
-          settings = { foreground = "#${base0A}"; };
+          scope = ["entity.other.attribute-name.class"];
+          settings = {foreground = "#${base0A}";};
         }
         {
           name = "CSS ID's";
-          scope = [ "source.sass keyword.control" ];
-          settings = { foreground = "#${base0D}"; };
+          scope = ["source.sass keyword.control"];
+          settings = {foreground = "#${base0D}";};
         }
         {
           name = "Inserted";
-          scope = [ "markup.inserted" ];
-          settings = { foreground = "#${base0B}"; };
+          scope = ["markup.inserted"];
+          settings = {foreground = "#${base0B}";};
         }
         {
           name = "Deleted";
-          scope = [ "markup.deleted" ];
-          settings = { foreground = "#${base08}"; };
+          scope = ["markup.deleted"];
+          settings = {foreground = "#${base08}";};
         }
         {
           name = "Changed";
-          scope = [ "markup.changed" ];
-          settings = { foreground = "#${base0E}"; };
+          scope = ["markup.changed"];
+          settings = {foreground = "#${base0E}";};
         }
         {
           name = "Regular Expressions";
-          scope = [ "string.regexp" ];
-          settings = { foreground = "#${base0C}"; };
+          scope = ["string.regexp"];
+          settings = {foreground = "#${base0C}";};
         }
         {
           name = "Escape Characters";
-          scope = [ "constant.character.escape" ];
-          settings = { foreground = "#${base0C}"; };
+          scope = ["constant.character.escape"];
+          settings = {foreground = "#${base0C}";};
         }
         {
           name = "URL";
-          scope = [ "*url*" "*link*" "*uri*" ];
-          settings = { fontStyle = "underline"; };
+          scope = ["*url*" "*link*" "*uri*"];
+          settings = {fontStyle = "underline";};
         }
         {
           name = "Decorators";
@@ -703,63 +726,63 @@ let
           scope = [
             "source.json meta.structure.dictionary.json support.type.property-name.json"
           ];
-          settings = { foreground = "#${base0D}"; };
+          settings = {foreground = "#${base0D}";};
         }
         {
           name = "JSON Key - Level 1";
           scope = [
             "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json"
           ];
-          settings = { foreground = "#${base0D}"; };
+          settings = {foreground = "#${base0D}";};
         }
         {
           name = "JSON Key - Level 2";
           scope = [
             "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json"
           ];
-          settings = { foreground = "#${base0D}"; };
+          settings = {foreground = "#${base0D}";};
         }
         {
           name = "JSON Key - Level 3";
           scope = [
             "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json"
           ];
-          settings = { foreground = "#${base0D}"; };
+          settings = {foreground = "#${base0D}";};
         }
         {
           name = "JSON Key - Level 4";
           scope = [
             "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json"
           ];
-          settings = { foreground = "#${base0D}"; };
+          settings = {foreground = "#${base0D}";};
         }
         {
           name = "JSON Key - Level 5";
           scope = [
             "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json"
           ];
-          settings = { foreground = "#${base0D}"; };
+          settings = {foreground = "#${base0D}";};
         }
         {
           name = "JSON Key - Level 6";
           scope = [
             "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json"
           ];
-          settings = { foreground = "#${base0D}"; };
+          settings = {foreground = "#${base0D}";};
         }
         {
           name = "JSON Key - Level 7";
           scope = [
             "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json"
           ];
-          settings = { foreground = "#${base0D}"; };
+          settings = {foreground = "#${base0D}";};
         }
         {
           name = "JSON Key - Level 8";
           scope = [
             "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json"
           ];
-          settings = { foreground = "#${base0D}"; };
+          settings = {foreground = "#${base0D}";};
         }
         {
           name = "Markdown - Plain";
@@ -767,24 +790,24 @@ let
             "text.html.markdown"
             "punctuation.definition.list_item.markdown"
           ];
-          settings = { foreground = "#${base05}"; };
+          settings = {foreground = "#${base05}";};
         }
         {
           name = "Markdown - Markup Raw Inline";
-          scope = [ "text.html.markdown markup.inline.raw.markdown" ];
-          settings = { foreground = "#${base0E}"; };
+          scope = ["text.html.markdown markup.inline.raw.markdown"];
+          settings = {foreground = "#${base0E}";};
         }
         {
           name = "Markdown - Markup Raw Inline Punctuation";
           scope = [
             "text.html.markdown markup.inline.raw.markdown punctuation.definition.raw.markdown"
           ];
-          settings = { foreground = "#${base0C}"; };
+          settings = {foreground = "#${base0C}";};
         }
         {
           name = "Markdown - Line Break";
-          scope = [ "text.html.markdown meta.dummy.line-break" ];
-          settings = { foreground = "#${base03}"; };
+          scope = ["text.html.markdown meta.dummy.line-break"];
+          settings = {foreground = "#${base03}";};
         }
         {
           name = "Markdown - Heading";
@@ -793,11 +816,11 @@ let
             "markup.heading | markup.heading entity.name"
             "markup.heading.markdown punctuation.definition.heading.markdown"
           ];
-          settings = { foreground = "#${base0D}"; };
+          settings = {foreground = "#${base0D}";};
         }
         {
           name = "Markup - Italic";
-          scope = [ "markup.italic" ];
+          scope = ["markup.italic"];
           settings = {
             fontStyle = "italic";
             foreground = "#${base08}";
@@ -805,7 +828,7 @@ let
         }
         {
           name = "Markup - Bold";
-          scope = [ "markup.bold" "markup.bold string" ];
+          scope = ["markup.bold" "markup.bold string"];
           settings = {
             fontStyle = "bold";
             foreground = "#${base08}";
@@ -828,7 +851,7 @@ let
         }
         {
           name = "Markup - Underline";
-          scope = [ "markup.underline" ];
+          scope = ["markup.underline"];
           settings = {
             fontStyle = "underline";
             foreground = "#${base09}";
@@ -836,43 +859,43 @@ let
         }
         {
           name = "Markdown - Blockquote";
-          scope = [ "markup.quote punctuation.definition.blockquote.markdown" ];
-          settings = { foreground = "#${base0C}"; };
+          scope = ["markup.quote punctuation.definition.blockquote.markdown"];
+          settings = {foreground = "#${base0C}";};
         }
         {
           name = "Markup - Quote";
-          scope = [ "markup.quote" ];
-          settings = { fontStyle = "italic"; };
+          scope = ["markup.quote"];
+          settings = {fontStyle = "italic";};
         }
         {
           name = "Markdown - Link";
-          scope = [ "string.other.link.title.markdown" ];
-          settings = { foreground = "#${base0D}"; };
+          scope = ["string.other.link.title.markdown"];
+          settings = {foreground = "#${base0D}";};
         }
         {
           name = "Markdown - Link Description";
-          scope = [ "string.other.link.description.title.markdown" ];
-          settings = { foreground = "#${base0E}"; };
+          scope = ["string.other.link.description.title.markdown"];
+          settings = {foreground = "#${base0E}";};
         }
         {
           name = "Markdown - Link Anchor";
-          scope = [ "constant.other.reference.link.markdown" ];
-          settings = { foreground = "#${base0A}"; };
+          scope = ["constant.other.reference.link.markdown"];
+          settings = {foreground = "#${base0A}";};
         }
         {
           name = "Markup - Raw Block";
-          scope = [ "markup.raw.block" ];
-          settings = { foreground = "#${base0E}"; };
+          scope = ["markup.raw.block"];
+          settings = {foreground = "#${base0E}";};
         }
         {
           name = "Markdown - Raw Block Fenced";
-          scope = [ "markup.raw.block.fenced.markdown" ];
-          settings = { foreground = "#00000050"; };
+          scope = ["markup.raw.block.fenced.markdown"];
+          settings = {foreground = "#00000050";};
         }
         {
           name = "Markdown - Fenced Bode Block";
-          scope = [ "punctuation.definition.fenced.markdown" ];
-          settings = { foreground = "#00000050"; };
+          scope = ["punctuation.definition.fenced.markdown"];
+          settings = {foreground = "#00000050";};
         }
         {
           name = "Markdown - Fenced Code Block Variable";
@@ -880,16 +903,16 @@ let
             "markup.raw.block.fenced.markdown"
             "variable.language.fenced.markdown"
           ];
-          settings = { foreground = "#${base0E}"; };
+          settings = {foreground = "#${base0E}";};
         }
         {
           name = "Markdown - Fenced Language";
-          scope = [ "variable.language.fenced.markdown" ];
-          settings = { foreground = "#${base08}"; };
+          scope = ["variable.language.fenced.markdown"];
+          settings = {foreground = "#${base08}";};
         }
         {
           name = "Markdown - Separator";
-          scope = [ "meta.separator" ];
+          scope = ["meta.separator"];
           settings = {
             fontStyle = "bold";
             foreground = "#${base0C}";
@@ -897,89 +920,120 @@ let
         }
         {
           name = "Markup - Table";
-          scope = [ "markup.table" ];
-          settings = { foreground = "#${base0E}"; };
+          scope = ["markup.table"];
+          settings = {foreground = "#${base0E}";};
         }
         {
           scope = "token.info-token";
-          settings = { foreground = "#${base0D}"; };
+          settings = {foreground = "#${base0D}";};
         }
         {
           scope = "token.warn-token";
-          settings = { foreground = "#${base0A}"; };
+          settings = {foreground = "#${base0A}";};
         }
         {
           scope = "token.error-token";
-          settings = { foreground = "#${base08}"; };
+          settings = {foreground = "#${base08}";};
         }
         {
           scope = "token.debug-token";
-          settings = { foreground = "#${base0E}"; };
+          settings = {foreground = "#${base0E}";};
         }
       ];
       type = "dark";
     };
     "package.json" = __toJSON {
-      name = "theme";
-      displayName = "Balsoft's generated theme";
-      version = "0.0.0";
-      publisher = "balsoft";
+      name = "${pname}";
+      displayName = "${publisher}'s ${pname}";
+      version = "${version}";
+      publisher = "${publisher}";
       engines.vscode = "^1.22.0";
-      contributes.themes = [{
-        label = "Balsoft's generated theme";
-        uiTheme = "vs-dark";
-        path = "./theme/generated.json";
-      }];
+      contributes.themes = [
+        {
+          label = "${publisher}'s ${pname}"; # Xi's theme
+          uiTheme = "vs-dark";
+          path = "./theme/generated.json";
+        }
+      ];
       capabilities = {
         untrustedWorkspaces.supported = true;
         virtualWorkspaces = true;
       };
     };
   };
-# in with builtins;
-# linkFarm "balsoft.theme" (attrValues (mapAttrs (name: value: {
-#   name = "share/vscode/extensions/balsoft.theme/${name}";
-#   path = toFile (baseNameOf name) value;
-# }) theme))
+  # in with builtins;
+  # linkFarm "balsoft.theme" (attrValues (mapAttrs (name: value: {
+  #   name = "share/vscode/extensions/balsoft.theme/${name}";
+  #   path = toFile (baseNameOf name) value;
+  # }) theme))
 
- themeDir = pkgs.runCommand "balsoft-theme-dir" {
-    buildInputs = [ pkgs.coreutils ];
-  } ''
-    mkdir -p $out/share/vscode/extensions/balsoft.theme
-    echo '${builtins.toJSON theme}' > $out/share/vscode/extensions/balsoft.theme/generated.json
-    echo "vscodeExtUniqueId = sukhmancs.theme" > $out/share/vscode/extensions/balsoft.theme/unique-id
-  '';
-
-  themeZip = pkgs.runCommand "balsoft-theme-zip" {
-    buildInputs = [ pkgs.zip ];
-  } ''
-    mkdir -p $out
-    cd ${themeDir}/share/vscode/extensions
-    zip -r $out/${pname}.zip balsoft.theme
-  '';
-
-
+  src = linkFarm "${publisher}.${pname}" (builtins.attrValues (builtins.mapAttrs (name: value: {
+      name = "${name}";
+      path = builtins.toFile (baseNameOf name) value;
+    })
+    theme));
 in
-pkgs.vscode-utils.buildVscodeExtension {
-  inherit version;
-  name = "${pname}-${version}";
-  src = "${themeZip}/${pname}.zip";
-  vscodeExtUniqueId = "${publisher}.${pname}";
-  vscodeExtPublisher = publisher;
-  vscodeExtName = pname;
+  # pkgs.vscode-utils.buildVscodeExtension {
+  #   inherit version;
+  #   name = "${pname}-${version}";
+  #   src = "${themeZip}/${pname}.zip";
+  #   vscodeExtUniqueId = "${publisher}.${pname}";
+  #   vscodeExtPublisher = publisher;
+  #   vscodeExtName = pname;
+  #   nativeBuildInputs = [
+  #     pkgs.jq
+  #     pkgs.moreutils
+  #   ];
+  #   meta = {
+  #     description = "A custom theme for VS Code";
+  #     homepage = "https://github.com/sukhmancs/balsoft-theme";
+  #     license = [
+  #       lib.licenses.mit
+  #     ];
+  #     maintainers = [ ];
+  #     platforms = lib.platforms.all;
+  #   };
+  # }
+  pkgs.stdenv.mkDerivation {
+    name = "${publisher}-${pname}-${version}";
+    version = version;
 
-  nativeBuildInputs = [
-    pkgs.jq
-    pkgs.moreutils
-  ];
+    passthru = {
+      inherit vscodeExtPublisher vscodeExtName vscodeExtUniqueId;
+    };
 
-  meta = {
-    description = "A custom theme for VS Code";
-    homepage = "https://github.com/sukhmancs/balsoft-theme";
-    license = [
-      lib.licenses.mit
-    ];
-    maintainers = [ ];
-    platforms = lib.platforms.all;
-  };
-}
+    src = src;
+
+    configurePhase = ''
+      runHook preConfigure
+      runHook postConfigure
+    '';
+
+    buildPhase = ''
+      runHook preBuild
+      runHook postBuild
+    '';
+
+    dontPatchELF = true;
+
+    dontStrip = true;
+
+    # Some .vsix files contain other directories (e.g., `package`) that we don't use.
+    # If other directories are present but `sourceRoot` is unset, the unpacker phase fails.
+    # sourceRoot = "extension";
+
+    installPrefix = "share/vscode/extensions/${vscodeExtUniqueId}";
+
+    nativeBuildInputs = [pkgs.unzip];
+
+    installPhase = ''
+
+      runHook preInstall
+
+      mkdir -p "$out/$installPrefix"
+      find . -mindepth 1 -maxdepth 1 | xargs -d'\n' mv -t "$out/$installPrefix/"
+
+      runHook postInstall
+    '';
+  }
+
