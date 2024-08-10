@@ -148,7 +148,7 @@
         "editorBracketMatch.border" = "#9399b2";
         "editorCodeLens.foreground" = "#7f849c";
         "editorCursor.background" = "#${base00}";
-        "editorCursor.foreground" = "#${base0F}";
+        "editorCursor.foreground" = "#${base0E}";
         "editorGroup.border" = "#${base04}";
         "editorGroup.dropBackground" = "#${base0E}33";
         "editorGroup.emptyBackground" = "#${base00}";
@@ -409,7 +409,7 @@
         "terminal.selectionBackground" = "#${base04}";
         "terminal.inactiveSelectionBackground" = "#${base04}80";
         "terminalCursor.background" = "#${base00}";
-        "terminalCursor.foreground" = "#${base0F}";
+        "terminalCursor.foreground" = "#${base0E}";
         "terminal.border" = "#${base04}";
         "terminal.dropBackground" = "#${base0E}33";
         "terminal.tab.activeBorder" = "#${base0E}";

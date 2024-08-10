@@ -49,7 +49,7 @@
     adolfdaniel.vscode-chromium-vector-icons # Chromium Vector Icons
     arrterian.nix-env-selector # Nix environment selector
     bbenoist.nix # Nix language support
-    catppuccin.catppuccin-vsc # Catppuccin Macchiato color scheme
+    # catppuccin.catppuccin-vsc # Catppuccin Macchiato color scheme
     christian-kohler.path-intellisense # Path Intellisense - autocompletion for file paths
     dbaeumer.vscode-eslint # ESLint - JavaScript linting
     eamodio.gitlens # GitLens - For enhanced Git integration
