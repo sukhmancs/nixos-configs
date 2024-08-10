@@ -30,15 +30,14 @@
 
     (pkgs.callPackage ./theme.nix {} osConfig.modules.themes.colors)
 
-    dhall.dhall-lang
-    hashicorp.terraform
-    # bungcip.better-toml # deprecated
-    tamasfe.even-better-toml
-    llvm-vs-code-extensions.vscode-clangd
-    stkb.rewrap
-    meraymond.idris-vscode
-    ocamllabs.ocaml-platform
-    bierner.markdown-mermaid
+    dhall.dhall-lang # Dhall - Dhall language support
+    hashicorp.terraform # Provides support for HashiCorp Terraform
+    tamasfe.even-better-toml # TOML language support
+    llvm-vs-code-extensions.vscode-clangd # Clangd - C/C++ language support
+    stkb.rewrap # Rewrap - rewrap comments and other text
+    meraymond.idris-vscode # Idris - Idris language support
+    ocamllabs.ocaml-platform # OCaml - OCaml language support
+    bierner.markdown-mermaid # Markdown Mermaid - Mermaid diagram support
     golang.go # Go language support
     vlanguage.vscode-vlang # support for Vlang
     vue.vscode-typescript-vue-plugin # Vue
@@ -63,7 +62,7 @@
     ms-vscode-remote.remote-ssh # Remote - SSH - SSH support
     ms-vscode.cpptools # C/C++ - C/C++ language support
     naumovs.color-highlight # Color Highlight - highlight web colors in your editor
-    # ms-python.black-formatter # Black - Python code formatter
+    ms-python.black-formatter # Black - Python code formatter
     svelte.svelte-vscode # Svelte - Svelte language support
     ms-vsliveshare.vsliveshare # Live Share - Real-time collaborative development
     oderwat.indent-rainbow # Indent Rainbow - colorize indentation in front of your text
@@ -73,7 +72,7 @@
     timonwong.shellcheck # ShellCheck - Shell script linting
     usernamehw.errorlens # Error Lens - display diagnostics inline
     xaver.clang-format # Clang-Format - C/C++ code formatter
-    # yzhang.markdown-all-in-one # Markdown All in One - Markdown language support
+    yzhang.markdown-all-in-one # Markdown All in One - Markdown language support
     james-yu.latex-workshop # LaTeX Workshop - LaTeX language support
     redhat.vscode-yaml # YAML - YAML language support
     irongeek.vscode-env # .env - .env file support
