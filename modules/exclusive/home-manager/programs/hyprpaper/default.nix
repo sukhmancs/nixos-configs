@@ -4,7 +4,6 @@
   osConfig,
   pkgs,
   lib,
-  config,
   ...
 }: let
   inherit (builtins) map;
