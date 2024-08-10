@@ -95,10 +95,6 @@
   openVsxExtensionsRelease = with extensions.open-vsx-release; [
     # Add released extensions here
   ];
-
-  custom-extensions = import ./extensions.nix {
-    inherit (pkgs.vscode-utils) buildVscodeMarketplaceExtension;
-  };
 in {
   config = mkIf config.programs.vscode.enable {
     programs.vscode = {
@@ -127,7 +123,7 @@ in {
       userSettings = {
         "update.mode" = "none";
         "[nix]"."editor.tabSize" = 2;
-        "workbench.colorTheme" = "Xi's theme"; #TODO: fix this
+        "workbench.colorTheme" = "Xi's theme";
         # "terminal.integrated.profiles.linux".bash.path = "/run/current-system/sw/bin/bash";
         # "terminal.integrated.defaultProfile.linux" = "bash";
         # "editor.fontFamily" = "IBM Plex Mono";
@@ -140,7 +136,7 @@ in {
         "extensions.autoUpdate" = false;
         "workbench.iconTheme" = "material-icon-theme";
         # "workbench.colorTheme" = "Catppuccin Macchiato"; #TODO: remove this once fixed the color scheme
-        "catppuccin.accentColor" = "mauve"; #TODO: remove this once fixed the color scheme
+        # "catppuccin.accentColor" = "mauve"; #TODO: remove this once fixed the color scheme
         "explorer.compactFolders" = false; # disable compact mode
         "update.showReleaseNotes" = false; # disable update release notes
         "editor.fontFamily" = "JetBrainsMono Nerd Font, Material Design Icons, 'monospace', monospace";
@@ -154,9 +150,9 @@ in {
         "workbench.editor.enablePreview" = false;
         "editor.scrollbar.verticalScrollbarSize" = 6;
         "editor.fontSize" = 16;
-        "editor.fontLigatures" = true;
-        "workbench.fontAliasing" = "antialiased";
-        "files.trimTrailingWhitespace" = true;
+        # "editor.fontLigatures" = true;
+        # "workbench.fontAliasing" = "antialiased";
+        # "files.trimTrailingWhitespace" = true;
         "terminal.integrated.fontFamily" = "JetBrainsMono Nerd Font Mono";
         # "window.titleBarStyle" = "custom";
         "terminal.integrated.automationShell.linux" = "nix-shell";
