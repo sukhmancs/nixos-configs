@@ -19,17 +19,19 @@ in {
       };
       font = mkForce "Iosevka Nerd Font 14";
       extraConfig = mkForce {
-        modi = "drun,filebrowser";
+        modi = "drun,run,filebrowser,window";
         drun-display-format = " {name} ";
+        window-format = "{w}   {c}   {t}";
         sidebar-mode = true;
         matching = "prefix";
         scroll-method = 0;
         disable-history = false;
         show-icons = true;
 
-        display-drun = " Run";
-        display-run = " Run";
-        display-filebrowser = " Files";
+        display-drun = "";
+        display-run = "";
+        display-filebrowser = "";
+        display-window = "";
       };
     };
   };

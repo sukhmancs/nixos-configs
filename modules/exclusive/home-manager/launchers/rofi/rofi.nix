@@ -15,7 +15,7 @@ in {
         inherit (config.lib.formats.rasi) mkLiteral;
       in {
         window = {
-          transparency = mkLiteral "real";
+          transparency = "real";
           location = mkLiteral "center";
           anchor = mkLiteral "center";
           fullscreen = mkLiteral "false";
@@ -26,51 +26,53 @@ in {
           margin = mkLiteral "0px";
           padding = mkLiteral "0px";
           border-radius = mkLiteral "20px";
-          cursor = mkLiteral "default";
-          background-color = mkLiteral "#22272C";
+          border = mkLiteral "4px";
+          border-color = mkLiteral "#${colors.base02}";
+          cursor = "default";
+          background-color = mkLiteral "#${colors.base00}";
         };
 
         mainbox = {
           enabled = mkLiteral "true";
-          spacing = mkLiteral "25px";
-          padding = mkLiteral "50px";
+          spacing = mkLiteral "30px";
+          padding = mkLiteral "30px";
           background-color = mkLiteral "transparent";
-          children = mkLiteral "[inputbar, message, listview, mode-switcher]";
+          children = mkLiteral "[inputbar, message, listview]";
         };
 
         inputbar = {
           enabled = mkLiteral "true";
-          spacing = mkLiteral "0px";
-          margin = mkLiteral "0px 200px";
-          padding = mkLiteral "5px";
+          # spacing = mkLiteral "0px";
+          # margin = mkLiteral "0px 200px";
+          # padding = mkLiteral "5px";
           border = mkLiteral "1px";
           border-radius = mkLiteral "100%";
-          border-color = mkLiteral "gray/25%";
-          background-color = mkLiteral "transparent";
+          border-color = mkLiteral "#${colors.base02}";
+          background-color = mkLiteral "#${colors.base02}";
           children = mkLiteral "[textbox-prompt-colon, entry]";
         };
 
         textbox-prompt-colon = {
           enabled = mkLiteral "true";
           expand = mkLiteral "false";
-          padding = mkLiteral "8px 11px";
+          padding = mkLiteral "12px 15px";
           border-radius = mkLiteral "100%";
-          background-color = mkLiteral "white";
-          text-color = mkLiteral "black";
-          str = mkLiteral "";
+          background-color = mkLiteral "transparent";
+          text-color = mkLiteral "#${colors.base0E}";
+          str = " ";
         };
 
         entry = {
           enabled = mkLiteral "true";
-          padding = mkLiteral "8px 12px";
-          border = mkLiteral "0px";
+          expand = mkLiteral "false";
+          width = mkLiteral "250px";
+          padding = mkLiteral "12px 16px";
+          border-radius = mkLiteral "100%";
           background-color = mkLiteral "transparent";
-          text-color = mkLiteral "white";
+          text-color = mkLiteral "#${colors.base05}";
           cursor = mkLiteral "text";
           placeholder = mkLiteral "Search...";
-          placeholder-color = mkLiteral "inherit";
-          vertical-align = mkLiteral "0.5";
-          horizontal-align = mkLiteral "0.0";
+          placeholder-color = mkLiteral "#${colors.base04}";
         };
 
         listview = {
@@ -96,26 +98,50 @@ in {
           padding = mkLiteral "5px";
           border = mkLiteral "0px";
           border-radius = mkLiteral "100%";
-          border-color = mkLiteral "gray/15%";
+          # border-color = mkLiteral "gray/15%";
           background-color = mkLiteral "transparent";
-          text-color = mkLiteral "gray";
+          text-color = mkLiteral "#${colors.base05}";
           cursor = mkLiteral "pointer";
         };
 
+        # "element normal.active" = {
+        #   background-image = mkLiteral "linear-gradient(to right, #4C4F52, #2E343B)";
+        #   text-color = mkLiteral "#19B466";
+        # };
+
+        # "element selected.normal" = {
+        #   background-image = mkLiteral "linear-gradient(to right, #4C4F52, #2E343B)";
+        #   text-color = mkLiteral "#FF9030";
+        # };
+
+        # "element selected.active" = {
+        #   background-image = mkLiteral "linear-gradient(to right, #4C4F52, #2E343B)";
+        #   text-color = mkLiteral "#EA5553";
+        # };
+
+        "element normal.normal" = {
+          background-color = mkLiteral "inherit";
+          text-color = mkLiteral "inherit";
+        };
+        "element normal.urgent" = {
+          background-color = mkLiteral "#${colors.base02}";
+          text-color = mkLiteral "#${colors.base08}";
+        };
         "element normal.active" = {
-          background-image = mkLiteral "linear-gradient(to right, #4C4F52, #2E343B)";
-          text-color = mkLiteral "#19B466";
+          background-color = mkLiteral "${colors.base02}";
+          text-color = mkLiteral "${colors.base0E}";
         };
-
         "element selected.normal" = {
-          background-image = mkLiteral "linear-gradient(to right, #4C4F52, #2E343B)";
-          text-color = mkLiteral "#FF9030";
+          background-color = mkLiteral "#${colors.base02}";
+          text-color = mkLiteral "#${colors.base05}";
         };
-
+        "element selected.urgent" = {
+          background-color = mkLiteral "#${colors.base02}";
+          text-color = mkLiteral "#${colors.base08}";
+        };
         "element selected.active" = {
-          background-image = mkLiteral "linear-gradient(to right, #4C4F52, #2E343B)";
-          text-color = mkLiteral "#EA5553";
-        };
+          background-color = mkLiteral "#${colors.base02}";
+          text-color = mkLiteral "#${colors.base0E}";
 
         "element-icon" = {
           background-color = mkLiteral "transparent";
@@ -125,7 +151,7 @@ in {
 
         "element-text" = {
           background-color = mkLiteral "inherit";
-          text-color = mkLiteral "inherit";
+          text-color = mkLiteral "${colors.base05}";
           cursor = mkLiteral "inherit";
           vertical-align = mkLiteral "0.5";
           horizontal-align = mkLiteral "0.0";
@@ -134,41 +160,42 @@ in {
         "mode-switcher" = {
           enabled = mkLiteral "true";
           expand = mkLiteral "false";
-          spacing = mkLiteral "0px";
-          margin = mkLiteral "0px 200px";
-          padding = mkLiteral "12px";
-          border-radius = mkLiteral "100%";
-          background-color = mkLiteral "#2E343B";
+          spacing = mkLiteral "10px";
+          text-color = mkLiteral "#${colors.base05}";
+          # margin = mkLiteral "0px 200px";
+          # padding = mkLiteral "12px";
+          # border-radius = mkLiteral "100%";
+          # background-color = mkLiteral "#2E343B";
         };
 
         button = {
           background-color = mkLiteral "inherit";
-          text-color = mkLiteral "white";
+          text-color = mkLiteral "${colors.base05}";
           cursor = mkLiteral "pointer";
         };
 
         "button selected" = {
           background-color = mkLiteral "inherit";
-          text-color = mkLiteral "#FF9030";
+          text-color = mkLiteral "${colors.base0E}";
         };
 
         "error-message" = {
           padding = mkLiteral "20px";
-          background-color = mkLiteral "#22272C";
-          text-color = mkLiteral "white";
+          background-color = mkLiteral "#${colors.base00}";
+          text-color = mkLiteral "${colors.base08}";
         };
 
         message = {
           padding = mkLiteral "0px";
-          background-color = mkLiteral "inherit";
-          text-color = mkLiteral "#FF9030";
+          background-color = mkLiteral "${colors.base00}";
+          text-color = mkLiteral "${colors.base0E}";
         };
 
         textbox = {
           padding = mkLiteral "0px";
           border-radius = mkLiteral "0px";
-          background-color = mkLiteral "inherit";
-          text-color = mkLiteral "inherit";
+          background-color = mkLiteral "${colors.base00}";
+          text-color = mkLiteral "${colors.base0E}";
           vertical-align = mkLiteral "0.5";
           horizontal-align = mkLiteral "0.0";
         };
