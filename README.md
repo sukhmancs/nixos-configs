@@ -24,6 +24,7 @@
 - [x] **Zathura** - Custom colorscheme with hash codes.
 - [x] **VSCode** - Custom base16 color scheme (Done).
 - [x] **QT** - Use Kvantum
+- [x] **Rofi** - Custom colors
 
 ### In Progress 🚧
 
@@ -31,7 +32,6 @@
 - [ ] **Qemu** - Virtualization with GPU passthrough
 - [ ] **Neovim**
 - [ ] **IDS** - lynis, vulnix
-- [ ] **Rofi** - Custom colors
 - [ ] **Tailnet** - TailScale, WireGuard, ...
 - [ ] **Credit More Gracefully** - Add Name, Repo, etc.
 - [ ] **ZFS** - Switch to ZFS
