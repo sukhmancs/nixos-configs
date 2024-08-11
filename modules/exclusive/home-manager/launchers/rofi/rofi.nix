@@ -149,7 +149,7 @@ in {
 
         "mode-switcher" = {
           enabled = mkLiteral "true";
-          expand = mkLiteral "false";
+          expand = mkLiteral "true";
           padding = mkLiteral "4px";
           text-color = mkLiteral "#${colors.base05}";
           background-color = mkLiteral "inherit";

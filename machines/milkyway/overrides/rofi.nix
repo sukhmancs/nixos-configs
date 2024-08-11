@@ -28,10 +28,10 @@ in {
         disable-history = false;
         show-icons = true;
 
-        display-drun = "";
-        display-run = "";
-        display-filebrowser = "";
-        display-window = "";
+        display-drun = " ";
+        display-run = " ";
+        display-filebrowser = " ";
+        display-window = " ";
       };
     };
   };
