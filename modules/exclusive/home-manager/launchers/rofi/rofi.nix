@@ -74,7 +74,7 @@ in {
           placeholder = "Search...";
           placeholder-color = mkLiteral "#${colors.base04}";
         };
-        
+
         dummy = {
           expand = mkLiteral "true";
           background-color = mkLiteral "transparent";
@@ -150,8 +150,9 @@ in {
         "mode-switcher" = {
           enabled = mkLiteral "true";
           expand = mkLiteral "false";
-          spacing = mkLiteral "10px";
+          padding = mkLiteral "4px";
           text-color = mkLiteral "#${colors.base05}";
+          background-color = mkLiteral "inherit";
         };
 
         button = {
