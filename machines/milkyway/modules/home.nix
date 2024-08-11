@@ -27,7 +27,7 @@
       spotify.enable = false; # music player #TODO: not working
       element.enable = true; # matrix client
       discord.enable = false;
-      webcord.enable = false; # privacy respecting discord client
+      webcord.enable = false; #TODO: causes a lot of cpu usage in the background # privacy respecting discord client
       wlogout.enable = true; # logout menu
       anyrun.enable = true; # application launcher
       rbw.enable = true; # bitwarden password manager using rofi
