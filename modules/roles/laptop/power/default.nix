@@ -40,30 +40,30 @@ in {
       # superior power management
       auto-cpufreq = {
         enable = true;
-        settings = let
-          MHZ_to_KHZ = x: x * 1000;
-        in {
-          battery = {
-            governor = "powersave";
-            energy_performance_preference = "power";
-            scaling_min_freq = mkDefault (MHZ_to_KHZ 1400);
-            scaling_max_freq = mkDefault (MHZ_to_KHZ 1800);
-            turbo = "never";
+        # settings = let
+        #   MHZ_to_KHZ = x: x * 1000;
+        # in {
+        #   battery = {
+        #     governor = "powersave";
+        #     energy_performance_preference = "power";
+        #     scaling_min_freq = mkDefault (MHZ_to_KHZ 1400);
+        #     scaling_max_freq = mkDefault (MHZ_to_KHZ 1800);
+        #     turbo = "never";
 
-            # Battery threshold - This is still experimental
-            # enable_thresholds = true;
-            # start_threshold = 40;
-            # stop_threshold = 80;
-          };
+        #     # Battery threshold - This is still experimental
+        #     # enable_thresholds = true;
+        #     # start_threshold = 40;
+        #     # stop_threshold = 80;
+        #   };
 
-          charger = {
-            governor = "performance";
-            energy_performance_preference = "performance";
-            scaling_min_freq = mkDefault (MHZ_to_KHZ 1800);
-            scaling_max_freq = mkDefault (MHZ_to_KHZ 2300);
-            turbo = "auto";
-          };
-        };
+        #   charger = {
+        #     governor = "performance";
+        #     energy_performance_preference = "performance";
+        #     scaling_min_freq = mkDefault (MHZ_to_KHZ 1800);
+        #     scaling_max_freq = mkDefault (MHZ_to_KHZ 2300);
+        #     turbo = "auto";
+        #   };
+        # };
       };
 
       # DBus service that provides power management support to applications.

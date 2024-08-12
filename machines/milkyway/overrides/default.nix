@@ -1,5 +1,6 @@
 {
   imports = [
+    ./cpufreq.nix
     ./encryption.nix
     ./git.nix
     ./gpg.nix
