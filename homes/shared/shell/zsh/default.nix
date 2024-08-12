@@ -21,7 +21,7 @@
     programs.zsh = {
       enable = true;
       dotDir = ".config/zsh";
-      enableCompletion = true; # we handle this ourself
+      enableCompletion = true;
       enableVteIntegration = true;
       autosuggestion.enable = true;
       syntaxHighlighting = {
@@ -90,27 +90,35 @@
       sessionVariables = {LC_ALL = "en_US.UTF-8";};
 
       history = {
-        # share history between different zsh sessions
-        share = true;
-
-        # avoid cluttering $HOME with the histfile
+        # where to save the history
         path = "${config.xdg.dataHome}/zsh/zsh_history";
 
-        # saves timestamps to the histfile
+        # how many lines to remember
         extended = true;
 
-        # optimize size of the histfile by avoiding duplicates
-        # or commands we don't need remembered
+        # how many lines to save
         save = 100000;
         size = 100000;
+
+        # expire duplicates meaning if you run the same command multiple times
+        # only the last one will be saved
         expireDuplicatesFirst = true;
+
+        # share history between all sessions
+        share = true;
+
+        # don't save duplicates
         ignoreDups = true;
-        ignoreSpace = true;
+
+        # ignore these patterns
         ignorePatterns = ["rm *" "pkill *" "kill *" "killall *"];
+
+        # ignore commands that start with a space
+        ignoreSpace = true;
+
       };
 
-      # dirhashes are easy aliases to commonly used directoryies
-      # e.g. `cd ~dl` would take you to $HOME/Downloads
+      # aliases for different directories
       dirHashes = {
         docs = "$HOME/Documents";
         dl = "$HOME/Downloads";
