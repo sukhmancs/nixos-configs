@@ -3,7 +3,10 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  inherit (osConfig) modules;
+  inherit (modules.themes) colors;
+  in {
   imports = [
     ./aliases.nix
     ./init.nix
@@ -20,64 +23,64 @@
       syntaxHighlighting = {
         enable = true;
         styles = {
-          comment = "fg=#585b70";
-          alias = "fg=#a6e3a1";
-          suffix-alias = "fg=#a6e3a1";
-          global-alias = "fg=#a6e3a1";
-          function = "fg=#a6e3a1";
-          command = "fg=#a6e3a1";
-          precommand = "fg=#a6e3a1,italic";
-          autodirectory = "fg=#fab387,italic";
-          single-hyphen-option = "fg=#fab387";
-          double-hyphen-option = "fg=#fab387";
-          back-quoted-argument = "fg=#cba6f7";
+          comment = "fg=#${colors.base03}";
+          alias = "fg=#${colors.base0E}";
+          suffix-alias = "fg=#${colors.base0E}";
+          global-alias = "fg=#${colors.base0E}";
+          function = "fg=#${colors.base0E}";
+          command = "fg=#${colors.base0E}";
+          precommand = "fg=#${colors.base0E},italic";
+          autodirectory = "fg=#${colors.base09},italic";
+          single-hyphen-option = "fg=#${colors.base09}";
+          double-hyphen-option = "fg=#${colors.base09}";
+          back-quoted-argument = "fg=#${colors.base0E}"; # highlights hello in echo `hello`
           ## Keywords
           ## Built ins
-          builtin = "fg=#a6e3a1";
-          reserved-word = "fg=#a6e3a1";
-          hashed-command = "fg=#a6e3a1";
+          builtin = "fg=#${colors.base0E}"; # highlights echo in echo hello
+          reserved-word = "fg=#${colors.base0E}";
+          hashed-command = "fg=#${colors.base0E}";
           ## Punctuation
-          commandseparator = "fg=#f38ba8";
-          command-substitution-delimiter = "fg=#cdd6f4";
-          command-substitution-delimiter-unquoted = "fg=#cdd6f4";
-          process-substitution-delimiter = "fg=#cdd6f4";
-          back-quoted-argument-delimiter = "fg=#f38ba8";
-          back-double-quoted-argument = "fg=#f38ba8";
-          back-dollar-quoted-argument = "fg=#f38ba8";
+          commandseparator = "fg=#${colors.base08}"; # highlights ; in echo hello; echo world
+          command-substitution-delimiter = "fg=#${colors.base05}"; # highlights $( in echo $(echo hello)
+          command-substitution-delimiter-unquoted = "fg=#${colors.base05}"; # highlights $( in echo $(echo hello)
+          process-substitution-delimiter = "fg=#${colors.base05}"; # highlights < in echo <(echo hello)
+          back-quoted-argument-delimiter = "fg=#${colors.base08}"; # highlights ` in echo `hello`
+          back-double-quoted-argument = "fg=#${colors.base08}"; # highlights $HOME in echo `$HOME`
+          back-dollar-quoted-argument = "fg=#${colors.base08}"; # highlights $HOME in echo `$HOME`
           ## Serializable / Configuration Languages
           ## Storage
           ## Strings
-          command-substitution-quoted = "fg=#f9e2af";
-          command-substitution-delimiter-quoted = "fg=#f9e2af";
-          single-quoted-argument = "fg=#f9e2af";
-          single-quoted-argument-unclosed = "fg=#eba0ac";
-          double-quoted-argument = "fg=#f9e2af";
-          double-quoted-argument-unclosed = "fg=#eba0ac";
-          rc-quote = "fg=#f9e2af";
+          command-substitution-quoted = "fg=#${colors.base0A}"; # highlights hello - echo "hello"
+          command-substitution-delimiter-quoted = "fg=#${colors.base0A}"; # highlights $(,  and ) in echo "hello"
+          single-quoted-argument = "fg=#${colors.base0A}"; # highlights hello in echo 'hello'
+          single-quoted-argument-unclosed = "fg=#${colors.base08}"; # highlights hello in echo 'hello
+          double-quoted-argument = "fg=#${colors.base0A}"; # highlights hello in echo "hello"
+          double-quoted-argument-unclosed = "fg=#${colors.base08}"; # highlights hello in echo "hello
+          rc-quote = "fg=#${colors.base0A}"; # highlights hello in echo `hello`
           ## Variables
-          dollar-quoted-argument = "fg=#cdd6f4";
-          dollar-quoted-argument-unclosed = "fg=#eba0ac";
-          dollar-double-quoted-argument = "fg=#cdd6f4";
-          assign = "fg=#cdd6f4";
-          named-fd = "fg=#cdd6f4";
-          numeric-fd = "fg=#cdd6f4";
+          dollar-quoted-argument = "fg=#${colors.base05}"; # highlights $HOME in echo $HOME
+          dollar-quoted-argument-unclosed = "fg=#${colors.base08}"; # highlights $HOME in echo $HOME
+          dollar-double-quoted-argument = "fg=#${colors.base05}"; # highlights $HOME in echo "$HOME"
+          assign = "fg=#${colors.base05}"; # highlights HOME in HOME=~/Documents
+          named-fd = "fg=#${colors.base05}"; # highlights 3 in echo hello >&3
+          numeric-fd = "fg=#${colors.base05}"; # highlights 3 in echo hello >&3
           ## No category relevant in spec
-          unknown-token = "fg=#eba0ac";
-          path = "fg=#cdd6f4,underline";
-          path_pathseparator = "fg=#f38ba8,underline";
-          path_prefix = "fg=#cdd6f4,underline";
-          path_prefix_pathseparator = "fg=#f38ba8,underline";
-          globbing = "fg=#cdd6f4";
-          history-expansion = "fg=#cba6f7";
+          unknown-token = "fg=#${colors.base08}"; # highlights hello in echo hello
+          path = "fg=#${colors.base05},underline"; # highlights, underline paths such as /home/user
+          path_pathseparator = "fg=#${colors.base08},underline"; # highlights path separators such as / in /home/user
+          path_prefix = "fg=#${colors.base05},underline"; # highlights path prefixes
+          path_prefix_pathseparator = "fg=#${colors.base08},underline";
+          globbing = "fg=#${colors.base05}"; # highlights * in echo *
+          history-expansion = "fg=#${colors.base0E}"; # highlights ! in echo !!
           #command-substitution = "fg=?";
           #command-substitution-unquoted = "fg=?";
           #process-substitution = "fg=?";
           #arithmetic-expansion = "fg=?";
-          back-quoted-argument-unclosed = "fg=#eba0ac";
-          redirection = "fg=#cdd6f4";
-          arg0 = "fg=#cdd6f4";
-          default = "fg=#cdd6f4";
-          cursor = "fg=#cdd6f4";
+          back-quoted-argument-unclosed = "fg=#${colors.base08}"; # highlights hello in echo `hello
+          redirection = "fg=#${colors.base05}"; # highlights > in echo hello > file
+          arg0 = "fg=#${colors.base05}"; # highlights echo in echo hello
+          default = "fg=#${colors.base05}"; # default color for text
+          cursor = "fg=#${colors.base0E}"; # highlights the cursor
         };
       };
       sessionVariables = {LC_ALL = "en_US.UTF-8";};
