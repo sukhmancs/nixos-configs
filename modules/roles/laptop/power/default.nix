@@ -16,7 +16,6 @@ in {
 
     environment.systemPackages = with pkgs; [
       acpi
-      powertop
     ];
 
     services = {
@@ -42,23 +41,27 @@ in {
       auto-cpufreq = {
         enable = true;
         settings = let
-          MHz = x: x * 1000;
+          MHZ_to_KHZ = x: x * 1000;
         in {
           battery = {
             governor = "powersave";
             energy_performance_preference = "power";
-            scaling_min_freq = mkDefault (MHz 1200);
-            scaling_max_freq = mkDefault (MHz 1800);
+            scaling_min_freq = mkDefault (MHZ_to_KHZ 1400);
+            scaling_max_freq = mkDefault (MHZ_to_KHZ 1800);
             turbo = "never";
           };
 
           charger = {
             governor = "performance";
             energy_performance_preference = "performance";
-            scaling_min_freq = mkDefault (MHz 1800);
-            scaling_max_freq = mkDefault (MHz 3800);
+            scaling_min_freq = mkDefault (MHZ_to_KHZ 1800);
+            scaling_max_freq = mkDefault (MHZ_to_KHZ 2300);
             turbo = "auto";
           };
+          # Battery threshold - This is still experimental
+          enable_thresholds = true;
+          start_threshold = 0;
+          stop_threshold = 80;
         };
       };
 
@@ -81,15 +84,15 @@ in {
     };
 
     # Battery threshold
-    systemd.services.batterThreshold = {
-      script = ''
-        echo 80 | tee /sys/class/power_supply/BAT0/charge_control_end_threshold
-      '';
-      wantedBy = ["multi-user.target"];
-      description = "Set the charge threshold to protect battery life";
-      serviceConfig = {
-        Restart = "on-failure";
-      };
-    };
+    # systemd.services.batterThreshold = {
+    #   script = ''
+    #     echo 80 | tee /sys/class/power_supply/BAT0/charge_control_end_threshold
+    #   '';
+    #   wantedBy = ["multi-user.target"];
+    #   description = "Set the charge threshold to protect battery life";
+    #   serviceConfig = {
+    #     Restart = "on-failure";
+    #   };
+    # };
   };
 }
