@@ -25,6 +25,7 @@
 - [x] **VSCode** - Custom base16 color scheme (Done).
 - [x] **QT** - Use Kvantum
 - [x] **Rofi** - Custom colors
+- [x] **Zsh** - Setup with base16 colors
 
 ### In Progress 🚧
 
