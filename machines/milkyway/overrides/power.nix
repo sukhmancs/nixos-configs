@@ -30,6 +30,7 @@ in {
   };
 
   # Battery threshold
+  # This is not a portable workstation, so we can use battery threshold to improve battery life.
   systemd.services.batterThreshold = {
     script = ''
       echo 80 | tee /sys/class/power_supply/BAT0/charge_control_end_threshold
