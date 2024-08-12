@@ -34,7 +34,7 @@
           brightColor = true;
         };
         modules = [
-          "break"
+          #"break"
           {
             type = "custom";
             format = "{#90}  {#31}  {#32}  {#33}  {#34}  {#35}  {#36}  {#37}";
@@ -152,7 +152,7 @@
             type = "custom";
             format = "{#90}  {#31}  {#32}  {#33}  {#34}  {#35}  {#36}  {#37}";
           }
-          "break"
+          #"break"
         ];
       };
     };
