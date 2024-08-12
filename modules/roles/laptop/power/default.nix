@@ -49,6 +49,11 @@ in {
             scaling_min_freq = mkDefault (MHZ_to_KHZ 1400);
             scaling_max_freq = mkDefault (MHZ_to_KHZ 1800);
             turbo = "never";
+
+            # Battery threshold - This is still experimental
+            # enable_thresholds = true;
+            # start_threshold = 40;
+            # stop_threshold = 80;
           };
 
           charger = {
@@ -58,10 +63,6 @@ in {
             scaling_max_freq = mkDefault (MHZ_to_KHZ 2300);
             turbo = "auto";
           };
-          # Battery threshold - This is still experimental
-          enable_thresholds = true;
-          start_threshold = 0;
-          stop_threshold = 80;
         };
       };
 
@@ -84,15 +85,15 @@ in {
     };
 
     # Battery threshold
-    # systemd.services.batterThreshold = {
-    #   script = ''
-    #     echo 80 | tee /sys/class/power_supply/BAT0/charge_control_end_threshold
-    #   '';
-    #   wantedBy = ["multi-user.target"];
-    #   description = "Set the charge threshold to protect battery life";
-    #   serviceConfig = {
-    #     Restart = "on-failure";
-    #   };
-    # };
+    systemd.services.batterThreshold = {
+      script = ''
+        echo 80 | tee /sys/class/power_supply/BAT0/charge_control_end_threshold
+      '';
+      wantedBy = ["multi-user.target"];
+      description = "Set the charge threshold to protect battery life";
+      serviceConfig = {
+        Restart = "on-failure";
+      };
+    };
   };
 }
