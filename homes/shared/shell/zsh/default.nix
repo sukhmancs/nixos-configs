@@ -1,3 +1,6 @@
+#
+# Zsh - the Z shell
+#
 {
   config,
   osConfig,
