@@ -3,6 +3,11 @@
 # - battery - governor, energy_performance_preference, scaling_min_freq, scaling_max_freq, turbo
 # - charger - governor, energy_performance_preference, scaling_min_freq, scaling_max_freq, turbo
 #
+# Note:
+# Check your available frequency steps that are supported by your cpu by running `cpufreq-info`.
+# Your scaling_min_freq to scaling_max_freq range should be based on these steps.
+# For this host:  available frequency steps: 2.30 GHz, 1.70 GHz, 1.40 GHz
+#
 {lib, ...}: let
   inherit (lib) mkForce mkDefault;
 in {
@@ -42,4 +47,3 @@ in {
     };
   };
 }
-

@@ -3,12 +3,9 @@
 #
 {
   config,
-  lib,
   pkgs,
   ...
 }: let
-  inherit (lib) mkDefault;
-
   cfg = config.services;
   dev = config.modules.device;
 in {
@@ -60,17 +57,5 @@ in {
         cpupower
       ];
     };
-
-    # # Battery threshold
-    # systemd.services.batterThreshold = {
-    #   script = ''
-    #     echo 80 | tee /sys/class/power_supply/BAT0/charge_control_end_threshold
-    #   '';
-    #   wantedBy = ["multi-user.target"];
-    #   description = "Set the charge threshold to protect battery life";
-    #   serviceConfig = {
-    #     Restart = "on-failure";
-    #   };
-    # };
   };
 }
