@@ -8,6 +8,7 @@
 }: let
   inherit (lib.modules) mkIf;
   inherit (osConfig) modules;
+  inherit (modules.themes) colors;
 
   sys = modules.home;
   prg = sys.programs;
@@ -97,20 +98,37 @@ in {
         notification = "1db954";
         notification-error = "eb6f92";
         misc = "6e6a86";
+
+        # text = "${colors.base05}";
+        # subtext = "${colors.base04}";
+        # sidebar-text = "${colors.base06}";
+        # main = "${colors.base00}";
+        # sidebar = "${colors.base02}";
+        # player = "${colors.base00}";
+        # card = "${colors.base00}";
+        # shadow = "${colors.base01}";
+        # selected-row = "${colors.base04}";
+        # button = "${colors.base0B}";
+        # button-active = "${colors.base0E}";
+        # button-disabled = "${colors.base03}";
+        # tab-active = "${colors.base05}";
+        # notification = "${colors.base0A}";
+        # notification-error = "${colors.base08}";
+        # misc = "${colors.base03}";
       };
 
       enabledExtensions = with spicePkgs.extensions; [
-        # fullAppDisplay
-        # shuffle # shuffle+ (special characters are sanitized out of ext names)
-        # hidePodcasts
-        # playlistIcons
-        # lastfm
-        # genre
-        # historyShortcut
-        # bookmark
-        # fullAlbumDate
-        # groupSession
-        # popupLyrics
+        fullAppDisplay
+        shuffle # shuffle+ (special characters are sanitized out of ext names)
+        hidePodcasts
+        playlistIcons
+        lastfm
+        genre
+        historyShortcut
+        bookmark
+        fullAlbumDate
+        groupSession
+        popupLyrics
       ];
     };
   };
