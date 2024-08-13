@@ -194,20 +194,20 @@ in {
             #include <tunables/global>
 
             ${pkgs.google-chrome}/bin/google-chrome {
-              #include <abstractions/X>
-              #include <abstractions/audio>
-              #include <abstractions/base>
-              #include <abstractions/dbus-session-strict>
-              #include <abstractions/dbus-strict>
-              #include <abstractions/fonts>
-              #include <abstractions/freedesktop.org>
-              #include <abstractions/nameservice>
-              #include <abstractions/user-tmp>
-              #include <abstractions/cups-client>
+              include <abstractions/X>
+              include <abstractions/audio>
+              include <abstractions/base>
+              include <abstractions/dbus-session-strict>
+              include <abstractions/dbus-strict>
+              include <abstractions/fonts>
+              include <abstractions/freedesktop.org>
+              include <abstractions/nameservice>
+              include <abstractions/user-tmp>
+              include <abstractions/cups-client>
 
-              capability sys_admin,
-              capability sys_chroot,
-              capability sys_ptrace,
+              # capability sys_admin,
+              # capability sys_chroot,
+              # capability sys_ptrace,
 
               deny ptrace peer=unconfined,
               ptrace read peer=google_chrome,
@@ -264,6 +264,15 @@ in {
               owner /proc/*/{cmdline,statm} r,
               owner /proc/*/{gid_map,oom_score_adj,setgroups,uid_map,clear_refs} w,
               owner /proc/*/task/*/status r,
+
+              # Deny access to sensitive files
+              deny /etc/shadow r,
+              deny /etc/gshadow r,
+              deny /etc/passwd r,
+
+              # Deny network access
+              deny network inet,
+              deny network inet6,
 
             #System bus
               dbus send
