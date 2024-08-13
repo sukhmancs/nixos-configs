@@ -193,7 +193,7 @@ in {
             # Custom AppArmor profile for Google Chrome
             #include <tunables/global>
 
-            ${pkgs.google-chrome}/bin/google-chrome {
+            ${pkgs.google-chrome}/bin/google-chrome-stable {
               # include <abstractions/X>
               # include <abstractions/audio>
               # include <abstractions/base>
