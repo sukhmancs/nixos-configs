@@ -87,6 +87,7 @@
             type = "colors";
             paddingLeft = 0;
             key = "󰮯";
+            keyColor = "inverse_";
             symbol = "circle";
           }
           "break"

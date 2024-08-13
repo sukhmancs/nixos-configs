@@ -25,18 +25,18 @@ in {
   imports = [inputs.spicetify.homeManagerModule];
   config = mkIf prg.spotify.enable {
     programs.spicetify = {
-      # spotifyPackage = pkgs.spotify;
+      spotifyPackage = pkgs.spotify;
 
-      spicetifyPackage = pkgs.spicetify-cli.overrideAttrs (oa: rec {
-        pname = "spicetify-cli";
-        version = "2.14.1";
-        src = pkgs.fetchgit {
-          url = "https://github.com/spicetify/${pname}";
-          rev = "v${version}";
-          sha256 = "sha256-262tnSKX6M9ggm4JIs0pANeq2JSNYzKkTN8awpqLyMM=";
-        };
-        vendorSha256 = "sha256-E2Q+mXojMb8E0zSnaCOl9xp5QLeYcuTXjhcp3Hc8gH4=";
-      });
+      # spicetifyPackage = pkgs.spicetify-cli.overrideAttrs (oa: rec {
+      #   pname = "spicetify-cli";
+      #   version = "2.14.1";
+      #   src = pkgs.fetchgit {
+      #     url = "https://github.com/spicetify/${pname}";
+      #     rev = "v${version}";
+      #     sha256 = "sha256-262tnSKX6M9ggm4JIs0pANeq2JSNYzKkTN8awpqLyMM=";
+      #   };
+      #   vendorSha256 = "sha256-E2Q+mXojMb8E0zSnaCOl9xp5QLeYcuTXjhcp3Hc8gH4=";
+      # });
       enable = true;
       # injectCss = true;
       # replaceColors = true;
@@ -48,33 +48,33 @@ in {
         new-releases
       ];
 
-      # theme = spicePkgs.themes.catppuccin;
+      theme = spicePkgs.themes.catppuccin;
       # colorScheme = "mocha";
 
       # custom Dribbblish theme
-      theme = {
-        name = "Dribbblish";
-        src = officialThemesOLD;
-        requiredExtensions = [
-          # define extensions that will be installed with this theme
-          {
-            # extension is "${src}/Dribbblish/dribbblish.js"
-            filename = "dribbblish.js";
-            src = "${officialThemesOLD}/Dribbblish";
-          }
-        ];
-        appendName = true; # theme is located at "${src}/Dribbblish" not just "${src}"
+      # theme = {
+      #   name = "Dribbblish";
+      #   src = officialThemesOLD;
+      #   requiredExtensions = [
+      #     # define extensions that will be installed with this theme
+      #     {
+      #       # extension is "${src}/Dribbblish/dribbblish.js"
+      #       filename = "dribbblish.js";
+      #       src = "${officialThemesOLD}/Dribbblish";
+      #     }
+      #   ];
+      #   appendName = true; # theme is located at "${src}/Dribbblish" not just "${src}"
 
-        # changes to make to config-xpui.ini for this theme:
-        patches = {
-          "xpui.js_find_8008" = ",(\\w+=)32,";
-          "xpui.js_repl_8008" = ",$\{1}56,";
-        };
-        injectCss = true;
-        replaceColors = true;
-        overwriteAssets = true;
-        sidebarConfig = true;
-      };
+      #   # changes to make to config-xpui.ini for this theme:
+      #   patches = {
+      #     "xpui.js_find_8008" = ",(\\w+=)32,";
+      #     "xpui.js_repl_8008" = ",$\{1}56,";
+      #   };
+      #   injectCss = true;
+      #   replaceColors = true;
+      #   overwriteAssets = true;
+      #   sidebarConfig = true;
+      # };
 
       # specify that we want to use our custom colorscheme
       colorScheme = "custom";
@@ -100,17 +100,17 @@ in {
       };
 
       enabledExtensions = with spicePkgs.extensions; [
-        fullAppDisplay
-        shuffle # shuffle+ (special characters are sanitized out of ext names)
-        hidePodcasts
-        playlistIcons
-        lastfm
-        genre
-        historyShortcut
-        bookmark
-        fullAlbumDate
-        groupSession
-        popupLyrics
+        # fullAppDisplay
+        # shuffle # shuffle+ (special characters are sanitized out of ext names)
+        # hidePodcasts
+        # playlistIcons
+        # lastfm
+        # genre
+        # historyShortcut
+        # bookmark
+        # fullAlbumDate
+        # groupSession
+        # popupLyrics
       ];
     };
   };
