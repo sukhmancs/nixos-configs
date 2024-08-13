@@ -182,7 +182,7 @@ in {
               @{PROC}/sys/vm/overcommit_memory r,
 
               ${pkgs.openssl.out}/etc/**                     r,
-              ${pkgs.transmission}/share/transmission/** r,
+              ${pkgs.transmission_4}/share/transmission/** r,
             }
           '';
         };
