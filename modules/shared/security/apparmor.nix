@@ -164,7 +164,7 @@ in {
               ${getLib pkgs.systemd}/lib/libsystemd*.so*       mr,
               ${getLib pkgs.xz}/lib/liblzma*.so*               mr,
               ${getLib pkgs.libgcrypt}/lib/libgcrypt*.so*      mr,
-              # ${getLib pkgs.libgpgerror}/lib/libgpg-error*.so* mr,
+              ${getLib pkgs.libgpg-error}/lib/libgpg-error*.so* mr,
               ${getLib pkgs.nghttp2}/lib/libnghttp2*.so*       mr,
               ${getLib pkgs.c-ares}/lib/libcares*.so*          mr,
               ${getLib pkgs.libcap}/lib/libcap*.so*            mr,
