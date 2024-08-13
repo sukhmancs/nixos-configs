@@ -32,11 +32,6 @@
           };
           disableLinewrap = true;
           brightColor = true;
-          # color = {
-          #   title = "default";
-          #   key = "default";
-          #   separator = "default";
-          # };
         };
         modules = [
           "break"
@@ -51,34 +46,6 @@
             keyColor = "inverse_";
           }
           "break"
-          # {
-          #   type = "cpu";
-          #   #          keyColor = "bright_cyan";
-          #   format = "{1}";
-          #   key = "  󰍛";
-          # }
-          # {
-          #   type = "gpu";
-          #   #          keyColor = "bright_cyan";
-          #   key = "  󰾲";
-          #   format = "{2}";
-          # }
-          # {
-          #   type = "memory";
-          #   #           keyColor = "bright_cyan";
-          #   key = "  󰑭";
-          # }
-          # {
-          #   type = "disk";
-          #   key = "  󱥎";
-          #   format = "{1} / {2} ({3})";
-          #   folders = "/";
-          # }
-          # {
-          #   type = "display";
-          #   #           keyColor = "bright_cyan";
-          #   key = "  󰍹";
-          # }
           {
             type = "os";
             key = "";
@@ -116,48 +83,10 @@
             key = "󰧨";
             keyColor = "inverse_";
           }
-          # {
-          #   type = "terminalfont";
-          #   #           keyColor = "bright_magenta";
-          #   key = "  ";
-          # }
-          # {
-          #   type = "command";
-          #   #           keyColor = "bright_magenta";
-          #   key = "  󰉼";
-          #   text = "cat ~/.config/Kvantum/kvantum.kvconfig | grep theme | cut -d '=' -f 2";
-          # }
-          # {
-          #   type = "icons";
-          #   #           keyColor = "bright_magenta";
-          #   key = "  󰀻";
-          # }
-          # {
-          #   type = "cursor";
-          #   key = "  󰆿";
-          #   #           keyColor = "bright_magenta";
-          # }
-          # {
-          #   type = "command";
-          #   #           keyColor = "bright_magenta";
-          #   key = "  󰆧";
-          #   text = "(${lib.getExe' pkgs.nix "nix-store"} --query --requisites /run/current-system | wc -l | tr -d '\n') && echo ' (nix; /run/current-system)'";
-          # }
-          # {
-          #   type = "uptime";
-          #   #           keyColor = "bright_magenta";
-          #   key = "  󰅐";
-          # }
-          # {
-          #   type = "command";
-          #   #           keyColor = "bright_magenta";
-          #   key = "  󰃲";
-          #   text = "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days";
-          # }
           {
             type = "colors";
-            paddingLeft = 1;
-            key = "  󰮯";
+            paddingLeft = 0;
+            key = "󰮯";
             symbol = "circle";
           }
           "break"
