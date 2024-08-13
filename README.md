@@ -30,8 +30,8 @@
 
 ### In Progress 🚧
 
-- [ ] **Spotify** - Spicetify with custom colors (Done but there is a bug)
-- [ ] **Qemu** - Virtualization with GPU passthrough (Done but not tested)
+- [ ] **Spotify** - Spicetify with custom colors (*Done but there is a bug*)
+- [ ] **Qemu** - Virtualization with GPU passthrough (*Done but not tested*)
 - [ ] **Neovim**
 - [ ] **Tailnet** - TailScale, WireGuard, ...
 - [ ] **Credit More Gracefully** - Add Name, Repo, etc.
