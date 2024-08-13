@@ -26,13 +26,13 @@
 - [x] **QT** - Use Kvantum
 - [x] **Rofi** - Custom colors
 - [x] **Zsh** - Setup with base16 colors
+- [x] **IDS** - lynis, vulnix
 
 ### In Progress 🚧
 
-- [ ] **Spotify** - Spicetify with custom colors
-- [ ] **Qemu** - Virtualization with GPU passthrough
+- [ ] **Spotify** - Spicetify with custom colors (Done but there is a bug)
+- [ ] **Qemu** - Virtualization with GPU passthrough (Done but not tested)
 - [ ] **Neovim**
-- [ ] **IDS** - lynis, vulnix
 - [ ] **Tailnet** - TailScale, WireGuard, ...
 - [ ] **Credit More Gracefully** - Add Name, Repo, etc.
 - [ ] **ZFS** - Switch to ZFS
