@@ -30,6 +30,7 @@
 
 ### In Progress 🚧
 
+- [ ] **Apparmor** - Setup profiles
 - [ ] **Spotify** - Spicetify with custom colors (*Done but there is a bug*)
 - [ ] **Qemu** - Virtualization with GPU passthrough (*Done but not tested*)
 - [ ] **Neovim**

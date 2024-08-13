@@ -146,7 +146,44 @@ in {
           enable = true; # Set to true to load the profile into the kernel
           enforce = true; # Set to true to enforce the policy, false to only complain in the logs
           profile = ''
-            include "${pkgs.transmission_4.apparmor}/bin.transmission-daemon"
+            # AppArmor profile contents go here
+            # Example:
+            include <tunables/global>
+
+            ${pkgs.transmission_4}/bin/transmission-daemon {
+              include <abstractions/base>
+              include <abstractions/nameservice>
+
+              ${getLib pkgs.glibc}/lib/*.so                    mr,
+              ${getLib pkgs.libevent}/lib/libevent*.so*        mr,
+              ${getLib pkgs.curl}/lib/libcurl*.so*             mr,
+              ${getLib pkgs.openssl}/lib/libssl*.so*           mr,
+              ${getLib pkgs.openssl}/lib/libcrypto*.so*        mr,
+              ${getLib pkgs.zlib}/lib/libz*.so*                mr,
+              ${getLib pkgs.libssh2}/lib/libssh2*.so*          mr,
+              ${getLib pkgs.systemd}/lib/libsystemd*.so*       mr,
+              ${getLib pkgs.xz}/lib/liblzma*.so*               mr,
+              ${getLib pkgs.libgcrypt}/lib/libgcrypt*.so*      mr,
+              # ${getLib pkgs.libgpgerror}/lib/libgpg-error*.so* mr,
+              ${getLib pkgs.nghttp2}/lib/libnghttp2*.so*       mr,
+              ${getLib pkgs.c-ares}/lib/libcares*.so*          mr,
+              ${getLib pkgs.libcap}/lib/libcap*.so*            mr,
+              ${getLib pkgs.attr}/lib/libattr*.so*             mr,
+              ${getLib pkgs.lz4}/lib/liblz4*.so*               mr,
+              ${getLib pkgs.libkrb5}/lib/lib*.so*              mr,
+              ${getLib pkgs.keyutils}/lib/libkeyutils*.so*     mr,
+              ${getLib pkgs.util-linuxMinimal.out}/lib/libblkid.so.* mr,
+              ${getLib pkgs.util-linuxMinimal.out}/lib/libmount.so.* mr,
+              ${getLib pkgs.util-linuxMinimal.out}/lib/libuuid.so.* mr,
+              ${getLib pkgs.gcc.cc.lib}/lib/libstdc++.so.* mr,
+              ${getLib pkgs.gcc.cc.lib}/lib/libgcc_s.so.* mr,
+
+              @{PROC}/sys/kernel/random/uuid   r,
+              @{PROC}/sys/vm/overcommit_memory r,
+
+              ${pkgs.openssl.out}/etc/**                     r,
+              ${pkgs.transmission}/share/transmission/** r,
+            }
           '';
         };
         "bin.google-chrome" = {
