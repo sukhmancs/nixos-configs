@@ -4,7 +4,9 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+getLib = lib.getLib;
+in {
   config = {
     services.dbus.apparmor = "enabled";
 
