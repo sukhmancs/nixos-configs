@@ -6,6 +6,7 @@
     ./impurity-tracker.nix # find applications that depend on /bin/sh or /usr/bin/env
     ./kernel.nix # kernel hardening
     # ./memalloc.nix # memory allocator hardening
+    ./ids.nix # intrusion detection system
     ./pam.nix # pam configuration
     ./pki.nix # pki certificate bundles
     ./polkit.nix # polkit configuration
