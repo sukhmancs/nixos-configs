@@ -269,6 +269,7 @@ in {
               deny /etc/shadow mr,
               deny /etc/gshadow mr,
               deny /etc/passwd mr,
+              deny /home mr,
 
               # Deny network access
               deny network,
