@@ -146,7 +146,7 @@ in {
           enable = true; # Set to true to load the profile into the kernel
           enforce = true; # Set to true to enforce the policy, false to only complain in the logs
           profile = ''
-            include "${pkgs.transmission.apparmor}/bin.transmission-daemon"
+            include "${pkgs.transmission_4.apparmor}/bin.transmission-daemon"
           '';
         };
         "bin.google-chrome" = {
