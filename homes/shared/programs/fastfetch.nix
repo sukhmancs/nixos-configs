@@ -12,17 +12,15 @@
       "fastfetch/config.jsonc".text = builtins.toJSON {
         "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
         logo = {
-          source = "nixos_small"; #"nixos_small";
-          # type = "iterm";
-          # source = "~/.config/fastfetch/rem.png";
+          source = "nixos_small";
           padding = {
-            top = 2;
+            top = 5;
             left = 1;
-            right = 1;
+            right = 5;
           };
         };
         display = {
-          separator = "   ";
+          separator = "    ";
           size = {
             ndigits = 0;
             maxPrefix = "GB";
@@ -34,11 +32,11 @@
           };
           disableLinewrap = true;
           brightColor = true;
-          color = {
-            title = "default";
-            key = "default";
-            separator = "default";
-          };
+          # color = {
+          #   title = "default";
+          #   key = "default";
+          #   separator = "default";
+          # };
         };
         modules = [
           "break"
@@ -50,6 +48,7 @@
           {
             type = "title";
             keyWidth = 10;
+            keyColor = "inverse_";
           }
           "break"
           # {
@@ -82,33 +81,40 @@
           # }
           {
             type = "os";
-            key = "  ";
+            key = "";
+            keyColor = "inverse_";
             format = "{2}";
           }
           {
             type = "kernel";
-            key = "  ";
+            key = "";
+            keyColor = "inverse_";
             format = "{1} {2}";
           }
           {
             type = "wm";
-            key = "  ";
+            key = "";
+            keyColor = "inverse_";
           }
           {
             type = "de";
-            key = "  ";
+            key = "";
+            keyColor = "inverse_";
           }
           {
             type = "terminal";
-            key = "  ";
+            key = "";
+            keyColor = "inverse_";
           }
           {
             type = "shell";
-            key = "  ";
+            key = "";
+            keyColor = "inverse_";
           }
           {
             type = "lm";
-            key = "  󰧨";
+            key = "󰧨";
+            keyColor = "inverse_";
           }
           # {
           #   type = "terminalfont";
