@@ -27,7 +27,7 @@ in {
 
       # whether to enable the AppArmor cache
       # in /var/cache/apparmore
-      # enableCache = true;
+      enableCache = true;
 
       # whether to kill processes which have an AppArmor profile enabled
       # but are not confined (AppArmor can only confine new processes)
