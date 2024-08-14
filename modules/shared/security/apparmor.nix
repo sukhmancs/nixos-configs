@@ -61,13 +61,6 @@ in {
       # roddhjav-apparmor-rules
     ];
 
-    environment.etc = {
-      "apparmor.d/tunables" = {
-        enable = true;
-        source = "${apparmorProfiles}/etc/apparmor.d/tunables";
-      };
-    };
-
     # apparmor configuration
     security.apparmor = {
       enable = true;
@@ -136,130 +129,132 @@ in {
         "bin.discord" = {
           enable = true;  # Set to true to load the profile into the kernel
           enforce = true; # Set to true to enforce the policy, false to only complain in the logs
-          profile = ''
-            # Apparmor profile for discord
-            #include <tunables/global>
-            ${pkgs.discord}/sw/bin/discord {
-              #include <abstractions/X>
-              #include <abstractions/audio>
-              #include <abstractions/base>
-              #include <abstractions/consoles>
-              #include <abstractions/dbus-session-strict>
-              #include <abstractions/dbus-strict>
-              #include <abstractions/fonts>
-              #include <abstractions/freedesktop.org>
-              #include <abstractions/nameservice>
-              #include <abstractions/user-tmp>
+          profile = builtins.readFile "${apparmorProfiles}/etc/apparmor.d/groups/apps/discord";
+          # profile = ''
+          #   # Apparmor profile for discord
+          #   #include <tunables/global>
+          #   ${pkgs.discord}/sw/bin/discord {
+          #     #include <abstractions/X>
+          #     #include <abstractions/audio>
+          #     #include <abstractions/base>
+          #     #include <abstractions/consoles>
+          #     #include <abstractions/dbus-session-strict>
+          #     #include <abstractions/dbus-strict>
+          #     #include <abstractions/fonts>
+          #     #include <abstractions/freedesktop.org>
+          #     #include <abstractions/nameservice>
+          #     #include <abstractions/user-tmp>
 
-              capability sys_admin,
-              capability sys_chroot,
-              capability sys_ptrace,
+          #     capability sys_admin,
+          #     capability sys_chroot,
+          #     capability sys_ptrace,
 
-              signal send set=term peer=discord,
+          #     signal send set=term peer=discord,
 
-              deny ptrace read peer=unconfined,
+          #     deny ptrace read peer=unconfined,
 
-              ptrace (read,trace) peer=discord,
+          #     ptrace (read,trace) peer=discord,
 
-              deny /bin/dash mrx,
-              deny /usr/bin/python3.6 mr,
-              deny /home/*/.pki/** w,
-              owner /home/*/.pki/** r,
+          #     deny /bin/dash mrx,
+          #     deny /usr/bin/python3.6 mr,
+          #     deny /home/*/.pki/** w,
+          #     owner /home/*/.pki/** r,
 
-              /dev/ r,
-              /etc/gtk-3.0/settings.ini r,
-              /etc/lsb-release r,
-              /etc/fstab r,
-              /home/*/bin/Discord/Discord mrix,
-              /lib/x86_64-linux-gnu/ld-*.so mr,
-              /proc/ r,
-              /proc/filesystems r,
-              /proc/self/exe mrix,
-              /proc/sys/fs/inotify/max_user_watches r,
-              /proc/sys/kernel/yama/ptrace_scope r,
-              /sys/** r,
-              /usr/bin/lsb_release Ux,
-              /usr/bin/lsb_release r,
-              /usr/bin/xdg-open Ux,
-              /usr/bin/xdg-open r,
-              /usr/share/fontconfig/conf.avail/ r,
-              /usr/share/drirc.d/00-mesa-defaults.conf r,
-              /usr/share/themes/** r,
-              /usr/share/gvfs/remote-volume-monitors/* r,
-              /usr/share/glib-2.0/schemas/gschemas.compiled r,
-              /var/cache/fontconfig/ w,
+          #     /dev/ r,
+          #     /etc/gtk-3.0/settings.ini r,
+          #     /etc/lsb-release r,
+          #     /etc/fstab r,
+          #     /home/*/bin/Discord/Discord mrix,
+          #     /lib/x86_64-linux-gnu/ld-*.so mr,
+          #     /proc/ r,
+          #     /proc/filesystems r,
+          #     /proc/self/exe mrix,
+          #     /proc/sys/fs/inotify/max_user_watches r,
+          #     /proc/sys/kernel/yama/ptrace_scope r,
+          #     /sys/** r,
+          #     /usr/bin/lsb_release Ux,
+          #     /usr/bin/lsb_release r,
+          #     /usr/bin/xdg-open Ux,
+          #     /usr/bin/xdg-open r,
+          #     /usr/share/fontconfig/conf.avail/ r,
+          #     /usr/share/drirc.d/00-mesa-defaults.conf r,
+          #     /usr/share/themes/** r,
+          #     /usr/share/gvfs/remote-volume-monitors/* r,
+          #     /usr/share/glib-2.0/schemas/gschemas.compiled r,
+          #     /var/cache/fontconfig/ w,
 
-              / r,
-              /**/ r,
+          #     / r,
+          #     /**/ r,
 
-              owner /dev/shm/.org.chromium.Chromium.* rw,
-              owner /run/user/*/dconf/user r,
-              owner /home/*/.Xauthority r,
-              owner /home/*/.cache/mesa_shader_cache/* rwk,
-              owner /home/*/.cache/fontconfig/* rw,
-              owner /home/*/.cache/fontconfig/* wl,
-              owner /home/*/.config/discord/** mrwk,
-              owner /home/*/.config/user-dirs.dirs r,
-              owner /home/*/.config/gtk-3.0/bookmarks r,
-              owner /home/*/#[0-9]* mrw,
-              owner /home/*/bin/Discord/** r,
-              owner /home/*/bin/Discord/**.so mr,
-              owner /proc/*/{clear_refs,gid_map,setgroups,uid_map} w,
-              owner /proc/*/{cmdline,fd/,maps,stat,statm,status,task/,mounts,mountinfo} r,
-              owner /proc/*/task/*/status r,
+          #     owner /dev/shm/.org.chromium.Chromium.* rw,
+          #     owner /run/user/*/dconf/user r,
+          #     owner /home/*/.Xauthority r,
+          #     owner /home/*/.cache/mesa_shader_cache/* rwk,
+          #     owner /home/*/.cache/fontconfig/* rw,
+          #     owner /home/*/.cache/fontconfig/* wl,
+          #     owner /home/*/.config/discord/** mrwk,
+          #     owner /home/*/.config/user-dirs.dirs r,
+          #     owner /home/*/.config/gtk-3.0/bookmarks r,
+          #     owner /home/*/#[0-9]* mrw,
+          #     owner /home/*/bin/Discord/** r,
+          #     owner /home/*/bin/Discord/**.so mr,
+          #     owner /proc/*/{clear_refs,gid_map,setgroups,uid_map} w,
+          #     owner /proc/*/{cmdline,fd/,maps,stat,statm,status,task/,mounts,mountinfo} r,
+          #     owner /proc/*/task/*/status r,
 
-              owner /run/user/*/discord-ipc-0 w,
-              owner /usr/local/share/fonts/** rw,
-              owner /usr/share/fonts/** rw,
-              owner /usr/share/javascript/*/fonts/** rw,
-              owner /usr/share/poppler/cMap/** rw,
-            }
-          '';
+          #     owner /run/user/*/discord-ipc-0 w,
+          #     owner /usr/local/share/fonts/** rw,
+          #     owner /usr/share/fonts/** rw,
+          #     owner /usr/share/javascript/*/fonts/** rw,
+          #     owner /usr/share/poppler/cMap/** rw,
+          #   }
+          # '';
         };
 
         "bin.transmission-daemon" = {
           enable = true; # Set to true to load the profile into the kernel
           enforce = true; # Set to true to enforce the policy, false to only complain in the logs
-          profile = ''
-            # AppArmor profile contents go here
-            # Example:
-            include <tunables/global>
+          profile = builtins.readFile "${apparmorProfiles}/etc/apparmor.d/profiles-s-z/transmission";
+          # profile = ''
+          #   # AppArmor profile contents go here
+          #   # Example:
+          #   include <tunables/global>
 
-            ${pkgs.transmission_4}/bin/transmission-daemon {
-              include <abstractions/base>
-              include <abstractions/nameservice>
+          #   ${pkgs.transmission_4}/bin/transmission-daemon {
+          #     include <abstractions/base>
+          #     include <abstractions/nameservice>
 
-              ${getLib pkgs.glibc}/lib/*.so                    mr,
-              ${getLib pkgs.libevent}/lib/libevent*.so*        mr,
-              ${getLib pkgs.curl}/lib/libcurl*.so*             mr,
-              ${getLib pkgs.openssl}/lib/libssl*.so*           mr,
-              ${getLib pkgs.openssl}/lib/libcrypto*.so*        mr,
-              ${getLib pkgs.zlib}/lib/libz*.so*                mr,
-              ${getLib pkgs.libssh2}/lib/libssh2*.so*          mr,
-              ${getLib pkgs.systemd}/lib/libsystemd*.so*       mr,
-              ${getLib pkgs.xz}/lib/liblzma*.so*               mr,
-              ${getLib pkgs.libgcrypt}/lib/libgcrypt*.so*      mr,
-              ${getLib pkgs.libgpg-error}/lib/libgpg-error*.so* mr,
-              ${getLib pkgs.nghttp2}/lib/libnghttp2*.so*       mr,
-              ${getLib pkgs.c-ares}/lib/libcares*.so*          mr,
-              ${getLib pkgs.libcap}/lib/libcap*.so*            mr,
-              ${getLib pkgs.attr}/lib/libattr*.so*             mr,
-              ${getLib pkgs.lz4}/lib/liblz4*.so*               mr,
-              ${getLib pkgs.libkrb5}/lib/lib*.so*              mr,
-              ${getLib pkgs.keyutils}/lib/libkeyutils*.so*     mr,
-              ${getLib pkgs.util-linuxMinimal.out}/lib/libblkid.so.* mr,
-              ${getLib pkgs.util-linuxMinimal.out}/lib/libmount.so.* mr,
-              ${getLib pkgs.util-linuxMinimal.out}/lib/libuuid.so.* mr,
-              ${getLib pkgs.gcc.cc.lib}/lib/libstdc++.so.* mr,
-              ${getLib pkgs.gcc.cc.lib}/lib/libgcc_s.so.* mr,
+          #     ${getLib pkgs.glibc}/lib/*.so                    mr,
+          #     ${getLib pkgs.libevent}/lib/libevent*.so*        mr,
+          #     ${getLib pkgs.curl}/lib/libcurl*.so*             mr,
+          #     ${getLib pkgs.openssl}/lib/libssl*.so*           mr,
+          #     ${getLib pkgs.openssl}/lib/libcrypto*.so*        mr,
+          #     ${getLib pkgs.zlib}/lib/libz*.so*                mr,
+          #     ${getLib pkgs.libssh2}/lib/libssh2*.so*          mr,
+          #     ${getLib pkgs.systemd}/lib/libsystemd*.so*       mr,
+          #     ${getLib pkgs.xz}/lib/liblzma*.so*               mr,
+          #     ${getLib pkgs.libgcrypt}/lib/libgcrypt*.so*      mr,
+          #     ${getLib pkgs.libgpg-error}/lib/libgpg-error*.so* mr,
+          #     ${getLib pkgs.nghttp2}/lib/libnghttp2*.so*       mr,
+          #     ${getLib pkgs.c-ares}/lib/libcares*.so*          mr,
+          #     ${getLib pkgs.libcap}/lib/libcap*.so*            mr,
+          #     ${getLib pkgs.attr}/lib/libattr*.so*             mr,
+          #     ${getLib pkgs.lz4}/lib/liblz4*.so*               mr,
+          #     ${getLib pkgs.libkrb5}/lib/lib*.so*              mr,
+          #     ${getLib pkgs.keyutils}/lib/libkeyutils*.so*     mr,
+          #     ${getLib pkgs.util-linuxMinimal.out}/lib/libblkid.so.* mr,
+          #     ${getLib pkgs.util-linuxMinimal.out}/lib/libmount.so.* mr,
+          #     ${getLib pkgs.util-linuxMinimal.out}/lib/libuuid.so.* mr,
+          #     ${getLib pkgs.gcc.cc.lib}/lib/libstdc++.so.* mr,
+          #     ${getLib pkgs.gcc.cc.lib}/lib/libgcc_s.so.* mr,
 
-              @{PROC}/sys/kernel/random/uuid   r,
-              @{PROC}/sys/vm/overcommit_memory r,
+          #     @{PROC}/sys/kernel/random/uuid   r,
+          #     @{PROC}/sys/vm/overcommit_memory r,
 
-              ${pkgs.openssl.out}/etc/**                     r,
-              ${pkgs.transmission_4}/share/transmission/** r,
-            }
-          '';
+          #     ${pkgs.openssl.out}/etc/**                     r,
+          #     ${pkgs.transmission_4}/share/transmission/** r,
+          #   }
+          # '';
         };
         # "bin.google-chrome" = {
         #   enable = true; # Load the profile into the kernel
