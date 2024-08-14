@@ -67,8 +67,6 @@ in {
 
               @{exec_path} mrix,
 
-              @{bin}/man  rPUx, #  For "chrome --help"
-
               @{lib_dirs}/chrome_crashpad_handler  rPx -> chrome//&chrome-crashpad-handler,
               @{lib_dirs}/google-@{name}  rPx,
 
