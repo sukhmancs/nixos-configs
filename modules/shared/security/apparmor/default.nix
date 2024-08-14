@@ -6,46 +6,8 @@
   ...
 }: let
   getLib = lib.getLib;
-
-  # Todo add it flake-parts/default/packages with nvfetcher support to autoupdate it
-  apparmorProfiles = pkgs.stdenvNoCC.mkDerivation {
-    pname = "apparmor-rules";
-    version = "0-unstable-2024-08-02";
-
-    src = pkgs.fetchFromGitHub {
-      owner = "sukhmancs";
-      repo = "apparmor.d";
-      rev = "ad60ee11ad6c43d32ef0396e340ec4e446288d69";
-      hash = "sha256-UiytwQXAgvvBp7hGpqoLMQZTrZ7uBxutML04Q343RCM=";
-    };
-
-    dontConfigure = true;
-    dontBuild = true;
-
-    installPhase = ''
-      runHook preInstall
-      mkdir -p $out/etc/apparmor.d
-      cp -r apparmor.d/* $out/etc/apparmor.d
-      runHook postInstall
-    '';
-
-    passthru.updateScript = pkgs.unstableGitUpdater { };
-
-    meta = {
-      homepage = "https://github.com/roddhjav/apparmor.d";
-      description = "Over 1500 AppArmor profiles aiming to confine most linux processes tailored for NixOS";
-      longDescription = ''
-        AppArmor.d is a set of over 1500 AppArmor profiles whose aim is to confine
-        most Linux based applications and processes. Confines all system services, user services
-        and most desktop environments.
-      '';
-      license = lib.licenses.gpl2;
-      platforms = lib.platforms.linux;
-      maintainers = with lib.maintainers; [
-        xi
-      ];
-    };
-  };
+  # profiles
+  chrome = builtins.readFile "./profiles/chrome";
 in {
   config = {
     services.dbus.apparmor = "enabled";
@@ -58,7 +20,6 @@ in {
       apparmor-bin-utils
       apparmor-kernel-patches
       libapparmor
-      # roddhjav-apparmor-rules
     ];
 
     # apparmor configuration
@@ -82,7 +43,8 @@ in {
         "bin.chrome" = {
           enable = true;
           enforce = true;
-          profile = builtins.readFile "${apparmorProfiles}/etc/apparmor.d/groups/browsers/chrome";
+          profile = chrome;
+          # profile = builtins.readFile "${apparmorProfiles}/etc/apparmor.d/groups/browsers/chrome";
           # profile = builtins.readFile "${pkgs.roddhjav-apparmor-rules}/etc/apparmor.d/groups/browsers/chrome";
           # profile = ''
           #   # apparmor.d - Full set of apparmor profiles
@@ -126,10 +88,10 @@ in {
           #   # vim:syntax=apparmor
           # '';
         };
-        "bin.discord" = {
-          enable = true;  # Set to true to load the profile into the kernel
-          enforce = true; # Set to true to enforce the policy, false to only complain in the logs
-          profile = builtins.readFile "${apparmorProfiles}/etc/apparmor.d/groups/apps/discord";
+        # "bin.discord" = {
+        #   enable = true;  # Set to true to load the profile into the kernel
+        #   enforce = true; # Set to true to enforce the policy, false to only complain in the logs
+        #   profile = builtins.readFile "${apparmorProfiles}/etc/apparmor.d/groups/apps/discord";
           # profile = ''
           #   # Apparmor profile for discord
           #   #include <tunables/global>
@@ -211,10 +173,10 @@ in {
           # '';
         };
 
-        "bin.transmission-daemon" = {
-          enable = true; # Set to true to load the profile into the kernel
-          enforce = true; # Set to true to enforce the policy, false to only complain in the logs
-          profile = builtins.readFile "${apparmorProfiles}/etc/apparmor.d/profiles-s-z/transmission";
+        # "bin.transmission-daemon" = {
+        #   enable = true; # Set to true to load the profile into the kernel
+        #   enforce = true; # Set to true to enforce the policy, false to only complain in the logs
+        #   profile = builtins.readFile "${apparmorProfiles}/etc/apparmor.d/profiles-s-z/transmission";
           # profile = ''
           #   # AppArmor profile contents go here
           #   # Example:
