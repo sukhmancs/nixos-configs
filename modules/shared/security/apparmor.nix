@@ -12,7 +12,7 @@
     pname = "apparmor-rules";
     version = "0-unstable-2024-08-02";
 
-    src = fetchFromGitHub {
+    src = pkgs.fetchFromGitHub {
       owner = "sukhmancs";
       repo = "apparmor.d";
       rev = "ad60ee11ad6c43d32ef0396e340ec4e446288d69";
@@ -29,7 +29,7 @@
       runHook postInstall
     '';
 
-    passthru.updateScript = unstableGitUpdater { };
+    passthru.updateScript = pkgs.unstableGitUpdater { };
 
     meta = {
       homepage = "https://github.com/roddhjav/apparmor.d";
