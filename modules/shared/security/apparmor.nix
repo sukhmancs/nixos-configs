@@ -6,6 +6,46 @@
   ...
 }: let
   getLib = lib.getLib;
+
+  # Todo add it flake-parts/default/packages with nvfetcher support to autoupdate it
+  apparmorProfiles = pkgs.stdenvNoCC.mkDerivation {
+    pname = "apparmor-rules";
+    version = "0-unstable-2024-08-02";
+
+    src = fetchFromGitHub {
+      owner = "sukhmancs";
+      repo = "apparmor.d";
+      rev = "ad60ee11ad6c43d32ef0396e340ec4e446288d69";
+      hash = "sha256-UiytwQXAgvvBp7hGpqoLMQZTrZ7uBxutML04Q343RCM=";
+    };
+
+    dontConfigure = true;
+    dontBuild = true;
+
+    installPhase = ''
+      runHook preInstall
+      mkdir -p $out/etc/apparmor.d
+      cp -r apparmor.d/* $out/etc/apparmor.d
+      runHook postInstall
+    '';
+
+    passthru.updateScript = unstableGitUpdater { };
+
+    meta = {
+      homepage = "https://github.com/roddhjav/apparmor.d";
+      description = "Over 1500 AppArmor profiles aiming to confine most linux processes tailored for NixOS";
+      longDescription = ''
+        AppArmor.d is a set of over 1500 AppArmor profiles whose aim is to confine
+        most Linux based applications and processes. Confines all system services, user services
+        and most desktop environments.
+      '';
+      license = lib.licenses.gpl2;
+      platforms = lib.platforms.linux;
+      maintainers = with lib.maintainers; [
+        xi
+      ];
+    };
+  };
 in {
   config = {
     services.dbus.apparmor = "enabled";
@@ -42,48 +82,49 @@ in {
         "bin.chrome" = {
           enable = true;
           enforce = true;
+          profile = builtins.readFile "${apparmorProfiles}/etc/apparmor.d/groups/browsers/chrome";
           # profile = builtins.readFile "${pkgs.roddhjav-apparmor-rules}/etc/apparmor.d/groups/browsers/chrome";
-          profile = ''
-            # apparmor.d - Full set of apparmor profiles
-            # Copyright (C) 2018-2021 Mikhail Morfikov
-            # Copyright (C) 2022-2024 Alexandre Pujol <alexandre@pujol.io>
-            # SPDX-License-Identifier: GPL-2.0-only
+          # profile = ''
+          #   # apparmor.d - Full set of apparmor profiles
+          #   # Copyright (C) 2018-2021 Mikhail Morfikov
+          #   # Copyright (C) 2022-2024 Alexandre Pujol <alexandre@pujol.io>
+          #   # SPDX-License-Identifier: GPL-2.0-only
 
-            abi <abi/3.0>,
+          #   abi <abi/3.0>,
 
-            include <tunables/global>
+          #   include <tunables/global>
 
-            @{name} = chrome{,-beta,-stable,-unstable}
-            @{domain} = com.google.Chrome
-            @{lib_dirs} = /opt/google/@{name}
-            @{config_dirs} = @{user_config_dirs}/google-@{name}
-            @{cache_dirs} = @{user_cache_dirs}/google-@{name}
+          #   @{name} = chrome{,-beta,-stable,-unstable}
+          #   @{domain} = com.google.Chrome
+          #   @{lib_dirs} = /opt/google/@{name}
+          #   @{config_dirs} = @{user_config_dirs}/google-@{name}
+          #   @{cache_dirs} = @{user_cache_dirs}/google-@{name}
 
-            @{exec_path} = @{lib_dirs}/@{name}
-            profile chrome @{exec_path} {
-              include <abstractions/base>
+          #   @{exec_path} = @{lib_dirs}/@{name}
+          #   profile chrome @{exec_path} {
+          #     include <abstractions/base>
 
-              #aa:dbus own bus=session name=org.mpris.MediaPlayer2.chrome path=/org/mpris/MediaPlayer2
+          #     #aa:dbus own bus=session name=org.mpris.MediaPlayer2.chrome path=/org/mpris/MediaPlayer2
 
-              @{exec_path} mrix,
+          #     @{exec_path} mrix,
 
-              @{lib_dirs}/chrome_crashpad_handler  rPx -> chrome//&chrome-crashpad-handler,
-              @{lib_dirs}/google-@{name}  rPx,
+          #     @{lib_dirs}/chrome_crashpad_handler  rPx -> chrome//&chrome-crashpad-handler,
+          #     @{lib_dirs}/google-@{name}  rPx,
 
-              @{lib_dirs}/nacl_helper    rix,
-              @{lib_dirs}/xdg-mime       rix, #-> xdg-mime,
-              @{lib_dirs}/xdg-settings   rix, #-> xdg-settings,
+          #     @{lib_dirs}/nacl_helper    rix,
+          #     @{lib_dirs}/xdg-mime       rix, #-> xdg-mime,
+          #     @{lib_dirs}/xdg-settings   rix, #-> xdg-settings,
 
-              @{lib_dirs}/*.so* mr,
-              @{lib_dirs}/libwidevinecdm.so mr,
-              @{lib_dirs}/libwidevinecdmadapter.so mr,
-              @{lib_dirs}/WidevineCdm/_platform_specific/linux_*/libwidevinecdm.so mr,
+          #     @{lib_dirs}/*.so* mr,
+          #     @{lib_dirs}/libwidevinecdm.so mr,
+          #     @{lib_dirs}/libwidevinecdmadapter.so mr,
+          #     @{lib_dirs}/WidevineCdm/_platform_specific/linux_*/libwidevinecdm.so mr,
 
-              include if exists <local/chrome>
-            }
+          #     include if exists <local/chrome>
+          #   }
 
-            # vim:syntax=apparmor
-          '';
+          #   # vim:syntax=apparmor
+          # '';
         };
         "bin.discord" = {
           enable = true;  # Set to true to load the profile into the kernel
