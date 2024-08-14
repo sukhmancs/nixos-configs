@@ -36,111 +36,112 @@ in {
       # packages to be added to AppArmor’s include path
       packages = [pkgs.apparmor-profiles];
 
+      #TODO: for some reason, these profiles are not being applied, even though they are loaded and enforced
       # apparmor policies
       policies = {
-        "bin.discord" = {
-          enable = true;
-          enforce = true;
-          profile = ''
-            #include <tunables/global>
-
-            ${pkgs.discord}/bin/discord {
-              #include <abstractions/base>
-
-                # block ipv4 acces
-                deny network inet,
-                # ipv6
-                deny network inet6,
-                # raw socket
-                deny network raw,
-
-                owner /** rwm,
-            }
-          '';
-        };
-        # discord = {
-        #   enable = false;  # Set to true to load the profile into the kernel
-        #   enforce = true; # Set to true to enforce the policy, false to only complain in the logs
+        # "bin.discord" = {
+        #   enable = true;
+        #   enforce = true;
         #   profile = ''
-        #     # Apparmor profile for discord
         #     #include <tunables/global>
-        #     ${pkgs.discord}/sw/bin/discord {
-        #       #include <abstractions/X>
-        #       #include <abstractions/audio>
+
+        #     ${pkgs.discord}/bin/discord {
         #       #include <abstractions/base>
-        #       #include <abstractions/consoles>
-        #       #include <abstractions/dbus-session-strict>
-        #       #include <abstractions/dbus-strict>
-        #       #include <abstractions/fonts>
-        #       #include <abstractions/freedesktop.org>
-        #       #include <abstractions/nameservice>
-        #       #include <abstractions/user-tmp>
 
-        #       capability sys_admin,
-        #       capability sys_chroot,
-        #       capability sys_ptrace,
+        #         # block ipv4 acces
+        #         deny network inet,
+        #         # ipv6
+        #         deny network inet6,
+        #         # raw socket
+        #         deny network raw,
 
-        #       signal send set=term peer=discord,
-
-        #       deny ptrace read peer=unconfined,
-
-        #       ptrace (read,trace) peer=discord,
-
-        #       deny /bin/dash mrx,
-        #       deny /usr/bin/python3.6 mr,
-        #       deny /home/*/.pki/** w,
-        #       owner /home/*/.pki/** r,
-
-        #       /dev/ r,
-        #       /etc/gtk-3.0/settings.ini r,
-        #       /etc/lsb-release r,
-        #       /etc/fstab r,
-        #       /home/*/bin/Discord/Discord mrix,
-        #       /lib/x86_64-linux-gnu/ld-*.so mr,
-        #       /proc/ r,
-        #       /proc/filesystems r,
-        #       /proc/self/exe mrix,
-        #       /proc/sys/fs/inotify/max_user_watches r,
-        #       /proc/sys/kernel/yama/ptrace_scope r,
-        #       /sys/** r,
-        #       /usr/bin/lsb_release Ux,
-        #       /usr/bin/lsb_release r,
-        #       /usr/bin/xdg-open Ux,
-        #       /usr/bin/xdg-open r,
-        #       /usr/share/fontconfig/conf.avail/ r,
-        #       /usr/share/drirc.d/00-mesa-defaults.conf r,
-        #       /usr/share/themes/** r,
-        #       /usr/share/gvfs/remote-volume-monitors/* r,
-        #       /usr/share/glib-2.0/schemas/gschemas.compiled r,
-        #       /var/cache/fontconfig/ w,
-
-        #       / r,
-        #       /**/ r,
-
-        #       owner /dev/shm/.org.chromium.Chromium.* rw,
-        #       owner /run/user/*/dconf/user r,
-        #       owner /home/*/.Xauthority r,
-        #       owner /home/*/.cache/mesa_shader_cache/* rwk,
-        #       owner /home/*/.cache/fontconfig/* rw,
-        #       owner /home/*/.cache/fontconfig/* wl,
-        #       owner /home/*/.config/discord/** mrwk,
-        #       owner /home/*/.config/user-dirs.dirs r,
-        #       owner /home/*/.config/gtk-3.0/bookmarks r,
-        #       owner /home/*/#[0-9]* mrw,
-        #       owner /home/*/bin/Discord/** r,
-        #       owner /home/*/bin/Discord/**.so mr,
-        #       owner /proc/*/{clear_refs,gid_map,setgroups,uid_map} w,
-        #       owner /proc/*/{cmdline,fd/,maps,stat,statm,status,task/,mounts,mountinfo} r,
-        #       owner /proc/*/task/*/status r,
-
-        #       owner /run/user/*/discord-ipc-0 w,
-        #       owner /usr/local/share/fonts/** rw,
-        #       owner /usr/share/fonts/** rw,
-        #       owner /usr/share/javascript/*/fonts/** rw,
-        #       owner /usr/share/poppler/cMap/** rw,
+        #         owner /** rwm,
         #     }
         #   '';
         # };
+        "bin.discord" = {
+          enable = true;  # Set to true to load the profile into the kernel
+          enforce = true; # Set to true to enforce the policy, false to only complain in the logs
+          profile = ''
+            # Apparmor profile for discord
+            #include <tunables/global>
+            ${pkgs.discord}/sw/bin/discord {
+              #include <abstractions/X>
+              #include <abstractions/audio>
+              #include <abstractions/base>
+              #include <abstractions/consoles>
+              #include <abstractions/dbus-session-strict>
+              #include <abstractions/dbus-strict>
+              #include <abstractions/fonts>
+              #include <abstractions/freedesktop.org>
+              #include <abstractions/nameservice>
+              #include <abstractions/user-tmp>
+
+              capability sys_admin,
+              capability sys_chroot,
+              capability sys_ptrace,
+
+              signal send set=term peer=discord,
+
+              deny ptrace read peer=unconfined,
+
+              ptrace (read,trace) peer=discord,
+
+              deny /bin/dash mrx,
+              deny /usr/bin/python3.6 mr,
+              deny /home/*/.pki/** w,
+              owner /home/*/.pki/** r,
+
+              /dev/ r,
+              /etc/gtk-3.0/settings.ini r,
+              /etc/lsb-release r,
+              /etc/fstab r,
+              /home/*/bin/Discord/Discord mrix,
+              /lib/x86_64-linux-gnu/ld-*.so mr,
+              /proc/ r,
+              /proc/filesystems r,
+              /proc/self/exe mrix,
+              /proc/sys/fs/inotify/max_user_watches r,
+              /proc/sys/kernel/yama/ptrace_scope r,
+              /sys/** r,
+              /usr/bin/lsb_release Ux,
+              /usr/bin/lsb_release r,
+              /usr/bin/xdg-open Ux,
+              /usr/bin/xdg-open r,
+              /usr/share/fontconfig/conf.avail/ r,
+              /usr/share/drirc.d/00-mesa-defaults.conf r,
+              /usr/share/themes/** r,
+              /usr/share/gvfs/remote-volume-monitors/* r,
+              /usr/share/glib-2.0/schemas/gschemas.compiled r,
+              /var/cache/fontconfig/ w,
+
+              / r,
+              /**/ r,
+
+              owner /dev/shm/.org.chromium.Chromium.* rw,
+              owner /run/user/*/dconf/user r,
+              owner /home/*/.Xauthority r,
+              owner /home/*/.cache/mesa_shader_cache/* rwk,
+              owner /home/*/.cache/fontconfig/* rw,
+              owner /home/*/.cache/fontconfig/* wl,
+              owner /home/*/.config/discord/** mrwk,
+              owner /home/*/.config/user-dirs.dirs r,
+              owner /home/*/.config/gtk-3.0/bookmarks r,
+              owner /home/*/#[0-9]* mrw,
+              owner /home/*/bin/Discord/** r,
+              owner /home/*/bin/Discord/**.so mr,
+              owner /proc/*/{clear_refs,gid_map,setgroups,uid_map} w,
+              owner /proc/*/{cmdline,fd/,maps,stat,statm,status,task/,mounts,mountinfo} r,
+              owner /proc/*/task/*/status r,
+
+              owner /run/user/*/discord-ipc-0 w,
+              owner /usr/local/share/fonts/** rw,
+              owner /usr/share/fonts/** rw,
+              owner /usr/share/javascript/*/fonts/** rw,
+              owner /usr/share/poppler/cMap/** rw,
+            }
+          '';
+        };
 
         "bin.transmission-daemon" = {
           enable = true; # Set to true to load the profile into the kernel
