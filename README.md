@@ -45,6 +45,12 @@
 - [ ] **Server (messier)** - nginx, mailserver, vaultwarden, monitoring tools, forgejo, ...
 - [ ] **IRC (messier)** - `services.ergochat.enable`
 
+### AppArmor
+
+> One profile a day keeps the hacker away
+
+- [x] **Chrome** - `google-chrome`, `chromium`
+
 ## Structure
 
 ```plaintext

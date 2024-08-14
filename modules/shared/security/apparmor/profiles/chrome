@@ -12,10 +12,335 @@ include <tunables/global>
 @{lib_dirs} = /opt/google/@{name}
 @{config_dirs} = @{user_config_dirs}/google-@{name}
 @{cache_dirs} = @{user_cache_dirs}/google-@{name}
+@{bin} = /{,usr/}{,s}bin
+@{HOME} = /home/*/ /root/
+@{MOUNTS} = /media/*/ /mnt/*/ /run/media/*/ /run/mount/utab /run/mount/utab.d/
+@{PROC} = /proc/
+@{pids} = [0-9]*/
+@{pid} = [0-9]*
+@{tid} = [0-9]*
+@{run} = /run/
+@{tmp} = /tmp/
+@{uid} = [0-9]*
+@{XDG_DESKTOP_DIR} = Desktop/
+@{XDG_DOWNLOAD_DIR} = Downloads/
+@{XDG_SCREENSHOTS_DIR} = Pictures/Screenshots/
+@{XDG_WALLPAPERS_DIR} = Pictures/Wallpapers/
+@{user_books_dirs} = @{HOME}/Books/ @{MOUNTS}/Books/
+@{user_documents_dirs} = @{HOME}/Documents/ @{MOUNTS}/Documents/
+@{user_download_dirs} = @{HOME}/Downloads/ @{MOUNTS}/Downloads/
+@{user_games_dirs} = @{HOME}/Games/ @{MOUNTS}/Games/
+@{user_music_dirs} = @{HOME}/Music/ @{MOUNTS}/Music/
+@{user_pictures_dirs} = @{HOME}/Pictures/ @{MOUNTS}/Pictures/
+@{user_projects_dirs} = @{HOME}/Projects/ @{MOUNTS}/Projects/
+@{user_publicshare_dirs} = @{HOME}/Public/ @{MOUNTS}/Public/
+@{user_sync_dirs} = @{HOME}/Sync/ @{MOUNTS}/Sync/
+@{user_templates_dirs} = @{HOME}/Templates/ @{MOUNTS}/Templates/
+@{user_torrents_dirs} = @{HOME}/Torrents/ @{MOUNTS}/Torrents/
+@{user_videos_dirs} = @{HOME}/Videos/ @{MOUNTS}/Videos/
+@{user_vm_dirs} = @{HOME}/VMs/ @{MOUNTS}/VMs/
+@{user_work_dirs} = @{HOME}/Work/ @{MOUNTS}/Work/
 
 @{exec_path} = @{lib_dirs}/@{name}
 profile chrome @{exec_path} {
   include <abstractions/base>
+  include <abstractions/ssl_certs>
+
+#  # Audio
+#  # Most programs do not need access to audio devices, audio-client only includes
+#  # configuration files to be used by client applications.
+#
+#  /usr/share/alsa/** r,
+#  /usr/share/openal/hrtf/{,**} r,
+#  /usr/share/pipewire/client-rt.conf r,
+#  /usr/share/pipewire/client.conf r,
+#  /usr/share/sounds/{,**} r,
+#
+#  /etc/alsa/conf.d/{,**} r,
+#  /etc/asound.conf r,
+#  /etc/esound/esd.conf r,
+#  /etc/libao.conf r,
+#  /etc/openal/alsoft.conf r,
+#  /etc/pipewire/client{,-rt}.conf r,
+#  /etc/pipewire/client.conf.d/{,**} r,
+#  /etc/pulse/client.conf r,
+#  /etc/pulse/client.conf.d/{,**} r,
+#  /etc/wildmidi/wildmidi.cfg r,
+#
+#  owner @{desktop_cache_dirs}/event-sound-cache.tdb.@{hex32}.@{multiarch} rwk,  # libcanberra
+#  owner @{desktop_config_dirs}/pulse/ rw,
+#  owner @{desktop_config_dirs}/pulse/client.conf r,
+#  owner @{desktop_config_dirs}/pulse/client.conf.d/{,*.conf} r,
+#  owner @{desktop_config_dirs}/pulse/cookie rwk,
+#
+#  owner @{HOME}/.alsoftrc r,
+#  owner @{HOME}/.asoundrc r,
+#  owner @{HOME}/.esd_auth r,
+#  owner @{HOME}/.libao r,
+#  owner @{HOME}/.pulse-cookie rwk,
+#
+#  owner @{user_cache_dirs}/event-sound-cache.tdb.@{hex32}.@{multiarch} rwk,  # libcanberra
+#
+#  owner @{user_config_dirs}/pulse/ rw,
+#  owner @{user_config_dirs}/pulse/client.conf r,
+#  owner @{user_config_dirs}/pulse/client.conf.d/{,*.conf} r,
+#  owner @{user_config_dirs}/pulse/cookie rwk,
+#
+#  owner @{user_config_dirs}/pipewire/ rw,
+#  owner @{user_config_dirs}/pipewire/client.conf r,
+#
+#  owner @{user_share_dirs}/openal/hrtf/{,**} r,
+#  owner @{user_share_dirs}/sounds/__custom/index.theme r,
+#
+#  owner @{run}/user/@{uid}/pipewire-@{int} rw,
+#
+#  owner @{run}/user/@{uid}/pulse/ rw,
+#  owner @{run}/user/@{uid}/pulse/native rw,
+#
+#  @{sys}/class/sound/ r,
+#
+#        /dev/shm/ r,
+#  owner /dev/shm/pulse-shm-@{int} rw,
+
+  # Org.freedesktop.Avahi
+  dbus send bus=system path=/
+       interface=org.freedesktop.DBus.Peer
+       member=Ping
+       peer=(name=org.freedesktop.Avahi, label=avahi-daemon),
+
+  dbus send bus=system path=/
+       interface=org.freedesktop.Avahi.Server
+       member={GetAPIVersion,GetState,Service*New}
+       peer=(name=org.freedesktop.Avahi, label=avahi-daemon),
+
+  dbus send bus=system path=/Client@{int}/ServiceBrowser@{int}
+       interface=org.freedesktop.Avahi.ServiceBrowser
+       member=Free
+       peer=(name=org.freedesktop.Avahi, label=avahi-daemon),
+
+  dbus receive bus=system path=/Client@{int}/ServiceBrowser@{int}
+       interface=org.freedesktop.Avahi.ServiceBrowser
+       member={ItemNew,AllForNow,CacheExhausted}
+       peer=(name=:*, label=avahi-daemon),
+
+  # Org.freedesktop.FileManager1
+  dbus send bus=session path=/org/freedesktop/FileManager1
+       interface=org.freedesktop.DBus.Properties
+       member=GetAll
+       peer=(name=:*, label=nautilus),
+
+  dbus receive bus=session path=/org/freedesktop/FileManager1
+       interface=org.freedesktop.DBus.Properties
+       member=PropertiesChanged
+       peer=(name=:*, label=nautilus),
+
+  # Org.freedesktop.Notifications
+    dbus send bus=session path=/org/freedesktop/Notifications
+       interface=org.freedesktop.DBus.Properties
+       member=GetAll
+       peer=(name=:*, label=gjs-console),
+
+  dbus send bus=session path=/org/freedesktop/Notifications
+       interface=org.freedesktop.DBus.Properties
+       member={GetCapabilities,GetServerInformation,Notify}
+       peer=(name=:*, label=gjs-console),
+
+  dbus receive bus=session path=/org/freedesktop/Notifications
+       interface=org.freedesktop.DBus.Properties
+       member={GetAll,NotificationClosed,CloseNotification}
+       peer=(name=:*, label=gjs-console),
+
+  dbus receive bus=session path=/org/freedesktop/Notifications
+       interface=org.freedesktop.DBus.Properties
+       member=Notify
+       peer=(name=org.freedesktop.DBus, label=gjs-console),
+
+  # Org.freedesktop.ScreenSaver
+    dbus send bus=session path=/ScreenSaver
+        interface=org.freedesktop.ScreenSaver
+        member={Inhibit,UnInhibit}
+        peer=(name=org.freedesktop.ScreenSaver),
+
+  # Org.freedesktop.Secrets
+  dbus send bus=session path=/org/freedesktop/secrets{,/**}
+       interface=org.freedesktop.DBus.Properties
+       member=GetAll
+       peer=(name=:*, label=gnome-keyring-daemon),
+
+  dbus send bus=session path=/org/freedesktop/secrets
+       interface=org.freedesktop.Secret.Service
+       member={OpenSession,GetSecrets,SearchItems,ReadAlias}
+       peer=(name=:*, label=gnome-keyring-daemon),
+
+  dbus send bus=session path=/org/freedesktop/secrets/aliases/default
+       interface=org.freedesktop.Secret.Collection
+       member=CreateItem
+       peer=(name=org.freedesktop.secrets, label=gnome-keyring-daemon),
+
+  dbus receive bus=session path=/org/freedesktop/secrets/collection/login
+       interface=org.freedesktop.Secret.Collection
+       member=ItemCreated
+       peer=(name=:*, label=gnome-keyring-daemon),
+
+  dbus receive bus=session path=/org/freedesktop/secrets/collection/login
+       interface=org.freedesktop.DBus.Properties
+       member=PropertiesChanged
+       peer=(name=:*, label=gnome-keyring-daemon),
+
+   # Org.freedesktop.UPower
+   dbus send bus=system path=/org/freedesktop/UPower
+       interface=org.freedesktop.UPower
+       member=EnumerateDevices
+       peer=(name="{:*,org.freedesktop.UPower}", label=upowerd),
+
+  dbus send bus=system path=/org/freedesktop/UPower{,/**}
+       interface=org.freedesktop.DBus.Properties
+       member={Get,GetAll}
+       peer=(name="{:*,org.freedesktop.UPower}", label=upowerd),
+  dbus send bus=system path=/org/freedesktop/UPower{,/**}
+       interface=org.freedesktop.DBus.Properties
+       member={Get,GetAll}
+       peer=(name=org.freedesktop.UPower, label=upowerd),
+
+  dbus send bus=system path=/org/freedesktop/UPower
+       interface=org.freedesktop.DBus.Properties
+       member=GetDisplayDevice
+       peer=(name=org.freedesktop.UPower, label=upowerd),
+
+  dbus send bus=system path=/org/freedesktop/UPower/devices/*
+       interface=org.freedesktop.DBus.Properties
+       member={Get,GetAll}
+       peer=(name="{:*,org.freedesktop.UPower}", label=upowerd),
+
+  dbus send bus=system path=/org/freedesktop/UPower/devices/*
+       interface=org.freedesktop.DBus.Introspectable
+       member=Introspect
+       peer=(name="{:*,org.freedesktop.UPower}", label=upowerd),
+
+  dbus receive bus=system path=/org/freedesktop/UPower
+       interface=org.freedesktop.UPower
+       member=DeviceAdded
+       peer=(name="{:*,org.freedesktop.UPower}", label=upowerd),
+
+  dbus receive bus=system path=/org/freedesktop/UPower/devices/*
+       interface=org.freedesktop.DBus.Properties
+       member=PropertiesChanged
+       peer=(name="{:*,org.freedesktop.UPower}", label=upowerd),
+
+  # Org.gnome.sessionManager
+  dbus send bus=session path=/org/gnome/SessionManager
+       interface=org.gnome.SessionManager
+       member={RegisterClient,IsSessionRunning}
+       peer=(name=:*, label=gnome-session-binary),
+
+  dbus send bus=session path=/org/gnome/SessionManager
+       interface=org.gnome.SessionManager
+       member={Setenv,IsSessionRunning}
+       peer=(name=org.gnome.SessionManager, label=gnome-session-binary),
+
+  dbus receive bus=session path=/org/gnome/SessionManager
+       interface=org.gnome.SessionManager
+       member={ClientAdded,ClientRemoved,SessionRunning,InhibitorRemoved,InhibitorAdded}
+       peer=(name=:*, label=gnome-session-binary),
+
+  dbus send bus=session path=/org/gnome/SessionManager
+       interface=org.freedesktop.DBus.Properties
+       member=GetAll
+       peer=(name=:*, label=gnome-session-binary),
+
+  dbus receive bus=session path=/org/gnome/SessionManager
+       interface=org.freedesktop.DBus.Properties
+       member=PropertiesChanged
+       peer=(name=:*, label=gnome-session-binary),
+
+  dbus send bus=session path=/org/gnome/SessionManager/Client@{int}
+       interface=org.gnome.SessionManager.ClientPrivate
+       member=EndSessionResponse
+       peer=(name=:*, label=gnome-session-binary),
+
+  dbus receive bus=session path=/org/gnome/SessionManager/Client@{int}
+       interface=org.gnome.SessionManager.ClientPrivate
+       member={CancelEndSession,QueryEndSession,EndSession,Stop}
+       peer=(name=:*, label=gnome-session-binary),
+
+  dbus send bus=session path=/org/gnome/SessionManager/Client@{int}
+       interface=org.freedesktop.DBus.Properties
+       member=GetAll
+       peer=(name=:*, label=gnome-session-binary),
+
+  dbus receive bus=session path=/org/gnome/SessionManager/Client@{int}
+       interface=org.freedesktop.DBus.Properties
+       member=PropertiesChanged
+       peer=(name=:*, label=gnome-session-binary),
+
+  dbus receive bus=session path=/org/gnome/SessionManager/Presence
+       interface=org.gnome.SessionManager.Presence
+       member=StatusChanged
+       peer=(name=:*, label=gnome-session-binary),
+
+  dbus send bus=session path=/org/gnome/SessionManager
+       interface=org.freedesktop.DBus.Introspectable
+       member=Introspect
+       peer=(name=org.gnome.SessionManager, label=gnome-session-binary),
+
+   # This abstraction gives read access on all defined user directories. It should
+# only be used if access to **ALL** folders is required.
+
+  owner @{HOME}/ r,
+  owner @{MOUNTS}/ r,
+
+  owner @{HOME}/@{XDG_DESKTOP_DIR}/{,**} rk,
+  owner @{HOME}/@{XDG_SCREENSHOTS_DIR}/{,**} rk,
+  owner @{HOME}/@{XDG_WALLPAPERS_DIR}/{,**} rk,
+  owner @{MOUNTS}/@{XDG_DESKTOP_DIR}/{,**} rk,
+  owner @{MOUNTS}/@{XDG_SCREENSHOTS_DIR}/{,**} rk,
+  owner @{MOUNTS}/@{XDG_WALLPAPERS_DIR}/{,**} rk,
+
+  owner @{user_books_dirs}/{,**} rk,
+  owner @{user_documents_dirs}/{,**} rk,
+  owner @{user_download_dirs}/{,**} rk,
+  owner @{user_games_dirs}/{,**} rk,
+  owner @{user_music_dirs}/{,**} rk,
+  owner @{user_pictures_dirs}/{,**} rk,
+  owner @{user_projects_dirs}/{,**} rk,
+  owner @{user_publicshare_dirs}/{,**} rk,
+  owner @{user_sync_dirs}/{,**} rk,
+  owner @{user_templates_dirs}/{,**} rk,
+  owner @{user_torrents_dirs}/{,**} rk,
+  owner @{user_videos_dirs}/{,**} rk,
+  owner @{user_vm_dirs}/{,**} rk,
+  owner @{user_work_dirs}/{,**} rk,
+
+  # Common directories to download
+  owner @{HOME}/@{XDG_DESKTOP_DIR}/ w,
+  owner @{HOME}/@{XDG_DOWNLOAD_DIR}/ w,
+
+  owner @{HOME}/@{XDG_DESKTOP_DIR}/ r,
+  owner @{HOME}/@{XDG_DESKTOP_DIR}/** rwkl,
+
+  owner @{user_download_dirs}/ r,
+  owner @{user_download_dirs}/** rwkl,
+
+  # uim
+  /usr/share/uim/* r,
+
+  /var/lib/uim/* r,
+
+  owner @{HOME}/.uim.d/customs/* r,
+  owner @{HOME}/.XCompose r,
+
+  owner @{run}/user/@{uid}/uim/socket/uim-helper rw,
+
+  # Thumbnail cache read access
+  owner @{user_cache_dirs}/thumbnails/ r,
+  owner @{user_cache_dirs}/thumbnails/{fail,*large,normal}/ r,
+  owner @{user_cache_dirs}/thumbnails/{fail,*large,normal}/gnome-thumbnail-factory/ r,
+  owner @{user_cache_dirs}/thumbnails/{fail,*large,normal}/gnome-thumbnail-factory/*.png r,
+  owner @{user_cache_dirs}/thumbnails/{fail,*large,normal}/*.png r,
+  owner @{user_cache_dirs}/thumbnails/{fail,*large,normal}/*.png.@{rand6} r,
+  owner @{user_cache_dirs}/thumbnails/{fail,*large,normal}/#@{int} r,
+
+
 
   #aa:dbus own bus=session name=org.mpris.MediaPlayer2.chrome path=/org/mpris/MediaPlayer2
 
