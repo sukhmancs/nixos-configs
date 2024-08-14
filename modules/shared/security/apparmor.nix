@@ -193,7 +193,7 @@ in {
             # Custom AppArmor profile for Google Chrome
             #include <tunables/global>
 
-            ${pkgs.google-chrome}/bin/google-chrome-stable {
+            ${pkgs.google-chrome}/bin/google-chrome{,-beta,-stable,-unstable} {
               # include <abstractions/X>
               # include <abstractions/audio>
               # include <abstractions/base>
@@ -205,139 +205,138 @@ in {
               # include <abstractions/user-tmp>
               # include <abstractions/cups-client>
 
-            #   capability sys_admin,
-            #   capability sys_chroot,
-            #   capability sys_ptrace,
+              capability sys_admin,
+              capability sys_chroot,
+              capability sys_ptrace,
 
-            #   deny ptrace peer=unconfined,
-            #   ptrace read peer=google_chrome,
+              deny ptrace peer=unconfined,
+              ptrace read peer=google_chrome,
 
-            #   deny /bin/dash mr,
-                deny /home mr,
+              deny /bin/dash mr,
 
-            #   /dev/dri/ r,
-            #   /etc/gtk-3.0/settings.ini r,
-            #   /lib/x86_64-linux-gnu/ld-*.so mr,
-            #   /opt/google/chrome/** r,
-            #   /opt/google/chrome/chrome mix,
-            #   #/opt/google/chrome/google-chrome ix,
-            #   /opt/google/chrome/chrome_crashpad_handler mix,
-            #   /opt/google/chrome/nacl_helper mix,
-            #   /opt/google/chrome/**.so m,
-            #   /proc/ r,
-            #   /proc/*/stat r,
-            #   /proc/filesystems r,
-            #   /proc/self/exe mrix,
-            #   /proc/stat r,
-            #   /proc/sys/fs/inotify/max_user_watches r,
-            #   /proc/sys/kernel/yama/ptrace_scope r,
-            #   /sys/** r,
-            #   /usr/bin/keepassxc-proxy PUx,
-            #   /usr/bin/xdg-settings Ux,
-            #   /usr/bin/xdg-settings r,
-            #   /run/udev/data/* r,
-            #   /usr/lib/x86_64-linux-gnu/dri/nouveau_dri.so mr,
-            #   /usr/share/drirc.d/ r,
-            #   /usr/share/drirc.d/00-mesa-defaults.conf r,
-            #   /usr/share/fontconfig/conf.avail/ r,
-            #   /usr/share/themes/** r,
-            #   /usr/share/gvfs/remote-volume-monitors/* r,
-            #   /usr/share/glib-2.0/schemas/gschemas.compiled r,
+              /dev/dri/ r,
+              /etc/gtk-3.0/settings.ini r,
+              /lib/x86_64-linux-gnu/ld-*.so mr,
+              /opt/google/chrome/** r,
+              /opt/google/chrome/chrome mix,
+              #/opt/google/chrome/google-chrome ix,
+              /opt/google/chrome/chrome_crashpad_handler mix,
+              /opt/google/chrome/nacl_helper mix,
+              /opt/google/chrome/**.so m,
+              /proc/ r,
+              /proc/*/stat r,
+              /proc/filesystems r,
+              /proc/self/exe mrix,
+              /proc/stat r,
+              /proc/sys/fs/inotify/max_user_watches r,
+              /proc/sys/kernel/yama/ptrace_scope r,
+              /sys/** r,
+              /usr/bin/keepassxc-proxy PUx,
+              /usr/bin/xdg-settings Ux,
+              /usr/bin/xdg-settings r,
+              /run/udev/data/* r,
+              /usr/lib/x86_64-linux-gnu/dri/nouveau_dri.so mr,
+              /usr/share/drirc.d/ r,
+              /usr/share/drirc.d/00-mesa-defaults.conf r,
+              /usr/share/fontconfig/conf.avail/ r,
+              /usr/share/themes/** r,
+              /usr/share/gvfs/remote-volume-monitors/* r,
+              /usr/share/glib-2.0/schemas/gschemas.compiled r,
 
-            #   / r,
-            #   /**/ r,
-            #   owner /home/*/Public/GoogleChrome/** rw,
+              / r,
+              /**/ r,
+              owner /home/*/Public/GoogleChrome/** rw,
 
-            #   owner /dev/shm/.com.google.Chrome.* rw,
-            #   owner /home/*/#[0-9]* mrw,
-            #   owner /home/*/.Xauthority r,
-            #   owner /home/*/.cache/google-chrome/** rw,
-            #   owner /home/*/.cache/fontconfig/* r,
-            #   owner /home/*/.cache/mesa_shader_cache/** rwk,
-            #   owner /home/*/.config/gtk-3.0/bookmarks r,
-            #   owner /home/*/.config/ r,
-            #   owner /home/*/.config/google-chrome/ r,
-            #   owner /home/*/.config/google-chrome/** rwk,
-            #   owner /home/*/.config/user-dirs.dirs r,
-            #   owner /home/*/.pki/nssdb/cert9.db rwk,
-            #   owner /home/*/.pki/nssdb/key4.db rwk,
-            #   owner /home/*/.pki/nssdb/pkcs11.txt r,
-            #   owner /proc/*/{cmdline,statm} r,
-            #   owner /proc/*/{gid_map,oom_score_adj,setgroups,uid_map,clear_refs} w,
-            #   owner /proc/*/task/*/status r,
+              owner /dev/shm/.com.google.Chrome.* rw,
+              owner /home/*/#[0-9]* mrw,
+              owner /home/*/.Xauthority r,
+              owner /home/*/.cache/google-chrome/** rw,
+              owner /home/*/.cache/fontconfig/* r,
+              owner /home/*/.cache/mesa_shader_cache/** rwk,
+              owner /home/*/.config/gtk-3.0/bookmarks r,
+              owner /home/*/.config/ r,
+              owner /home/*/.config/google-chrome/ r,
+              owner /home/*/.config/google-chrome/** rwk,
+              owner /home/*/.config/user-dirs.dirs r,
+              owner /home/*/.pki/nssdb/cert9.db rwk,
+              owner /home/*/.pki/nssdb/key4.db rwk,
+              owner /home/*/.pki/nssdb/pkcs11.txt r,
+              owner /proc/*/{cmdline,statm} r,
+              owner /proc/*/{gid_map,oom_score_adj,setgroups,uid_map,clear_refs} w,
+              owner /proc/*/task/*/status r,
 
-            #   # Deny access to sensitive files
-            #   deny /etc/shadow mr,
-            #   deny /etc/gshadow mr,
-            #   deny /etc/passwd mr,
+              # Deny access to sensitive files
+              deny /etc/shadow mr,
+              deny /etc/gshadow mr,
+              deny /etc/passwd mr,
 
-            # #System bus
-            #   dbus send
-            #     bus=system
-            #     interface=org.freedesktop.DBus.Properties
-            #     member=Get,
+            #System bus
+              dbus send
+                bus=system
+                interface=org.freedesktop.DBus.Properties
+                member=Get,
 
-            #   dbus send
-            #     interface=org.gtk.Private.RemoteVolumeMonitor
-            #     member={IsSupported,List},
+              dbus send
+                interface=org.gtk.Private.RemoteVolumeMonitor
+                member={IsSupported,List},
 
-            #   dbus send
-            #     bus=system
-            #     path=/org/freedesktop/UPower
-            #     interface=org.freedesktop.UPower
-            #     member={EnumerateDevices,GetDisplayDevice},
+              dbus send
+                bus=system
+                path=/org/freedesktop/UPower
+                interface=org.freedesktop.UPower
+                member={EnumerateDevices,GetDisplayDevice},
 
-            # #Session bus
+            #Session bus
 
-            #   dbus send
-            #     bus=session
-            #     interface=org.freedesktop.DBus.Properties
-            #     member=GetAll,
+              dbus send
+                bus=session
+                interface=org.freedesktop.DBus.Properties
+                member=GetAll,
 
-            #   # Mount service
-            #   dbus send
-            #     bus=session
-            #     path=/org/gtk/vfs/Daemon
-            #     interface=org.gtk.vfs.Daemon
-            #     member=ListMonitorImplementations,
+              # Mount service
+              dbus send
+                bus=session
+                path=/org/gtk/vfs/Daemon
+                interface=org.gtk.vfs.Daemon
+                member=ListMonitorImplementations,
 
-            #   dbus send
-            #     bus=session
-            #     path=/org/gtk/vfs/mounttracker
-            #     interface=org.gtk.vfs.MountTracker
-            #     member=ListMountableInfo,
+              dbus send
+                bus=session
+                path=/org/gtk/vfs/mounttracker
+                interface=org.gtk.vfs.MountTracker
+                member=ListMountableInfo,
 
-            #   # Secret service
-            #   dbus send
-            #     bus=session
-            #     path=/org/freedesktop/secrets
-            #     interface=org.freedesktop.Secret.Service
-            #     member={SearchItems,Unlock,OpenSession},
+              # Secret service
+              dbus send
+                bus=session
+                path=/org/freedesktop/secrets
+                interface=org.freedesktop.Secret.Service
+                member={SearchItems,Unlock,OpenSession},
 
-            #   dbus send
-            #     bus=session
-            #     path=/org/freedesktop/secrets
-            #     interface=org.freedesktop.Secret.Service
-            #     member=GetSecrets,
+              dbus send
+                bus=session
+                path=/org/freedesktop/secrets
+                interface=org.freedesktop.Secret.Service
+                member=GetSecrets,
 
-            #   dbus send
-            #     bus=session
-            #     path=/org/freedesktop/secrets/aliases/default
-            #     interface=org.freedesktop.Secret.Collection
-            #     member=CreateItem,
+              dbus send
+                bus=session
+                path=/org/freedesktop/secrets/aliases/default
+                interface=org.freedesktop.Secret.Collection
+                member=CreateItem,
 
-            #   # Screensaver inhibit
-            #   dbus send
-            #     bus=session
-            #     path=/org/freedesktop/ScreenSaver
-            #     interface=org.freedesktop.ScreenSaver
-            #     member={Inhibit,UnInhibit},
+              # Screensaver inhibit
+              dbus send
+                bus=session
+                path=/org/freedesktop/ScreenSaver
+                interface=org.freedesktop.ScreenSaver
+                member={Inhibit,UnInhibit},
 
-            #   dbus send
-            #     bus=session
-            #     path=/org/freedesktop/PowerManagement/Inhibit
-            #     interface=org.freedesktop.PowerManagement.Inhibit
-            #     member={Inhibit,UnInhibit},
+              dbus send
+                bus=session
+                path=/org/freedesktop/PowerManagement/Inhibit
+                interface=org.freedesktop.PowerManagement.Inhibit
+                member={Inhibit,UnInhibit},
             }
           '';
         };
