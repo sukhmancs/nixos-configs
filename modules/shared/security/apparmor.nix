@@ -61,6 +61,13 @@ in {
       # roddhjav-apparmor-rules
     ];
 
+    environment.etc = {
+      "apparmor.d/tunables" = {
+        enable = true;
+        source = "${apparmorProfiles}/etc/apparmor.d/tunables";
+      };
+    };
+
     # apparmor configuration
     security.apparmor = {
       enable = true;
