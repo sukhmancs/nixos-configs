@@ -42,9 +42,7 @@ in {
         "bin.chrome" = {
           enable = true;
           enforce = true;
-          profile = ''
-            ${pkgs.roddhjav-apparmor-rules}/etc/apparmor.d/groups/browsers/chrome
-          '';
+          profile = builtins.readFile "${pkgs.roddhjav-apparmor-rules}/etc/apparmor.d/groups/browsers/chrome";
         };
         "bin.discord" = {
           enable = true;  # Set to true to load the profile into the kernel
