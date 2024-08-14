@@ -30,7 +30,7 @@
 
 ### In Progress 🚧
 
-- [ ] **Apparmor** - Setup profiles
+- [ ] **Apparmor** - *One profile a day keeps the hacker away*
 - [ ] **Spotify** - Spicetify with custom colors (*Done but there is a bug*)
 - [ ] **Qemu** - Virtualization with GPU passthrough (*Done but not tested*)
 - [ ] **Neovim**

@@ -1,6 +1,7 @@
 {
   imports = [
-    ./apparmor.nix # apparmor configuration and policies
+    ./apparmor # apparmor configuration and policies
+
     ./auditd.nix # auditd
     ./clamav.nix # clamav antivirus
     ./impurity-tracker.nix # find applications that depend on /bin/sh or /usr/bin/env
