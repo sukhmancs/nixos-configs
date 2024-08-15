@@ -10,35 +10,56 @@ include <tunables/global>
 @{name} = chrome{,-beta,-stable,-unstable}
 @{domain} = com.google.Chrome
 @{lib_dirs} = /opt/google/@{name}
+@{XDG_CACHE_DIR}=".cache"
+@{XDG_CONFIG_DIR}=".config"
+@{XDG_DATA_DIR}=".local/share"
+@{user_config_dirs}=@{HOME}/@{XDG_CONFIG_DIR}
+@{user_cache_dirs}=@{HOME}/@{XDG_CACHE_DIR}
 @{config_dirs} = @{user_config_dirs}/google-@{name}
 @{cache_dirs} = @{user_cache_dirs}/google-@{name}
+@{MOUNTDIRS}=/media/ @{run}/media/@{user}/ /mnt/
+# @{MOUNTS} is a space-separated list of all user mounted directories.
+@{MOUNTS}=@{MOUNTDIRS}/*/ @{run}/user/@{uid}/gvfs/
+@{lib}=/{,usr/}lib{,exec,32,64}
+# Common places for temporary files
+@{tmp}=/tmp/ /tmp/user/@{uid}/
+@{XDG_DOWNLOAD_DIR}+=".tb/tor-browser/Browser/Downloads"
+
 @{bin} = /{,usr/}{,s}bin
-@{MOUNTS} = /media/*/ /mnt/*/ /run/media/*/ /run/mount/utab /run/mount/utab.d/
+# @{MOUNTS} = /media/*/ /mnt/*/ /run/media/*/ /run/mount/utab /run/mount/utab.d/
 # @{PROC} = /proc/
-@{pids} = [0-9]*/
-@{pid} = [0-9]*
-@{tid} = [0-9]*
-@{run} = /run/
-@{tmp} = /tmp/
-@{uid} = [0-9]*
-@{XDG_DESKTOP_DIR} = Desktop/
-@{XDG_DOWNLOAD_DIR} = Downloads/
-@{XDG_SCREENSHOTS_DIR} = Pictures/Screenshots/
-@{XDG_WALLPAPERS_DIR} = Pictures/Wallpapers/
-@{user_books_dirs} = @{HOME}/Books/ @{MOUNTS}/Books/
-@{user_documents_dirs} = @{HOME}/Documents/ @{MOUNTS}/Documents/
-@{user_download_dirs} = @{HOME}/Downloads/ @{MOUNTS}/Downloads/
-@{user_games_dirs} = @{HOME}/Games/ @{MOUNTS}/Games/
-@{user_music_dirs} = @{HOME}/Music/ @{MOUNTS}/Music/
-@{user_pictures_dirs} = @{HOME}/Pictures/ @{MOUNTS}/Pictures/
-@{user_projects_dirs} = @{HOME}/Projects/ @{MOUNTS}/Projects/
+# @{pids} = [0-9]*/
+# @{pid} = [0-9]*
+
+# @{tid} = [0-9]*
+# @{run} = /run/
+# @{tmp} = /tmp/
+# @{uid} = [0-9]*
+# @{XDG_DESKTOP_DIR} = Desktop/
+@{XDG_SCREENSHOTS_DIR}="Pictures/Screenshots"
+@{XDG_WALLPAPERS_DIR} = "Pictures/Wallpapers/"
+@{XDG_GAMES_DIR}=".games"
+@{XDG_PROJECTS_DIR}="Projects"
+@{XDG_WORK_DIR}="Work"
+@{XDG_MAIL_DIR}="Mail" ".{m,M}ail"
+@{XDG_SYNC_DIR}="Sync"
+@{XDG_TORRENTS_DIR}="Torrents"
+# @{user_books_dirs} = @{HOME}/Books/ @{MOUNTS}/Books/
+# Other user directories
+@{user_documents_dirs}=@{HOME}/@{XDG_DOCUMENTS_DIR} @{MOUNTS}/@{XDG_DOCUMENTS_DIR}
+@{user_download_dirs}=@{HOME}/@{XDG_DOWNLOAD_DIR} @{MOUNTS}/@{XDG_DOWNLOAD_DIR}
+@{user_music_dirs}=@{HOME}/@{XDG_MUSIC_DIR} @{MOUNTS}/@{XDG_MUSIC_DIR}
+@{user_pictures_dirs}=@{HOME}/@{XDG_PICTURES_DIR} @{MOUNTS}/@{XDG_PICTURES_DIR}
+@{user_games_dirs}=@{HOME}/@{XDG_GAMES_DIR} @{MOUNTS}/@{XDG_GAMES_DIR}
+@{user_work_dirs}=@{HOME}/@{XDG_WORK_DIR} @{MOUNTS}/@{XDG_WORK_DIR}
+@{user_projects_dirs}=@{HOME}/@{XDG_PROJECTS_DIR} @{MOUNTS}/@{XDG_PROJECTS_DIR}
+@{user_sync_dirs}=@{HOME}/@{XDG_SYNC_DIR} @{MOUNTS}/*/@{XDG_SYNC_DIR}
+
 @{user_publicshare_dirs} = @{HOME}/Public/ @{MOUNTS}/Public/
-@{user_sync_dirs} = @{HOME}/Sync/ @{MOUNTS}/Sync/
 @{user_templates_dirs} = @{HOME}/Templates/ @{MOUNTS}/Templates/
 @{user_torrents_dirs} = @{HOME}/Torrents/ @{MOUNTS}/Torrents/
 @{user_videos_dirs} = @{HOME}/Videos/ @{MOUNTS}/Videos/
 @{user_vm_dirs} = @{HOME}/VMs/ @{MOUNTS}/VMs/
-@{user_work_dirs} = @{HOME}/Work/ @{MOUNTS}/Work/
 
 @{exec_path} = @{lib_dirs}/@{name}
 profile chrome @{exec_path} {
