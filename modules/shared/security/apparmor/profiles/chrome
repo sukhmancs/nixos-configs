@@ -13,7 +13,6 @@ include <tunables/global>
 @{config_dirs} = @{user_config_dirs}/google-@{name}
 @{cache_dirs} = @{user_cache_dirs}/google-@{name}
 @{bin} = /{,usr/}{,s}bin
-@{HOME} = /home/*/ /root/
 @{MOUNTS} = /media/*/ /mnt/*/ /run/media/*/ /run/mount/utab /run/mount/utab.d/
 @{PROC} = /proc/
 @{pids} = [0-9]*/

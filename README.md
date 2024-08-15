@@ -49,7 +49,7 @@
 
 > One profile a day keeps the hacker away
 
-- [x] **Chrome** - `google-chrome`, `chromium`
+- [ ] **Chrome** - `google-chrome`, `chromium`
 
 ## Structure
 
