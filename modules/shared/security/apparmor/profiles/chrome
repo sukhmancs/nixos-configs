@@ -19,6 +19,17 @@ include <tunables/global>
 @{config_dirs} = @{user_config_dirs}/google-@{name}
 @{cache_dirs} = @{user_cache_dirs}/google-@{name}
 @{MOUNTDIRS}=/media/ @{run}/media/@{user}/ /mnt/
+
+@{c}=[0-9a-zA-Z]
+@{rand}=@{c}{@{c},}{@{c},}{@{c},}{@{c},}{@{c},}{@{c},}{@{c},}{@{c},}{@{c},}{@{c},}{@{c},}{@{c},}{@{c},}{@{c},}{@{c},}{@…
+@{rand2}=@{c}@{c}
+@{rand4}=@{rand2}@{rand2}
+@{rand6}=@{rand4}@{rand2}
+@{rand8}=@{rand4}@{rand4}
+@{rand9}=@{rand8}@{c}
+@{rand10}=@{rand8}@{rand2}
+@{rand16}=@{rand8}@{rand8}
+
 # @{MOUNTS} is a space-separated list of all user mounted directories.
 @{MOUNTS}=@{MOUNTDIRS}/*/ @{run}/user/@{uid}/gvfs/
 @{lib}=/{,usr/}lib{,exec,32,64}
