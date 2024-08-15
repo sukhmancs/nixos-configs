@@ -10,6 +10,7 @@ include <tunables/global>
 @{name} = chrome{,-beta,-stable,-unstable}
 @{domain} = com.google.Chrome
 @{lib_dirs} = /opt/google/@{name}
+@{int}=[0-9]{[0-9],}{[0-9],}{[0-9],}{[0-9],}{[0-9],}{[0-9],}{[0-9],}{[0-9],}{[0-9],}
 @{XDG_CACHE_DIR}=".cache"
 @{XDG_CONFIG_DIR}=".config"
 @{XDG_DATA_DIR}=".local/share"
@@ -44,12 +45,13 @@ include <tunables/global>
 @{user_work_dirs}=@{HOME}/@{XDG_WORK_DIR} @{MOUNTS}/@{XDG_WORK_DIR}
 @{user_projects_dirs}=@{HOME}/@{XDG_PROJECTS_DIR} @{MOUNTS}/@{XDG_PROJECTS_DIR}
 @{user_sync_dirs}=@{HOME}/@{XDG_SYNC_DIR} @{MOUNTS}/*/@{XDG_SYNC_DIR}
-
 @{user_publicshare_dirs} = @{HOME}/Public/ @{MOUNTS}/Public/
 @{user_templates_dirs} = @{HOME}/Templates/ @{MOUNTS}/Templates/
 @{user_torrents_dirs} = @{HOME}/Torrents/ @{MOUNTS}/Torrents/
 @{user_videos_dirs} = @{HOME}/Videos/ @{MOUNTS}/Videos/
 @{user_vm_dirs} = @{HOME}/VMs/ @{MOUNTS}/VMs/
+@{user_books_dirs} = @{HOME}/Books/ @{MOUNTS}/Books/
+@{user_share_dirs} = @{HOME}/.local/share/ @{MOUNTS}/.local/share/
 
 @{exec_path} = @{lib_dirs}/@{name}
 profile chrome @{exec_path} {
@@ -500,31 +502,8 @@ profile chrome @{exec_path} {
 
   owner @{cache_dirs}/{,**} rw,
 
-  # For importing data (bookmarks, cookies, etc) from Firefox
-  # owner @{HOME}/.mozilla/firefox/profiles.ini r,
-  # owner @{HOME}/.mozilla/firefox/*/ r,
-  # owner @{HOME}/.mozilla/firefox/*/compatibility.ini r,
-  # owner @{HOME}/.mozilla/firefox/*/search{,-metadata}.json r,
-  # owner @{HOME}/.mozilla/firefox/*/.parentlock rwk,
-  # owner @{HOME}/.mozilla/firefox/*/{places,cookies,favicons,formhistory,}.sqlite{,-wal,-shm,-journal} rwk,
-  # owner @{HOME}/.mozilla/firefox/*/{cert9,key4}.db rwk,
-  # owner @{HOME}/.mozilla/firefox/*/logins.json r,
-
-        /tmp/ r,
-        /var/tmp/ r,
-  owner @{tmp}/.@{domain}.@{rand6} rw,
-  owner @{tmp}/.@{domain}.@{rand6}/{,**} rw,
-  owner @{tmp}/@{name}-crashlog-@{int}-@{int}.txt rw,
-  owner @{tmp}/scoped_dir@{rand6}/{,**} rw,
-  owner @{tmp}/tmp.@{rand6} rw,
-  owner @{tmp}/tmp.@{rand6}/ rw,
-  owner @{tmp}/tmp.@{rand6}/** rwk,
-
   owner @{run}/user/@{uid}/app/org.keepassxc.KeePassXC/org.keepassxc.KeePassXC.BrowserServer rw,
   owner @{run}/user/@{uid}/org.keepassxc.KeePassXC.BrowserServer rw,
-
-        /dev/shm/ r,
-  owner /dev/shm/.@{domain}.@{rand6} rw,
 
   @{run}/udev/data/c13:@{int}  r,         # for /dev/input/*
 
