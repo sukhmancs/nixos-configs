@@ -27,15 +27,15 @@
 - [x] **Rofi** - Custom colors
 - [x] **Zsh** - Setup with base16 colors
 - [x] **IDS** - lynis, vulnix
+- [x] **Apparmor** - *One profile a day keeps the hacker away*
 
 ### In Progress 🚧
 
-- [ ] **Apparmor** - *One profile a day keeps the hacker away*
-- [ ] **Spotify** - Spicetify with custom colors (*Done but there is a bug*)
-- [ ] **Qemu** - Virtualization with GPU passthrough (*Done but not tested*)
 - [ ] **Neovim**
 - [ ] **Tailnet** - TailScale, WireGuard, ...
 - [ ] **Credit More Gracefully** - Add Name, Repo, etc.
+- [ ] **Spotify** - Spicetify with custom colors (*Done but there is a bug*)
+- [ ] **Qemu** - Virtualization with GPU passthrough (*Done but not tested*)
 - [ ] **ZFS** - Switch to ZFS
 - [ ] **Hardened Systemd**
 - [ ] **Modularize** - Anyrun, qt.nix, ...
@@ -49,7 +49,7 @@
 
 > One profile a day keeps the hacker away
 
-- [ ] **Chrome** - `google-chrome`, `chromium`
+- [x] **Chrome** - `google-chrome`, `chromium`
 
 ## Structure
 
