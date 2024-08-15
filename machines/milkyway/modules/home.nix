@@ -24,7 +24,7 @@
       ags.enable = true; # widgets
       clipboard.enable = true;
       hyprpaper.enable = true; # wallpaper manager
-      spotify.enable = false; # music player #TODO: bug - build fails: pull request has been added just wait for the next update
+      spotify.enable = true; # music player #TODO: bug - build fails: pull request has been added just wait for the next update
       element.enable = true; # matrix client
       discord.enable = false;
       webcord.enable = false; #TODO: causes a lot of cpu usage in the background # privacy respecting discord client

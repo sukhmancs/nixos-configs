@@ -51,7 +51,7 @@ include <tunables/global>
 @{user_videos_dirs} = @{HOME}/Videos/ @{MOUNTS}/Videos/
 @{user_vm_dirs} = @{HOME}/VMs/ @{MOUNTS}/VMs/
 @{user_books_dirs} = @{HOME}/Books/ @{MOUNTS}/Books/
-@{user_share_dirs} = @{HOME}/.local/share/ @{MOUNTS}/.local/share/
+# @{user_share_dirs} = @{HOME}/.local/share/ @{MOUNTS}/.local/share/
 
 @{exec_path} = @{lib_dirs}/@{name}
 profile chrome @{exec_path} {
