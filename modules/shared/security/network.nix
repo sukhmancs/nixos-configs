@@ -1,15 +1,10 @@
 {lib, ...}:{
   networking = {
-    firewall = {
-      allowedTCPPorts = [ ];
-      allowedUDPPorts = [ ];
-      enable = true;
-    };
     networkmanager = {
-      ethernet.macAddress = "random";
+      ethernet.macAddress = lib.mkDefault "random";
       wifi = {
-        macAddress = "random";
-        scanRandMacAddress = true;
+        macAddress = lib.mkDefault "random";
+        scanRandMacAddress = lib.mkDefault true;
       };
       # Enable IPv6 privacy extensions in NetworkManager.
       connectionConfig."ipv6.ip6-privacy" = lib.mkDefault 2;

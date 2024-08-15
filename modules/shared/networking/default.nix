@@ -12,7 +12,7 @@ in {
     ./blocker.nix
     ./network-manager.nix
     ./networking.nix
-    ./optimize.nix
+    # ./optimize.nix
     ./resolved.nix
     ./ssh.nix
     # ./wireless.nix

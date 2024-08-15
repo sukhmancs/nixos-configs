@@ -1,4 +1,4 @@
-{
+{lib, ...}:{
   security = {
     pam = {
       # Increase the number of open files for users in the wheel group.
@@ -35,8 +35,8 @@
         '';
         # Enable PAM support for securetty, to prevent root login.
         # https://unix.stackexchange.com/questions/670116/debian-bullseye-disable-console-tty-login-for-root
-        login.text = l.mkDefault (
-          l.mkBefore ''
+        login.text = lib.mkDefault (
+          lib.mkBefore ''
             # Enable securetty support.
             auth       requisite  pam_nologin.so
             auth       requisite  pam_securetty.so
