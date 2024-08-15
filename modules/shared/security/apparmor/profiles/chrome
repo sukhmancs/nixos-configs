@@ -64,6 +64,11 @@ include <tunables/global>
 @{user_books_dirs} = @{HOME}/Books/ @{MOUNTS}/Books/
 # @{user_share_dirs} = @{HOME}/.local/share/ @{MOUNTS}/.local/share/
 
+@{h}=[0-9a-fA-F]
+@{pci_id}=@{h}@{h}@{h}@{h}:@{h}@{h}:@{h}@{h}.@{h}
+@{pci_bus}=pci@{h}@{h}@{h}@{h}:@{h}@{h}
+@{pci}=@{pci_bus}/**/
+
 @{exec_path} = @{lib_dirs}/@{name}
 profile chrome @{exec_path} {
   include <abstractions/base>
