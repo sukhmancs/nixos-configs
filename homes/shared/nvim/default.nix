@@ -170,7 +170,7 @@ in {
     ];
   };
 
-  xdg.configFile."nvim/color.vim".source = pkgs.writeText "color.vim" (import ./theme.nix config.colorscheme);
+  # xdg.configFile."nvim/color.vim".source = pkgs.writeText "color.vim" (import ./theme.nix config.colorscheme);
   xdg.configFile."nvim/color.vim".onChange = reloadNvim;
   xdg.configFile."nvim/init.lua".onChange = reloadNvim;
 
