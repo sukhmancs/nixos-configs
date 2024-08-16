@@ -13,9 +13,6 @@
   inherit (lib.lists) mkMerge;
 in {
   imports = [
-    # ./transcend # module that merges trees outside central nixpkgs with our system's
-    # ./builders.nix # configuration for remote builders
-    # ./documentation.nix # nixos documentation
     ./nixpkgs.nix # global nixpkgs configuration.nix
     ./system.nix # nixos system configuration
   ];
@@ -67,7 +64,7 @@ in {
     gc = {
       automatic = true;
       dates = "Sat *-*-* 03:00";
-      options = "--delete-older-than 30d";
+      options = "--delete-older-than 20d";
     };
 
     # automatically optimize nix store my removing hard links

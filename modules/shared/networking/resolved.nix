@@ -1,4 +1,3 @@
-# Original code by NotAShelf - https://github.com/notashelf/nyx
 {
   services = {
     resolved = {

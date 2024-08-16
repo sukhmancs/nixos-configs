@@ -6,8 +6,6 @@
 }: {
   programs.direnv = {
     enable = true;
-
-    # shut up. SHUT UP
     silent = true;
 
     # faster, persistent implementation of use_nix and use_flake
