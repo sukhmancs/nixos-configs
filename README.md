@@ -1,3 +1,13 @@
+<div align="center">
+  <img alt="ci" src="https://img.shields.io/github/actions/workflow/status/sukhmancs/nixos-configs/flake-check.yml?label=build&color=a6e3a1&labelColor=303446&style=for-the-badge&logo=github&logoColor=a6e3a1" />
+  <img alt="repo size" src="https://img.shields.io/github/repo-size/sukhmancs/nixos-configs?color=fab387&labelColor=303446&style=for-the-badge&logo=github&logoColor=fab387" />
+  <img alt="nixos-unstable" src="https://img.shields.io/badge/NixOS-unstable-blue.svg?style=for-the-badge&labelColor=303446&logo=NixOS&logoColor=white&color=91D7E3" />
+  <img alt="stars" src="https://img.shields.io/github/stars/sukhmancs/nixos-configs?color=f5c2e7&labelColor=303446&style=for-the-badge&logo=starship&logoColor=f5c2e7" />
+  <img alt="last commit" src="https://img.shields.io/github/last-commit/sukhmancs/nixos-configs?color=ff9a8d&labelColor=303446&style=for-the-badge&logo=git&logoColor=ff9a8d" />
+</div>
+
+<br />
+
 <p id="preview" align="center">
   <!-- <br/> -->
   <img src=".github/assets/desktop_preview.png" alt="Laptop Preview" />
