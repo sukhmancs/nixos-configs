@@ -11,7 +11,7 @@ in {
     security.chromiumSuidSandbox.enable = true;
 
     programs.chromium = {
-      package = pkgs.ungoogled-chromium;
+      # package = pkgs.ungoogled-chromium;
       extraOpts = {
         "BrowserSignin" = 0;
         "SyncDisabled" = true;

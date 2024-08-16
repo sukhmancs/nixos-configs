@@ -32,6 +32,7 @@
 ### In Progress 🚧
 
 - [ ] **Neovim**
+- [ ] **WebCord** - Base16 colors
 - [ ] **Tailnet** - TailScale, WireGuard, ...
 - [ ] **Credit More Gracefully** - Add Name, Repo, etc.
 - [ ] **Spotify** - Spicetify with custom colors (*Done but there is a bug*)
