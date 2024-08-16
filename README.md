@@ -2,7 +2,7 @@
 [![built with nix](https://img.shields.io/static/v1?logo=nixos&logoColor=white&label=&message=Built%20with%20Nix&color=41439a)](https://builtwithnix.org)
 <!-- [![hydra status](https://img.shields.io/endpoint?url=https://hydra.m7.rs/job/nix-config/main/hosts.atlas/shield)](https://hydra.m7.rs/jobset/nix-config/main#tabs-jobs) -->
 
-<br />
+<!-- <br /> -->
 
 <p id="preview" align="center">
   <img src=".github/assets/desktop_preview.png" alt="Laptop Preview" />
