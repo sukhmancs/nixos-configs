@@ -31,7 +31,7 @@ in {
 
     xdg.configFile = {
       # "WebCord/Themes/mocha".source = "${catppuccin-mocha}/themes/mocha.theme.css";
-      "WebCord/Themes/mocha".source = import ./theme.nix { inherit osConfig pkgs;};
+      "WebCord/Themes/custom".source = import ./theme.nix { inherit osConfig pkgs;};
     };
 
     # TODO: maybe this should be under services/global because technically it's not an app
