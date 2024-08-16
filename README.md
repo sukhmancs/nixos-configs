@@ -38,11 +38,11 @@
 - [x] **Zsh** - Setup with base16 colors
 - [x] **IDS** - lynis, vulnix
 - [x] **Apparmor** - *One profile a day keeps the hacker away*
+- [x] **WebCord** - Base16 colors
 
 ### In Progress 🚧
 
 - [ ] **Neovim**
-- [ ] **WebCord** - Base16 colors
 - [ ] **Tailnet** - TailScale, WireGuard, ...
 - [ ] **Credit More Gracefully** - Add Name, Repo, etc.
 - [ ] **Spotify** - Spicetify with custom colors (*Done but there is a bug*)
