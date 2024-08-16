@@ -4,6 +4,7 @@
     ./schizofox
     ./thunderbird
     ./vscode
+    ./webcord
 
     ./clipboard.nix
     ./discord.nix
@@ -13,7 +14,6 @@
     ./obs.nix
     ./office.nix
     ./spotify.nix
-    ./webcord.nix
     ./swayidle.nix
     ./rbw.nix
     ./wlogout.nix
