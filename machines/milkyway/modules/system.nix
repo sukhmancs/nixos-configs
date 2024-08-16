@@ -30,6 +30,7 @@
     xdg.portal.enable = true;
     services.tailscale.enable = false; #TODO setup headscale first
     services.printing.enable = true;
+    programs.chromium.enable = true;
     vfio = {
       enable = true;
       nvidiaGpu = true;

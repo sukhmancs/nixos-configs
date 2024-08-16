@@ -5,7 +5,6 @@
     ./thunderbird
     ./vscode
 
-    ./chromium.nix
     ./clipboard.nix
     ./discord.nix
     ./element.nix

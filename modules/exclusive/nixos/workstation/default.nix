@@ -1,6 +1,7 @@
 {
   imports = [
     ./gaming
+    ./programs
     ./virtualization
     ./wayland
 
