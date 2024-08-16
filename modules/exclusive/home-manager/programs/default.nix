@@ -10,7 +10,6 @@
     ./discord.nix
     ./element.nix
     ./gammastep.nix
-    ./librewolf.nix
     ./nextcloud.nix
     ./obs.nix
     ./office.nix

@@ -1,3 +1,4 @@
+# Originally by NotAShelf - https://github.com/notashelf/nyx
 {
   # enable completions for system packages
   # and other stuff

@@ -36,14 +36,14 @@ in {
     # TODO: maybe this should be under services/global because technically it's not an app
     # however arrpc is useless on its own (i.e. without webcord) and here it's merely a
     # companion app that we enable for rich presence.
-    services.arrpc = {
-      enable = true;
-      package = pkgs.arrpc.overrideAttrs {
-        pname = "arrpc";
-        version = "3.4.0";
+    # services.arrpc = {
+    #   enable = true;
+    #   package = pkgs.arrpc.overrideAttrs {
+    #     pname = "arrpc";
+    #     version = "3.4.0";
 
-        src = openasar-git;
-      };
-    };
+    #     src = openasar-git;
+    #   };
+    # };
   };
 }
