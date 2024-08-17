@@ -6,8 +6,8 @@
     ./sets.nix
     ./highlight.nix
 
-    ./plug/colorscheme/biscuit.nix
-    ./plug/colorscheme/colorscheme.nix
+    # ./plug/colorscheme/biscuit.nix
+    # ./plug/colorscheme/colorscheme.nix
 
     # ./plug/completion/cmp.nix
     # ./plug/completion/copilot-cmp.nix
