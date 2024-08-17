@@ -1,5 +1,8 @@
-{ config, ... }:
+{ config, osConfig, ... }:
 let
+  inherit (osConfig) modules;
+  inherit (modules.themes) colors;
+
   lua = x: { __raw = x; };
 in
 {
@@ -7,7 +10,8 @@ in
     base16 = {
       enable = true;
       setUpBar = false;
-      colorscheme = import ../../colors/${config.theme}.nix { };
+      # colorscheme = import ../../colors/${config.theme}.nix { };
+      colorscheme = colors;
     };
     gruvbox = {
       enable = false;
