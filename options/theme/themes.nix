@@ -28,8 +28,8 @@
 
   polarity = slug:
     if builtins.pathExists ../../themes/${slug}/polarity.txt
-    then serializeTheme (builtins.readFile ../../themes/${slug}/polarity.txt)
-    else serializeTheme (builtins.readFile ../../themes/catppuccin-mocha/polarity.txt);
+    then lib.strings.trim (builtins.readFile ../../themes/${slug}/polarity.txt)
+    else lib.strings.trim (builtins.readFile ../../themes/catppuccin-mocha/polarity.txt);
 
   parseYaml = file:
     builtins.fromJSON (
