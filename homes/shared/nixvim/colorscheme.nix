@@ -7,9 +7,9 @@ let
     colorschemes.base16 = {
       enable = true;
       colorscheme = {
-        base00 = "#${colors.base00}";
+        base00 = "#${colors.base02}";
         base01 = "#${colors.base01}";
-        base02 = "#${colors.base02}";
+        base02 = "#${colors.base00}";
         base03 = "#${colors.base03}";
         base04 = "#${colors.base04}";
         base05 = "#${colors.base05}";
