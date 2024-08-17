@@ -12,9 +12,9 @@
   '';
 in {
   imports = [
-    # ./lsp.nix
+    ./lsp.nix
     # ./syntaxes.nix
-    # ./ui.nix
+    ./ui.nix
   ];
   home.sessionVariables.EDITOR = "nvim";
 
