@@ -1,6 +1,7 @@
 
 [![built with nix](https://img.shields.io/static/v1?logo=nixos&logoColor=white&label=&message=Built%20with%20Nix&color=41439a)](https://builtwithnix.org)
 [![Linux](https://img.shields.io/badge/Linux-%23.svg?style=flat-square&logo=linux&color=FCC624&logoColor=black)](https://www.linux.org/)
+[![Top Language](https://img.shields.io/github/languages/top/sukhmancs/nixos-configs?style=flat-square)]()
 [![NeoVim](https://img.shields.io/badge/Neovim-0.10.1-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=green)](https://neovim.io/)
 [![Commit Activity](https://img.shields.io/github/commit-activity/m/sukhmancs/nixos-configs?style=flat-square)](https://github.com/jdhao/nvim-config/graphs/commit-activity)
 [![Commit Since](https://img.shields.io/github/commits-since/sukhmancs/nixos-configs/iso-2024-07-29-211510?style=flat-square&label=Commits%20Since%20Last%20Release)](https://github.com/jdhao/nvim-config/releases/tag/iso-2024-07-29-211510)
