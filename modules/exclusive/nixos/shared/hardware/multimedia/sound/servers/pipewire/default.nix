@@ -4,7 +4,6 @@
   lib,
   ...
 }: let
-  inherit (lib) isx86Linux;
   inherit (lib.modules) mkIf;
 
   inherit (config) modules;
@@ -36,7 +35,7 @@ in {
       jack.enable = true; # JACK audio emulation
       alsa = {
         enable = true; # ALSA support
-        support32Bit = isx86Linux pkgs; # if we're on x86 linux, we can support 32 bit
+        support32Bit = false; # if we're on x86 linux, we can support 32 bit
       };
     };
 

@@ -4,7 +4,6 @@
   lib,
   ...
 }: let
-  inherit (lib) isx86Linux;
   inherit (lib.modules) mkIf mkMerge;
   inherit (lib.strings) versionOlder versionAtLeast;
   dev = config.modules.device;
