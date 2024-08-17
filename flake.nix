@@ -171,6 +171,12 @@
     # not in nixpkgs.
     nyxpkgs.url = "github:NotAShelf/nyxpkgs";
 
+    # NixVim
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Neovim configuration wrapper.
     neovim-flake = {
       url = "github:NotAShelf/nvf";

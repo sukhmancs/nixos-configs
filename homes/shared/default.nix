@@ -2,7 +2,8 @@
   imports = [
     ./foot
     # ./neovim
-    ./nvim
+    # ./nvim
+    ./nixvim
     ./programs
     ./services
     ./shell
