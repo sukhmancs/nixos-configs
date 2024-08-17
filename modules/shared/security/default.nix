@@ -4,7 +4,7 @@
     ./misc # bluetooth, git, machine-id, securetty, and issue configuration
 
     ./auditd.nix # auditd
-    ./clamav.nix # clamav antivirus
+    #./clamav.nix # clamav antivirus
     ./coredump.nix # coredump hardening
     ./entropy.nix # entropy gathering
     ./impurity-tracker.nix # find applications that depend on /bin/sh or /usr/bin/env

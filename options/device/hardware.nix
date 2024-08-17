@@ -8,7 +8,7 @@
 in {
   options.modules.device = {
     type = mkOption {
-      type = enum ["laptop" "desktop" "server" "hybrid" "lite" "vm"];
+      type = enum ["laptop" "desktop" "server" "hybrid" "lite" "vm" "iso"];
       default = "";
       description = ''
         The type/purpose of the device that will be used within the rest of the configuration.

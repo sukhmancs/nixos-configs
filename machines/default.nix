@@ -39,7 +39,7 @@
 
   isoRoles = [
     ../modules/roles/iso
-    ../modules/roles/headless
+    ../modules/roles/graphical
   ];
 
   # Define a base configuration function
@@ -47,7 +47,7 @@
     hostname,
     roleModules,
     system ? "x86_64-linux",
-    agenix,
+    agenix ? null,
     enableHome ? true,
   }:
     withSystem system ({
@@ -88,7 +88,7 @@ in {
     hostname = "milkyway";
     roleModules = laptopRoles;
     enableHome = true;
-    inherit system agenix;
+    inherit system agenix; # Todo - do not need secrets
   };
 
   # DESKTOP
@@ -96,7 +96,7 @@ in {
     hostname = "andromeda";
     roleModules = workstationRoles;
     enableHome = true;
-    inherit system agenix;
+    inherit system agenix; # Todo - do not need secrets
   };
 
   # SERVER
@@ -108,30 +108,37 @@ in {
   };
 
   # Graphical ISO - Portable Workstation
-  messier = lib.nixosSystem {
+  messier = baseSystemConfig {
+    hostname = "messier";
+    roleModules = isoRoles;
+    enableHome = true;
     inherit system;
-    specialArgs = {
-      inherit lib inputs self;
-    };
-    modules =
-      [
-        {networking.hostName = "messier";}
-        "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix"
-
-        # bootstrap channels with the ISO image to avoid fetching them during installation
-        "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
-
-        # make sure our installer can detect and interact with all hardware that is supported in Nixpkgs
-        # this loads basically every hardware related kernel module
-        "${nixpkgs}/nixos/modules/profiles/all-hardware.nix"
-
-        ./messier
-        ../modules/roles/iso
-        ../modules/roles/graphical
-      ]
-      ++ [
-        hm
-        ./messier/home.nix
-      ];
   };
+
+  # Graphical ISO - Portable Workstation
+  # messier = lib.nixosSystem {
+  #   inherit system;
+  #   specialArgs = {
+  #     inherit lib inputs self;
+  #   };
+  #   modules =
+  #     [
+  #       {networking.hostName = "messier";}
+  #       "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix"
+
+  #       # bootstrap channels with the ISO image to avoid fetching them during installation
+  #       "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+
+  #       # make sure our installer can detect and interact with all hardware that is supported in Nixpkgs
+  #       # this loads basically every hardware related kernel module
+  #       "${nixpkgs}/nixos/modules/profiles/all-hardware.nix"
+
+  #       ./messier
+  #     ]
+  #     ++ isoRoles
+  #     ++ [
+  #       hm
+  #       ./messier/home.nix
+  #     ];
+  # };
 }
