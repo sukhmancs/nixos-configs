@@ -81,5 +81,55 @@
         }
       }
     }
+
+    require('precognition').setup({ })
+
+    local notify = require("notify")
+
+    local filtered_message = { "No information available" }
+
+    -- Override notify function to filter out messages
+    ---@diagnostic disable-next-line: duplicate-set-field
+    vim.notify = function(message, level, opts)
+      local merged_opts = vim.tbl_extend("force", {
+        on_open = function(win)
+          local buf = vim.api.nvim_win_get_buf(win)
+          vim.api.nvim_buf_set_option(buf, "filetype", "markdown")
+        end,
+      }, opts or {})
+
+      for _, msg in ipairs(filtered_message) do
+        if message == msg then
+          return
+        end
+      end
+      return notify(message, level, merged_opts)
+    end
+
+    require('btw').setup({
+      text = "I use Neovim (and NixOS, BTW)",
+    })
+
+    function ToggleLineNumber()
+    if vim.wo.number then
+      vim.wo.number = false
+    else
+      vim.wo.number = true
+        vim.wo.relativenumber = false
+        end
+        end
+
+        function ToggleRelativeLineNumber()
+        if vim.wo.relativenumber then
+          vim.wo.relativenumber = false
+        else
+          vim.wo.relativenumber = true
+            vim.wo.number = false
+            end
+            end
+
+            function ToggleWrap()
+            vim.wo.wrap = not vim.wo.wrap
+            end
   '';
 }

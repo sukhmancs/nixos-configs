@@ -1,4 +1,8 @@
 {pkgs, osConfig, ...}:
+let
+  inherit (osConfig) modules;
+  inherit (modules.themes) colors;
+in
 {
   programs.nixvim = {
     plugins = {
@@ -735,6 +739,338 @@
             };
           };
         };
+      };
+
+      # indent-blankline - Indentation guides
+      indent-blankline = {
+        enable = true;
+      };
+
+      # noice - Notifications
+      noice = {
+        enable = true;
+        notify = {
+          enabled = false;
+        };
+        messages = {
+          enabled = true; # Adds a padding-bottom to neovim statusline when set to false for some reason
+        };
+        lsp = {
+          message = {
+            enabled = true;
+          };
+          progress = {
+            enabled = false;
+            view = "mini";
+          };
+        };
+        popupmenu = {
+          enabled = true;
+          backend = "nui";
+        };
+        format = {
+          filter = {
+            pattern = [
+              ":%s*%%s*s:%s*"
+              ":%s*%%s*s!%s*"
+              ":%s*%%s*s/%s*"
+              "%s*s:%s*"
+              ":%s*s!%s*"
+              ":%s*s/%s*"
+            ];
+            icon = "";
+            lang = "regex";
+          };
+          replace = {
+            pattern = [
+              ":%s*%%s*s:%w*:%s*"
+              ":%s*%%s*s!%w*!%s*"
+              ":%s*%%s*s/%w*/%s*"
+              "%s*s:%w*:%s*"
+              ":%s*s!%w*!%s*"
+              ":%s*s/%w*/%s*"
+            ];
+            icon = "󱞪";
+            lang = "regex";
+          };
+        };
+      };
+
+      # nvim-notify - Notifications
+      notify = {
+        enable = true;
+        backgroundColour = "#000000";
+        fps = 60;
+        render = "default";
+        timeout = 1000;
+        topDown = true;
+      };
+
+      # bufferline - Bufferline
+      bufferline = {
+        enable = true;
+        separatorStyle = "thin"; # “slant”, “padded_slant”, “slope”, “padded_slope”, “thick”, “thin”
+        highlights = {
+          fill = {
+            fg = "none";
+            bg = "none";
+          };
+          background = {
+            fg = "#${colors.base03}";
+            bg = "#${colors.base01}";
+          };
+          bufferSelected = {
+            fg = "#${colors.base05}";
+            italic = false;
+          };
+          bufferVisible = {
+            fg = "#${colors.base03}";
+            bg = "#${colors.base00}";
+          };
+          closeButton = {
+            fg = "#${colors.base03}";
+            bg = "#${colors.base01}";
+          };
+          closeButtonVisible = {
+            fg = "#${colors.base03}";
+            bg = "#${colors.base01}";
+          };
+          closeButtonSelected = {
+            fg = "#${colors.base08}";
+          };
+
+          indicatorSelected = {
+            fg = "#${colors.base00}";
+          };
+          indicatorVisible = {
+            fg = "#${colors.base00}";
+            bg = "#${colors.base00}";
+          };
+          separator = {
+            fg = "#${colors.base01}";
+            bg = "#${colors.base01}";
+          };
+          modified = {
+            fg = "#${colors.base03}";
+            bg = "#${colors.base00}";
+          };
+          modifiedVisible = {
+            fg = "#${colors.base00}";
+            bg = "#${colors.base00}";
+          };
+          modifiedSelected = {
+            fg = "#${colors.base0B}";
+          };
+          tabClose = {
+            fg = "#${colors.base00}";
+            bg = "#${colors.base00}";
+          };
+          duplicate = {
+            fg = "#${colors.base03}";
+            bg = "#${colors.base01}";
+          };
+        };
+      };
+
+      # alpha - Dashboard
+      alpha =
+      let
+        nixFlake = [
+          "                                              "
+          " ██╗  ██╗██╗    ██╗      █████╗ ██╗███╗   ██╗ "
+          " ╚██╗██╔╝██║    ██║     ██╔══██╗██║████╗  ██║ "
+          "  ╚███╔╝ ██║    ██║     ███████║██║██╔██╗ ██║ "
+          "  ██╔██╗ ██║    ██║     ██╔══██║██║██║╚██╗██║ "
+          " ██╔╝ ██╗██║    ███████╗██║  ██║██║██║ ╚████║ "
+          " ╚═╝  ╚═╝╚═╝    ╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ "
+          "                                              "
+          "        github:sukhmancs/nixos-configs        "
+        ];
+      in
+      {
+        enable = true;
+        layout = [
+          {
+            type = "padding";
+            val = 4;
+          }
+          {
+            opts = {
+              hl = "AlphaHeader";
+              position = "center";
+            };
+            type = "text";
+            val = nixFlake;
+          }
+          {
+            type = "padding";
+            val = 2;
+          }
+          {
+            type = "group";
+            val =
+              let
+                mkButton = shortcut: cmd: val: hl: {
+                  type = "button";
+                  inherit val;
+                  opts = {
+                    inherit hl shortcut;
+                    keymap = [
+                      "n"
+                      shortcut
+                      cmd
+                      { }
+                    ];
+                    position = "center";
+                    cursor = 0;
+                    width = 40;
+                    align_shortcut = "right";
+                    hl_shortcut = "Keyword";
+                  };
+                };
+              in
+              [
+                (mkButton "f" "<CMD>lua require('telescope.builtin').find_files({hidden = true})<CR>" "🔍 Find File"
+                  "Operator"
+                )
+                (mkButton "q" "<CMD>qa<CR>" "💣 Quit Neovim" "String")
+              ];
+          }
+          {
+            type = "padding";
+            val = 2;
+          }
+          {
+            opts = {
+              hl = "GruvboxBlue";
+              position = "center";
+            };
+            type = "text";
+            val = "https://github.com/sukhmancs/nixos-configs";
+          }
+        ];
+      };
+
+      # colorizer - Colorizer
+      nvim-colorizer = {
+        enable = true;
+      };
+
+      # Comment
+      comment = {
+        enable = true;
+      };
+
+      # flash - Jump to characters
+      flash = {
+        enable = true;
+        labels = "asdfghjklqwertyuiopzxcvbnm";
+        search = {
+          mode = "fuzzy";
+        };
+        jump = {
+          autojump = true;
+        };
+        label = {
+          uppercase = false;
+          rainbow = {
+            enabled = false;
+            shade = 5;
+          };
+        };
+      };
+
+      # harpoon - Jump to files
+      harpoon = {
+        enable = true;
+        enableTelescope = true;
+        keymapsSilent = true;
+        keymaps = {
+          addFile = "<leader>ha";
+          toggleQuickMenu = "<C-e>";
+          navFile = {
+            "1" = "<leader>hj";
+            "2" = "<leader>hk";
+            "3" = "<leader>hl";
+            "4" = "<leader>hm";
+          };
+        };
+      };
+
+      # illuminate - Highlight word under cursor
+      illuminate = {
+        enable = true;
+        underCursor = false;
+        filetypesDenylist = [
+          "Outline"
+          "TelescopePrompt"
+          "alpha"
+          "harpoon"
+          "reason"
+        ];
+      };
+
+      # mini - AI completion
+      mini = {
+        enable = true;
+        modules = {
+          ai = { };
+          surround = { };
+        };
+      };
+
+      # nvim-autopairs - Auto pairs
+      nvim-autopairs = {
+        enable = true;
+      };
+
+      # oil
+      oil = {
+        enable = true;
+        settings = {
+          useDefaultKeymaps = true;
+          deleteToTrash = true;
+          float = {
+            padding = 2;
+            maxWidth = 0; # ''math.ceil(vim.o.lines * 0.8 - 4)'';
+            maxHeight = 0; # ''math.ceil(vim.o.columns * 0.8)'';
+            border = "rounded"; # 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
+            winOptions = {
+              winblend = 0;
+            };
+          };
+          preview = {
+            border = "rounded";
+          };
+          keymaps = {
+            "g?" = "actions.show_help";
+            "<CR>" = "actions.select";
+            "<C-\\>" = "actions.select_vsplit";
+            "<C-enter>" = "actions.select_split"; # this is used to navigate left
+            "<C-t>" = "actions.select_tab";
+            "<C-v>" = "actions.preview";
+            "<C-c>" = "actions.close";
+            "<C-r>" = "actions.refresh";
+            "-" = "actions.parent";
+            "_" = "actions.open_cwd";
+            "`" = "actions.cd";
+            "~" = "actions.tcd";
+            "gs" = "actions.change_sort";
+            "gx" = "actions.open_external";
+            "g." = "actions.toggle_hidden";
+            "q" = "actions.close";
+          };
+        };
+      };
+
+      # ufo - UFO completion
+      nvim-ufo = {
+        enable = true;
+      };
+
+      # which-key - Keybindings
+      which-key = {
+        enable = true;
       };
     };
   };
