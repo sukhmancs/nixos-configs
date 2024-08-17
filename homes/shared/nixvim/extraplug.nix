@@ -40,9 +40,10 @@
         hash = "sha256-91DZUfa4FBvXnkcNHdllr82Dr1Ie+MGVD3ibwkqo04c=";
       };
     })
-    (buildVimPlugin {
+    ( let version = "v1.0.2"; in
+      buildVimPlugin {
       pname = "comment-box.nvim";
-      version = "v1.0.2";
+      inherit version;
       src = pkgs.fetchFromGitHub {
         owner = "LudoPinelli";
         repo = "comment-box.nvim";
