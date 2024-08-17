@@ -1,9 +1,9 @@
 {
   imports = [
     ./device.nix
-    ./profiles.nix
+    ./home.nix
     ./system.nix
-    ./usrEnv.nix
-    ./style.nix
+    ./theme.nix
+    ./wireguard.nix
   ];
 }
