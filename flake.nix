@@ -278,14 +278,14 @@
     };
   };
 
-  outputs = inputs @ {flake-parts, ...}:
-    flake-parts.lib.mkFlake {inherit inputs;} ({withSystem, ...}: {
+  outputs = inputs @ { flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } ({ withSystem, ... }: {
       systems = [
         "x86_64-linux"
         "aarch64-linux"
       ];
 
-      imports = [./flake-parts];
+      imports = [ ./flake-parts ];
 
       flake = {
         nixosConfigurations = (
