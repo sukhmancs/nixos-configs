@@ -4,7 +4,7 @@ let
 
   nixvim' = inputs.nixvim.legacyPackages.${pkgs.stdenv.system};
   nvim = nixvim'.makeNixvimWithModule {
-    inherit pkgs osConfig;
+    inherit pkgs;
     module = ./config;
   };
 
