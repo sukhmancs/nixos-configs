@@ -24,12 +24,12 @@
   getColorsFile = slug:
     if builtins.pathExists ../../themes/${slug}/${slug}.yaml
     then ../../themes/${slug}/${slug}.yaml
-    else throw "The following colorscheme was imported but not found: ${slug}";
+    else ../../themes/catppuccin-mocha/catppuccin-mocha.yaml;
 
   polarity = slug:
     if builtins.pathExists ../../themes/${slug}/polarity.txt
     then builtins.readFile ../../themes/${slug}/polarity.txt
-    else throw "The following colorscheme was imported but not found: ${slug}";
+    else builtins.readFile ../../themes/catppuccin-mocha/polarity.txt;
 
   parseYaml = file:
     builtins.fromJSON (
@@ -55,7 +55,7 @@ in {
 
     colorsFile = mkOption {
       type = path;
-      default = getColorsFile config.modules.themes.colorscheme.name;
+      default = getColorsFile slug;
       description = ''
         The path to the colorscheme file.
       '';
@@ -72,7 +72,7 @@ in {
     # I don't really use this but it's here if i decided to use stylix
     polarity = mkOption {
       type = str;
-      default = polarity config.modules.themes.colorscheme.name;
+      default = polarity slug;
       description = ''
         The polarity of the colorscheme.
       '';
