@@ -1,4 +1,4 @@
-{inputs, pkgs, ...}:
+{inputs, pkgs, osConfig, ...}:
 
 let
 
