@@ -11,10 +11,20 @@
 
 <p id="preview" align="center">
   <img src=".github/assets/desktop_preview.png" alt="Laptop Preview" />
-  <!-- Laptop (milkyway) -->
   <img src=".github/assets/iso_preview.png" alt="ISO Preview" />
-  <!-- ISO (messier) -->
 </p>
+
+<details>
+
+<summary>More Previews</summary>
+
+<img src=".github/assets/rofi.png" alt="Rofi Preview" />
+<img src=".github/assets/anyrun.png" alt="Anyrun Preview" />
+<img src=".github/assets/neovim.png" alt="Neovim Preview" />
+<img src=".github/assets/vscode.png" alt="VSCode Preview" />
+<img src=".github/assets/discord.png" alt="Discord Preview" />
+
+</details>
 
 <br/>
 
