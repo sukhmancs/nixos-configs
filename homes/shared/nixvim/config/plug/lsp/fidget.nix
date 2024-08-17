@@ -1,5 +1,5 @@
 {
-  plugins.fidget = {
+  programs.nixvim.plugins.fidget = {
     enable = true;
     logger = {
       level = "warn"; # “off”, “error”, “warn”, “info”, “debug”, “trace”

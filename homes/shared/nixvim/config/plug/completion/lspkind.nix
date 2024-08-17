@@ -1,5 +1,5 @@
 {
-  plugins.lspkind = {
+  programs.nixvim.plugins.lspkind = {
     enable = true;
     symbolMap = {
       Copilot = "";

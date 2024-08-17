@@ -1,12 +1,12 @@
 {
-  plugins.undotree = {
+  programs.nixvim.plugins.undotree = {
     enable = true;
     settings = {
       autoOpenDiff = true;
       focusOnToggle = true;
     };
   };
-  keymaps = [
+  programs.nixvim.keymaps = [
     {
       mode = "n";
       key = "<leader>ut";

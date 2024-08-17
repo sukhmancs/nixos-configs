@@ -1,5 +1,5 @@
 {
-  autoCmd = [
+  programs.nixvim.autoCmd = [
     # Vertically center document when entering insert mode
     {
       event = "InsertEnter";

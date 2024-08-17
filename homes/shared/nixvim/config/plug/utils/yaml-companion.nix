@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  extraPlugins = with pkgs.vimUtils; [
+  programs.nixvim.extraPlugins = with pkgs.vimUtils; [
     (buildVimPlugin {
       pname = "yaml-companion";
       version = "0.1.3";
@@ -13,7 +13,7 @@
     })
   ];
 
-  extraConfigLua = ''
+  programs.nixvim.extraConfigLua = ''
     require("telescope").load_extension("yaml_schema")
   '';
 }

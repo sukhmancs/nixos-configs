@@ -1,8 +1,8 @@
 {
-  plugins.copilot-cmp = {
+  programs.nixvim.plugins.copilot-cmp = {
     enable = true;
   };
-  plugins.copilot-lua = {
+  programs.nixvim.plugins.copilot-lua = {
     enable = true;
     suggestion = {
       enabled = false;
@@ -12,7 +12,7 @@
     };
   };
 
-  extraConfigLua = ''
+  programs.nixvim.extraConfigLua = ''
     require("copilot").setup({
       suggestion = { enabled = false },
       panel = { enabled = false },

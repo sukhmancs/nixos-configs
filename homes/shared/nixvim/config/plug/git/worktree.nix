@@ -1,5 +1,5 @@
 {
-  plugins.git-worktree = {
+  programs.nixvim.plugins.git-worktree = {
     enable = true;
     enableTelescope = true;
   };

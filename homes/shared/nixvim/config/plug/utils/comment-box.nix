@@ -3,7 +3,7 @@ let
   version = "v1.0.2";
 in
 {
-  extraPlugins = with pkgs.vimUtils; [
+  programs.nixvim.extraPlugins = with pkgs.vimUtils; [
     (buildVimPlugin {
       pname = "comment-box.nvim";
       inherit version;

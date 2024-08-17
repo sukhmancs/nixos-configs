@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  plugins.obsidian = {
+  programs.nixvim.plugins.obsidian = {
     enable = lib.mkDefault false;
     settings = {
       completion = {

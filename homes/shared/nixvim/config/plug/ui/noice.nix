@@ -1,5 +1,5 @@
 {
-  plugins.noice = {
+  programs.nixvim.plugins.noice = {
     enable = true;
     notify = {
       enabled = false;

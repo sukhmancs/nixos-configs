@@ -1,5 +1,5 @@
 {
-  plugins.trouble = {
+  programs.nixvim.plugins.trouble = {
     enable = true;
   };
 }

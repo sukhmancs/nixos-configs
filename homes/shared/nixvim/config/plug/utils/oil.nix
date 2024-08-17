@@ -1,5 +1,5 @@
 {
-  plugins.oil = {
+  programs.nixvim.plugins.oil = {
     enable = true;
     settings = {
       useDefaultKeymaps = true;
@@ -36,7 +36,7 @@
       };
     };
   };
-  keymaps = [
+  programs.nixvim.keymaps = [
     {
       mode = "n";
       key = "-";

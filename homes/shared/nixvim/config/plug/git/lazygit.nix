@@ -1,13 +1,13 @@
 {
-  plugins.lazygit = {
+  programs.nixvim.plugins.lazygit = {
     enable = true;
   };
 
-  extraConfigLua = ''
+  programs.nixvim.extraConfigLua = ''
     require("telescope").load_extension("lazygit")
   '';
 
-  keymaps = [
+  programs.nixvim.keymaps = [
     {
       mode = "n";
       key = "<leader>gg";

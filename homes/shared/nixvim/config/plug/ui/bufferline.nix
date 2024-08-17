@@ -1,75 +1,76 @@
-{ config, lib, ... }:
+{ config, lib, osConfig, ... }:
 let
-  colors = import ../../colors/${config.theme}.nix { };
+  inherit (osConfig) modules;
+  inherit (modules.themes) colors;
 in
 {
-  plugins = {
+  programs.nixvim.plugins = {
     bufferline = {
       enable = true;
       separatorStyle = "thin"; # “slant”, “padded_slant”, “slope”, “padded_slope”, “thick”, “thin”
-      highlights = lib.mkIf config.colorschemes.base16.enable {
+      settings.highlights = {
         fill = {
           fg = "none";
           bg = "none";
         };
         background = {
-          fg = colors.base03;
-          bg = colors.base01;
+          fg = "#${colors.base03}";
+          bg = "#${colors.base01}";
         };
-        bufferSelected = {
-          fg = colors.base05;
+        buffer_selected = {
+          fg = "#${colors.base05}";
           italic = false;
         };
-        bufferVisible = {
-          fg = colors.base03;
-          bg = colors.base00;
+        buffer_visible = {
+          fg = "#${colors.base03}";
+          bg = "#${colors.base00}";
         };
-        closeButton = {
-          fg = colors.base03;
-          bg = colors.base01;
+        close_button = {
+          fg = "#${colors.base03}";
+          bg = "#${colors.base01}";
         };
-        closeButtonVisible = {
-          fg = colors.base03;
-          bg = colors.base01;
+        close_button_visible = {
+          fg = "#${colors.base03}";
+          bg = "#${colors.base01}";
         };
-        closeButtonSelected = {
-          fg = colors.base08;
+        close_button_selected = {
+          fg = "#${colors.base08}";
         };
 
-        indicatorSelected = {
-          fg = colors.base00;
+        indicator_selected = {
+          fg = "#${colors.base00}";
         };
-        indicatorVisible = {
-          fg = colors.base00;
-          bg = colors.base00;
+        indicator_visible = {
+          fg = "#${colors.base00}";
+          bg = "#${colors.base00}";
         };
         separator = {
-          fg = colors.base01;
-          bg = colors.base01;
+          fg = "#${colors.base01}";
+          bg = "#${colors.base01}";
         };
         modified = {
-          fg = colors.base03;
-          bg = colors.base00;
+          fg = "#${colors.base03}";
+          bg = "#${colors.base00}";
         };
-        modifiedVisible = {
-          fg = colors.base00;
-          bg = colors.base00;
+        modified_visible = {
+          fg = "#${colors.base00}";
+          bg = "#${colors.base00}";
         };
-        modifiedSelected = {
-          fg = colors.base0B;
+        modified_selected = {
+          fg = "#${colors.base0B}";
         };
-        tabClose = {
-          fg = colors.base00;
-          bg = colors.base00;
+        tab_close = {
+          fg = "#${colors.base00}";
+          bg = "#${colors.base00}";
         };
         duplicate = {
-          fg = colors.base03;
-          bg = colors.base01;
+          fg = "#${colors.base03}";
+          bg = "#${colors.base01}";
         };
       };
     };
   };
-  keymaps = [
+  programs.nixvim.keymaps = [
     {
       mode = "n";
       key = "<Tab>";

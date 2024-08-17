@@ -6,26 +6,26 @@
     ./sets.nix
     ./highlight.nix
 
-    # ./plug/colorscheme/biscuit.nix
-    # ./plug/colorscheme/colorscheme.nix
+    ./plug/colorscheme/biscuit.nix
+    ./plug/colorscheme/colorscheme.nix
 
     # ./plug/completion/cmp.nix
     # ./plug/completion/copilot-cmp.nix
     # ./plug/completion/lspkind.nix
     # ./plug/completion/schemastore.nix
 
-    # ./plug/git/gitlinker.nix
-    # ./plug/git/gitsigns.nix
-    # ./plug/git/lazygit.nix
-    # ./plug/git/worktree.nix
+    ./plug/git/gitlinker.nix
+    ./plug/git/gitsigns.nix
+    ./plug/git/lazygit.nix
+    ./plug/git/worktree.nix
 
-    # ./plug/lsp/conform.nix
-    # ./plug/lsp/fidget.nix
-    # ./plug/lsp/hlchunk.nix
-    # ./plug/lsp/lsp.nix
-    # ./plug/lsp/lspsaga.nix
-    # ./plug/lsp/none-ls.nix
-    # ./plug/lsp/trouble.nix
+    ./plug/lsp/conform.nix
+    ./plug/lsp/fidget.nix
+    ./plug/lsp/hlchunk.nix
+    ./plug/lsp/lsp.nix
+    ./plug/lsp/lspsaga.nix
+    ./plug/lsp/none-ls.nix
+    ./plug/lsp/trouble.nix
 
     ./plug/snippets/luasnip.nix
 
@@ -63,34 +63,10 @@
     ./plug/utils/whichkey.nix
     ./plug/utils/yaml-companion.nix
   ];
-  options = {
-    # theme = lib.mkOption {
-    #   default = lib.mkDefault "paradise";
-    #   type = lib.types.enum [
-    #     "paradise"
-    #     "decay"
-    #     "edge-dark"
-    #     "mountain"
-    #     "tokyonight"
-    #     "everforest"
-    #     "everblush"
-    #     "jellybeans"
-    #     "aquarium"
-    #     "gruvbox"
-    #   ];
-    # };
-    assistant = lib.mkOption {
-      default = "none";
-      type = lib.types.enum [
-        "copilot"
-        "none"
-      ];
-    };
-  };
   config = {
     # The base16 theme to use, if you want to use another theme, change it in colorscheme.nix
     # theme = "paradise";
-    extraConfigLua = ''
+    programs.nixvim.extraConfigLua = ''
       _G.theme = "${osConfig.modules.themes.colorscheme.name}";
     '';
   };

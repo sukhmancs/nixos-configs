@@ -1,5 +1,5 @@
 {
-  plugins.gitsigns = {
+  programs.nixvim.plugins.gitsigns = {
     enable = true;
     settings = {
       trouble = true;
@@ -26,7 +26,7 @@
       };
     };
   };
-  keymaps = [
+  programs.nixvim.keymaps = [
     {
       mode = [
         "n"

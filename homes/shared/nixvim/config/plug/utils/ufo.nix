@@ -1,5 +1,5 @@
 {
-  plugins.nvim-ufo = {
+  programs.nixvim.plugins.nvim-ufo = {
     enable = true;
   };
 }

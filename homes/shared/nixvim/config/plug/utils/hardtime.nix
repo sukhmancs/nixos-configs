@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  plugins.hardtime = {
+  programs.nixvim.plugins.hardtime = {
     enable = lib.mkDefault false;
     enabled = true;
     disableMouse = true;

@@ -1,5 +1,5 @@
 {
-  plugins.flash = {
+  programs.nixvim.plugins.flash = {
     enable = true;
     labels = "asdfghjklqwertyuiopzxcvbnm";
     search = {
@@ -16,7 +16,7 @@
       };
     };
   };
-  keymaps = [
+  programs.nixvim.keymaps = [
     {
       mode = [
         "n"

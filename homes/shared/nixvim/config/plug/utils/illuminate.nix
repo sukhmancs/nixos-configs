@@ -1,5 +1,5 @@
 {
-  plugins.illuminate = {
+  programs.nixvim.plugins.illuminate = {
     enable = true;
     underCursor = false;
     filetypesDenylist = [

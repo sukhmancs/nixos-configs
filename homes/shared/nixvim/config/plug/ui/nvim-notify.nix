@@ -1,5 +1,5 @@
 {
-  plugins.notify = {
+  programs.nixvim.plugins.notify = {
     enable = true;
     backgroundColour = "#000000";
     fps = 60;
@@ -7,7 +7,7 @@
     timeout = 1000;
     topDown = true;
   };
-  keymaps = [
+  programs.nixvim.keymaps = [
     {
       mode = "n";
       key = "<leader>un";
@@ -19,7 +19,7 @@
       };
     }
   ];
-  extraConfigLua = ''
+  programs.nixvim.extraConfigLua = ''
     local notify = require("notify")
 
     local filtered_message = { "No information available" }

@@ -1,7 +1,7 @@
 {
-  globals.mapleader = " ";
+  programs.nixvim.globals.mapleader = " ";
 
-  keymaps = [
+  programs.nixvim.keymaps = [
     # General maps
     {
       mode = "n";
@@ -427,7 +427,7 @@
       };
     }
   ];
-  extraConfigLua = ''
+  programs.nixvim.extraConfigLua = ''
     function ToggleLineNumber()
     if vim.wo.number then
       vim.wo.number = false

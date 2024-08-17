@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  extraPlugins = with pkgs.vimUtils; [
+  programs.nixvim.extraPlugins = with pkgs.vimUtils; [
     (buildVimPlugin {
       pname = "staline.nvim";
       version = "2024-02-05";
@@ -12,7 +12,7 @@
       };
     })
   ];
-  extraConfigLua = ''
+  programs.nixvim.extraConfigLua = ''
       require("staline").setup({
       sections = {
         left = { "-mode", " ", "branch" },

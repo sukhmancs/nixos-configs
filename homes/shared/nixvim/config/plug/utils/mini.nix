@@ -1,5 +1,5 @@
 {
-  plugins.mini = {
+  programs.nixvim.plugins.mini = {
     enable = true;
     modules = {
       ai = { };

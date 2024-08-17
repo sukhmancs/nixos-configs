@@ -1,5 +1,5 @@
 {
-  plugins.nvim-autopairs = {
+  programs.nixvim.plugins.nvim-autopairs = {
     enable = true;
   };
 }

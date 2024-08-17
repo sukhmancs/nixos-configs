@@ -1,5 +1,5 @@
 {
-  plugins.lspsaga = {
+  programs.nixvim.plugins.lspsaga = {
     enable = true;
     beacon = {
       enable = true;
@@ -69,7 +69,7 @@
       scrollUp = "<C-b>";
     };
   };
-  keymaps = [
+  programs.nixvim.keymaps = [
     {
       mode = "n";
       key = "gd";

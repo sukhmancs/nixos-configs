@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  extraPlugins = with pkgs.vimUtils; [
+  programs.nixvim.extraPlugins = with pkgs.vimUtils; [
     (buildVimPlugin rec {
       pname = "markview.nvim";
       version = "1.0.0";
@@ -13,7 +13,7 @@
     })
   ];
 
-  extraConfigLua = ''
+  programs.nixvim.extraConfigLua = ''
     require("markview").setup();
   '';
 }

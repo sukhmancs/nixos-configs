@@ -1,9 +1,10 @@
-{ config, ... }:
+{ config, osConfig, ... }:
 let
-  colors = import ../../colors/${config.theme}.nix { };
+  inherit (osConfig) modules;
+  inherit (modules.themes) colors;
 in
 {
-  plugins.lualine = {
+  programs.nixvim.plugins.lualine = {
     enable = true;
     globalstatus = true;
     disabledFiletypes = {
@@ -44,7 +45,7 @@ in
           name = "mode";
           fmt = "string.lower";
           color = {
-            fg = if config.colorschemes.base16.enable then colors.base04 else "nil";
+            fg = "#${colors.base04}";
             bg = "nil";
           };
           separator.left = "";
@@ -56,7 +57,7 @@ in
           name = "branch";
           icon = "";
           color = {
-            fg = if config.colorschemes.base16.enable then colors.base04 else "nil";
+            fg = "#${colors.base04}";
             bg = "nil";
           };
           separator.left = "";
@@ -80,7 +81,7 @@ in
             };
           };
           color = {
-            fg = if config.colorschemes.base16.enable then colors.base08 else "nil";
+            fg = "#${colors.base08}";
             bg = "nil";
           };
           separator.left = "";
@@ -107,7 +108,7 @@ in
             };
           };
           color = {
-            fg = if config.colorschemes.base16.enable then colors.base05 else "nil";
+            fg = "#${colors.base05}";
             bg = "nil";
           };
           separator.left = "";
@@ -118,7 +119,7 @@ in
         {
           name = "location";
           color = {
-            fg = if config.colorschemes.base16.enable then colors.base0B else "nil";
+            fg = "#${colors.base0B}";
             bg = "nil";
           };
           separator.left = "";

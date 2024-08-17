@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  extraPlugins = with pkgs.vimUtils; [
+  programs.nixvim.extraPlugins = with pkgs.vimUtils; [
     (buildVimPlugin {
       pname = "precognition.nvim";
       version = "v1.0.0";
@@ -12,7 +12,7 @@
       };
     })
   ];
-  extraConfigLua = ''
+  programs.nixvim.extraConfigLua = ''
     require('precognition').setup({ })
   '';
 }

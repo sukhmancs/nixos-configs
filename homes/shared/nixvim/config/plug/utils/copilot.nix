@@ -13,7 +13,7 @@ let
   };
 in
 {
-  config = lib.mkIf (config.assistant == "copilot") {
+  programs.nixvim = {
     extraPlugins = with pkgs.vimUtils; [
       (buildVimPlugin {
         pname = "copilotchat";
