@@ -1,14 +1,15 @@
-{
-  config,
-  lib,
-  ...
-}: let
+{ config
+, lib
+, ...
+}:
+let
   inherit (lib.options) mkOption mkEnableOption;
   inherit (lib.types) nullOr listOf enum str;
-in {
+in
+{
   options.modules.device = {
     type = mkOption {
-      type = enum ["laptop" "desktop" "server" "hybrid" "lite" "vm" "iso"];
+      type = enum [ "laptop" "desktop" "server" "hybrid" "lite" "vm" ];
       default = "";
       description = ''
         The type/purpose of the device that will be used within the rest of the configuration.
@@ -26,7 +27,7 @@ in {
     # TODO: make this a list - apparently more than one cpu on a device is still doable
     cpu = {
       type = mkOption {
-        type = nullOr (enum ["pi" "intel" "vm-intel" "amd" "vm-amd"]);
+        type = nullOr (enum [ "pi" "intel" "vm-intel" "amd" "vm-amd" ]);
         default = null;
         description = ''
           The manifaturer/type of the primary system CPU.
@@ -55,7 +56,7 @@ in {
 
     gpu = {
       type = mkOption {
-        type = nullOr (enum ["pi" "amd" "intel" "nvidia" "hybrid-nv" "hybrid-amd"]);
+        type = nullOr (enum [ "pi" "amd" "intel" "nvidia" "hybrid-nv" "hybrid-amd" ]);
         default = null;
         description = ''
           The manifaturer/type of the primary system GPU. Allows the correct GPU
@@ -66,7 +67,7 @@ in {
 
     monitors = mkOption {
       type = listOf str;
-      default = [];
+      default = [ ];
       description = ''
         A list of monitors connected to the system.
 

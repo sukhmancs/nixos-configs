@@ -93,7 +93,7 @@ in {
 
     ##### CENTER MODULES #####
     "river/tags" = {
-      num-tags = 6;
+      num-tags = 9;
       tag-labels = ["一" "二" "三" "四" "五" "六" "七" "八" "九" "十"];
     };
 
