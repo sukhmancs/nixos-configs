@@ -4,7 +4,8 @@
   lib,
   ...
 }: let
-  inherit (osConfig.modules.style.colorScheme) colors;
+  inherit (osConfig) modules;
+  inherit (modules.themes) colors;
 in {
   programs.fzf = {
     enable = true;

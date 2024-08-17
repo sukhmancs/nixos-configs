@@ -1,18 +1,16 @@
 {
   programs.nixvim.plugins.flash = {
     enable = true;
-    labels = "asdfghjklqwertyuiopzxcvbnm";
-    search = {
-      mode = "fuzzy";
-    };
-    jump = {
-      autojump = true;
-    };
-    label = {
-      uppercase = false;
-      rainbow = {
-        enabled = false;
-        shade = 5;
+    settings = {
+        jump.autojump = true;
+        search.mode = "fuzzy";
+        labels = "asdfghjklqwertyuiopzxcvbnm";
+      label = {
+        uppercase = false;
+        rainbow = {
+          enabled = false;
+          shade = 5;
+        };
       };
     };
   };
