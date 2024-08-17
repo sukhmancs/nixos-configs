@@ -64,21 +64,21 @@
     ./plug/utils/yaml-companion.nix
   ];
   options = {
-    theme = lib.mkOption {
-      default = lib.mkDefault "paradise";
-      type = lib.types.enum [
-        "paradise"
-        "decay"
-        "edge-dark"
-        "mountain"
-        "tokyonight"
-        "everforest"
-        "everblush"
-        "jellybeans"
-        "aquarium"
-        "gruvbox"
-      ];
-    };
+    # theme = lib.mkOption {
+    #   default = lib.mkDefault "paradise";
+    #   type = lib.types.enum [
+    #     "paradise"
+    #     "decay"
+    #     "edge-dark"
+    #     "mountain"
+    #     "tokyonight"
+    #     "everforest"
+    #     "everblush"
+    #     "jellybeans"
+    #     "aquarium"
+    #     "gruvbox"
+    #   ];
+    # };
     assistant = lib.mkOption {
       default = "none";
       type = lib.types.enum [
