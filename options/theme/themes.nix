@@ -18,7 +18,7 @@
   };
   colorType = attrsOf (coercedTo str (removePrefix "#") hexColorType);
 
-  cfg = config.modules.theme;
+  cfg = config.modules.themes;
   slug = serializeTheme "${toString cfg.colorscheme.name}";
 
   getColorsFile = slug:
