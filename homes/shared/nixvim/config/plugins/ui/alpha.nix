@@ -2,7 +2,6 @@
   programs.nixvim.plugins.alpha =
     let
       nixFlake = [
-        nixFlake = [
           "                                              "
           " ██╗  ██╗██╗    ██╗      █████╗ ██╗███╗   ██╗ "
           " ╚██╗██╔╝██║    ██║     ██╔══██╗██║████╗  ██║ "
@@ -12,7 +11,6 @@
           " ╚═╝  ╚═╝╚═╝    ╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ "
           "                                              "
           "        github:sukhmancs/nixos-configs        "
-        ];
       ];
     in
     {
