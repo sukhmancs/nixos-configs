@@ -35,7 +35,7 @@
 
     modules.home.gaming = {
       starcitizen.enable = true; # game
-      runescape.enable = true;    # game
+      runescape.enable = false;    # game
     };
 
     modules.home.exclusive.packages.enable = true; # other packages that i need

@@ -40,7 +40,7 @@
 - [x] **Portable Workstation** - River, Waybar
 - [x] **Foot, Dunst, Mako**
 - [x] **Newsboat** - Add Rofi, lynx, vim, imv, pdf, browser, mpv, mpv loop, mpv float integration
-- [x] **Terminal Tools** - git, gh, lazygit, eza, btop, bat, nix-init, nix-index, fzf, ...
+- [x] **Terminal Tools** - git, gh, lazygit, eza, btop, nix-init, nix-index, fzf, ...
 - [x] **Zathura** - Custom colorscheme with hash codes.
 - [x] **VSCode** - Custom base16 color scheme (Done).
 - [x] **QT** - Use Kvantum
@@ -53,6 +53,8 @@
 ### In Progress 🚧
 
 - [ ] **Neovim**
+- [ ] **Nix gaming** - runescape, star-citizen
+- [ ] **bat** - base16 colors
 - [ ] **Schizofox Startup Page** - base16 colors
 - [ ] **Tailnet** - TailScale, WireGuard, ...
 - [ ] **Credit More Gracefully** - Add Name, Repo, etc.

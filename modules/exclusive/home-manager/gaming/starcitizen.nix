@@ -6,6 +6,6 @@ let
 in
 {
   config = mkIf gam.starcitizen.enable {
-    home.packages = [ inputs.nix-gaming.packages.${pkgs.system}.star-citizen ];
+    home.packages = [ inputs.nix-gaming.packages.${pkgs.hostPlatform.system}.star-citizen ];
   };
 }
