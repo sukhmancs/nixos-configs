@@ -32,7 +32,7 @@ in {
         GTK_THEME = "adw-gtk3-dark"; # "Catppuccin-Mocha-Standard-Blue-dark";
 
         # gtk applications should use filepickers specified by xdg
-        GTK_USE_PORTAL = "${toString (lib.boolToNum true)}";
+        GTK_USE_PORTAL = "1";
       };
     };
 
