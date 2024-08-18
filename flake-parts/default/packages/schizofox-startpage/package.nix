@@ -1,11 +1,12 @@
 {
   pkgs,
+  config,
   lib,
   stdenvNoCC,
 }: let
   name = "schizofox-startpage";
   version = "2024-06-18-unstable";
-  styleCss = pkgs.writeText "style.css" (builtins.readFile ./style.css);
+  styleCss = pkgs.writeText "style.css" (import ./style.nix { inherit config; });
 in
   stdenvNoCC.mkDerivation {
     inherit name version;
@@ -16,7 +17,7 @@ in
       runHook preInstall
       mkdir -p $out
       cp -rv $src/* $out
-      cp -v $styleCss $out
+      cp -v ${styleCss} $out
       runHook postInstall
     '';
 

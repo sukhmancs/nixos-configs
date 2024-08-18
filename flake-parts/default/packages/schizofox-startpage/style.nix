@@ -1,6 +1,7 @@
 {config, ...}:
-let inherit (config) modules;
-inherit (modules.themes) colors;
+let
+  inherit (config) modules;
+  inherit (modules.themes) colors;
 in ''
   /*define root variables */
   :root {
