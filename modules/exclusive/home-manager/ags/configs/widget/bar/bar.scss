@@ -24,27 +24,27 @@ $button-radius: $radius;
     padding: 2px;
 
     .barLeft {
-        margin: 7px 7px 7px 7px;
+        margin: 5px 5px 5px 5px;
         background-color: $base02;
         border: 0.5px solid $base01;
         border-radius: 15px;
-        padding: 2px 2px;
+        padding: 0px 0px;
     }
 
     .barCenter {
-        margin: 7px 7px 7px 7px;
+        margin: 5px 5px 5px 5px;
         background-color: $base02;
         border: 0.5px solid $base01;
         border-radius: 15px;
-        padding: 2px 0px 2px 0px;
+        padding: 0px 0px 0px 0px;
     }
 
     .barRight {
-        margin: 7px 7px 7px 7px;
+        margin: 5px 5px 5px 5px;
         background-color: $base02;
         border: 0.5px solid $base01;
         border-radius: 15px;
-        padding: 2px 0px 2px 0px;
+        padding: 0px 0px 0px 0px;
     }
 
     .panel-button {
