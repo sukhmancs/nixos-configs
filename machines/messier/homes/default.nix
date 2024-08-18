@@ -2,12 +2,14 @@
   imports = [
     ./foot # terminal
     ./gtk # gtk theme
-    ./neovim # full-featured text editor
+    ./nixvim
+    # ./neovim # full-featured text editor
     ./river # window manager
     ./rofi # application launcher #TODO: fix rofi style
     ./waybar # status bar
 
     ./alacritty.nix # terminal (just a backup terminal)
+    ./git.nix # git
     ./mako.nix # notification daemon
     ./schizofox.nix # firefox but hardened
     ./starship.nix # prompt

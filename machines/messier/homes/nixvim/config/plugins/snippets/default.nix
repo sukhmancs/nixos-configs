@@ -1,5 +1,5 @@
 {
   imports = [
-    ./rofi.nix
+    ./luasnip.nix
   ];
 }
