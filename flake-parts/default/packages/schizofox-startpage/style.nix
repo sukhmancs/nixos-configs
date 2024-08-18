@@ -203,7 +203,7 @@ in ''
   }
 
   label:after {
-    content: '';
+    content: "";
     position: absolute;
     top: 2.5px;
     left: 2.5px;
