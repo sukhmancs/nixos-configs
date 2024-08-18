@@ -1,14 +1,15 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: let
+{ config
+, pkgs
+, lib
+, ...
+}:
+let
   inherit (lib.modules) mkIf;
 
   inherit (config) modules;
   dev = modules.device;
-in {
+in
+{
   imports = [
     ./wireplumber
 
@@ -35,13 +36,13 @@ in {
       jack.enable = true; # JACK audio emulation
       alsa = {
         enable = true; # ALSA support
-        support32Bit = false; # if we're on x86 linux, we can support 32 bit
+        support32Bit = pkgs.stdenv.hostPlatform.isx86; # enable 32 bit also support on 64 bit system
       };
     };
 
     systemd.user.services = {
-      pipewire.wantedBy = ["default.target"];
-      pipewire-pulse.wantedBy = ["default.target"];
+      pipewire.wantedBy = [ "default.target" ];
+      pipewire-pulse.wantedBy = [ "default.target" ];
     };
   };
 }
