@@ -4,13 +4,18 @@
   osConfig,
   config,
   lib,
+  pkgs,
   ...
 }: let
   inherit (lib) mkIf;
   inherit (osConfig) modules;
   inherit (modules.themes) colors;
+
+  schizofoxStartpage = pkgs.callPackage ./schizofox-startpage { inherit osConfig; };
 in {
-  imports = [inputs.schizofox.homeManagerModule];
+  imports = [
+    inputs.schizofox.homeManagerModule
+  ];
   config = mkIf config.programs.firefox.enable {
     programs.schizofox = {
       enable = true;
@@ -57,7 +62,7 @@ in {
         drm.enable = true;
         disableWebgl = false;
         firefoxSync = true;
-        startPageURL = "file://${self'.packages.schizofox-startpage.outPath}/index.html";
+        startPageURL = "file://${schizofoxStartpage.outPath}/index.html";
       };
       # Schizofox also have default extensions: temporary-containers, localcdn-fork-of-decentraleyes, don-t-fuck-with-paste, clearurls, libredirect, etc
       extensions = {
