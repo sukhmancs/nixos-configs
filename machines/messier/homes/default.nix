@@ -8,7 +8,6 @@
     ./rofi # application launcher #TODO: fix rofi style
     ./waybar # status bar
 
-    ./alacritty.nix # terminal (just a backup terminal)
     ./git.nix # git
     ./mako.nix # notification daemon
     ./schizofox.nix # firefox but hardened

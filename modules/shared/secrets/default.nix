@@ -5,7 +5,6 @@
 }: let
   inherit (lib) mkAgenixSecret;
   inherit (lib.strings) optionalString;
-  #TODO: fix mail secrets starting only when lldap service is enabled.
   autheliaUser =
     if ((config ? services.authelia.instances.main) && config.services.authelia.instances.main.enable)
     then config.services.authelia.instances.main.user
@@ -30,9 +29,9 @@ in {
 
   age.secrets = {
     # TODO: system option for declaring host as a potential builder
-    nix-builderKey = mkAgenixSecret true {
-      file = "common/nix-builder.age";
-    };
+    # nix-builderKey = mkAgenixSecret true {
+    #   file = "common/nix-builder.age";
+    # };
 
     tailscale-client = mkAgenixSecret config.services.tailscale.enable {
       file = "client/tailscale.age";
@@ -42,14 +41,14 @@ in {
     };
 
     # secrets needed for peers
-    spotify-secret = mkAgenixSecret true {
+    spotify-secret = mkAgenixSecret config.services.spotifyd.enable {
       file = "client/spotify.age";
       owner = "xi";
       group = "users";
       mode = "400";
     };
 
-    wg-client = mkAgenixSecret true {
+    wg-client = mkAgenixSecret config.networking.wireguard.enable {
       file = "client/wg.age";
       owner = "xi";
       group = "users";
@@ -63,31 +62,15 @@ in {
       mode = "400";
     };
 
-    # database secrets
-    mongodb-secret = mkAgenixSecret false {
-      file = "db/mongodb.age";
-    };
-
-    garage-env = mkAgenixSecret false {
-      file = "db/garage.age";
-      mode = "400";
-      owner = "garage";
-      group = "garage";
-    };
-
     # service secrets
     wg-server = mkAgenixSecret config.networking.wireguard.enable {
       file = "service/wg.age";
     };
 
-    mkm-web = mkAgenixSecret false {
-      file = "service/mkm-web.age";
-      mode = "400";
-    };
-
-    github_notification_token = mkAgenixSecret true {
-      file = "service/github_notification_token.age";
-    };
+    # mkm-web = mkAgenixSecret true {
+    #   file = "service/mkm-web.age";
+    #   mode = "400";
+    # };
 
     matrix-secret = mkAgenixSecret config.services.matrix-synapse.enable {
       file = "service/matrix.age";
@@ -115,12 +98,12 @@ in {
       group = "nextcloud";
     };
 
-    attic-env = mkAgenixSecret false {
-      file = "service/attic.age";
-      mode = "400";
-      owner = "atticd";
-      group = "atticd";
-    };
+    # attic-env = mkAgenixSecret true {
+    #   file = "service/attic.age";
+    #   mode = "400";
+    #   owner = "atticd";
+    #   group = "atticd";
+    # };
 
     harmonia-privateKey = mkAgenixSecret config.services.harmonia.enable {
       file = "service/harmonia.age";
@@ -129,19 +112,19 @@ in {
       group = "harmonia";
     };
 
-    forgejo-runner-token = mkAgenixSecret false {
+    forgejo-runner-token = mkAgenixSecret config.services.forgejo.enable {
       file = "service/forgejo-runner-token.age";
       mode = "440";
       owner = "gitea-runner";
       group = "gitea-runner";
     };
 
-    forgejo-runner-config = mkAgenixSecret false {
-      file = "service/forgejo-runner-config.age";
-      mode = "440";
-      owner = "gitea-runner";
-      group = "gitea-runner";
-    };
+    # forgejo-runner-config = mkAgenixSecret config.services.forgejo.enable {
+    #   file = "service/forgejo-runner-config.age";
+    #   mode = "440";
+    #   owner = "gitea-runner";
+    #   group = "gitea-runner";
+    # };
 
     headscale-derp = mkAgenixSecret config.services.headscale.enable {
       file = "service/headscale-derp.age";
@@ -164,9 +147,6 @@ in {
       group = "suwayomi";
     };
 
-    #TODO: authelia secrets are being enabled when lldap is enabled
-    # fix this by making authelia secrets depend on authelia being enabled
-    # This is just a temporary fix
     # authelia secrets
     authelia_jwt_secret = mkAgenixSecret ((config ? services.authelia.instances.main)
       && config.services.authelia.instances.main.enable) {
@@ -225,37 +205,37 @@ in {
     };
 
     # mailserver secrets
-    mailserver-secret = mkAgenixSecret config.services.lldap.enable {
+    mailserver-secret = mkAgenixSecret config.modules.device.type == "server" {
       file = "mailserver/postmaster.age";
       mode = "400";
     };
 
-    mailserver-forgejo-secret = mkAgenixSecret config.services.lldap.enable {
+    mailserver-forgejo-secret = mkAgenixSecret config.modules.device.type == "server" {
       file = "mailserver/forgejo.age";
       owner = "forgejo";
       group = "forgejo";
       mode = "440";
     };
 
-    mailserver-vaultwarden-secret = mkAgenixSecret config.services.lldap.enable {
+    mailserver-vaultwarden-secret = mkAgenixSecret config.modules.device.type == "server" {
       file = "mailserver/vaultwarden.age";
       owner = "vaultwarden";
       mode = "400";
     };
 
-    mailserver-cloud-secret = mkAgenixSecret config.services.lldap.enable {
+    mailserver-cloud-secret = mkAgenixSecret config.modules.device.type == "server" {
       file = "mailserver/cloud.age";
       owner = "nextcloud";
       mode = "400";
     };
 
-    mailserver-matrix-secret = mkAgenixSecret config.services.lldap.enable {
+    mailserver-matrix-secret = mkAgenixSecret config.modules.device.type == "server" {
       file = "mailserver/matrix.age";
       owner = "matrix-synapse";
       mode = "400";
     };
 
-    mailserver-noreply-secret = mkAgenixSecret config.services.lldap.enable {
+    mailserver-noreply-secret = mkAgenixSecret config.modules.device.type == "server" {
       file = "mailserver/noreply.age";
       owner = "mastodon";
       mode = "400";
