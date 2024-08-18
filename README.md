@@ -1,4 +1,3 @@
-
 [![built with nix](https://img.shields.io/static/v1?logo=nixos&logoColor=white&label=&message=Built%20with%20Nix&color=41439a)](https://builtwithnix.org)
 [![Linux](https://img.shields.io/badge/Linux-%23.svg?logo=linux&color=FCC624&logoColor=black)](https://www.linux.org/)
 [![Top Language](https://img.shields.io/github/languages/top/sukhmancs/nixos-configs)]()
@@ -48,16 +47,17 @@
 - [x] **Rofi** - Custom colors
 - [x] **Zsh** - Setup with base16 colors
 - [x] **IDS** - lynis, vulnix
-- [x] **Apparmor** - *One profile a day keeps the hacker away*
+- [x] **Apparmor** - _One profile a day keeps the hacker away_
 - [x] **WebCord** - Base16 colors
 
 ### In Progress 🚧
 
 - [ ] **Neovim**
+- [ ] **Schizofox Startup Page** - base16 colors
 - [ ] **Tailnet** - TailScale, WireGuard, ...
 - [ ] **Credit More Gracefully** - Add Name, Repo, etc.
-- [ ] **Spotify** - Spicetify with custom colors (*Done but there is a bug*)
-- [ ] **Qemu** - Virtualization with GPU passthrough (*Done but not tested*)
+- [ ] **Spotify** - Spicetify with custom colors (_Done but there is a bug_)
+- [ ] **Qemu** - Virtualization with GPU passthrough (_Done but not tested_)
 - [ ] **ZFS** - Switch to ZFS
 - [ ] **Hardened Systemd**
 - [ ] **Modularize** - Anyrun, qt.nix, ...
