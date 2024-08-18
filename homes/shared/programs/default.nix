@@ -1,10 +1,10 @@
 {
   imports = [
+    ./bat
     ./btop
     ./git
     ./yazi
 
-    ./bat.nix
     ./dircolors.nix
     ./editorconfig.nix
     ./eza.nix
