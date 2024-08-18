@@ -86,7 +86,7 @@
 │   ├── roles 🎭      # Roles that can be assigned to a host.
 │   └── shared 🤝     # Modules that are shared across multiple hosts.
 ├── flake-parts ❄️    # flake.parts.
-│   ├── default 📦    # Packages that are available to all hosts.
+│   ├── default 📦    # Custom packages that are available to all hosts.
 │   ├── git-hooks 🔗  # Git hooks.
 │   ├── lib 📚        # Common functions and variables.
 │   ├── npins 📌      # Nix packages that are pinned.
@@ -95,9 +95,9 @@
 │   ├── keys 🔑       # Public keys for the hosts.
 │   ├── live-media 📀 # Live media available for build.
 │   └── treefmt 🌳    # Treefmt configuration.
-├── options ⚙️       # Custom options for the hosts.
-├── secrets 🔒       # Agenix secrets.
-└── themes 🎨        # Custom base16 themes.
+├── options ⚙️        # Custom options for the hosts.
+├── secrets 🔒        # Agenix secrets.
+└── themes 🎨         # Custom base16 themes.
 ```
 
 ## Privacy and Security
