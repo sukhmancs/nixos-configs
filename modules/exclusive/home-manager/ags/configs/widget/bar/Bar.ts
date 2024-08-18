@@ -1,6 +1,5 @@
 import Cava from "./buttons/Cava";
 import Date from "./buttons/Date";
-// import Launcher from "./buttons/Launcher"
 import Launcher from "./buttons/Launcher";
 import Chat from "./buttons/Chat";
 import Media from "./buttons/Media";
@@ -9,30 +8,8 @@ import SysTray from "./buttons/SysTray";
 import SystemIndicators from "./buttons/SystemIndicators";
 import Taskbar from "./buttons/Taskbar";
 import Workspaces from "./buttons/Workspaces";
-import { RoundedAngleEnd } from "../../roundedCorners/index.js";
 import Wallpapers from "./buttons/Wallpapers";
 import BatteryBar from "./buttons/BatteryBar";
-import options from "options";
-
-const { start, center, end } = options.bar.layout;
-const pos = options.bar.position.bind();
-
-export type BarWidget = keyof typeof widget;
-
-const widget = {
-    battery: BatteryBar,
-    cava: Cava,
-    date: Date,
-    // launcher: Launcher,
-    media: Media,
-    powermenu: PowerMenu,
-    systray: SysTray,
-    system: SystemIndicators,
-    taskbar: Taskbar,
-    workspaces: Workspaces,
-    wallpapers: Wallpapers,
-    expander: () => Widget.Box({ expand: true }),
-};
 
 export default (monitor: number) =>
     Widget.Window({
@@ -41,10 +18,10 @@ export default (monitor: number) =>
         name: `bar${monitor}`,
         exclusivity: "exclusive",
         anchor: ["top", "left", "right"],
-        layer: "top",
+        // layer: "top",
         margins: [8, 8, 0, 8],
         child: Widget.CenterBox({
-            css: "min-height: 1px; min-width: 1px;",
+            // css: "min-height: 1px; min-width: 1px;",
             startWidget: Widget.Box({
                 hexpand: true,
                 children: [
@@ -54,7 +31,6 @@ export default (monitor: number) =>
                             Launcher(),
                             Chat(),
                             Media(monitor, "start"),
-                            // RoundedAngleEnd("topright", {class_name: "angle"})
                         ],
                     }),
                 ],
@@ -75,9 +51,7 @@ export default (monitor: number) =>
                     Widget.Box({
                         className: "barRight",
                         children: [
-                            // RoundedAngleEnd("topleft", {class_name: "angle", click_through: true}),
                             // Cava(monitor, "end"),
-                            // TODO: re-enable below
                             SysTray(monitor, "end"),
                             BatteryBar(monitor, "end"),
                             SystemIndicators(monitor, "end"),

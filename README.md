@@ -53,6 +53,7 @@
 ### In Progress 🚧
 
 - [ ] **Neovim**
+- [ ] **ags** - left side will look good
 - [ ] **Nix gaming** - runescape, star-citizen
 - [ ] **bat** - base16 colors
 - [ ] **Schizofox Startup Page** - base16 colors
