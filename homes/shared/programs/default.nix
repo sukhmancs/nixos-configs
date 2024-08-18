@@ -21,7 +21,6 @@
     ./ranger.nix
     ./ripgrep.nix
     ./ssh.nix
-    ./shellcolor.nix
     ./tealdeer.nix
     ./transient-services.nix
     ./xdg.nix

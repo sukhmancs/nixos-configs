@@ -33,6 +33,11 @@
       rbw.enable = true;      # bitwarden password manager using rofi
     };
 
+    modules.home.gaming = {
+      starcitizen.enable = true; # game
+      runescape.enable = true;    # game
+    };
+
     modules.home.exclusive.packages.enable = true; # other packages that i need
   };
 }

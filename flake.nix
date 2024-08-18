@@ -106,6 +106,9 @@
       flake = false;
     };
 
+    # Gaming on NixOS
+    nix-gaming.url = "github:fufexan/nix-gaming";
+
     # Impermanence
     impermanence.url = "github:nix-community/impermanence";
 
