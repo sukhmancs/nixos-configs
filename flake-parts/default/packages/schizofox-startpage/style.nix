@@ -246,4 +246,4 @@ in ''
     color: var(--background-color);
     background-color: var(--hex-gradient-1);
   }
-'';
+''
