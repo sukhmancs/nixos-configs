@@ -8,7 +8,7 @@ in ''
     --icon-color: #${colors.base00};
     --hex-gradient-1: #${colors.base0E};
     --hex-gradient-2: #${colors.base0E};
-    --blob-color: #${colors.base0E};
+    --blob-color: #${colors.base05};
   }
 
   body {
