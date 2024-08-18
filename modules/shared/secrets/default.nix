@@ -1,8 +1,8 @@
-{
-  config,
-  lib,
-  ...
-}: let
+{ config
+, lib
+, ...
+}:
+let
   inherit (lib) mkAgenixSecret;
   inherit (lib.strings) optionalString;
   autheliaUser =
@@ -12,13 +12,14 @@
 
   sys = config.modules;
   cfg = sys.services;
-in {
+in
+{
   users = {
     groups = {
-      lldap-secrets = {};
-      gitea-secrets = {};
+      lldap-secrets = { };
+      gitea-secrets = { };
 
-      miniflux-secrets = {};
+      miniflux-secrets = { };
     };
   };
 
@@ -148,35 +149,45 @@ in {
     };
 
     # authelia secrets
-    authelia_jwt_secret = mkAgenixSecret ((config ? services.authelia.instances.main)
-      && config.services.authelia.instances.main.enable) {
-      file = "authelia/jwt_secret.age";
-      owner = autheliaUser;
-    };
+    authelia_jwt_secret = mkAgenixSecret
+      ((config ? services.authelia.instances.main)
+        && config.services.authelia.instances.main.enable)
+      {
+        file = "authelia/jwt_secret.age";
+        owner = autheliaUser;
+      };
 
-    authelia_session_secret = mkAgenixSecret ((config ? services.authelia.instances.main)
-      && config.services.authelia.instances.main.enable) {
-      file = "authelia/session_secret.age";
-      owner = autheliaUser;
-    };
+    authelia_session_secret = mkAgenixSecret
+      ((config ? services.authelia.instances.main)
+        && config.services.authelia.instances.main.enable)
+      {
+        file = "authelia/session_secret.age";
+        owner = autheliaUser;
+      };
 
-    authelia_storage_encryption_key = mkAgenixSecret ((config ? services.authelia.instances.main)
-      && config.services.authelia.instances.main.enable) {
-      file = "authelia/storage_encryption_key.age";
-      owner = autheliaUser;
-    };
+    authelia_storage_encryption_key = mkAgenixSecret
+      ((config ? services.authelia.instances.main)
+        && config.services.authelia.instances.main.enable)
+      {
+        file = "authelia/storage_encryption_key.age";
+        owner = autheliaUser;
+      };
 
-    authelia_postgre_password = mkAgenixSecret ((config ? services.authelia.instances.main)
-      && config.services.authelia.instances.main.enable) {
-      file = "authelia/postgre_password.age";
-      owner = autheliaUser;
-    };
+    authelia_postgre_password = mkAgenixSecret
+      ((config ? services.authelia.instances.main)
+        && config.services.authelia.instances.main.enable)
+      {
+        file = "authelia/postgre_password.age";
+        owner = autheliaUser;
+      };
 
-    authelia_smtp_password = mkAgenixSecret ((config ? services.authelia.instances.main)
-      && config.services.authelia.instances.main.enable) {
-      file = "authelia/smtp_pass.age";
-      owner = autheliaUser;
-    };
+    authelia_smtp_password = mkAgenixSecret
+      ((config ? services.authelia.instances.main)
+        && config.services.authelia.instances.main.enable)
+      {
+        file = "authelia/smtp_pass.age";
+        owner = autheliaUser;
+      };
 
     # lldap secrets
     lldap_jwt_secret = mkAgenixSecret config.services.lldap.enable {
@@ -205,46 +216,48 @@ in {
     };
 
     # mailserver secrets
-    mailserver-secret = mkAgenixSecret config.modules.device.type == "server" {
+    mailserver-secret = mkAgenixSecret (config.modules.device.type == "server") {
       file = "mailserver/postmaster.age";
       mode = "400";
     };
 
-    mailserver-forgejo-secret = mkAgenixSecret config.modules.device.type == "server" {
+    mailserver-forgejo-secret = mkAgenixSecret (config.modules.device.type == "server") {
       file = "mailserver/forgejo.age";
       owner = "forgejo";
       group = "forgejo";
       mode = "440";
     };
 
-    mailserver-vaultwarden-secret = mkAgenixSecret config.modules.device.type == "server" {
+    mailserver-vaultwarden-secret = mkAgenixSecret (config.modules.device.type == "server") {
       file = "mailserver/vaultwarden.age";
       owner = "vaultwarden";
       mode = "400";
     };
 
-    mailserver-cloud-secret = mkAgenixSecret config.modules.device.type == "server" {
+    mailserver-cloud-secret = mkAgenixSecret (config.modules.device.type == "server") {
       file = "mailserver/cloud.age";
       owner = "nextcloud";
       mode = "400";
     };
 
-    mailserver-matrix-secret = mkAgenixSecret config.modules.device.type == "server" {
+    mailserver-matrix-secret = mkAgenixSecret (config.modules.device.type == "server") {
       file = "mailserver/matrix.age";
       owner = "matrix-synapse";
       mode = "400";
     };
 
-    mailserver-noreply-secret = mkAgenixSecret config.modules.device.type == "server" {
+    mailserver-noreply-secret = mkAgenixSecret (config.modules.device.type == "server") {
       file = "mailserver/noreply.age";
       owner = "mastodon";
       mode = "400";
     };
 
-    mailserver-authelia-secret = mkAgenixSecret ((config ? services.authelia.instances.main)
-      && config.services.authelia.instances.main.enable) {
-      file = "mailserver/authelia.age";
-      owner = autheliaUser;
-    };
+    mailserver-authelia-secret = mkAgenixSecret
+      ((config ? services.authelia.instances.main)
+        && config.services.authelia.instances.main.enable)
+      {
+        file = "mailserver/authelia.age";
+        owner = autheliaUser;
+      };
   };
 }
