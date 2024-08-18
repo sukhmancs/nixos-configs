@@ -1,9 +1,11 @@
 {
+  pkgs,
   lib,
   stdenvNoCC,
 }: let
   name = "schizofox-startpage";
-  version = "2023-12-29-unstable";
+  version = "2024-06-18-unstable";
+  styleCss = pkgs.writeText "style.css" (builtins.readFile ./style.css);
 in
   stdenvNoCC.mkDerivation {
     inherit name version;
@@ -14,12 +16,11 @@ in
       runHook preInstall
       mkdir -p $out
       cp -rv $src/* $out
+      cp -v $styleCss $out
       runHook postInstall
     '';
 
     meta = {
-      description = "My personal startpage";
-      license = lib.licenses.gpl3Only;
-      maintainers = with lib.maintainers; [NotAShelf];
+      description = "Startpage for Schizofox";
     };
   }

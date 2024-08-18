@@ -32,6 +32,7 @@
 
     dhall.dhall-lang # Dhall - Dhall language support
     hashicorp.terraform # Provides support for HashiCorp Terraform
+    ritwickdey.liveserver # Live Server - Launch a development local Server with live reload feature for static & dynamic pages
     tamasfe.even-better-toml # TOML language support
     llvm-vs-code-extensions.vscode-clangd # Clangd - C/C++ language support
     stkb.rewrap # Rewrap - rewrap comments and other text
@@ -40,7 +41,6 @@
     bierner.markdown-mermaid # Markdown Mermaid - Mermaid diagram support
     golang.go # Go language support
     vlanguage.vscode-vlang # support for Vlang
-    vue.vscode-typescript-vue-plugin # Vue
     vue.volar # language server for Vue
     ms-vscode.vscode-typescript-next # TypeScript
     ms-toolsai.jupyter # Jupyter - Jupyter notebook support
@@ -107,7 +107,6 @@ in {
         ++ vscodeMarketplaceExtensionsRelease
         ++ openVsxExtensionsRelease
         ++ [
-          pkgs.vscode-extensions."aaron-bond".better-comments # Better Comments
           pkgs.vscode-extensions."2gua".rainbow-brackets # Rainbow Brackets
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
@@ -154,9 +153,9 @@ in {
         "editor.scrollbar.verticalScrollbarSize" = 6;
         "editor.fontSize" = 16;
         "editor.fontLigatures" = true;
-        "editor.formatOnPaste" = true;
-        "editor.formatOnSave" = true;
-        "editor.formatOnType" = false;
+        # "editor.formatOnPaste" = true;
+        # "editor.formatOnSave" = true;
+        # "editor.formatOnType" = false;
         "editor.overviewRulerBorder" = false;
         "editor.renderLineHighlight" = "all";
         "editor.inlineSuggest.enabled" = true;

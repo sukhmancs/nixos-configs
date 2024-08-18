@@ -1,81 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel=" shortcut icon" type="image/png" href="assets/icons/favicon.png" />
-    <link rel="stylesheet" href="app.css" />
-    <script src="https://unpkg.com/lucide@latest"></script>
-  </head>
 
-	<!-- 
-      ╔╗ ╔═╗╔╗╔╔╦╗╔═╗
-      ╠╩╗║╣ ║║║ ║ ║ ║
-      ╚═╝╚═╝╝╚╝ ╩ ╚═╝
-      -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xi's Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/2b5d740196.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@200;500&display=swap" rel="stylesheet">
+</head>
 
-	<body class="">
-		<button id="themeButton">
-			<i id="themeIcon" icon-name="moon"></i>
-		</button>
-		<div class="container">
-			<!-- Clock and Greetings  -->
+<body>
+    <div id="blob"></div>
+    <div id="blur"></div>
 
-			<div class="timeBlock">
-				<div class="clock">
-					<div id="hour"></div>
-					<div id="separator"></div>
-					<div id="minutes"></div>
-				</div>
-				<div id="greetings"></div>
-			</div>
+    <div class="settings">
+        <i class="fas fa-cog" id="settings-button"></i>
+    </div>
 
-			<!-- Date and Weather  -->
+    <div class="sidemenu" id="sidemenu">
+        <!-- Add settings options -->
+        <div class="settings-options">
+            <div class="setting">
+                <div class="setting-name">
+                    <p>Mouse Blob</p>
+                </div>
+                <input type="checkbox" id="blob-switch"><label for="blob-switch">Toggle</label>
+            </div>
+            <div class="setting">
+                <div class="setting-name">
+                    <p>Rotation</p>
+                </div>
+                <input type="checkbox" id="rotation-switch"><label for="rotation-switch">Toggle</label>
+            </div>
+            <!-- <div class="setting">
+                <div class="setting-name">
+                    <p>Background Color</p>
+                </div>
+                <input type="color" id="color-background" value="#101112">
+            </div>
+            <div class="setting">
+                <div class="setting-name">
+                    <p>Primary Color</p>
+                </div>
+                <input type="color" id="color-primary" value="#00ffb8">
+            </div>
+            <div class="setting">
+                <div class="setting-name">
+                    <p>Secondary Color</p>
+                </div>
+                <input type="color" id="color-secondary" value="#13ce9a">
+            </div>
+            <div class="setting">
+                <div class="setting-name">
+                    <p>Icon Color</p>
+                </div>
+                <input type="color" id="color-icon" value="#000000">
+            </div>
+            <div class="setting">
+                <div class="setting-name">
+                    <p>Blob Color</p>
+                </div>
+                <input type="color" id="color-blob" value="#ffffff">
+            </div> -->
+            <div class="setting" style="display:flex; justify-content:center">
+                <a class="update-button" onclick="updateColor()">Update</a>
+            </div>
+        </div>
+    </div>
 
-			<div class="weatherBlock">
-				<div class="date">
-					<div id="month"></div>
-					<div id="day"></div>
-				</div>
-				<div class="weather">
-					<div class="weatherIcon">
-						<img src="assets/icons/OneDark/unknown.png" />
-					</div>
-					<div class="weatherValue">
-						<p>- °<span class="g">c</span></p>
-					</div>
-					<div class="weatherDescription">
-						<p></p>
-					</div>
-				</div>
-			</div>
+    <div class="grid">
+        <div class="center">
+            <div class="hexagon">
+                <a href="https://github.com/sukhmancs" class="hex-icon" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+        </div>
+        <div></div>
+        <div class="center">
+            <div class="hexagon">
+                <a href="https://getpocket.com" class="hex-icon" target="_blank">
+                    <i class="fa-brands fa-get-pocket"></i>
+                </a>
+            </div>
+        </div>
+        <div></div>
+        <div class="center">
+            <div class="hexagon">
+                <a href="https://www.youtube.com" class="hex-icon" target="_blank">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+        <div></div>
+        <div class="center">
+            <div class="hexagon">
+                <a href="https://webwail.xilain.dev" class="hex-icon" target="_blank">
+                    <i class="fa-regular fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+        <div></div>
+        <div class="center">
+            <div class="hexagon">
+                <a href="https://en.wikipedia.com/" class="hex-icon" target="_blank">
+                    <i class="fa-brands fa-wikipedia-w"></i>
+                </a>
+            </div>
+        </div>
+        <div class="center">
+            <div class="hexagon">
+                <a href="https://open.spotify.com" class="hex-icon" target="_blank">
+                    <i class="fa-brands fa-spotify"></i>
+                </a>
+            </div>
+        </div>
+        <!-- 4chan -->
+        <div class="center">
+            <div class="hexagon">
+                <a href="https://www.4chan.org/a/" class="hex-icon" target="_blank">
+                    <i class="fa-solid fa-fingerprint"></i>
+                </a>
+            </div>
+        </div>
+        <div class="center">
+            <div class="hexagon">
+                <a href="https://www.4chan.org/ck/" class="hex-icon" target="_blank">
+                    <i class="fa-solid fa-fingerprint"></i>
+                </a>
+            </div>
+        </div>
+        <div class="center">
+            <div class="hexagon">
+                <a href="https://www.4chan.org/g/" class="hex-icon" target="_blank">
+                    <i class="fa-solid fa-fingerprint"></i>
+                </a>
+            </div>
+        </div>
+        <div class="center">
+            <div class="hexagon">
+                <a href="https://www.4chan.org/w/" class="hex-icon" target="_blank">
+                    <i class="fa-solid fa-fingerprint"></i>
+                </a>
+            </div>
+        </div>
+        <div class="center">
+            <div class="hexagon">
+                <a href="https://www.4chan.org/wg/" class="hex-icon" target="_blank">
+                    <i class="fa-solid fa-fingerprint"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Reddit -->
+        <div class="center">
+            <div class="hexagon">
+                <a href="https://www.reddit.com/r/android" class="hex-icon" target="_blank">
+                    <i class="fa-brands fa-reddit"></i>
+                </a>
+            </div>
+        </div>
+        <div class="center">
+            <div class="hexagon">
+                <a href="https://www.reddit.com/r/sysadmin" class="hex-icon" target="_blank">
+                    <i class="fa-brands fa-reddit"></i>
+                </a>
+            </div>
+        </div>
+        <div class="center">
+            <div class="hexagon">
+                <a href="https://www.reddit.com/r/linux" class="hex-icon" target="_blank">
+                    <i class="fa-brands fa-reddit"></i>
+                </a>
+            </div>
+        </div>
+        <div class="center">
+            <div class="hexagon">
+                <a href="https://www.reddit.com/r/unixporn" class="hex-icon" target="_blank">
+                    <i class="fa-brands fa-reddit"></i>
+                </a>
+            </div>
+        </div>
+        <div class="center">
+            <div class="hexagon">
+                <a href="https://www.reddit.com/r/hyprland" class="hex-icon" target="_blank">
+                    <i class="fa-brands fa-reddit"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
 
-			<div class="linksBlock" id="linksBlock">
-				<div class="linksBlockLeft" id="linksBlockLeft"></div>
-				<div class="linksBlockRight" id="linksBlockRight"></div>
-			</div>
-		</div>
+<script src="cookies.js" defer></script>
+<script src="script.js" defer></script>
+<script src="color.js" async defer></script>
 
-		<!-- Config  -->
-		<script src="config.js"></script>
-
-    <!-- Scripts  -->
-    <script src="assets/js/layout.js"></script>
-    <script src="assets/js/time.js"></script>
-    <script src="assets/js/greeting.js"></script>
-	<script src="assets/js/weather.js"></script>
-	<script src="assets/js/theme.js"></script>
-    <script src="assets/js/title.js"></script>
-    
-    <!-- Generators  -->
-    <script src="assets/js/buttons.js"></script>
-    <script src="assets/js/lists.js"></script>
-
-		<!-- Icons -->
-		<script>
-			lucide.createIcons();
-		</script>
-	</body>
-
-	<!-- Developed and designed by Miguel Ávila: -->
-	<!-- https://avila.sh-->
 </html>
