@@ -35,6 +35,7 @@ in {
 
     xdg.configFile."hypr/hyprpaper.conf" = {
       text = let
+      # Todo: Host wallpapers on github using flake
         #wallpaper = "${wallpkgs.catppuccin}/share/wallpapers/catppuccin/01.png";
         wallpaper = "$HOME/.config/hypr/assets/wall1.jpg";
       in ''

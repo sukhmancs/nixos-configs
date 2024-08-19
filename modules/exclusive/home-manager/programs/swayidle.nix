@@ -1,49 +1,69 @@
+{ pkgs
+, lib
+, config
+, osConfig
+, ...
+}:
+let
+  inherit (lib) mkIf;
+
+  dev = osConfig.modules.device.type;
+
+  swaylock = "${config.programs.swaylock.package}/bin/swaylock";
+  pgrep = "${pkgs.procps}/bin/pgrep";
+  pactl = "${pkgs.pulseaudio}/bin/pactl";
+  hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
+  swaymsg = "${config.wayland.windowManager.sway.package}/bin/swaymsg";
+
+  isLocked = "${pgrep} -x ${swaylock}";
+  # lockTime = 4 * 60; # TODO: configurable desktop (10 min)/laptop (4 min)
+  lockTime = if dev == "laptop" then 4 * 60 else 10 * 60; # 4 minutes for laptops, 10 minutes for desktops
+
+  # Makes two timeouts: one for when the screen is not locked (lockTime+timeout) and one for when it is.
+  afterLockTimeout =
+    { timeout
+    , command
+    , resumeCommand ? null
+    ,
+    }: [
+      {
+        timeout = lockTime + timeout;
+        inherit command resumeCommand;
+      }
+      {
+        command = "${isLocked} && ${command}";
+        inherit resumeCommand timeout;
+      }
+    ];
+in
 {
-  osConfig,
-  config,
-  pkgs,
-  lib,
-  ...
-}: let
-  inherit (lib) getExe mkIf;
-  locker = getExe pkgs.swaylock-effects;
-
-  systemctl = "${pkgs.systemd}/bin/systemctl";
-  suspendScript = pkgs.writeShellScript "suspend-script" ''
-    ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
-    # only suspend if audio isn't running
-    if [ $? == 1 ]; then
-      ${systemctl} suspend
-    fi
-  '';
-in {
   config = mkIf config.services.swayidle.enable {
-    systemd.user.services.swayidle.Install.WantedBy = ["hyprland-session.target"];
-
-    # screen idle
     services.swayidle = {
-      extraArgs = ["-d" "-w"];
-      events = [
-        {
-          event = "before-sleep";
-          command = "${pkgs.systemd}/bin/loginctl lock-session";
-        }
-        {
-          event = "lock";
-          command = "${locker}";
-        }
-      ];
-      timeouts = [
-        {
-          timeout = 900;
-          command = suspendScript.outPath;
-        }
-        {
-          timeout = 1200;
-          command = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
-          resumeCommand = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on";
-        }
-      ];
+      systemdTarget = "graphical-session.target";
+      timeouts =
+        # Lock screen
+        [
+          {
+            timeout = lockTime;
+            #Todo - host my own wallpapers on github using flake then uncomment below
+            # command = "${swaylock} -i ${config.wallpaper} --daemonize --grace 15";
+            command = "${swaylock} --daemonize --grace 15";
+          }
+        ]
+        ++
+        # Turn off displays (hyprland)
+        (lib.optionals config.wayland.windowManager.hyprland.enable (afterLockTimeout {
+          timeout = 40;
+          command = "${hyprctl} dispatch dpms off";
+          resumeCommand = "${hyprctl} dispatch dpms on";
+        }))
+        ++
+        # Turn off displays (sway)
+        (lib.optionals config.wayland.windowManager.sway.enable (afterLockTimeout {
+          timeout = 40;
+          command = "${swaymsg} 'output * dpms off'";
+          resumeCommand = "${swaymsg} 'output * dpms on'";
+        }));
     };
   };
 }
