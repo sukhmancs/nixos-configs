@@ -89,7 +89,7 @@ in {
     # light or dark
     polarity = mkOption {
       type = str;
-      default = polarity slug;
+      default = polarity slug; # "dark" or "light"
       description = ''
         The polarity of the colorscheme.
       '';
