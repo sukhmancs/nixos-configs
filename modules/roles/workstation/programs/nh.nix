@@ -1,13 +1,14 @@
-{
-  pkgs,
-  lib,
-  ...
-}: let
+{ pkgs
+, lib
+, ...
+}:
+let
   inherit (builtins) concatStringsSep length;
   inherit (lib.lists) zipListsWith;
   inherit (lib.strings) escapeShellArg;
-in {
-  environment.variables.FLAKE = lib.mkForce "/home/xi/.config/nixos-configs";
+in
+{
+  environment.variables.FLAKE = lib.mkForce "$HOME/.config/nixos-configs";
 
   programs.nh = {
     enable = true;
@@ -27,42 +28,44 @@ in {
   # and frankly ugly icons with nerdfonts ones. they look a little larger
   # than before, but overall consistency is better in general.
   nixpkgs.overlays = [
-    (_: prev: let
-      oldIcons = [
-        "↑"
-        "↓"
-        "⏱"
-        "⏵"
-        "✔"
-        "⏸"
-        "⚠"
-        "∅"
-        "∑"
-      ];
-      newIcons = [
-        "f062" # 
-        "f063" # 
-        "f520" # 
-        "f04b" # 
-        "f00c" # 
-        "f04c" # 
-        "f071" # 
-        "f1da" # 
-        "f04a0" # 󰒠
-      ];
-    in {
-      nix-output-monitor = assert length oldIcons == length newIcons;
-        prev.nix-output-monitor.overrideAttrs (o: {
-          postPatch =
-            (o.postPatch or "")
-            + ''
-              sed -i ${escapeShellArg (
-                concatStringsSep "\n" (zipListsWith (a: b: "s/${a}/\\\\x${b}/") oldIcons newIcons)
-              )} lib/NOM/Print.hs
+    (_: prev:
+      let
+        oldIcons = [
+          "↑"
+          "↓"
+          "⏱"
+          "⏵"
+          "✔"
+          "⏸"
+          "⚠"
+          "∅"
+          "∑"
+        ];
+        newIcons = [
+          "f062" # 
+          "f063" # 
+          "f520" # 
+          "f04b" # 
+          "f00c" # 
+          "f04c" # 
+          "f071" # 
+          "f1da" # 
+          "f04a0" # 󰒠
+        ];
+      in
+      {
+        nix-output-monitor = assert length oldIcons == length newIcons;
+          prev.nix-output-monitor.overrideAttrs (o: {
+            postPatch =
+              (o.postPatch or "")
+              + ''
+                sed -i ${escapeShellArg (
+                  concatStringsSep "\n" (zipListsWith (a: b: "s/${a}/\\\\x${b}/") oldIcons newIcons)
+                )} lib/NOM/Print.hs
 
-              sed -i 's/┌/╭/' lib/NOM/Print/Tree.hs
-            '';
-        });
-    })
+                sed -i 's/┌/╭/' lib/NOM/Print/Tree.hs
+              '';
+          });
+      })
   ];
 }
