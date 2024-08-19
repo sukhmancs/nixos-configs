@@ -32,11 +32,15 @@
       anyrun.enable = true;    # application launcher
       rbw.enable = true;       # bitwarden password manager using rofi
       waypipe.enable = true;   # wayland over ssh
+      sublime-music.enable = true; # music player
+      nautilus.enable = true;  # file manager
     };
 
     modules.home.gaming = {
       starcitizen.enable = false;  # game
       runescape.enable = false;    # game
+      factorio.enable = false;     # game
+      lutris.enable = false;       # game manager
     };
 
     modules.home.exclusive.packages.enable = true; # other packages that i need

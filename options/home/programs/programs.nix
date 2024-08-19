@@ -2,10 +2,9 @@
   inherit (lib.options) mkEnableOption;
 in {
   options.modules.home.programs = {
-    # anyrun options is being used in exclusive/home-manager/programs/anyrun.nix
     anyrun.enable = mkEnableOption {
       default = false;
-      description = "Enable AnyRun";
+      description = "Application runner";
     };
 
     ags.enable = mkEnableOption {
@@ -40,7 +39,7 @@ in {
 
     hyprpaper.enable = mkEnableOption {
       default = false;
-      description = "Enable Hyprpaper";
+      description = "Wallpaper manager";
     };
 
     libreoffice.enable = mkEnableOption {
@@ -60,7 +59,17 @@ in {
 
     waypipe.enable = mkEnableOption {
       default = false;
-      description = "Enable Waypipe";
+      description = "Wayland over SSH";
+    };
+
+    sublime-music.enable = mkEnableOption {
+      default = false;
+      description = "Music player";
+    };
+
+    nautilus.enable = mkEnableOption {
+      default = false;
+      description = "Enable Gnome File Manager";
     };
   };
 }

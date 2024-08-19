@@ -2,7 +2,6 @@
   inherit (lib.options) mkEnableOption;
 in {
   options.modules.home.gaming = {
-    # anyrun options is being used in exclusive/home-manager/programs/anyrun.nix
     starcitizen.enable = mkEnableOption {
       default = false;
       description = "Enable Star Citizen";
@@ -11,6 +10,16 @@ in {
     runescape.enable = mkEnableOption {
       default = false;
       description = "Enable Runescape";
+    };
+
+    factorio.enable = mkEnableOption {
+      default = false;
+      description = "Enable Factorio";
+    };
+
+    lutris.enable = mkEnableOption {
+      default = false;
+      description = "Enable Lutris";
     };
   };
 }
