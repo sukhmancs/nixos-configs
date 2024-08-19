@@ -12,16 +12,11 @@
 in {
   config = mkIf prg.enable {
     home = {
-      packages = [pkgs.nautilus];
+      packages = [
+        pkgs.nautilus # File manager
+        pkgs.nautilus-open-any-terminal # Open terminal in current directory
+        pkgs.gnome.sushi # File previewer
+      ];
     };
-
-    # Enable the Open Any Terminal extension
-    programs.nautilus-open-any-terminal = {
-      enable = true;
-      terminal = "$TERMINAL";
-    };
-
-    # Enable the Sushi file previewer
-    services.gnome.sushi.enable = true;
   };
 }
