@@ -49,14 +49,14 @@
 - [x] **IDS** - lynis, vulnix
 - [x] **Apparmor** - _One profile a day keeps the hacker away_
 - [x] **WebCord** - Base16 colors
-- [ ] **WayPipe** - Wayland over ssh
+- [x] **WayPipe** - Wayland over ssh
+- [x] **kitty** - base16 colors
+- [x] **Nix gaming** - runescape, star-citizen
 
 ### In Progress 🚧
 
 - [ ] **Neovim**
 - [ ] **wallpapers** - wallpaper flake
-- [ ] **kitty** - base16 colors
-- [ ] **Nix gaming** - runescape, star-citizen
 - [ ] **bat** - base16 colors
 - [ ] **Schizofox Startup Page** - base16 colors
 - [ ] **Tailnet** - TailScale, WireGuard, ...

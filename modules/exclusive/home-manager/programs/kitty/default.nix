@@ -5,6 +5,7 @@
   lib,
   ...
 }: let
+  inherit (lib) mkIf;
   inherit (osConfig) modules;
   inherit (modules.themes) colors;
 in {
@@ -32,7 +33,6 @@ in {
         "x-scheme-handler/terminal" = "kitty.desktop";
       };
     };
-    home.sessionVariables.NIX_INSPECT_EXCLUDE = "kitty ncurses imagemagick";
     programs.kitty = {
       font = {
         name = "FiraCode Nerd Font";
@@ -77,11 +77,11 @@ in {
         color14 = "${colors.base0F}";
         color15 = "${colors.base03}";
         color16 = "${colors.base09}";
-        color17 = "${colors.error}";
+        color17 = "${colors.base08}";
         color18 = "${colors.base04}";
         color19 = "${colors.base07}";
         color20 = "${colors.base0E}";
-        color21 = "${colors.colors.base05}";
+        color21 = "${colors.base05}";
       };
     };
   };
