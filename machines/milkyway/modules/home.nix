@@ -15,6 +15,7 @@
         mangohud.enable = false;   # game overlay
         swaylock.enable = true;    # screen locker
         mpv.enable = true;         # media player
+        kitty.enable = true;       # terminal emulator
       };
       gtk.enable = true;  # gtk theme
       qt.enable = true;   # qt theme with kvantum

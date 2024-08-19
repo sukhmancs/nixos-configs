@@ -11,6 +11,9 @@ in {
     home.packages = with pkgs; [
       libsixel
     ];
+
+    home.sessionVariables.NIX_INSPECT_EXCLUDE = "foot kitty ncurses imagemagick";
+
     programs.foot = {
       enable = true;
       server.enable = false;

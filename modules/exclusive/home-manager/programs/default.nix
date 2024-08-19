@@ -1,6 +1,7 @@
 {
   imports = [
     ./hyprpaper
+    ./kitty
     ./schizofox
     ./thunderbird
     ./vscode
