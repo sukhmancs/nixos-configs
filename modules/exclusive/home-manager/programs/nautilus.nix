@@ -15,7 +15,7 @@ in {
       packages = [
         pkgs.nautilus # File manager
         pkgs.nautilus-open-any-terminal # Open terminal in current directory
-        pkgs.gnome.sushi # File previewer
+        pkgs.sushi # File previewer
       ];
     };
   };
