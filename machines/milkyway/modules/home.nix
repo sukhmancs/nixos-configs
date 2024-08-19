@@ -31,6 +31,7 @@
       wlogout.enable = true;   # logout menu
       anyrun.enable = true;    # application launcher
       rbw.enable = true;       # bitwarden password manager using rofi
+      waypipe.enable = true;   # wayland over ssh
     };
 
     modules.home.gaming = {

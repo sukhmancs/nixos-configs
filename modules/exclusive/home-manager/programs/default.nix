@@ -17,6 +17,7 @@
     ./swayidle.nix
     ./rbw.nix
     ./wlogout.nix
+    ./waypipe.nix
     ./zathura.nix
   ];
 }

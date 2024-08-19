@@ -57,5 +57,10 @@ in {
       default = false;
       description = "Enable Wlogout";
     };
+
+    waypipe.enable = mkEnableOption {
+      default = false;
+      description = "Enable Waypipe";
+    };
   };
 }
