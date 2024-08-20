@@ -125,13 +125,6 @@ in {
         host = "127.0.0.1";
         port = 17170;
       };
-
-      jitsi-meet = mkService {
-        name = "Jitsi Meet";
-        type = "video conferencing";
-        host = "127.0.0.1";
-        port = 443;
-      };
     };
   };
 }

@@ -26,7 +26,7 @@ in {
       packages = with pkgs; [
         glib # gsettings
         # catppuccin-gtk
-        catppuccin-papirus-folders
+        # catppuccin-papirus-folders
       ];
 
       sessionVariables = {

@@ -26,7 +26,7 @@
       clipboard.enable = true;
       hyprpaper.enable = true; # wallpaper manager
       spotify.enable = false;  # music player #TODO: bug - build fails: pull request has been added just wait for the next update
-      element.enable = true;   # matrix client
+      element.enable = false;   # matrix client
       discord.enable = false;
       webcord.enable = true;   # privacy respecting discord client
       wlogout.enable = true;   # logout menu

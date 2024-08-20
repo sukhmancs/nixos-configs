@@ -1,9 +1,8 @@
 {
   imports = [
     ./foot
-    # ./neovim
-    # ./nvim
-    ./nixvim
+
+    # ./nixvim
     ./programs
     ./services
     ./shell

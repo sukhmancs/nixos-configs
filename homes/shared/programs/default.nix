@@ -12,7 +12,7 @@
     ./fastfetch.nix
     ./fzf.nix
     ./gpg.nix
-    ./man.nix
+    # ./man.nix
     ./newsboat
     ./nix-index.nix
     ./nix-init.nix
