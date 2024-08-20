@@ -40,18 +40,19 @@ in {
       "en_CA.UTF-8/UTF-8"
     ];
 
+    # Todo enable it
     # ime configuration
-    inputMethod = {
-      enable = true;
-      type = "fcitx5"; # Needed for fcitx5 to work in qt6
-      fcitx5.addons = with pkgs; [
-        fcitx5-gtk
-        fcitx5-lua
-        libsForQt5.fcitx5-qt
+    # inputMethod = {
+    #   enable = true;
+    #   type = "fcitx5"; # Needed for fcitx5 to work in qt6
+    #   fcitx5.addons = with pkgs; [
+    #     fcitx5-gtk
+    #     fcitx5-lua
+    #     libsForQt5.fcitx5-qt
 
-        # themes
-        fcitx5-material-color
-      ];
-    };
+    #     # themes
+    #     fcitx5-material-color
+    #   ];
+    # };
   };
 }
