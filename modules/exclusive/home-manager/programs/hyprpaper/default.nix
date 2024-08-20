@@ -10,10 +10,9 @@
   inherit (lib.modules) mkIf;
   inherit (lib.meta) getExe;
   inherit (lib.strings) concatStringsSep;
-
   inherit (osConfig) modules;
-  prg = modules.home.programs;
 
+  prg = modules.home.programs;
   monitors = modules.device.monitors;
 
   hyprpaper = inputs.hyprpaper.packages.${pkgs.stdenv.system}.default;
@@ -37,7 +36,8 @@ in {
       text = let
       # Todo: Host wallpapers on github using flake
         #wallpaper = "${wallpkgs.catppuccin}/share/wallpapers/catppuccin/01.png";
-        wallpaper = "$HOME/.config/hypr/assets/wall1.jpg";
+        # wallpaper = "$HOME/.config/hypr/assets/wall1.jpg";
+        wallpaper = "${modules.themes.wallpaper}";
       in ''
         preload=${wallpaper}
         ${concatStringsSep "\n" (map (monitor: ''wallpaper=${monitor},${wallpaper}'') monitors)}

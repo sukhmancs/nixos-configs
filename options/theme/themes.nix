@@ -21,15 +21,11 @@
   cfg = config.modules.themes;
   slug = serializeTheme "${toString cfg.colorscheme.name}";
 
+  # Get the colors file
   getColorsFile = slug:
     if builtins.pathExists ../../themes/${slug}/${slug}.yaml
     then ../../themes/${slug}/${slug}.yaml
     else ../../themes/catppuccin-mocha/catppuccin-mocha.yaml;
-
-  polarity = slug:
-    if builtins.pathExists ../../themes/${slug}/polarity.txt
-    then trim (builtins.readFile ../../themes/${slug}/polarity.txt)
-    else trim (builtins.readFile ../../themes/catppuccin-mocha/polarity.txt);
 
   parseYaml = file:
     builtins.fromJSON (
@@ -41,6 +37,28 @@
     );
   # Parse the yaml colors file
   colors = parseYaml config.modules.themes.colorsFile;
+
+  # Get the polarity of the colorscheme
+  # Expected output: "dark" or "light"
+  polarity = slug:
+    if builtins.pathExists ../../themes/${slug}/polarity.txt
+    then trim (builtins.readFile ../../themes/${slug}/polarity.txt)
+    else trim (builtins.readFile ../../themes/catppuccin-mocha/polarity.txt);
+
+  # Get the wallpaper image
+  # Expected output: path to the wallpaper image
+  wallpaperUrl = if builtins.pathExists ../../themes/${slug}/backgroundurl.txt
+    then trim (builtins.readFile ../../themes/${slug}/backgroundurl.txt)
+    else trim (builtins.readFile ../../themes/catppuccin-mocha/backgroundurl.txt);
+
+  wallpaperSha256 = if builtins.pathExists ../../themes/${slug}/backgroundsha256.txt
+    then trim (builtins.readFile ../../themes/${slug}/backgroundsha256.txt)
+    else trim (builtins.readFile ../../themes/catppuccin-mocha/backgroundsha256.txt);
+
+  wallpaperImage = builtins.fetchurl {
+    url = wallpaperUrl;
+    sha256 = wallpaperSha256;
+  };
 in {
   options.modules.themes = {
     # choose a colorscheme
@@ -91,7 +109,15 @@ in {
       type = str;
       default = polarity slug; # "dark" or "light"
       description = ''
-        The polarity of the colorscheme.
+        The polarity of the colorscheme. Expected values are "dark" or "light".
+      '';
+    };
+
+    wallpaper = mkOption {
+      type = path;
+      default = wallpaperImage;
+      description = ''
+        The path to the wallpaper image file. Expected values are a path to an image file.
       '';
     };
   };
