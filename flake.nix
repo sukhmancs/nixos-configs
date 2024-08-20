@@ -17,7 +17,7 @@
 
     # Sometimes nixpkgs breaks something I need, pin a working commit when that occurs
     # nixpkgs-pinned.url = github:NixOS/nixpkgs/b610c60e23e0583cdc1997c54badfd32592d3d3e;
-    nixpkgs.url = "github:NixOS/nixpkgs/81c68106d33d40db7cf08c31be51ea78bf854575";
+    nixpkgs.url = "github:NixOS/nixpkgs/4802ed07225c42ec290c86800ccf668807763567";
 
     # Flake parts for easier flake development
     flake-parts = {
