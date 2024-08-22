@@ -27,11 +27,7 @@ export default (monitor: number) =>
                 children: [
                     Widget.Box({
                         className: "barLeft",
-                        children: [
-                            Launcher(),
-                            Chat(),
-                            Media(monitor, "start"),
-                        ],
+                        children: [Launcher(), Chat(), Media(monitor, "start")],
                     }),
                 ],
             }),
@@ -51,7 +47,7 @@ export default (monitor: number) =>
                     Widget.Box({
                         className: "barRight",
                         children: [
-                            // Cava(monitor, "end"),
+                            Cava(monitor, "end"),
                             SysTray(monitor, "end"),
                             BatteryBar(monitor, "end"),
                             SystemIndicators(monitor, "end"),
