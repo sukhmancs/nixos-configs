@@ -53,29 +53,29 @@ in {
       # colorScheme = "mocha";
 
       # custom Dribbblish theme
-      # theme = {
-      #   name = "Dribbblish";
-      #   src = officialThemesOLD;
-      #   requiredExtensions = [
-      #     # define extensions that will be installed with this theme
-      #     {
-      #       # extension is "${src}/Dribbblish/dribbblish.js"
-      #       filename = "dribbblish.js";
-      #       src = "${officialThemesOLD}/Dribbblish";
-      #     }
-      #   ];
-      #   appendName = true; # theme is located at "${src}/Dribbblish" not just "${src}"
+      theme = {
+        name = "Dribbblish";
+        src = officialThemesOLD;
+        requiredExtensions = [
+          # define extensions that will be installed with this theme
+          {
+            # extension is "${src}/Dribbblish/dribbblish.js"
+            filename = "dribbblish.js";
+            src = "${officialThemesOLD}/Dribbblish";
+          }
+        ];
+        appendName = true; # theme is located at "${src}/Dribbblish" not just "${src}"
 
-      #   # changes to make to config-xpui.ini for this theme:
-      #   patches = {
-      #     "xpui.js_find_8008" = ",(\\w+=)32,";
-      #     "xpui.js_repl_8008" = ",$\{1}56,";
-      #   };
-      #   injectCss = true;
-      #   replaceColors = true;
-      #   overwriteAssets = true;
-      #   sidebarConfig = true;
-      # };
+        # changes to make to config-xpui.ini for this theme:
+        patches = {
+          "xpui.js_find_8008" = ",(\\w+=)32,";
+          "xpui.js_repl_8008" = ",$\{1}56,";
+        };
+        injectCss = true;
+        replaceColors = true;
+        overwriteAssets = true;
+        sidebarConfig = true;
+      };
 
       # specify that we want to use our custom colorscheme
       colorScheme = "custom";
