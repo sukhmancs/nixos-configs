@@ -6,6 +6,7 @@
 }:
 let
   inherit (lib) mkIf;
+  inherit (osConfig) modules;
 
   dev = osConfig.modules.device.type;
 
@@ -47,7 +48,7 @@ in
             timeout = lockTime;
             #Todo - host my own wallpapers on github using flake then uncomment below
             # command = "${swaylock} -i ${config.wallpaper} --daemonize --grace 15";
-            command = "${swaylock} --daemonize --grace 15";
+            command = "${swaylock} -i ${modules.themes.wallpaper} --daemonize --grace 15";
           }
         ]
         ++
