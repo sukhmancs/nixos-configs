@@ -62,7 +62,7 @@ in {
       };
 
       font = {
-        name = "Fira Sans"; # "Lexend";
+        name = "Lexend"; # "Fira Sans";
         size = 14;
       };
 
