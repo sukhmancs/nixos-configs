@@ -8,6 +8,7 @@
     ./webcord
 
     ./clipboard.nix
+    ./chromium.nix
     ./discord.nix
     ./element.nix
     ./gammastep.nix

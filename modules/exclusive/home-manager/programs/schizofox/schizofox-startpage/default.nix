@@ -17,7 +17,7 @@ in
       runHook preInstall
       mkdir -p $out
       cp -rv $src/* $out
-      cp -v ${styleCss} $out
+      cp -v ${styleCss} $out/style.css
       runHook postInstall
     '';
 

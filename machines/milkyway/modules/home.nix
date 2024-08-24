@@ -9,6 +9,7 @@
       programs = {
         rofi.enable = true;        # application launcher
         firefox.enable = true;     # browser (schizofox)
+        chromium.enable = true;    # browser
         thunderbird.enable = true; # email client
         vscode.enable = true;      # code editor
         zathura.enable = true;     # pdf reader
@@ -34,7 +35,7 @@
       rbw.enable = true;       # bitwarden password manager using rofi
       waypipe.enable = true;   # wayland over ssh
       sublime-music.enable = true; # music player
-      nautilus.enable = true;  # file manager
+      nautilus.enable = false;  # file manager
     };
 
     modules.home.gaming = {
