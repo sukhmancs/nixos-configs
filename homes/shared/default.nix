@@ -2,7 +2,7 @@
   imports = [
     ./foot
 
-    # ./nixvim
+    ./nixvim
     ./programs
     ./services
     ./shell
