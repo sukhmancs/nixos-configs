@@ -3,7 +3,7 @@
     home-manager.users.xi = {
       wayland.windowManager.hyprland.enable = true; # window manager
       services.dunst.enable = true;       # notification daemon
-      services.gammastep.enable = false;  # display color control #TODO: not working
+      services.gammastep.enable = true;  # display color control #TODO: not working
       services.nextcloud-client.enable = true; # syncronization client
       services.swayidle.enable = true;    # screen idle
       programs = {
@@ -25,7 +25,7 @@
       ags.enable = true; # widgets
       clipboard.enable = true;
       hyprpaper.enable = true; # wallpaper manager
-      spotify.enable = false;  # music player #TODO: bug - build fails: pull request has been added just wait for the next update
+      spotify.enable = true;  # music player #TODO: bug - build fails: pull request has been added just wait for the next update
       element.enable = false;   # matrix client
       discord.enable = false;
       webcord.enable = true;   # privacy respecting discord client
