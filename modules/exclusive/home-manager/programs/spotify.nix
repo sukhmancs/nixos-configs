@@ -49,7 +49,7 @@ in {
         new-releases
       ];
 
-      theme = spicePkgs.themes.catppuccin;
+      # theme = spicePkgs.themes.catppuccin;
       # colorScheme = "mocha";
 
       # custom Dribbblish theme

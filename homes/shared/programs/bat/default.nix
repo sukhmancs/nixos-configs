@@ -19,7 +19,8 @@ in {
       };
     };
     config = {
-      theme = "custom";
+      #TODO:(important) remove this
+      # theme = "custom";
       pager = "less -FR"; # frfr
     };
   };

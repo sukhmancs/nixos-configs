@@ -24,25 +24,25 @@ let
             <key>settings</key>
             <dict>
               <key>background</key>
-              <string>#1e1e2e</string>
+              <string>#${colors.base00}</string>
               <key>foreground</key>
-              <string>#cdd6f4</string>
+              <string>#${colors.base05}</string>
               <key>caret</key>
-              <string>#f5e0dc</string>
+              <string>#${colors.base06}</string>
               <key>lineHighlight</key>
-              <string>#313244</string>
+              <string>#${colors.base02}</string>
               <key>misspelling</key>
-              <string>#f38ba8</string>
+              <string>#${colors.base08}</string>
               <key>accent</key>
-              <string>#cba6f7</string>
+              <string>#${colors.base0E}</string>
               <key>selection</key>
               <string>#9399b240</string>
               <key>activeGuide</key>
-              <string>#45475a</string>
+              <string>#${colors.base03}</string>
               <key>findHighlight</key>
-              <string>#3e5767</string>
+              <string>#${colors.base0A}</string>
               <key>gutterForeground</key>
-              <string>#7f849c</string>
+              <string>#${colors.base03}</string>
             </dict>
           </dict>
           <dict>
@@ -53,7 +53,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cdd6f4</string>
+              <string>#${colors.base05}</string>
             </dict>
           </dict>
           <dict>
@@ -64,7 +64,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#9399b2</string>
+              <string>#${colors.base02}</string>
               <key>fontStyle</key>
               <string/>
             </dict>
@@ -77,7 +77,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#6c7086</string>
+              <string>#${colors.base04}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -88,7 +88,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#a6e3a1</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -97,7 +97,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f5c2e7</string>
+              <string>#${colors.base0F}</string>
             </dict>
           </dict>
           <dict>
@@ -108,7 +108,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#fab387</string>
+              <string>#${colors.base09}</string>
             </dict>
           </dict>
           <dict>
@@ -117,7 +117,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cba6f7</string>
+              <string>#${colors.base0E}</string>
               <key>fontStyle</key>
               <string/>
             </dict>
@@ -128,7 +128,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cba6f7</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -139,7 +139,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#94e2d5</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -148,7 +148,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89b4fa</string>
+              <string>#${colors.base0D}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -161,7 +161,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f9e2af</string>
+              <string>#${colors.base0A}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -174,7 +174,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f9e2af</string>
+              <string>#${colors.base0A}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -187,7 +187,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#94e2d5</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -198,7 +198,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#94e2d5</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -209,7 +209,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f9e2af</string>
+              <string>#${colors.base0A}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -222,7 +222,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#fab387</string>
+              <string>#${colors.base09}</string>
             </dict>
           </dict>
           <dict>
@@ -231,7 +231,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#eba0ac</string>
+              <string>#${colors.base08}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -244,7 +244,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f38ba8</string>
+              <string>#${colors.base08}</string>
             </dict>
           </dict>
           <dict>
@@ -253,7 +253,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f38ba8</string>
+              <string>#${colors.base08}</string>
             </dict>
           </dict>
           <dict>
@@ -264,7 +264,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f9e2af</string>
+              <string>#${colors.base0A}</string>
             </dict>
           </dict>
           <dict>
@@ -275,7 +275,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89dceb</string>
+              <string>#${colors.base0C}</string>
             </dict>
           </dict>
           <dict>
@@ -286,7 +286,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f9e2af</string>
+              <string>#${colors.base0A}</string>
             </dict>
           </dict>
           <dict>
@@ -297,7 +297,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89b4fa</string>
+              <string>#${colors.base0D}</string>
               <key>fontStyle</key>
               <string/>
             </dict>
@@ -310,7 +310,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f38ba8</string>
+              <string>#${colors.base08}</string>
             </dict>
           </dict>
           <dict>
@@ -321,7 +321,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cdd6f4</string>
+              <string>#${colors.base05}</string>
             </dict>
           </dict>
           <dict>
@@ -332,7 +332,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cdd6f4</string>
+              <string>#${colors.base05}</string>
             </dict>
           </dict>
           <dict>
@@ -354,7 +354,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cba6f7</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -365,7 +365,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f9e2af</string>
+              <string>#${colors.base0A}</string>
             </dict>
           </dict>
           <dict>
@@ -387,7 +387,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#94e2d5</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -398,7 +398,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cdd6f4</string>
+              <string>#${colors.base05}</string>
             </dict>
           </dict>
           <dict>
@@ -409,7 +409,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cdd6f4</string>
+              <string>#${colors.base05}</string>
             </dict>
           </dict>
           <dict>
@@ -420,7 +420,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f9e2af</string>
+              <string>#${colors.base0A}</string>
             </dict>
           </dict>
           <dict>
@@ -431,7 +431,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#94e2d5</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -442,7 +442,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#94e2d5</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -451,7 +451,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#fab387</string>
+              <string>#${colors.base09}</string>
             </dict>
           </dict>
           <dict>
@@ -460,7 +460,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#a6e3a1</string>
+              <string>#${colors.base0E}</string>
               <key>fontStyle</key>
               <string/>
             </dict>
@@ -473,7 +473,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89dceb</string>
+              <string>#${colors.base0C}</string>
             </dict>
           </dict>
           <dict>
@@ -484,7 +484,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#eba0ac</string>
+              <string>#${colors.base08}</string>
             </dict>
           </dict>
           <dict>
@@ -495,7 +495,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89b4fa</string>
+              <string>#${colors.base0D}</string>
             </dict>
           </dict>
           <dict>
@@ -506,7 +506,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#fab387</string>
+              <string>#${colors.base09}</string>
             </dict>
           </dict>
           <dict>
@@ -517,7 +517,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#a6e3a1</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -528,7 +528,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89b4fa</string>
+              <string>#${colors.base0D}</string>
               <key>fontStyle</key>
               <string/>
             </dict>
@@ -541,7 +541,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#fab387</string>
+              <string>#${colors.base09}</string>
             </dict>
           </dict>
           <dict>
@@ -552,7 +552,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f9e2af</string>
+              <string>#${colors.base0A}</string>
               <key>fontStyle</key>
               <string/>
             </dict>
@@ -565,7 +565,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f9e2af</string>
+              <string>#${colors.base0A}</string>
             </dict>
           </dict>
           <dict>
@@ -576,7 +576,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f5c2e7</string>
+              <string>#${colors.base0F}</string>
             </dict>
           </dict>
           <dict>
@@ -587,7 +587,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f5c2e7</string>
+              <string>#${colors.base0F}</string>
             </dict>
           </dict>
           <dict>
@@ -598,7 +598,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f5c2e7</string>
+              <string>#${colors.base0F}</string>
             </dict>
           </dict>
           <dict>
@@ -609,7 +609,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#fab387</string>
+              <string>#${colors.base09}</string>
             </dict>
           </dict>
           <dict>
@@ -620,7 +620,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89b4fa</string>
+              <string>#${colors.base0D}</string>
             </dict>
           </dict>
           <dict>
@@ -631,7 +631,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#a6e3a1</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -642,7 +642,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f38ba8</string>
+              <string>#${colors.base08}</string>
             </dict>
           </dict>
           <dict>
@@ -653,7 +653,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89b4fa</string>
+              <string>#${colors.base0D}</string>
             </dict>
           </dict>
           <dict>
@@ -664,7 +664,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cdd6f4</string>
+              <string>#${colors.base05}</string>
             </dict>
           </dict>
           <dict>
@@ -675,7 +675,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89b4fa</string>
+              <string>#${colors.base0D}</string>
             </dict>
           </dict>
           <dict>
@@ -686,7 +686,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#fab387</string>
+              <string>#${colors.base09}</string>
             </dict>
           </dict>
           <dict>
@@ -697,7 +697,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#eba0ac</string>
+              <string>#${colors.base08}</string>
             </dict>
           </dict>
           <dict>
@@ -708,7 +708,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#fab387</string>
+              <string>#${colors.base09}</string>
             </dict>
           </dict>
           <dict>
@@ -719,7 +719,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#fab387</string>
+              <string>#${colors.base09}</string>
             </dict>
           </dict>
           <dict>
@@ -730,7 +730,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cdd6f4</string>
+              <string>#${colors.base05}</string>
             </dict>
           </dict>
           <dict>
@@ -741,7 +741,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f2cdcd</string>
+              <string>#${colors.base0F}</string>
             </dict>
           </dict>
           <dict>
@@ -752,7 +752,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#94e2d5</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -763,7 +763,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f2cdcd</string>
+              <string>#${colors.base0F}</string>
             </dict>
           </dict>
           <dict>
@@ -774,7 +774,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cba6f7</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -785,7 +785,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89b4fa</string>
+              <string>#${colors.base0D}</string>
               <key>fontStyle</key>
               <string/>
             </dict>
@@ -798,7 +798,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f38ba8</string>
+              <string>#${colors.base08}</string>
             </dict>
           </dict>
           <dict>
@@ -809,7 +809,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f9e2af</string>
+              <string>#${colors.base0A}</string>
             </dict>
           </dict>
           <dict>
@@ -820,7 +820,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f5c2e7</string>
+              <string>#${colors.base0F}</string>
               <key>fontStyle</key>
               <string/>
             </dict>
@@ -833,7 +833,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#fab387</string>
+              <string>#${colors.base09}</string>
             </dict>
           </dict>
           <dict>
@@ -844,7 +844,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#94e2d5</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -855,7 +855,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cdd6f4</string>
+              <string>#${colors.base05}</string>
             </dict>
           </dict>
           <dict>
@@ -877,7 +877,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#eba0ac</string>
+              <string>#${colors.base08}</string>
             </dict>
           </dict>
           <dict>
@@ -888,7 +888,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cdd6f4</string>
+              <string>#${colors.base05}</string>
             </dict>
           </dict>
           <dict>
@@ -899,7 +899,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#eba0ac</string>
+              <string>#${colors.base08}</string>
               <key>fontStyle</key>
               <string/>
             </dict>
@@ -921,7 +921,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cdd6f4</string>
+              <string>#${colors.base05}</string>
             </dict>
           </dict>
           <dict>
@@ -932,7 +932,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cba6f7</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -943,7 +943,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cba6f7</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -954,7 +954,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cba6f7</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -963,7 +963,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f9e2af</string>
+              <string>#${colors.base0A}</string>
             </dict>
           </dict>
           <dict>
@@ -974,7 +974,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#94e2d5</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -985,7 +985,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89b4fa</string>
+              <string>#${colors.base0D}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -998,7 +998,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cba6f7</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -1009,7 +1009,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#94e2d5</string>
+              <string>#${colors.base0E}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -1022,7 +1022,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#fab387</string>
+              <string>#${colors.base09}</string>
             </dict>
           </dict>
           <dict>
@@ -1033,7 +1033,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#eba0ac</string>
+              <string>#${colors.base08}</string>
             </dict>
           </dict>
           <dict>
@@ -1044,7 +1044,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#94e2d5</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -1055,7 +1055,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89dceb</string>
+              <string>#${colors.base0C}</string>
             </dict>
           </dict>
           <dict>
@@ -1066,7 +1066,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f2cdcd</string>
+              <string>#${colors.base0F}</string>
             </dict>
           </dict>
           <dict>
@@ -1077,7 +1077,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cba6f7</string>
+              <string>#${colors.base0E}</string>
               <key>fontStyle</key>
               <string/>
             </dict>
@@ -1090,7 +1090,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cdd6f4</string>
+              <string>#${colors.base05}</string>
             </dict>
           </dict>
           <dict>
@@ -1099,7 +1099,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f38ba8</string>
+              <string>#${colors.base08}</string>
             </dict>
           </dict>
           <dict>
@@ -1108,7 +1108,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#fab387</string>
+              <string>#${colors.base09}</string>
             </dict>
           </dict>
           <dict>
@@ -1117,7 +1117,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f9e2af</string>
+              <string>#${colors.base0A}</string>
             </dict>
           </dict>
           <dict>
@@ -1126,7 +1126,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#a6e3a1</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -1135,7 +1135,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89b4fa</string>
+              <string>#${colors.base0D}</string>
             </dict>
           </dict>
           <dict>
@@ -1144,7 +1144,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cba6f7</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -1153,7 +1153,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f38ba8</string>
+              <string>#${colors.base08}</string>
               <key>fontStyle</key>
               <string>bold</string>
             </dict>
@@ -1164,7 +1164,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f38ba8</string>
+              <string>#${colors.base08}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -1175,7 +1175,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#a6adc8</string>
+              <string>#${colors.base03}</string>
               <key>fontStyle</key>
               <string>strikethrough</string>
             </dict>
@@ -1188,7 +1188,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89b4fa</string>
+              <string>#${colors.base0D}</string>
             </dict>
           </dict>
           <dict>
@@ -1199,7 +1199,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#b4befe</string>
+              <string>#${colors.base07}</string>
             </dict>
           </dict>
           <dict>
@@ -1210,7 +1210,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#a6e3a1</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -1221,7 +1221,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89dceb</string>
+              <string>#${colors.base0C}</string>
             </dict>
           </dict>
           <dict>
@@ -1232,7 +1232,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#9399b2</string>
+              <string>#${colors.base02}</string>
             </dict>
           </dict>
           <dict>
@@ -1243,7 +1243,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f5c2e7</string>
+              <string>#${colors.base0F}</string>
             </dict>
           </dict>
           <dict>
@@ -1254,7 +1254,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#94e2d5</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -1265,7 +1265,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#94e2d5</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -1276,7 +1276,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89b4fa</string>
+              <string>#${colors.base0D}</string>
             </dict>
           </dict>
           <dict>
@@ -1287,7 +1287,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cdd6f4</string>
+              <string>#${colors.base05}</string>
               <key>fontStyle</key>
               <string/>
             </dict>
@@ -1300,7 +1300,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#b4befe</string>
+              <string>#${colors.base07}</string>
               <key>fontStyle</key>
               <string/>
             </dict>
@@ -1313,7 +1313,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f5c2e7</string>
+              <string>#${colors.base0F}</string>
               <key>fontStyle</key>
               <string/>
             </dict>
@@ -1326,7 +1326,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f9e2af</string>
+              <string>#${colors.base0A}</string>
             </dict>
           </dict>
           <dict>
@@ -1337,7 +1337,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#eba0ac</string>
+              <string>#${colors.base08}</string>
             </dict>
           </dict>
           <dict>
@@ -1348,7 +1348,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cba6f7</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -1359,7 +1359,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89dceb</string>
+              <string>#${colors.base0C}</string>
             </dict>
           </dict>
           <dict>
@@ -1381,7 +1381,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cdd6f4</string>
+              <string>#${colors.base05}</string>
             </dict>
           </dict>
           <dict>
@@ -1392,7 +1392,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89dceb</string>
+              <string>#${colors.base0C}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -1405,7 +1405,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f38ba8</string>
+              <string>#${colors.base08}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -1418,7 +1418,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cba6f7</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -1429,7 +1429,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cba6f7</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -1440,7 +1440,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89dceb</string>
+              <string>#${colors.base0C}</string>
             </dict>
           </dict>
           <dict>
@@ -1451,7 +1451,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89b4fa</string>
+              <string>#${colors.base0D}</string>
             </dict>
           </dict>
           <dict>
@@ -1462,7 +1462,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#fab387</string>
+              <string>#${colors.base09}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -1475,7 +1475,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f5c2e7</string>
+              <string>#${colors.base0F}</string>
             </dict>
           </dict>
           <dict>
@@ -1486,7 +1486,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#fab387</string>
+              <string>#${colors.base09}</string>
             </dict>
           </dict>
           <dict>
@@ -1497,7 +1497,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#fab387</string>
+              <string>#${colors.base09}</string>
             </dict>
           </dict>
           <dict>
@@ -1508,7 +1508,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cba6f7</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -1519,7 +1519,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#eba0ac</string>
+              <string>#${colors.base08}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -1532,7 +1532,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#a6e3a1</string>
+              <string>#${colors.base0E}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -1556,7 +1556,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f5c2e7</string>
+              <string>#${colors.base0F}</string>
             </dict>
           </dict>
           <dict>
@@ -1567,7 +1567,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cba6f7</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -1578,7 +1578,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cdd6f4</string>
+              <string>#${colors.base05}</string>
             </dict>
           </dict>
           <dict>
@@ -1589,7 +1589,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#a6e3a1</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -1600,7 +1600,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f9e2af</string>
+              <string>#${colors.base0A}</string>
             </dict>
           </dict>
           <dict>
@@ -1611,7 +1611,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f5c2e7</string>
+              <string>#${colors.base0F}</string>
             </dict>
           </dict>
           <dict>
@@ -1622,7 +1622,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f5e0dc</string>
+              <string>#${colors.base06}</string>
             </dict>
           </dict>
           <dict>
@@ -1633,7 +1633,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#94e2d5</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -1644,7 +1644,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#fab387</string>
+              <string>#${colors.base09}</string>
             </dict>
           </dict>
           <dict>
@@ -1655,7 +1655,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89b4fa</string>
+              <string>#${colors.base0D}</string>
             </dict>
           </dict>
           <dict>
@@ -1666,7 +1666,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f9e2af</string>
+              <string>#${colors.base0A}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -1690,7 +1690,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cba6f7</string>
+              <string>#${colors.base0E}</string>
               <key>fontStyle</key>
               <string/>
             </dict>
@@ -1703,7 +1703,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cba6f7</string>
+              <string>#${colors.base0E}</string>
               <key>fontStyle</key>
               <string/>
             </dict>
@@ -1716,7 +1716,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#fab387</string>
+              <string>#${colors.base09}</string>
             </dict>
           </dict>
           <dict>
@@ -1727,7 +1727,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f9e2af</string>
+              <string>#${colors.base0A}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -1740,7 +1740,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#fab387</string>
+              <string>#${colors.base09}</string>
             </dict>
           </dict>
           <dict>
@@ -1751,7 +1751,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f9e2af</string>
+              <string>#${colors.base0A}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -1764,7 +1764,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f9e2af</string>
+              <string>#${colors.base0A}</string>
             </dict>
           </dict>
           <dict>
@@ -1775,7 +1775,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f9e2af</string>
+              <string>#${colors.base0A}</string>
             </dict>
           </dict>
           <dict>
@@ -1786,7 +1786,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#94e2d5</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -1797,7 +1797,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89b4fa</string>
+              <string>#${colors.base0D}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -1810,7 +1810,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89b4fa</string>
+              <string>#${colors.base0D}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -1823,7 +1823,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f5c2e7</string>
+              <string>#${colors.base0F}</string>
             </dict>
           </dict>
           <dict>
@@ -1834,7 +1834,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cdd6f4</string>
+              <string>#${colors.base05}</string>
             </dict>
           </dict>
           <dict>
@@ -1845,7 +1845,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89b4fa</string>
+              <string>#${colors.base0D}</string>
             </dict>
           </dict>
           <dict>
@@ -1856,7 +1856,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89dceb</string>
+              <string>#${colors.base0C}</string>
             </dict>
           </dict>
           <dict>
@@ -1867,7 +1867,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#fab387</string>
+              <string>#${colors.base09}</string>
             </dict>
           </dict>
           <dict>
@@ -1878,7 +1878,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#eba0ac</string>
+              <string>#${colors.base08}</string>
             </dict>
           </dict>
           <dict>
@@ -1889,7 +1889,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cdd6f4</string>
+              <string>#${colors.base05}</string>
             </dict>
           </dict>
           <dict>
@@ -1900,7 +1900,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f38ba8</string>
+              <string>#${colors.base08}</string>
             </dict>
           </dict>
           <dict>
@@ -1911,7 +1911,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f5c2e7</string>
+              <string>#${colors.base0F}</string>
             </dict>
           </dict>
           <dict>
@@ -1922,7 +1922,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f5c2e7</string>
+              <string>#${colors.base0F}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -1935,7 +1935,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#94e2d5</string>
+              <string>#${colors.base0E}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -1948,7 +1948,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f38ba8</string>
+              <string>#${colors.base08}</string>
             </dict>
           </dict>
           <dict>
@@ -1959,7 +1959,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#fab387</string>
+              <string>#${colors.base09}</string>
               <key>fontStyle</key>
               <string>italic</string>
             </dict>
@@ -1970,7 +1970,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#94e2d5</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -1981,7 +1981,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cba6f7</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -1992,7 +1992,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cdd6f4</string>
+              <string>#${colors.base05}</string>
             </dict>
           </dict>
           <dict>
@@ -2001,7 +2001,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#cba6f7</string>
+              <string>#${colors.base0E}</string>
             </dict>
           </dict>
           <dict>
@@ -2010,7 +2010,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#89b4fa</string>
+              <string>#${colors.base0D}</string>
             </dict>
           </dict>
           <dict>
@@ -2019,7 +2019,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f5c2e7</string>
+              <string>#${colors.base0F}</string>
             </dict>
           </dict>
           <dict>
@@ -2028,7 +2028,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f38ba8</string>
+              <string>#${colors.base08}</string>
             </dict>
           </dict>
           <dict>
@@ -2037,7 +2037,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#fab387</string>
+              <string>#${colors.base09}</string>
             </dict>
           </dict>
           <dict>
@@ -2046,7 +2046,7 @@ let
             <key>settings</key>
             <dict>
               <key>foreground</key>
-              <string>#f9e2af</string>
+              <string>#${colors.base0A}</string>
             </dict>
           </dict>
         </array>
