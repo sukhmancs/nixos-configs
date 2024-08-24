@@ -1,25 +1,37 @@
-{
-  osConfig,
-  pkgs,
-  config,
-  lib,
-  ...
-}: let
+{ osConfig
+, pkgs
+, config
+, lib
+, ...
+}:
+let
   inherit (lib) mkIf;
   inherit (osConfig) modules;
   inherit (modules.themes) colors;
-in {
+in
+{
   config = mkIf config.programs.swaylock.enable {
     programs.swaylock = {
       package = pkgs.swaylock-effects;
       settings = {
+        effect-blur = "20x3";
+        fade-in = 0.1;
+
+        line-uses-inside = true;
+        disable-caps-lock-text = true;
+        indicator-caps-lock = true;
+        indicator-radius = 40;
+        indicator-idle-visible = true;
+        indicator-y-position = 1000;
+
         clock = true;
         color = "${colors.base00}";
         font = "Work Sans";
+        font-size = 15;
         show-failed-attempts = false;
         indicator = true;
-        indicator-radius = 200;
-        indicator-thickness = 20;
+        #indicator-radius = 200;
+        #indicator-thickness = 20;
         line-color = "${colors.base00}";
         ring-color = "${colors.base04}";
         inside-color = "${colors.base00}";
