@@ -18,25 +18,26 @@ in
     ./system.nix # nixos system configuration
   ];
 
+  #TODO:(important) get rid of this junk
   # Link selected flake inputs to `/etc/nix/path` for added backwards compatibility.
   # Some of them, as long as they are made compatible with flakes, can be used with
   # nix's discouraged special lookup paths (e.g. <nixpkgs>) if you really need them
   # to. Should be noted, however, that special lookup paths are discouraged and the
   # only real reason they are here is backwards compatibility, and sometimes my own
   # convenience. If you are using a flake, you should be using the flake's outputs.
-  environment.etc =
-    let
-      inherit (config.nix) registry;
-      commonPaths = [ "home-manager" "nixpkgs" "nyxpkgs" "self" ];
-    in
-    pipe registry [
-      (filterAttrs (name: _: (elem name commonPaths)))
-      (mapAttrs' (name: value: {
-        name = "nix/path/${name}";
-        value.source = value.flake;
-      }))
-    ];
-
+  #  environment.etc =
+  #    let
+  #      inherit (config.nix) registry;
+  #      commonPaths = [ "home-manager" "nixpkgs" "nyxpkgs" "self" ];
+  #    in
+  #    pipe registry [
+  #      (filterAttrs (name: _: (elem name commonPaths)))
+  #      (mapAttrs' (name: value: {
+  #        name = "nix/path/${name}";
+  #        value.source = value.flake;
+  #      }))
+  #    ];
+  #
   nix =
     let
       mappedRegistry = pipe inputs [
@@ -46,16 +47,16 @@ in
       ];
     in
     {
-      package = pkgs.nixSuper; # pkgs.nixVersions.unstable;
+      #      package = pkgs.nixSuper; # pkgs.nixVersions.unstable;
 
       # Pin the registry to avoid downloading and evaluating a new nixpkgs version every time
       # this will add each flake input as a registry to make nix3 commands consistent with your flake
       # additionally we also set `registry.default`, which was added by nix-super
-      registry = mappedRegistry // optionalAttrs (config.nix.package == pkgs.nixSuper) { default = mappedRegistry.nixpkgs; };
+      #registry = mappedRegistry // optionalAttrs (config.nix.package == pkgs.nixSuper) { default = mappedRegistry.nixpkgs; };
 
       # This will additionally add your inputs to the system's legacy channels
       # Making legacy nix commands consistent as well
-      nixPath = mapAttrsToList (key: _: "${key}=flake:${key}") config.nix.registry;
+      #nixPath = mapAttrsToList (key: _: "${key}=flake:${key}") config.nix.registry;
 
       # make builds run with low priority so my system stays responsive
       # this is especially helpful if you have auto-upgrade on
@@ -84,8 +85,9 @@ in
         # manually, as Nix won't do it for us
         use-xdg-base-directories = true;
 
+        #TODO:(important) remove this
         # specify the path to the nix registry
-        flake-registry = "/etc/nix/registry.json";
+        # flake-registry = "/etc/nix/registry.json";
 
         # Free up to 10GiB whenever there is less than 5GB left.
         # this setting is in bytes, so we multiply with 1024 thrice
@@ -131,10 +133,7 @@ in
           "recursive-nix" # let nix invoke itself
           "ca-derivations" # content addressed nix
           "auto-allocate-uids" # allow nix to automatically pick UIDs, rather than creating nixbld* user accounts
-          "configurable-impure-env" # allow impure environments
           "cgroups" # allow nix to execute builds inside cgroups
-          "git-hashing" # allow store objects which are hashed via Git's hashing algorithm
-          "verified-fetches" # enable verification of git commit signatures for fetchGit
         ];
 
         # don't warn me that my git tree is dirty, I know
@@ -161,7 +160,7 @@ in
         substituters = [
           "https://cache.ngi0.nixos.org" # content addressed nix cache (TODO)
           "https://cache.nixos.org" # funny binary cache
-          # "https://cache.privatevoid.net" # for nix-super
+          "https://cache.privatevoid.net" # for nix-super
           "https://nixpkgs-wayland.cachix.org" # automated builds of *some* wayland packages
           "https://nix-community.cachix.org" # nix-community cache
           "https://hyprland.cachix.org" # hyprland
@@ -179,7 +178,7 @@ in
         trusted-public-keys = [
           "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
           "cache.ngi0.nixos.org-1:KqH5CBLNSyX184S9BKZJo1LxrxJ9ltnY2uAs5c/f1MA="
-          # "cache.privatevoid.net:SErQ8bvNWANeAvtsOESUwVYr2VJynfuc9JRwlzTTkVg="
+          "cache.privatevoid.net:SErQ8bvNWANeAvtsOESUwVYr2VJynfuc9JRwlzTTkVg="
           "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
           "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
           "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
