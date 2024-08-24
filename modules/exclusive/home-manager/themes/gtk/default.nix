@@ -25,8 +25,8 @@ in {
     home = {
       packages = with pkgs; [
         glib # gsettings
-        # catppuccin-gtk
-        # catppuccin-papirus-folders
+        catppuccin-gtk
+        catppuccin-papirus-folders
       ];
 
       sessionVariables = {
@@ -54,11 +54,11 @@ in {
 
       iconTheme = {
         name = "Papirus-${osConfig.modules.themes.polarity}"; # "Papirus-Dark" or "Papirus-Light";
-        package = pkgs.papirus-icon-theme;
-        # package = pkgs.catppuccin-papirus-folders.override {
-        #   accent = "blue";
-        #   flavor = "mocha";
-        # };
+        # package = pkgs.papirus-icon-theme;
+        package = pkgs.catppuccin-papirus-folders.override {
+          accent = "blue";
+          flavor = "mocha";
+        };
       };
 
       font = {

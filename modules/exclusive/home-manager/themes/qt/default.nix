@@ -18,7 +18,7 @@ in {
       # breeze-icons is added as a fallback
       libsForQt5.qt5ct
       kdePackages.qt6ct
-      # kdePackages.breeze-icons
+      kdePackages.breeze-icons
 
       # libraries to ensure that "gtk" platform theme works
       # as intended after the following PR:
