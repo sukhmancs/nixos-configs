@@ -52,12 +52,12 @@
 - [x] **WayPipe** - Wayland over ssh
 - [x] **kitty** - base16 colors
 - [x] **Nix gaming** - runescape, star-citizen
+- [x] **Neovim**
+- [x] **bat** - base16 colors
 
 ### In Progress 🚧
 
-- [ ] **Neovim**
 - [ ] **wallpapers** - wallpaper flake
-- [ ] **bat** - base16 colors
 - [ ] **Schizofox Startup Page** - base16 colors
 - [ ] **Tailnet** - TailScale, WireGuard, ...
 - [ ] **Credit More Gracefully** - Add Name, Repo, etc.
