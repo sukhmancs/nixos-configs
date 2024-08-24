@@ -30,7 +30,6 @@ in
         font-size = 15;
         show-failed-attempts = false;
         indicator = true;
-        #indicator-radius = 200;
         #indicator-thickness = 20;
         line-color = "${colors.base00}";
         ring-color = "${colors.base04}";
@@ -53,12 +52,11 @@ in
         line-wrong-color = "${colors.base00}";
         bs-hl-color = "${colors.base08}";
         line-uses-ring = false;
-        grace = 3;
-        grace-no-mouse = true;
-        grace-no-touch = true;
+        #grace = 3;
+        #grace-no-mouse = true;
+        #grace-no-touch = true;
         datestr = "%d/%m/%Y";
-        fade-in = "0.1";
-        ignore-empty-password = true;
+        #ignore-empty-password = true;
       };
     };
   };
