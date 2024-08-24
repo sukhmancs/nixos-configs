@@ -1,12 +1,13 @@
-{
-  inputs',
-  osConfig,
-  pkgs,
-  lib,
-  ...
-}: let
+{ inputs'
+, osConfig
+, pkgs
+, lib
+, ...
+}:
+let
   inherit (osConfig.modules.themes) colors;
-in {
+in
+{
   config = {
     home.packages = with pkgs; [
       libsixel
@@ -27,13 +28,16 @@ in {
           shell = "zsh";
           resize-delay-ms = 100;
           word-delimiters = ",│`|:\"'()[]{}<>";
-          notify = "notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
           selection-target = "clipboard";
           dpi-aware = true;
           font = "Iosevka Nerd Font:size=9";
           font-bold = "Iosevka Nerd Font:size=9";
           vertical-letter-offset = "-0.75";
           bold-text-in-bright = "no";
+        };
+
+        desktop-notifications = {
+          command = "notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
         };
 
         bell = {
