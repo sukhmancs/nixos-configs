@@ -58,13 +58,13 @@
 
 ### In Progress 🚧
 
-- [ ] **Icons** - Icon fonts (gtk/qt) are not dynamic. Try to use base16 colors.
 - [ ] **Tailnet** - TailScale, WireGuard, ...
-- [ ] **Credit More Gracefully** - Add Name, Repo, etc.
+- [ ] **ZFS** - Switch to ZFS
+- [ ] **Icons** - Icon fonts (gtk/qt) are not dynamic. Try to use base16 colors.
 - [ ] **Schizofox Startup Page** - base16 colors
+- [ ] **Credit More Gracefully** - Add Name, Repo, etc.
 - [ ] **Spotify** - Spicetify with custom colors (_Done but there is a bug_)
 - [ ] **Qemu** - Virtualization with GPU passthrough (_Done but not tested_)
-- [ ] **ZFS** - Switch to ZFS
 - [ ] **Hardened Systemd**
 - [ ] **Modularize** - Anyrun, qt.nix, ...
 - [ ] **fastfetch** - Add custom colors (How?)
