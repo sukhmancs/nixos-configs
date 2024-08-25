@@ -25,8 +25,6 @@ in {
     home = {
       packages = with pkgs; [
         glib # gsettings
-        catppuccin-gtk
-        catppuccin-papirus-folders
       ];
 
       sessionVariables = {
@@ -53,14 +51,15 @@ in {
       };
 
       iconTheme = {
-        name = "Papirus-Dark"; # "Papirus-${osConfig.modules.themes.polarity}"; # "Papirus-Dark" or "Papirus-Light";
-        # package = pkgs.papirus-icon-theme;
-        package = pkgs.catppuccin-papirus-folders.override {
-          accent = "blue";
-          flavor = "mocha";
-        };
+        name = "Papirus-${
+          if osConfig.modules.themes.polarity == "dark"
+          then "Dark"
+          else "Light"
+        }"; # "Papirus-Dark" or "Papirus-Light";
+        package = pkgs.papirus-icon-theme;
       };
 
+      # Make sure these fonts are installed - pkgs.fira, pkgs.lexend
       font = {
         name = "Fira Sans"; # "Lexend";
         size = 14;
@@ -112,6 +111,6 @@ in {
       "gtk-4.0/gtk.css".text = gtkColors;
     };
 
-    # xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 }

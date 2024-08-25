@@ -22,12 +22,28 @@ in {
         ];
       in
         mapAttrs (_: fonts: fonts ++ common) {
-          serif = ["Noto Serif"];
-          sansSerif = ["Lexend"];
+          serif = [
+            "Noto Serif"
+            "Vazirmatn" # Persion
+          ];
+          sansSerif = [
+            "Lexend"
+            "Vazirmatn" # Persian
+            "Noto Sans CJK HK" # Hong Kong
+            "Noto Sans CJK JP" # Japan
+            "Noto Sans CJK KR" # Korea
+            "Noto Sans CJK SC" # Simplified Chinese
+            "Noto Sans CJK TC" # Traditional Chinese
+          ];
           emoji = ["Noto Color Emoji"];
           monospace = [
             "Source Code Pro Medium"
             "Source Han Mono"
+            "Noto Sans Mono CJK HK" # Hong Kong
+            "Noto Sans Mono CJK JP" # Japan
+            "Noto Sans Mono CJK KR" # Korea
+            "Noto Sans Mono CJK SC" # Simplified Chinese
+            "Noto Sans Mono CJK TC" # Traditional Chinese
           ];
         };
     };
@@ -72,12 +88,12 @@ in {
       openmoji-color
       openmoji-black
 
+      # Persian Font
+      vazir-fonts
+
       # Asian language fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
-      wqy-zenhei
-      wqy-microhei
-      ipaexfont
     ];
   };
 }

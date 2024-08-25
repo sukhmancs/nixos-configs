@@ -15,10 +15,8 @@ in {
   config = mkIf config.qt.enable {
     home.packages = with pkgs; [
       # libraries and programs to ensure that qt applications load without issue
-      # breeze-icons is added as a fallback
       libsForQt5.qt5ct
       kdePackages.qt6ct
-      kdePackages.breeze-icons
 
       # libraries to ensure that "gtk" platform theme works
       # as intended after the following PR:
