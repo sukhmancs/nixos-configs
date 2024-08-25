@@ -1649,7 +1649,7 @@
             "markup.substitution.attribute-reference"
           ];
           "settings" = {
-            "foreground" = "#${base07}";
+            "foreground" = "#${base0E}";
           };
         }
         {
@@ -1740,7 +1740,7 @@
           "name" = "Nix interpolated parameter names";
           "scope" = "meta.embedded variable.parameter.name.nix";
           "settings" = {
-            "foreground" = "#${base07}";
+            "foreground" = "#${base0E}";
             "fontStyle" = "";
           };
         }
