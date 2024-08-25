@@ -49,7 +49,7 @@ in {
 
       # programming fonts
       sarasa-gothic
-      (nerdfonts.override {fonts = ["Iosevka" "JetBrainsMono" "NerdFontsSymbolsOnly"];})
+      (nerdfonts.override {fonts = ["FiraCode" "Iosevka" "JetBrainsMono" "NerdFontsSymbolsOnly"];})
 
       # desktop fonts
       corefonts # MS fonts
@@ -64,13 +64,20 @@ in {
       lexend
       dejavu_fonts
       noto-fonts
-      noto-fonts-cjk-sans
+      fira
 
       # emojis
       noto-fonts-color-emoji
       twemoji-color-font
       openmoji-color
       openmoji-black
+
+      # Asian language fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      wqy-zenhei
+      wqy-microhei
+      ipaexfont
     ];
   };
 }

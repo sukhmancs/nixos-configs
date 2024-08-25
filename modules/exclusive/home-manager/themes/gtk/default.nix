@@ -53,7 +53,7 @@ in {
       };
 
       iconTheme = {
-        name = "Papirus-${osConfig.modules.themes.polarity}"; # "Papirus-Dark" or "Papirus-Light";
+        name = "Papirus-Dark"; # "Papirus-${osConfig.modules.themes.polarity}"; # "Papirus-Dark" or "Papirus-Light";
         # package = pkgs.papirus-icon-theme;
         package = pkgs.catppuccin-papirus-folders.override {
           accent = "blue";
@@ -62,7 +62,7 @@ in {
       };
 
       font = {
-        name = "Lexend"; # "Fira Sans";
+        name = "Fira Sans"; # "Lexend";
         size = 14;
       };
 
@@ -112,6 +112,6 @@ in {
       "gtk-4.0/gtk.css".text = gtkColors;
     };
 
-    xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    # xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 }

@@ -1,7 +1,6 @@
 {
   imports = [
     ./foot
-
     ./nixvim
     ./programs
     ./services
