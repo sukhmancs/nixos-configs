@@ -1,13 +1,10 @@
-# Original Code by NotAShelf - https://github.com/notashelf/nyx
 {
   config,
   pkgs,
   ...
 }: {
   imports = [
-    ./theme/icons.nix
-    ./theme/manager.nix
-    ./theme/status.nix
+    ./theme
   ];
 
   home.packages = [pkgs.exiftool];

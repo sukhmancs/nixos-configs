@@ -37,8 +37,8 @@ in {
       # bg = "#${colors.base0B}";
     };
     marker_copied = {
-      fg = "light#${colors.base0A}";
-      # bg = "light#${colors.base0A}";
+      fg = "#${colors.base0A}";
+      # bg = "#${colors.base0A}";
     };
     marker_cut = {
       fg = "#${colors.base08}";
