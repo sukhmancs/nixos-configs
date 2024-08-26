@@ -1,45 +1,52 @@
 {
+  pkgs,
+  osConfig,
+  ...
+}: let
+  inherit (osConfig) modules;
+  inherit (modules.themes) colors;
+in {
   programs.yazi.theme.status = {
     separator_open = "█";
     separator_close = "█";
     separator_style = {
-      fg = "darkgray";
-      bg = "darkgray";
+      fg = "#${colors.base03}";
+      bg = "#${colors.base03}";
     };
 
     # Mode;
     mode_normal = {
-      fg = "black";
-      bg = "lightblue";
+      fg = "#${colors.base00}";
+      bg = "#${colors.base0E}";
       bold = true;
     };
     mode_select = {
-      fg = "black";
-      bg = "lightgreen";
+      fg = "#${colors.base00}";
+      bg = "#${colors.base0B}";
       bold = true;
     };
     mode_unset = {
-      fg = "black";
-      bg = "lightmagenta";
+      fg = "#${colors.base00}";
+      bg = "#${colors.base0E}";
       bold = true;
     };
 
     # Progress;
     progress_label = {bold = true;};
     progress_normal = {
-      fg = "blue";
-      bg = "black";
+      fg = "#${colors.base0E}";
+      bg = "#${colors.base00}";
     };
     progress_error = {
       fg = "red";
-      bg = "black";
+      bg = "#${colors.base00}";
     };
 
     # Permissions;
-    permissions_t = {fg = "blue";};
-    permissions_r = {fg = "lightyellow";};
-    permissions_w = {fg = "lightred";};
-    permissions_x = {fg = "lightgreen";};
-    permissions_s = {fg = "darkgray";};
+    permissions_t = {fg = "#${colors.base0E}";};
+    permissions_r = {fg = "#${colors.base0A}";};
+    permissions_w = {fg = "#${colors.base08}";};
+    permissions_x = {fg = "#${colors.base0B}";};
+    permissions_s = {fg = "#${colors.base03}";};
   };
 }
