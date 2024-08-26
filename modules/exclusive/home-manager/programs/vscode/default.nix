@@ -122,18 +122,23 @@ in {
         # General
         "update.mode" = "none";
         "update.showReleaseNotes" = false; # disable update release notes
-        "[nix]"."editor.tabSize" = 2;
-        "files.trimTrailingWhitespace" = true;
-        "redhat.telemetry.enabled" = false;
+
+        #TODO: uncomment this
+        # "[nix]"."editor.tabSize" = 2;
+
+        #TODO: uncomment this
+        # "files.trimTrailingWhitespace" = true;
+        # "redhat.telemetry.enabled" = false;
 
         # Security settings
         "security.workspace.trust.untrustedFiles" = "open";
         "security.workspace.trust.enabled" = false;
 
+        #TODO: uncomment this
         # BreadCrumbs settings
-        "breadcrumbs.enabled" = true;
-        "breadcrumbs.filePath" = "off";
-        "notebook.breadcrumbs.showCodeCells" = false;
+        # "breadcrumbs.enabled" = true;
+        # "breadcrumbs.filePath" = "off";
+        # "notebook.breadcrumbs.showCodeCells" = false;
 
         # Terminal settings
         "terminal.integrated.fontFamily" = "JetBrainsMono Nerd Font Mono";
@@ -147,24 +152,27 @@ in {
 
         # Editor settings
         "editor.fontFamily" = "JetBrainsMono Nerd Font, Material Design Icons, 'monospace', monospace";
-        "editor.inlayHints.enabled" = "off";
         "editor.lineNumbers" = "relative";
-        "editor.lightbulb.enabled" = "off";
         "editor.scrollbar.verticalScrollbarSize" = 6;
         "editor.fontSize" = 16;
-        "editor.fontLigatures" = true;
         # "editor.formatOnPaste" = true;
         # "editor.formatOnSave" = true;
         # "editor.formatOnType" = false;
-        "editor.overviewRulerBorder" = false;
-        "editor.renderLineHighlight" = "all";
-        "editor.inlineSuggest.enabled" = true;
-        "editor.smoothScrolling" = true;
-        "editor.suggestSelection" = "first";
-        "editor.guides.indentation" = true;
-        "editor.guides.bracketPairs" = true;
-        "editor.bracketPairColorization.enabled" = true;
-        "editor.scrollbar.horizontalScrollbarSize" = 0;
+
+        #TODO: uncomment this
+        # "editor.inlayHints.enabled" = "off";
+        # "editor.lightbulb.enabled" = "off";
+        # "editor.fontLigatures" = true;
+        # "editor.overviewRulerBorder" = false;
+        # "editor.renderLineHighlight" = "all";
+        # "editor.inlineSuggest.enabled" = true;
+        # "editor.smoothScrolling" = true;
+        # "editor.suggestSelection" = "first";
+        # "editor.guides.indentation" = true;
+        # "editor.guides.bracketPairs" = true;
+        # "editor.bracketPairColorization.enabled" = true;
+        # "editor.scrollbar.horizontalScrollbarSize" = 0;
+
         # "editor.minimap.enabled" = false;
         # "editor.minimap.renderCharacters" = false;
         # "editor.cursorBlinking" = "phase";
@@ -203,7 +211,7 @@ in {
           "plaintext" = true;
         };
         # "vim.useSystemClipboard" = true;
-        "haskell.manageHLS" = "PATH";
+        # "haskell.manageHLS" = "PATH";
         # "vscode-neovim.highlightGroups.highlights" = {
         #   "IncSearch" = {
         #     "backgroundColor" = "theme.editor.findMatchBackground";
@@ -222,22 +230,24 @@ in {
         # };
 
         # Explorer settings
+        #TODO: uncomment this
         "explorer.openEditors.visible" = 1;
         "explorer.compactFolders" = false; # disable compact mode
         "explorer.confirmDelete" = false;
         "explorer.confirmDragAndDrop" = false;
         "explorer.autoReveal" = false;
 
+        #TODO: uncomment this
         # Error Lens settings
-        "errorLens.gutterIconsEnabled" = true;
-        "errorLens.gutterIconSize" = "115%";
-        "errorLens.messageBackgroundMode" = "message";
-        "errorLens.enabledDiagnosticLevels" = [
-          "error"
-          "warning"
-          "info"
-          "hint"
-        ];
+        # "errorLens.gutterIconsEnabled" = true;
+        # "errorLens.gutterIconSize" = "115%";
+        # "errorLens.messageBackgroundMode" = "message";
+        # "errorLens.enabledDiagnosticLevels" = [
+        #   "error"
+        #   "warning"
+        #   "info"
+        #   "hint"
+        # ];
 
         # Linters
         # "python.linting.flake8Args" = [
@@ -250,21 +260,22 @@ in {
         #   "W" = "Error";
         # };
 
+        #TODO: uncomment this
         # Formatters for different languages
-        "[python]" = {
-          # use black vs code extension to format python code
-          "editor.defaultFormatter" = "ms-python.black-formatter";
-          "editor.formatOnSave" = true;
-        };
+        # "[python]" = {
+        #   # use black vs code extension to format python code
+        #   "editor.defaultFormatter" = "ms-python.black-formatter";
+        #   "editor.formatOnSave" = true;
+        # };
 
-        "[nix]" = {
-          # use alejandra to format nix code
-          "editor.defaultFormatter" = "kamadorueda.alejandra";
-          "editor.formatOnPaste" = true;
-          "editor.formatOnSave" = true;
-          "editor.formatOnType" = false;
-        };
-        "alejandra.program" = "alejandra";
+        # "[nix]" = {
+        #   # use alejandra to format nix code
+        #   "editor.defaultFormatter" = "kamadorueda.alejandra";
+        #   "editor.formatOnPaste" = true;
+        #   "editor.formatOnSave" = true;
+        #   "editor.formatOnType" = false;
+        # };
+        # "alejandra.program" = "alejandra";
       };
       keybindings = [
         {
