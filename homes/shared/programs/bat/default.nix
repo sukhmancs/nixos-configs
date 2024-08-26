@@ -1,9 +1,13 @@
-{pkgs, osConfig, ...}: {
+{
+  pkgs,
+  osConfig,
+  ...
+}: {
   programs.bat = {
     enable = true;
     themes = {
       custom = {
-        src = import ./theme.nix { inherit osConfig;};
+        src = import ./theme.nix {inherit osConfig;};
         file = "custom.tmTheme";
       };
     };

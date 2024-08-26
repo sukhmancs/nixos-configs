@@ -1,5 +1,4 @@
-{osConfig, ...}:
-let
+{osConfig, ...}: let
   inherit (osConfig) modules;
   inherit (modules.themes) colors;
 
@@ -2054,4 +2053,4 @@ let
     </plist>
   '';
 in
-builtins.toFile "custom.tmTheme" tmTheme
+  builtins.toFile "custom.tmTheme" tmTheme
