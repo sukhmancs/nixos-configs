@@ -20,6 +20,9 @@
     # Wireguard Server Configuration
     networking.wireguard.enable = true;
 
+    # Tor - Onion Router
+    # services.tor.enable = true;
+
     #TODO: configure tailscale for server - override flags for server (check modules/exclusive/nixos/shared/tailscale-client)
     # services.tailscale.enable = false;
 
