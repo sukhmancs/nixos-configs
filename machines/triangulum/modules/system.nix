@@ -14,6 +14,9 @@
     # Matrix Synapse - Private Chat Server
     services.matrix-synapse.enable = true;
 
+    # Mastodon - Social Media Server
+    services.mastodon.enable = true;
+
     # Wireguard Server Configuration
     networking.wireguard.enable = true;
 

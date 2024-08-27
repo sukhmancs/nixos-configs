@@ -15,7 +15,7 @@ in {
           ExitNodes = "{de}";
           EntryNodes = "{de}";
           NewCircuitPeriod = 120;
-          DNSPort = 9053;
+          DNSPort = 9053; #TODO: use my own adguard home dns
           BandWidthRate = "15 MBytes";
         };
 
