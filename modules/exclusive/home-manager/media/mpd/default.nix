@@ -21,7 +21,7 @@ in {
 
       # music player daemon service
       mpd = {
-        musicDirectory = "${config.home.homeDirectory}/Media/Music";
+        musicDirectory = "$HOME/Media/Music";
         network = {
           startWhenNeeded = true;
           listenAddress = "127.0.0.1";
