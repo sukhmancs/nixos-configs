@@ -1,17 +1,18 @@
-{
-  pkgs,
-  lib,
-  config,
-  osConfig,
-  ...
-}: let
+{ pkgs
+, lib
+, config
+, osConfig
+, ...
+}:
+let
   inherit (lib.modules) mkIf mkMerge;
   qtThemePackage = pkgs.catppuccin-kde.override {
-    flavour = ["mocha"];
-    accents = ["blue"];
-    winDecStyles = ["modern"];
+    flavour = [ "mocha" ];
+    accents = [ "blue" ];
+    winDecStyles = [ "modern" ];
   };
-in {
+in
+{
   config = mkIf config.qt.enable {
     home.packages = with pkgs; [
       # libraries and programs to ensure that qt applications load without issue
