@@ -1,4 +1,3 @@
-# Original code by NotAShelf - https://github.com/notashelf/nyx
 {
   osConfig,
   config,
@@ -10,9 +9,8 @@
 in {
   config = mkIf config.services.mpd.enable {
     home.packages = with pkgs; [
-      playerctl # CLI interface for playerctld
       mpc-cli # CLI interface for mpd
-      cava # CLI music visualizer
+      playerctl # CLI interface for playerctld
     ];
 
     services = {
@@ -22,6 +20,8 @@ in {
 
       # music player daemon service
       mpd = {
+        dbFile = "${config.xdg.configHome}/mpd/database";
+        dataDir = "${config.xdg.configHome}/mpd";
         musicDirectory = "${config.xdg.userDirs.music}";
         network = {
           startWhenNeeded = true;
@@ -65,7 +65,6 @@ in {
         notifications = true;
         multimediaKeys = true;
         mpd = {
-          # for some reason config.xdg.userDirs.music is not a "path" - possibly because it has $HOME in its name?
           inherit (config.services.mpd) musicDirectory;
         };
       };
@@ -82,26 +81,6 @@ in {
           };
         };
       };
-    };
-
-    programs = {
-      /*
-      # yams service
-      # TODO: figure out a way to provide the lastfm authentication declaratively
-
-      systemd.user.services.yams = {
-        Unit = {
-          Description = "Last.FM scrobbler for MPD";
-          After = ["mpd.service"];
-        };
-        Service = {
-          ExecStart = "${pkgs.yams}/bin/yams -N";
-          Environment = "NON_INTERACTIVE=1";
-          Restart = "always";
-        };
-        Install.WantedBy = ["default.target"];
-      };
-      */
     };
   };
 }
