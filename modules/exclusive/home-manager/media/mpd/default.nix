@@ -10,7 +10,7 @@ in {
   config = mkIf config.services.mpd.enable {
     home.packages = with pkgs; [
       playerctl # CLI interface for playerctld
-      mpc_cli # CLI interface for mpd
+      mpc-cli # CLI interface for mpd
       cava # CLI music visualizer (cavalier is a gui alternative)
     ];
 

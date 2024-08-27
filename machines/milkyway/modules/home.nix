@@ -14,10 +14,11 @@
         thunderbird.enable = true; # email client
         vscode.enable = true; # code editor
         zathura.enable = true; # pdf reader
-        mangohud.enable = false; # game overlay
         swaylock.enable = true; # screen locker
         mpv.enable = true; # media player
+        ncmpcpp.enable = true; # music player client for mpd
         kitty.enable = false; # terminal emulator
+        mangohud.enable = false; # game overlay
       };
       gtk.enable = true; # gtk theme
       qt.enable = true; # qt theme with kvantum
@@ -27,15 +28,15 @@
       ags.enable = true; # widgets
       clipboard.enable = true;
       hyprpaper.enable = true; # wallpaper manager
-      spotify.enable = false; # music player #TODO: bug - build fails: pull request has been added just wait for the next update
-      element.enable = false; # matrix client
-      discord.enable = false;
       webcord.enable = true; # privacy respecting discord client
       wlogout.enable = true; # logout menu
       anyrun.enable = true; # application launcher
       rbw.enable = true; # bitwarden password manager using rofi
       waypipe.enable = true; # wayland over ssh
       sublime-music.enable = true; # music player
+      spotify.enable = false; # music player #TODO: bug - build fails: pull request has been added just wait for the next update
+      element.enable = false; # matrix client
+      discord.enable = false;
       nautilus.enable = false; # file manager
     };
 

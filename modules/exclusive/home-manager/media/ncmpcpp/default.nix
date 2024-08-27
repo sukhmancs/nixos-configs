@@ -1,3 +1,6 @@
+#
+# NCMPCPP - Featureful ncurses based MPD client inspired by ncmpc
+#
 {
   osConfig,
   config,
