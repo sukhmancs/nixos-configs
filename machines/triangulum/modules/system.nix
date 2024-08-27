@@ -9,7 +9,7 @@
     virtualisation.libvirtd.enable = true;
 
     # Nixos Cache - Harmonia
-    # services.harmonia.enable = true;
+    services.harmonia.enable = true;
 
     # Matrix Synapse - Private Chat Server
     services.matrix-synapse.enable = true;
