@@ -14,7 +14,7 @@
   terminal =
     if config.programs.foot.enable
     then "foot"
-    else "alacritty";
+    else "kitty";
 
   locker = getExe pkgs.swaylock-effects;
 in {
@@ -26,7 +26,7 @@ in {
     "$kw" = "dwindle:no_gaps_when_only";
     "$disable" = ''act_opa=$(hyprctl getoption "decoration:active_opacity" -j | jq -r ".float");inact_opa=$(hyprctl getoption "decoration:inactive_opacity" -j | jq -r ".float");hyprctl --batch "keyword decoration:active_opacity 1;keyword decoration:inactive_opacity 1"'';
     "$enable" = ''hyprctl --batch "keyword decoration:active_opacity $act_opa;keyword decoration:inactive_opacity $inact_opa"'';
-    #"$screenshotarea" = ''hyprctl keyword animation "fadeOut,0,0,default"; grimblast --notify copysave area; hyprctl keyword animation "fadeOut,1,4,default"''
+    "$screenshotarea" = ''hyprctl keyword animation "fadeOut,0,0,default"; grimblast --notify copysave area; hyprctl keyword animation "fadeOut,1,4,default"'';
 
     bind = [
       # Misc
@@ -41,10 +41,10 @@ in {
       ''$MOD,RETURN,exec,run-as-service "${terminal}"'' # terminal
       ''$MODSHIFT,RETURN,exec,run-as-service "${terminal}"'' #TODO: floating terminal
       ''$MOD,D,exec, killall rofi || run-as-service $(rofi -show drun)'' # application launcher
-      "$MOD,equal,exec, killall rofi || rofi -show calc" # calc plugin for rofi
-      "$MOD,period,exec, killall rofi || rofi -show emoji" # emoji plugin for rofi
+      # "$MOD,equal,exec, killall rofi || rofi -show calc" # calc plugin for rofi
+      # "$MOD,period,exec, killall rofi || rofi -show emoji" # emoji plugin for rofi
       "$MOD,Space,exec, killall rofi || rofi-rbw" # rofi-rbw plugin for rofi
-      ''$MOD,R,exec, killall tofi || run-as-service $(tofi-drun --prompt-text "  Run")'' # alternative app launcher
+      # ''$MOD,R,exec, killall tofi || run-as-service $(tofi-drun --prompt-text "  Run")'' # alternative app launcher
       ''$MODSHIFT,R,exec, killall anyrun || run-as-service $(anyrun)'' # alternative application launcher with more features
 
       # window operators
@@ -74,17 +74,13 @@ in {
       "$MOD, Print, exec, grimblast --notify --cursor copysave output" # copy all active outputs
       "$ALTSHIFT, S, exec, grimblast --notify --cursor copysave screen" # copy active screen
       "$ALTSHIFT, R, exec, grimblast --notify --cursor copysave area" # copy selection area
+      ", Print, exec, $screenshotarea" # screenshot selection area
 
       # OCR
       "$MODSHIFT,O,exec, ocr"
 
       # Toggle Statusbar
       "$MODSHIFT,B,exec, ags -t bar"
-
-      /*
-      , Print, exec, $screenshotarea
-      $ALTSHIFT, S, exec, $screenshotarea
-      */
     ];
 
     bindm = [
