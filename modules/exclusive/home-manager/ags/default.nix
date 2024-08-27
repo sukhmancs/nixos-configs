@@ -57,6 +57,7 @@ in {
       gtk3
       pulsemixer
       networkmanager
+      cava
       gtksourceview
       ollama
       pywal
