@@ -1,3 +1,4 @@
+# Original code by NotAShelf - https://github.com/notashelf/nyx
 {
   osConfig,
   config,
@@ -11,7 +12,7 @@ in {
     home.packages = with pkgs; [
       playerctl # CLI interface for playerctld
       mpc-cli # CLI interface for mpd
-      cava # CLI music visualizer (cavalier is a gui alternative)
+      cava # CLI music visualizer
     ];
 
     services = {
@@ -21,7 +22,7 @@ in {
 
       # music player daemon service
       mpd = {
-        musicDirectory = "$HOME/Media/Music";
+        musicDirectory = "${config.xdg.userDirs.music}";
         network = {
           startWhenNeeded = true;
           listenAddress = "127.0.0.1";
