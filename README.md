@@ -9,7 +9,7 @@
 <br />
 
 <p id="preview" align="center">
-  <img src=".github/assets/desktop_preview.png" alt="Laptop Preview" />
+  <img src=".github/assets/firefox_vim_pfetch_yazi.png" alt="Firefox, Neovim, pfetch, yazi" />
   <img src=".github/assets/iso_preview.png" alt="ISO Preview" />
 </p>
 
