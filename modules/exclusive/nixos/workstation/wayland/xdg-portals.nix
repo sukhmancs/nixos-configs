@@ -7,7 +7,6 @@
   inherit (lib.modules) mkIf mkForce;
   cfg = config.home-manager.users.xi;
 in {
-  #TODO: this should be a module
   config =
     mkIf
     ((config ? home-manager)
