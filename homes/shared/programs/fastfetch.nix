@@ -14,7 +14,7 @@
         logo = {
           source = "nixos_small";
           padding = {
-            top = 5;
+            top = 3;
             left = 1;
             right = 5;
           };
@@ -39,12 +39,12 @@
             type = "custom";
             format = "{#90}  {#31}  {#32}  {#33}  {#34}  {#35}  {#36}  {#37}";
           }
-          "break"
-          {
-            type = "title";
-            keyWidth = 10;
-            keyColor = "inverse_";
-          }
+          # "break"
+          # {
+          #   type = "title";
+          #   keyWidth = 10;
+          #   keyColor = "inverse_";
+          # }
           "break"
           {
             type = "os";
