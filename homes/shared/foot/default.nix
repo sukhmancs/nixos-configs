@@ -1,13 +1,12 @@
-{ inputs'
-, osConfig
-, pkgs
-, lib
-, ...
-}:
-let
-  inherit (osConfig.modules.themes) colors;
-in
 {
+  inputs',
+  osConfig,
+  pkgs,
+  lib,
+  ...
+}: let
+  inherit (osConfig.modules.themes) colors;
+in {
   config = {
     home.packages = with pkgs; [
       libsixel
@@ -100,7 +99,7 @@ in
           bright4 = "${colors.base0D}";
           bright5 = "${colors.base0F}";
           bright6 = "${colors.base0C}";
-          bright7 = "${colors.base07}";
+          bright7 = "${colors.base0E}";
           foreground = "${colors.base05}";
           regular0 = "${colors.base03}";
           regular1 = "${colors.base08}";
@@ -109,7 +108,7 @@ in
           regular4 = "${colors.base0D}";
           regular5 = "${colors.base0F}";
           regular6 = "${colors.base0C}";
-          regular7 = "${colors.base06}";
+          regular7 = "${colors.base0E}";
         };
       };
     };

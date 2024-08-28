@@ -12,7 +12,6 @@ in {
       ranger
     ];
 
-    # TODO: more file preview methods
     xdg.configFile."ranger/rc.conf".text = ''
       set preview_images true
       # Settings.
