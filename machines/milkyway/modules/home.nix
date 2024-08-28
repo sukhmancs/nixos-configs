@@ -17,7 +17,6 @@
         swaylock.enable = true; # screen locker
         mpv.enable = true; # media player
         ncmpcpp.enable = true; # music player client for mpd
-        beets.enable = true; # music organizer
         kitty.enable = false; # terminal emulator
         mangohud.enable = false; # game overlay
       };
