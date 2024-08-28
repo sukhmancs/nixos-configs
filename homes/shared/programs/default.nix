@@ -4,6 +4,7 @@
     ./btop
     ./git
     ./yazi
+    ./zellij
 
     ./dircolors.nix
     ./direnv.nix
