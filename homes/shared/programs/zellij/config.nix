@@ -217,9 +217,9 @@
     themes {
       custom {
         bg "#${colors.base02}"
-        fg "#${colors.base02}"
-        red "#${colors.base08}"
-        green "#${colors.base0B}"
+        fg "#${colors.base0E}"
+        red "#${colors.base00}"
+        green "#${colors.base0E}"
         blue "#${colors.base0D}"
         yellow "#${colors.base0A}"
         magenta "#${colors.base0E}"
