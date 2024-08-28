@@ -103,7 +103,7 @@ in {
   triangulum = baseSystemConfig {
     hostname = "triangulum";
     roleModules = serverRoles;
-    enableHome = false; #TODO: enable home-manager for server
+    enableHome = true;
     inherit system agenix;
   };
 
