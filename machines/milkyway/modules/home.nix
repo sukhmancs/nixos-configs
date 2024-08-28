@@ -6,7 +6,7 @@
       services.gammastep.enable = true; # display color control #TODO: not working
       services.nextcloud-client.enable = true; # syncronization client
       services.swayidle.enable = true; # screen idle
-      services.mpd.enable = true; # music player daemon
+      # services.mpd.enable = true; # music player daemon
       programs = {
         rofi.enable = true; # application launcher
         firefox.enable = true; # browser (schizofox)
@@ -16,7 +16,7 @@
         zathura.enable = true; # pdf reader
         swaylock.enable = true; # screen locker
         mpv.enable = true; # media player
-        ncmpcpp.enable = true; # music player client for mpd
+        # ncmpcpp.enable = true; # music player client for mpd
         kitty.enable = false; # terminal emulator
         mangohud.enable = false; # game overlay
       };

@@ -88,7 +88,7 @@ in {
     hostname = "milkyway";
     roleModules = laptopRoles;
     enableHome = true;
-    inherit system agenix; # Todo - do not need secrets
+    inherit system agenix; #TODO - do not need secrets
   };
 
   # DESKTOP
@@ -96,14 +96,14 @@ in {
     hostname = "andromeda";
     roleModules = workstationRoles;
     enableHome = true;
-    inherit system agenix; # Todo - do not need secrets
+    inherit system agenix; #TODO - do not need secrets
   };
 
   # SERVER
   triangulum = baseSystemConfig {
     hostname = "triangulum";
     roleModules = serverRoles;
-    enableHome = false;
+    enableHome = true;
     inherit system agenix;
   };
 
