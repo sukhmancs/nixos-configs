@@ -59,21 +59,15 @@ opportunities to innovate and contribute to this fascinating field. Stay tuned f
 
 ***
 
-If you want to contact me for any reason, you may just shoot me an email at me@xilain.dev. In case you were
-unable to reach me via email (e.g. your smtp server uses an outdated cipher, or my domain is blacklisted by your provider),
-you may contact me via Matrix using the links below.
-
-***
-
-List of stuff you might find interesting if you came here and are a human:
+If you want to contact me for any reason, you may just shoot me an email at me [at] xilain [dot] dev. You can
+also use the following links to connect with me on various platforms:
 
 - E-mail | me@xilain.dev
 - Matrix | https://matrix.to/#/@xi:xilain.dev
 - Github | https://github.com/sukhmancs
 
 
-Should you discover any security vulnerabilities on this server, I would deeply appreciate it if you could inform me.
-Please reach out using any of the contact methods listed above.
+Please reach out if you find any security vulnerabilities or have any suggestions for improvement.
 
 ***
 
