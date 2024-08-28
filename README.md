@@ -56,6 +56,7 @@
 - [x] **bat** - base16 colors
 - [x] **wallpapers** - wallpaper flake
 - [x] **Schizofox Startup Page** - base16 colors
+- [x] **fastfetch** - Add custom colors
 
 ### In Progress 🚧
 
@@ -67,7 +68,6 @@
 - [ ] **Qemu** - Virtualization with GPU passthrough (_Done but not tested_)
 - [ ] **Hardened Systemd**
 - [ ] **Modularize** - Anyrun, qt.nix, ...
-- [ ] **fastfetch** - Add custom colors (How?)
 - [ ] **Refactor** - Remove dead code, unused files, ...
 - [ ] **Templates** - Add flake templates for c, cpp, python, node, ...
 - [ ] **Server (messier)** - nginx, mailserver, vaultwarden, monitoring tools, forgejo, ...
