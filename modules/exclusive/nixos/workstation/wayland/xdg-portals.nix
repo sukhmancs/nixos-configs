@@ -11,8 +11,8 @@ in {
   config =
     mkIf
     ((config ? home-manager)
-      && config.home-manager.users.xi.wayland.windowManager.hyprland.enable
-      || config.home-manager.users.xi.wayland.windowManager.sway.enable) {
+      && (config.home-manager.users.xi.wayland.windowManager.hyprland.enable
+        || config.home-manager.users.xi.wayland.windowManager.sway.enable)) {
       xdg.portal = {
         extraPortals = [
           pkgs.xdg-desktop-portal-gtk
