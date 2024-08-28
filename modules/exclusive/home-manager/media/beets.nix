@@ -1,3 +1,6 @@
+#
+# Beets - the music geek's media organizer
+#
 {
   osConfig,
   config,
