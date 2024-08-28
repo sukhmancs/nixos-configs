@@ -7,7 +7,7 @@
     ./flash.nix
     ./grapple.nix
     ./hardtime.nix
-    ./hardtime.nix
+    ./harpoon.nix
     ./illuminate.nix
     ./markview.nix
     ./mini.nix
