@@ -60,6 +60,7 @@
 
 ### In Progress 🚧
 
+- [ ] **Zellij** - Terminal multiplexer
 - [ ] **Tailnet** - TailScale, WireGuard, ...
 - [ ] **ZFS** - Switch to ZFS
 - [ ] **Icons** - Icon fonts (gtk/qt) are not dynamic. Try to use base16 colors.

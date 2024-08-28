@@ -18,7 +18,7 @@
     # services.mastodon.enable = true;
 
     # Wireguard Server Configuration
-    # networking.wireguard.enable = true;
+    networking.wireguard.enable = true;
 
     # Tor - Onion Router
     # services.tor.enable = true;

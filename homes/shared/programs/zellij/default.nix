@@ -2,12 +2,11 @@ let
   shellAliases = {
     "zj" = "zellij";
   };
-in
-{
+in {
   programs.zellij = {
     enable = true;
   };
-  home.shellAliases = shellAliases;
+  # home.shellAliases = shellAliases;
 
   xdg.configFile."zellij/config.kdl".source = ./config.kdl;
 }
