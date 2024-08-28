@@ -81,6 +81,9 @@ in {
 
       # Toggle Statusbar
       "$MODSHIFT,B,exec, ags -t bar"
+
+      # Reload Hyprland
+      "$MOD,R,exec, hyprctl reload"
     ];
 
     bindm = [
