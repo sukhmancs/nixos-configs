@@ -19,7 +19,7 @@ export default (monitor: number) =>
         exclusivity: "exclusive",
         anchor: ["top", "left", "right"],
         // layer: "top",
-        margins: [8, 8, 0, 8],
+        margins: [5, 5, 0, 5],
         child: Widget.CenterBox({
             // css: "min-height: 1px; min-width: 1px;",
             startWidget: Widget.Box({
