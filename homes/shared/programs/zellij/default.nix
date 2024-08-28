@@ -1,7 +1,7 @@
 #
 # Zellij - Terminal multiplexer with batteries included
 #
-{
+{osConfig, ...}: {
   programs.zellij = {
     enable = true;
   };
