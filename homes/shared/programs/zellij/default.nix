@@ -1,12 +1,14 @@
-let
-  shellAliases = {
-    "zj" = "zellij";
-  };
-in {
+#
+# Zellij - Terminal multiplexer with batteries included
+#
+{
   programs.zellij = {
     enable = true;
   };
-  # home.shellAliases = shellAliases;
 
-  xdg.configFile."zellij/config.kdl".source = ./config.kdl;
+  programs.zsh.shellAliases = {
+    "zj" = "zellij";
+  };
+
+  xdg.configFile."zellij/config.kdl".source = import ./config.nix {inherit osConfig;};
 }
