@@ -10,10 +10,11 @@ Q: What are your plans for the next five years?
 
 A: Over the next five years, my primary goal is to secure a role as a
 Machine Learning Engineer in a leading tech company or research institution.
-I am deeply passionate about AI and its potential to solve real-world problems.
-To this end, I plan to publish at least five papers on innovative AI solutions
-that address pressing issues in various domains. I'm committed to continuous learning
-and growth in the field of AI, aiming to contribute significantly to its advancement.
+In my spare time, I plan to become the next Beethoven (or at least learn to play
+"Chopsticks" on the piano). I also aim to publish at least five groundbreaking papers
+in NLP that will make even the most seasoned researchers say, "Why didn't I think of that?"
+I'm committed to continuous learning and growth in the field of AI, aiming to contribute
+significantly to its advancement (and maybe even create an AI that can finally beat me at chess).
 
 ***
 
