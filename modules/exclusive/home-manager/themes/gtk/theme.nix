@@ -54,6 +54,7 @@
     @define-color dark_3 #3d3846;
     @define-color dark_4 #241f31;
     @define-color dark_5 #000000;
+
     /* GTK NAMED COLORS
        ----------------
        use responsibly! */
@@ -61,7 +62,7 @@
     /* Accent - hover, selection, etc */
     @define-color accent_bg_color #${colors.base0E};
     @define-color accent_fg_color #${colors.base05};
-    @define-color accent_color #${colors.base00};
+    @define-color accent_color #${colors.base0E};
 
     /* Common - these are always the same */
     @define-color destructive_bg_color @red_4;
@@ -98,21 +99,18 @@
     @define-color secondary_sidebar_backdrop_color #${colors.base04};
     @define-color secondary_sidebar_shade_color rgba(0, 0, 0, 0.25);
     @define-color secondary_sidebar_border_color rgba(0, 0, 0, 0.36);
-    @define-color card_bg_color rgba(255, 255, 255, 0.08);
+    @define-color card_bg_color #${colors.base02};
     @define-color card_fg_color #${colors.base05};
-    @define-color card_shade_color rgba(0, 0, 0, 0.36);
+    @define-color card_shade_color #${colors.base02};
     @define-color dialog_bg_color #${colors.base02};
     @define-color dialog_fg_color #${colors.base05};
     @define-color popover_bg_color #${colors.base02};
     @define-color popover_fg_color #${colors.base05};
-    @define-color popover_shade_color rgba(0, 0, 0, 0.25);
+    @define-color popover_shade_color #${colors.base02};
     @define-color thumbnail_bg_color #${colors.base00};
     @define-color thumbnail_fg_color #${colors.base05};
-    @define-color shade_color rgba(0, 0, 0, 0.25);
-    @define-color scrollbar_outline_color rgba(0, 0, 0, 0.5);
+    @define-color shade_color #${colors.base02};
+    @define-color scrollbar_outline_color #${colors.base03};
   '';
 in
   builtins.toFile "variables.css" cssContent
-# Use home-manager to manage the variables.scss file directly
-# home.file.".config/ags/style/variables.scss".text = builtins.readFile variablesFile;
-
