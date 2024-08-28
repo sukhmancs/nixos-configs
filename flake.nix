@@ -4,9 +4,6 @@
   inputs = {
     systems.url = "github:nix-systems/default-linux";
 
-    # Fork of the Nix package manager
-    #nix-super.url = "github:privatevoid-net/nix-super";
-
     # NixOS stable
     # nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
 
