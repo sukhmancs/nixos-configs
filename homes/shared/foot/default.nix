@@ -96,7 +96,7 @@ in {
           bright1 = "${colors.base08}";
           bright2 = "${colors.base0B}";
           bright3 = "${colors.base0A}";
-          bright4 = "${colors.base0D}";
+          bright4 = "${colors.base0E}";
           bright5 = "${colors.base0F}";
           bright6 = "${colors.base0C}";
           bright7 = "${colors.base0E}";
@@ -105,7 +105,7 @@ in {
           regular1 = "${colors.base08}";
           regular2 = "${colors.base0B}";
           regular3 = "${colors.base0A}";
-          regular4 = "${colors.base0D}";
+          regular4 = "${colors.base0E}";
           regular5 = "${colors.base0F}";
           regular6 = "${colors.base0C}";
           regular7 = "${colors.base0E}";
