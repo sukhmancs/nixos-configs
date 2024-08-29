@@ -1,14 +1,41 @@
-{ config
-, ...
-}:
-
 {
+  self,
+  config,
+  lib,
+  ...
+}: let
+  inherit (self) inputs;
+  inherit (builtins) elem;
+  inherit (lib.trivial) pipe;
+  inherit (lib.types) isType;
+  inherit (lib.attrsets) mapAttrsToList filterAttrs mapAttrs mapAttrs';
+in {
   imports = [
     ./nixpkgs.nix # nixpkgs configuration.nix
     ./system.nix # nixos system configuration
   ];
 
-  nix = {
+  nix = let
+    mappedRegistry = pipe inputs [
+      (filterAttrs (_: isType "flake"))
+      (mapAttrs (_: flake: {inherit flake;}))
+      (flakes: flakes // {nixpkgs.flake = inputs.nixpkgs;})
+    ];
+  in {
+    # Pin the registry to avoid downloading and evaluating
+    # a new nixpkgs version on each command causing a re-eval.
+    # This will add each flake input as a registry and make
+    # nix3 commands consistent with your flake.
+    registry = mappedRegistry // {default-flake = mappedRegistry.nixpkgs;};
+
+    # This will additionally add your inputs to the system's legacy channels
+    # Making legacy nix commands consistent as well
+    nixPath = mapAttrsToList (key: _: "${key}=flake:${key}") config.nix.registry;
+
+    # Run the Nix daemon on lowest possible priority so that my system
+    # stays responsive during demanding tasks such as GC and builds.
+    # This is especially useful while auto-gc and auto-upgrade are enabled
+    # as they can be quite demanding on the CPU.
     daemonCPUSchedPolicy = "batch";
     daemonIOSchedClass = "idle";
     daemonIOSchedPriority = 7;
@@ -24,7 +51,7 @@
     # Optimise nix store. Manual way: nix-store --optimise
     optimise = {
       automatic = true;
-      dates = [ "04:00" ];
+      dates = ["04:00"];
     };
 
     # We use flakes, so we do need tools related to nix-channel
@@ -45,10 +72,10 @@
       auto-optimise-store = true;
 
       # allow sudo users to mark the following values as trusted
-      allowed-users = [ "root" "@wheel" "nix-builder" ];
+      allowed-users = ["root" "@wheel" "nix-builder"];
 
       # only allow sudo users to manage the nix store
-      trusted-users = [ "root" "@wheel" "nix-builder" ];
+      trusted-users = ["root" "@wheel" "nix-builder"];
 
       # let the system decide the number of max jobs
       max-jobs = "auto";
@@ -58,7 +85,7 @@
       sandbox-fallback = false;
 
       # supported system features
-      system-features = [ "nixos-test" "kvm" "recursive-nix" "big-parallel" ];
+      system-features = ["nixos-test" "kvm" "recursive-nix" "big-parallel"];
 
       # extra architectures supported by my builders
       extra-platforms = config.boot.binfmt.emulatedSystems;
