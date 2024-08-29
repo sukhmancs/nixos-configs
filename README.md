@@ -383,7 +383,7 @@ cd ~/.config/nixos-configs
 >    neededForBoot = true; # <- add this
 >  };
 > ```
-
+>
 > Also, ensure that the password files are located in a volume marked with
 > `neededForBoot = true` otherwise the user will not be able to login.
 >
