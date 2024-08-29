@@ -58,19 +58,20 @@
 - [x] **Schizofox Startup Page** - base16 colors
 - [x] **fastfetch** - Add custom colors
 - [x] **Zellij** - Terminal multiplexer
+- [ ] **btrbk** - Backup tool for btrfs
 
 ### In Progress 🚧
 
 - [ ] **Tailnet** - TailScale, WireGuard, ...
-- [ ] **ZFS** - Switch to ZFS
 - [ ] **Icons** - Icon fonts (gtk/qt) are not dynamic. Try to use base16 colors.
 - [ ] **Credit More Gracefully** - Add Name, Repo, etc.
-- [ ] **Spotify** - Spicetify with custom colors (_Done but there is a bug_)
+- [ ] **Spotify** - Spicetify with custom colors (_Done but there is a bug in spicetify_)
 - [ ] **Qemu** - Virtualization with GPU passthrough (_Done but not tested_)
 - [ ] **Hardened Systemd**
 - [ ] **Modularize** - Anyrun, qt.nix, ...
 - [ ] **Refactor** - Remove dead code, unused files, ...
 - [ ] **Templates** - Add flake templates for c, cpp, python, node, ...
+- [ ] **ZFS** - Switch to ZFS
 - [ ] **Server (messier)** - nginx, mailserver, vaultwarden, monitoring tools, forgejo, ...
 - [ ] **IRC (messier)** - `services.ergochat.enable`
 
@@ -306,6 +307,7 @@ btrfs subvolume create /mnt/home
 btrfs subvolume create /mnt/nix
 btrfs subvolume create /mnt/persist
 btrfs subvolume create /mnt/log
+btrfs subvolume create /mnt/snapshots
 
 # Blank snapshot of the root subvolume
 btrfs subvolume snapshot -r /mnt/root /mnt/root-blank
@@ -318,6 +320,7 @@ mkdir /mnt/home
 mkdir /mnt/nix
 mkdir /mnt/persist
 mkdir -p /mnt/var/log
+mkdir /mnt/snapshots
 
 # Mount the subvolumes
 mount -o subvol=root,compress=zstd,noatime /dev/mapper/crypted /mnt
@@ -325,6 +328,7 @@ mount -o subvol=home,compress=zstd,noatime /dev/mapper/crypted /mnt/home
 mount -o subvol=nix,compress=zstd,noatime /dev/mapper/crypted /mnt/nix
 mount -o subvol=persist,compress=zstd,noatime /dev/mapper/crypted /mnt/persist
 mount -o subvol=log,compress=zstd,noatime /dev/mapper/crypted /mnt/var/log
+mount -o subvol=snapshots,compress=zstd,noatime /dev/mapper/crypted /mnt/snapshots
 ```
 
 **Setup Boot Partition**
@@ -361,6 +365,13 @@ nixos-generate-config --root /mnt
 >    device = "/dev/disk/by-uuid/b79d3c8b-d511-4d66-a5e0-641a75440ada";
 >    fsType = "btrfs";
 >    options = ["subvol=log"];
+>    neededForBoot = true; # <- add this
+>  };
+>
+>  fileSystems."/snapshots" = {
+>    device = "/dev/disk/by-uuid/b79d3c8b-d511-4d66-a5e0-641a75440ada";
+>    fsType = "btrfs";
+>    options = ["subvol=snapshots"];
 >    neededForBoot = true; # <- add this
 >  };
 > ```

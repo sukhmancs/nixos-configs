@@ -21,7 +21,7 @@
       target_preserve = "9d 4w 2m";
       target_preserve_min = "no";
 
-      snapshot_dir = "/snapshots";
+      snapshot_dir = "/snapshots"; # Where to store snapshots (must be on the same volume as the subvolumes)
 
       # these are the subvolumes that will be backed up
       volume = {
