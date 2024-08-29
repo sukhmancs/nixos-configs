@@ -1,13 +1,28 @@
-{
-  pkgs,
-  lib,
-  ...
+{ pkgs
+, lib
+, ...
 }: {
   config = {
-    environment.systemPackages = [pkgs.appimage-run];
+    environment.systemPackages = [
+      pkgs.appimage-run
+      # create a fhs environment by command `fhs`, so we can run non-nixos packages in nixos!
+      (
+        let
+          base = pkgs.appimageTools.defaultFhsEnvArgs;
+        in
+        pkgs.buildFHSUserEnv (base
+          // {
+          name = "fhs";
+          targetPkgs = pkgs: (base.targetPkgs pkgs) ++ [ pkgs.pkg-config ];
+          profile = "export FHS=1";
+          runScript = "bash";
+          extraOutputsToInstall = [ "dev" ];
+        })
+      )
+    ];
 
     # run appimages with appimage-run
-    boot.binfmt.registrations = lib.genAttrs ["appimage" "AppImage"] (_: {
+    boot.binfmt.registrations = lib.genAttrs [ "appimage" "AppImage" ] (_: {
       wrapInterpreterInShell = false;
       interpreter = "${pkgs.appimage-run}/bin/appimage-run";
       recognitionType = "magic";
