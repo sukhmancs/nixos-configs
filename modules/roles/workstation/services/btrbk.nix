@@ -4,10 +4,10 @@
 # This will create snapshots on schedule but we can also use `btrbk run` command to create a backup manually.
 #
 # To restore a snapshot:
-#  1. Find the snapshot you want to restore in /snapshots
-#  2. Use `btrfs subvol delete /persist` to delete the current subvolume
-#  3. Use `btrfs subvol snapshot /snapshots/2024-08-28 /persist` to restore the snapshot
-#  4. Reboot the system or remount the filesystem to see the changes
+#  - Locate the snapshot you want to restore in /snapshots
+#  - Remove the current subvolume with `btrfs subvol delete /persist`
+#  - Restore the snapshot with `btrfs subvol snapshot /snapshots/2024-08-28 /persist`
+#  - Changes will be visible after a reboot or remounting the filesystem
 #
 {
   services.btrbk.instances.btrbk = {
@@ -21,6 +21,7 @@
       target_preserve = "9d 4w 2m";
       target_preserve_min = "no";
 
+      # these are the subvolumes that will be backed up
       volume = {
         "/" = {
           subvolume = {
@@ -28,6 +29,7 @@
               snapshot_create = "always";
             };
           };
+          target = "/snapshots";
         };
       };
     };
