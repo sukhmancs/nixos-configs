@@ -1,90 +1,40 @@
+{ config
+, ...
+}:
+
 {
-  self,
-  config,
-  pkgs,
-  lib,
-  ...
-}: let
-  inherit (self) inputs;
-  inherit (builtins) elem;
-  inherit (lib.trivial) pipe;
-  inherit (lib.types) isType;
-  inherit (lib.attrsets) mapAttrsToList optionalAttrs filterAttrs mapAttrs mapAttrs';
-  inherit (lib.lists) mkMerge;
-in {
   imports = [
-    ./nixpkgs.nix # global nixpkgs configuration.nix
+    ./nixpkgs.nix # nixpkgs configuration.nix
     ./system.nix # nixos system configuration
   ];
 
-  #TODO:(important) get rid of this junk
-  # Link selected flake inputs to `/etc/nix/path` for added backwards compatibility.
-  # Some of them, as long as they are made compatible with flakes, can be used with
-  # nix's discouraged special lookup paths (e.g. <nixpkgs>) if you really need them
-  # to. Should be noted, however, that special lookup paths are discouraged and the
-  # only real reason they are here is backwards compatibility, and sometimes my own
-  # convenience. If you are using a flake, you should be using the flake's outputs.
-  #  environment.etc =
-  #    let
-  #      inherit (config.nix) registry;
-  #      commonPaths = [ "home-manager" "nixpkgs" "nyxpkgs" "self" ];
-  #    in
-  #    pipe registry [
-  #      (filterAttrs (name: _: (elem name commonPaths)))
-  #      (mapAttrs' (name: value: {
-  #        name = "nix/path/${name}";
-  #        value.source = value.flake;
-  #      }))
-  #    ];
-  #
-  nix = let
-    mappedRegistry = pipe inputs [
-      (filterAttrs (_: isType "flake"))
-      (mapAttrs (_: flake: {inherit flake;}))
-      (x: x // {nixpkgs.flake = inputs.nixpkgs;})
-    ];
-  in {
-    #      package = pkgs.nixSuper; # pkgs.nixVersions.unstable;
-
-    # Pin the registry to avoid downloading and evaluating a new nixpkgs version every time
-    # this will add each flake input as a registry to make nix3 commands consistent with your flake
-    # additionally we also set `registry.default`, which was added by nix-super
-    #registry = mappedRegistry // optionalAttrs (config.nix.package == pkgs.nixSuper) { default = mappedRegistry.nixpkgs; };
-
-    # This will additionally add your inputs to the system's legacy channels
-    # Making legacy nix commands consistent as well
-    #nixPath = mapAttrsToList (key: _: "${key}=flake:${key}") config.nix.registry;
-
-    # make builds run with low priority so my system stays responsive
-    # this is especially helpful if you have auto-upgrade on
+  nix = {
     daemonCPUSchedPolicy = "batch";
     daemonIOSchedClass = "idle";
     daemonIOSchedPriority = 7;
 
-    # set up garbage collection to run weekly,
-    # removing unused packages that are older than 30 days
+    # Garbage collection weekly and delete generations
+    # older than 10 days
     gc = {
       automatic = true;
       dates = "Sat *-*-* 03:00";
-      options = "--delete-older-than 20d";
+      options = "--delete-older-than 10d";
     };
 
-    # automatically optimize nix store my removing hard links
-    # do it after the gc
+    # Optimise nix store. Manual way: nix-store --optimise
     optimise = {
       automatic = true;
-      dates = ["04:00"];
+      dates = [ "04:00" ];
     };
+
+    # We use flakes, so we do need tools related to nix-channel
+    channel.enable = false;
 
     settings = {
       # tell nix to use the xdg spec for base directories
       # while transitioning, any state must be carried over
       # manually, as Nix won't do it for us
       use-xdg-base-directories = true;
-
-      #TODO:(important) remove this
-      # specify the path to the nix registry
-      # flake-registry = "/etc/nix/registry.json";
 
       # Free up to 10GiB whenever there is less than 5GB left.
       # this setting is in bytes, so we multiply with 1024 thrice
@@ -95,10 +45,10 @@ in {
       auto-optimise-store = true;
 
       # allow sudo users to mark the following values as trusted
-      allowed-users = ["root" "@wheel" "nix-builder"];
+      allowed-users = [ "root" "@wheel" "nix-builder" ];
 
       # only allow sudo users to manage the nix store
-      trusted-users = ["root" "@wheel" "nix-builder"];
+      trusted-users = [ "root" "@wheel" "nix-builder" ];
 
       # let the system decide the number of max jobs
       max-jobs = "auto";
@@ -108,7 +58,7 @@ in {
       sandbox-fallback = false;
 
       # supported system features
-      system-features = ["nixos-test" "kvm" "recursive-nix" "big-parallel"];
+      system-features = [ "nixos-test" "kvm" "recursive-nix" "big-parallel" ];
 
       # extra architectures supported by my builders
       extra-platforms = config.boot.binfmt.emulatedSystems;

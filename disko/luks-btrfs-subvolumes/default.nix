@@ -27,6 +27,9 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
+                mountOptions = [
+                  "defaults"
+                ];
               };
             };
             plainSwap = {
@@ -50,41 +53,56 @@
                   allowDiscards = true; # beware of write-pattern attacks
                   #keyFile = "/tmp/secret.key";
                 };
-                # additionalKeyFiles = ["/tmp/additionalSecret.key"];
+                # Whether to add a boot.initrd.luks.devices entry for the specified disk.
+                initrdUnlock = true;
+
+                # encrypt the root partition with luks2 and argon2id, will prompt for a passphrase, which will be used to unlock the partition.
+                # cryptsetup luksFormat
+                extraFormatArgs = [
+                  "--type luks2"
+                  "--cipher aes-xts-plain64"
+                  "--hash sha512"
+                  "--iter-time 5000"
+                  "--key-size 256"
+                  "--pbkdf argon2id"
+                  # use true random data from /dev/random, will block until enough entropy is available
+                  "--use-random"
+                ];
+                extraOpenArgs = [
+                  "--timeout 10"
+                ];
                 content = {
-                  # type = "btrfs";
-                  type = "filesystem";
-                  format = "btrfs";
-                  mountpoint = "/";
+                  type = "btrfs";
+                  extraArgs = [ "-f" ]; # Force override existing partition
                   subvolumes = {
-                    "/root" = {
+                    "root" = {
                       mountpoint = "/";
-                      mountOptions = ["compress=zstd" "noatime"];
+                      mountOptions = [ "compress=zstd" "noatime" ];
                     };
-                    "/home" = {
+                    "home" = {
                       mountpoint = "/home";
-                      mountOptions = ["compress=zstd" "noatime"];
+                      mountOptions = [ "compress=zstd" "noatime" ];
                     };
-                    "/nix" = {
+                    "nix" = {
                       mountpoint = "/nix";
-                      mountOptions = ["compress=zstd" "noatime"];
+                      mountOptions = [ "compress=zstd" "noatime" ];
                     };
-                    "/persist" = {
+                    "persist" = {
                       mountpoint = "/persist";
-                      mountOptions = ["compress=zstd" "noatime"];
+                      mountOptions = [ "compress=zstd" "noatime" ];
+                    };
+                    "snapshots" = {
+                      mountpoint = "/snapshots";
+                      mountOptions = [ "compress=zstd" "noatime" ];
                     };
                     "log" = {
                       mountpoint = "/var/log";
-                      mountOptions = ["compress=zstd" "noatime"];
+                      mountOptions = [ "compress=zstd" "noatime" ];
                     };
-                    # "cache" = {
-                    #   mountpoint = "/var/cache";
-                    #   mountOptions = ["compress=zstd" "noatime"];
-                    # };
-                    # "tmp" = {
-                    #   mountpoint = "/var/tmp";
-                    #   mountOptions = ["compress=zstd" "noatime"];
-                    # };
+                    "tmp" = {
+                      mountpoint = "/tmp";
+                      mountOptions = [ "compress=zstd" "noatime" ];
+                    };
                   };
                 };
               };
