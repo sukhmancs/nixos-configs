@@ -1,17 +1,19 @@
-{pkgs, lib, ...}:
-let
-l = lib // builtins;
+{
+  pkgs,
+  lib,
+  ...
+}: let
+  l = lib // builtins;
   sources = l.fromTOML (l.readFile ./sources.toml);
 
-  fetchGhFile =
-    {
-      user,
-      repo,
-      rev,
-      file,
-      sha256,
-      ...
-    }:
+  fetchGhFile = {
+    user,
+    repo,
+    rev,
+    file,
+    sha256,
+    ...
+  }:
     builtins.fetchurl {
       url = "https://raw.githubusercontent.com/${user}/${repo}/${rev}/${file}";
       inherit sha256;
@@ -22,13 +24,6 @@ in {
     securetty.text = ''
       # /etc/securetty: list of terminals on which root is allowed to login.
       # See securetty(5) and login(1).
-    '';
-
-    # Set machine-id to the Kicksecure machine-id, for privacy reasons.
-    # /var/lib/dbus/machine-id doesn't exist on dbus enabled NixOS systems,
-    # so we don't have to worry about that.
-    machine-id.text = ''
-      b08dfa6083e7567a1921a715000001fb
     '';
 
     # Borrow Kicksecure banner/issue.
