@@ -38,6 +38,19 @@
       fsType = "btrfs";
       options = ["subvol=home" "compress=zstd"];
     };
+
+    "/snapshots" = {
+      device = "/dev/disk/by-uuid/7a241289-8c59-41dc-87bf-3453e4106dda";
+      fsType = "btrfs";
+      neededForBoot = true;
+      options = ["subvol=snapshots" "compress=zstd" "noatime"];
+    };
+
+    "/tmp" = {
+      device = "/dev/disk/by-uuid/7a241289-8c59-41dc-87bf-3453e4106dda";
+      fsType = "btrfs";
+      options = ["subvol=tmp" "compress=zstd" "noatime"];
+    };
   };
 
   swapDevices = [
