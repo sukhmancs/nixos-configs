@@ -45,6 +45,7 @@ in
           "/etc/nix"
           "/etc/NetworkManager/system-connections"
           "/etc/secureboot"
+          "/etc/btrbk"
           "/var/db/sudo"
           "/var/lib/flatpak"
           "/var/lib/libvirt"
