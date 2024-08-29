@@ -345,13 +345,21 @@ mount --mkdir "$DISK"1 /mnt/boot
 ```bash
 # Generate the configuration
 nixos-generate-config --root /mnt
+
 ```
 
-> [!NOTE]
->
-> If impermanence is enabled, we need to add the `neededForBoot = true` to some
-> mounted subvolumes in hardware-configuration.nix. It will look something like
-> this:
+Run `nixos-install` to install NixOS.
+
+### Install the dotfiles
+
+```bash
+git clone https://github.com/sukhmancs/nixos-configs/ ~/.config/nixos-configs
+cd ~/.config/nixos-configs
+```
+
+> [!CAUTION]
+> If <strong>Impermanence is enabled</strong>, we need to add the `neededForBoot = true` to some
+> mounted subvolumes in hardware-configuration.nix. It will look something like this:
 >
 > ```nix
 > fileSystems."/persist" = {
@@ -376,25 +384,16 @@ nixos-generate-config --root /mnt
 >  };
 > ```
 
-Run `nixos-install` to install NixOS.
-
-### Install the dotfiles
-
-```bash
-git clone https://this.repo.url/ ~/.config/nixos-configs
-cd ~/.config/nixos-configs
-```
-
-> [!CAUTION]
-> If <strong>Impermanence is enabled</strong>, ensure that the password
-> files are located in a volume marked with `neededForBoot = true` otherwise the
-> user will not be able to login.
+> Also, ensure that the password files are located in a volume marked with
+> `neededForBoot = true` otherwise the user will not be able to login.
 >
 > ```bash
 > mkdir -p /persist/passwords/root /persist/passwords/<user>
 > mkpasswd -m sha-512 > /persist/passwords/<user>
 > mkpasswd -m sha-512 > /persist/passwords/root
 > ```
+
+
 
 ```bash
 nixos-rebuild switch --flake .#<host>
