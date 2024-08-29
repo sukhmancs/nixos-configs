@@ -393,8 +393,6 @@ cd ~/.config/nixos-configs
 > mkpasswd -m sha-512 > /persist/passwords/root
 > ```
 
-
-
 ```bash
 nixos-rebuild switch --flake .#<host>
 ```
