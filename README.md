@@ -58,7 +58,7 @@
 - [x] **Schizofox Startup Page** - base16 colors
 - [x] **fastfetch** - Add custom colors
 - [x] **Zellij** - Terminal multiplexer
-- [ ] **btrbk** - Backup tool for btrfs
+- [x] **btrbk** - Backup tool for btrfs
 
 ### In Progress 🚧
 
