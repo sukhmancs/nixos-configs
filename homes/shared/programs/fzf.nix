@@ -35,18 +35,18 @@ in {
       "bg+" = "-1";
       "fg" = "#${colors.base04}";
       "fg+" = "#${colors.base06}";
-      "hl" = "#${colors.base0D}";
-      "hl+" = "#${colors.base0D}";
-      "header" = "#${colors.base0D}";
-      "info" = "#${colors.base0A}";
+      "hl" = "#${colors.base0A}";
+      "hl+" = "#${colors.base0A}";
+      "header" = "#${colors.base0E}";
+      "info" = "#${colors.base0E}";
       "pointer" = "#${colors.base0C}";
       "marker" = "#${colors.base0C}";
-      "prompt" = "#${colors.base0A}";
+      "prompt" = "#${colors.base0E}";
       "spinner" = "#${colors.base0C}";
-      "preview-fg" = "#${colors.base0D}";
+      "preview-fg" = "#${colors.base0E}";
     };
 
-    enableZshIntegration = false; # we handle this ourselves
-    enableBashIntegration = false; # I don't think I've ever used fzf with bash
+    enableZshIntegration = false;
+    enableBashIntegration = false;
   };
 }
