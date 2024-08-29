@@ -34,7 +34,7 @@ in {
       "bg" = "-1";
       "bg+" = "-1";
       "fg" = "#${colors.base04}";
-      "fg+" = "#${colors.base06}";
+      "fg+" = "#${colors.base0E}";
       "hl" = "#${colors.base0A}";
       "hl+" = "#${colors.base0A}";
       "header" = "#${colors.base0E}";

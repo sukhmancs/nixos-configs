@@ -22,18 +22,18 @@
       target_preserve_min = "no";
 
       snapshot_dir = "/snapshots";
-      subvolume = "/persist";
+      # subvolume = "/persist";
 
       # these are the subvolumes that will be backed up
-      # volume = {
-      #   "/" = {
-      #     subvolume = {
-      #       "persist" = {
-      #         snapshot_create = "always";
-      #       };
-      #     };
-      #   };
-      # };
+      volume = {
+        "/" = {
+          subvolume = {
+            "persist" = {
+              snapshot_create = "always";
+            };
+          };
+        };
+      };
     };
   };
 }
