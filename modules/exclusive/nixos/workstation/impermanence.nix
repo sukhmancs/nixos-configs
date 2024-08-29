@@ -59,7 +59,7 @@ in
 
       files = [
         # important state
-        #"/etc/machine-id"
+        "/etc/machine-id"
         # ssh stuff
         /*
         "/etc/ssh/ssh_host_ed25519_key"
