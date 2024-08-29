@@ -3,7 +3,7 @@
 # https://github.com/rvaiya/keyd
 #
 {
-  keyd = {
+  services.keyd = {
     enable = true;
     keyboards.default.settings = {
       main = {
