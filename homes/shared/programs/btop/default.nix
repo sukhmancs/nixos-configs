@@ -80,7 +80,8 @@ in {
 
   home.immutable-file = {
     btop-theme = {
-      src = builtins.toFile "custom.theme" (import ./themes.nix {inherit pkgs osConfig;});
+      # src = builtins.toFile "custom.theme" (import ./themes.nix {inherit pkgs osConfig;});
+      src = ./themes.nix;
       dst = "${config.xdg.configHome}/btop/themes/custom.theme";
     };
   };
