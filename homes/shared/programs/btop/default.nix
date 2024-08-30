@@ -1,8 +1,11 @@
 {
   pkgs,
+  config,
   osConfig,
   ...
-}: {
+}: let
+  inherit (osConfig) home;
+in {
   programs.btop = {
     enable = true;
     package = pkgs.btop;
@@ -71,7 +74,21 @@
     };
   };
 
-  home.file.".config/btop/themes/custom.theme" = {
-    text = import ./themes.nix {inherit pkgs osConfig;};
+  # home.file.".config/btop/themes/custom.theme" = {
+  #   text = import ./themes.nix {inherit pkgs osConfig;};
+  # };
+
+  home.immutable-file = {
+    btop-theme = {
+      src = builtins.toFile "custom.theme" (import ./themes.nix {inherit pkgs osConfig;});
+      dst = "${config.xdg.configHome}/btop/themes/custom.theme";
+    };
   };
+
+  # home.immutable-file = {
+  #     fcitx5-profile = {
+  #       src = ./profile.css;
+  #       dst = "${config.xdg.configHome}/profile.css";
+  #     };
+  #   };
 }
