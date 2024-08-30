@@ -1,5 +1,7 @@
 {
   imports = [
     ./programs
+
+    ./immutable.nix
   ];
 }

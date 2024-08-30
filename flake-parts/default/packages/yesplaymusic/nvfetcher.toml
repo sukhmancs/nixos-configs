@@ -1,0 +1,3 @@
+[yesplaymusic]
+src.git = "https://github.com/qier222/YesPlayMusic"
+fetch.url = "https://github.com/qier222/YesPlayMusic/releases/download/v$ver-2/yesplaymusic_$ver_amd64.deb"
