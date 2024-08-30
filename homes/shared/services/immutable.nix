@@ -1,21 +1,24 @@
+# Original code by iosmanthus - https://github.com/iosmanthus/nixos-config/blob/349917b/modules/immutable-file.nix
+#
+# Immutable home files
+#
+# This module provides a way to make files in the home directory immutable.
+# It is similar to home.file but it uses chattr +i to make the file immutable.
+#
+# Usage example:
+#   home.immutable-file = {
+#     fcitx5-profile = {
+#       src = ./profile.css;
+#       dst = "${config.xdg.configHome}/profile.css";
+#     };
+#   };
+#
 {
   config,
   lib,
   pkgs,
   ...
 }:
-##############################################################################################
-#
-#  Provide a option `home.immutable-file`, it works like `home.file` but make the generated file immutable.
-#
-#  Copy from https://github.com/iosmanthus/nixos-config/blob/349917b/modules/immutable-file.nix
-#
-#  this module use the `chattr +i` to make the file immutable, `i` indicates `immutable`,
-#  it's a i-node flags only works on Linux.
-#
-#  TODO not used yet, need to test it.
-#
-##############################################################################################
 with lib; let
   cfg = config.home.immutable-file;
   immutableFileOpts = _: {

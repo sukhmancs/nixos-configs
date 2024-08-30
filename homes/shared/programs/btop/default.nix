@@ -84,11 +84,4 @@ in {
       dst = "${config.xdg.configHome}/btop/themes/custom.theme";
     };
   };
-
-  # home.immutable-file = {
-  #     fcitx5-profile = {
-  #       src = ./profile.css;
-  #       dst = "${config.xdg.configHome}/profile.css";
-  #     };
-  #   };
 }
