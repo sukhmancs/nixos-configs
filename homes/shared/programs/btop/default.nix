@@ -74,15 +74,14 @@ in {
     };
   };
 
-  # home.file.".config/btop/themes/custom.theme" = {
-  #   text = import ./themes.nix {inherit pkgs osConfig;};
-  # };
-
-  home.immutable-file = {
-    btop-theme = {
-      # src = builtins.toFile "custom.theme" (import ./themes.nix {inherit pkgs osConfig;});
-      src = ./themes.nix;
-      dst = "${config.xdg.configHome}/btop/themes/custom.theme";
-    };
+  home.file.".config/btop/themes/custom.theme" = {
+    text = import ./themes.nix {inherit pkgs osConfig;};
   };
+
+  # home.immutable-file = {
+  #   btop-theme = {
+  #     src = builtins.toFile "custom.theme" (import ./themes.nix {inherit pkgs osConfig;});
+  #     dst = "${config.xdg.configHome}/btop/themes/custom.theme";
+  #   };
+  # };
 }
