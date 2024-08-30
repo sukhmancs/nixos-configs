@@ -1,7 +1,6 @@
 {
   imports = [
-    # ./activation.nix
-    ./testing.nix
+    ./immutable.nix
     ./dconf.nix
     # ./mail.nix
     ./tray.nix
