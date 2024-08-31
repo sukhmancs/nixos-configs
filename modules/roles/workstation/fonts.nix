@@ -42,7 +42,7 @@ in {
               <string>monospace</string>
             </test>
             <edit mode="prepend" binding="strong" name="family">
-              <string>Meslo LG M</string>
+              <string>Source Code Pro Medium</string>
             </edit>
           </match>
           <match>
@@ -76,7 +76,7 @@ in {
           <alias>
             <family>monospace</family>
             <prefer>
-              <family>Source Code Pro Medium</family>
+              <family>Meslo LG M</family>
               <family>LiterationMono Nerd Font</family>
             </prefer>
           </alias>
