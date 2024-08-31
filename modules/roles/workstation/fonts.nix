@@ -137,13 +137,8 @@ in {
       openmoji-color
       openmoji-black
 
-      # Persian Font
-      vazir-fonts
-
-      # Asian language fonts
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
-
+      # other fonts
+      vazir-fonts # Persian font
       roboto # Google font
       roboto-mono # Google font monospace
       siji # bitmap font
@@ -156,7 +151,6 @@ in {
       ubuntu-sans # Ubuntu font family
       vistafonts-chs # TrueType fonts from Microsoft Windows Vista For Traditional Chinese (Microsoft JhengHei)
       meslo-lg # Customized version of Apple’s Menlo-Regular font
-      # desktop fonts
       corefonts # MS fonts
       b612 # high legibility
       material-icons # used in widgets and such

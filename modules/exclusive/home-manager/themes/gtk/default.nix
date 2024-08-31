@@ -61,7 +61,7 @@ in {
 
       # Make sure these fonts are installed - pkgs.fira, pkgs.lexend
       font = {
-        name = "Lexend"; # "Fira Sans";
+        name = "SF Pro Text"; #"Lexend"; # "Fira Sans";
         size = 14;
       };
 
