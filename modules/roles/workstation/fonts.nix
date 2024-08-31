@@ -151,10 +151,10 @@ in {
       b612 # high legibility
       material-icons # used in widgets and such
       material-design-icons
-      work-sans
-      comic-neue
-      source-sans
-      inter
+      work-sans # Google font
+      comic-neue # Comic Sans alternative
+      source-sans # Adobe font
+      inter # Google font
       lato
       lexend
       noto-fonts

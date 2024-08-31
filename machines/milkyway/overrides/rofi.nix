@@ -17,7 +17,7 @@ in {
           pkgs.rofi-rbw-wayland
         ];
       };
-      font = mkForce "Iosevka Nerd Font 14";
+      font = mkForce "SF Compact Text 14";
       extraConfig = mkForce {
         modi = "drun,run,filebrowser,window";
         drun-display-format = " {name} ";
