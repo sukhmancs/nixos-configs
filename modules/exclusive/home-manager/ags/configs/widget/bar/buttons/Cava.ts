@@ -30,12 +30,12 @@ function formatIcons(input) {
       case '▃':
         icon = `<span foreground='${secondary}'>▃</span>`;
         break;
-      // case '▄':
-      //   icon = `<span foreground='${secondary}'>▄</span>`;
-      //   break;
-      // case '▅':
-      //   icon = `<span foreground='${primary}'>▅</span>`;
-      //   break;
+      case '▄':
+        icon = `<span foreground='${secondary}'>▄</span>`;
+        break;
+      case '▅':
+        icon = `<span foreground='${primary}'>▅</span>`;
+        break;
       case '▆':
         icon = `<span foreground='${primary}'>▆</span>`;
         break;
