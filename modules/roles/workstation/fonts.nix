@@ -42,7 +42,7 @@ in {
               <string>monospace</string>
             </test>
             <edit mode="prepend" binding="strong" name="family">
-              <string>LiterationMono Nerd Font</string>
+              <string>Meslo LG M</string>
             </edit>
           </match>
           <match>
@@ -58,25 +58,26 @@ in {
             <family>sans-serif</family>
             <prefer>
               <family>Lexend</family>
-              <family>Iosevka Nerd Font</family>
-              <family>Noto Color Emoji</family>
               <family>Microsoft YaHei</family>
               <family>Vazirmatn</family>
+              <family>Iosevka Nerd Font</family>
+              <family>Noto Color Emoji</family>
             </prefer>
           </alias>
           <alias>
             <family>serif</family>
             <prefer>
               <family>Noto Serif</family>
-              <family>Noto Color Emoji</family>
               <family>Microsoft YaHei</family>
               <family>Vazirmatn</family>
+              <family>Noto Color Emoji</family>
             </prefer>
           </alias>
           <alias>
             <family>monospace</family>
             <prefer>
               <family>Source Code Pro Medium</family>
+              <family>LiterationMono Nerd Font</family>
             </prefer>
           </alias>
         </fontconfig>
