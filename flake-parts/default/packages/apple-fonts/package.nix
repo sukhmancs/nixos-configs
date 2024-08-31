@@ -12,6 +12,8 @@ in
     installPhase = ''
       mkdir -p $out/share/fonts/apple/truetype
       install -m644 $src/'SF Pro Text'/*.otf $out/share/fonts/apple/truetype
+      install -m644 $src/'SF Compact Text'/*.otf $out/share/fonts/apple/truetype
+      install -m644 $src/'SF Mono'/*.otf $out/share/fonts/apple/truetype
       install -m644 $src/'New York'/* $out/share/fonts/apple/truetype
     '';
 

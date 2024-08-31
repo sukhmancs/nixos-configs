@@ -15,7 +15,7 @@ in {
       # cache32Bit = true;
       hinting = {
         enable = true;
-        autohint = true;
+        # autohint = true;
       };
       localConf = ''
         <?xml version='1.0'?>
@@ -26,7 +26,7 @@ in {
               <string>sans-serif</string>
             </test>
             <edit mode="prepend" binding="strong" name="family">
-              <string>Lexend</string>
+              <string>SF Pro Text</string>
             </edit>
           </match>
           <match target="pattern">
@@ -34,7 +34,7 @@ in {
               <string>serif</string>
             </test>
             <edit mode="prepend" binding="strong" name="family">
-              <string>Noto Serif</string>
+              <string>SF Pro Text</string>
             </edit>
           </match>
           <match target="pattern">
@@ -42,7 +42,7 @@ in {
               <string>monospace</string>
             </test>
             <edit mode="prepend" binding="strong" name="family">
-              <string>Meslo LG M</string>
+              <string>LiterationMono Nerd Font</string>
             </edit>
           </match>
           <match>
@@ -57,7 +57,8 @@ in {
           <alias>
             <family>sans-serif</family>
             <prefer>
-              <fimaly>SF Pro Text</family>
+              <family>Lexend</family>
+              <family>Iosevka Nerd Font</family>
               <family>Noto Color Emoji</family>
               <family>Microsoft YaHei</family>
               <family>Vazirmatn</family>
@@ -66,7 +67,7 @@ in {
           <alias>
             <family>serif</family>
             <prefer>
-              <family>SF Pro Text</family>
+              <family>Noto Serif</family>
               <family>Noto Color Emoji</family>
               <family>Microsoft YaHei</family>
               <family>Vazirmatn</family>
@@ -75,7 +76,7 @@ in {
           <alias>
             <family>monospace</family>
             <prefer>
-              <family>LiterationMono Nerd Font</family>
+              <family>Source Code Pro Medium</family>
             </prefer>
           </alias>
         </fontconfig>
@@ -91,27 +92,19 @@ in {
       # in
       #   mapAttrs (_: fonts: fonts ++ common) {
       #     serif = [
+      #       "SF Pro Text"
       #       "Noto Serif"
       #       "Vazirmatn" # Persion
       #     ];
       #     sansSerif = [
+      #       "SF Pro Text"
       #       "Lexend"
       #       "Vazirmatn" # Persian
-      #       "Noto Sans CJK HK" # Hong Kong
-      #       "Noto Sans CJK JP" # Japan
-      #       "Noto Sans CJK KR" # Korea
-      #       "Noto Sans CJK SC" # Simplified Chinese
-      #       "Noto Sans CJK TC" # Traditional Chinese
       #     ];
       #     emoji = ["Noto Color Emoji"];
       #     monospace = [
       #       "Source Code Pro Medium"
       #       "Source Han Mono"
-      #       "Noto Sans Mono CJK HK" # Hong Kong
-      #       "Noto Sans Mono CJK JP" # Japan
-      #       "Noto Sans Mono CJK KR" # Korea
-      #       "Noto Sans Mono CJK SC" # Simplified Chinese
-      #       "Noto Sans Mono CJK TC" # Traditional Chinese
       #     ];
       #   };
     };

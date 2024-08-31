@@ -16,7 +16,7 @@
   # Define your custom variables here
   customVariables = {
     fontSize = "1.3rem";
-    fontFamily = "'Lexend', sans-serif";
+    fontFamily = "'SF Pro Text', sans-serif";
     transparentColor = "transparent";
     selectedbg = "#${colors.base0E}";
     selectedfg = "#${colors.base00}";
