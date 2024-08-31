@@ -7,8 +7,6 @@
   inherit (lib.attrsets) mapAttrs;
 in {
   fonts = {
-    enableDefaultPackages = false;
-
     fontconfig = {
       enable = true;
       antialias = true;
@@ -17,38 +15,44 @@ in {
         enable = true;
         autohint = true;
       };
-      defaultFonts = {
-        serif = [
-          "SF Pro Text"
-          # Fallbacks fonts
-          "Noto Serif"
-          "Vazirmatn" # Persion
-          "Microsoft YaHei" # Chinese
+      defaultFonts = let
+        # fonts that should be in each font family
+        # if applicable
+        fallbackFonts = [
+          "Iosevka Nerd Font"
+          "Symbols Nerd Font"
           "Noto Color Emoji"
         ];
-        sansSerif = [
-          "SF Pro Text"
-          # Fallbacks fonts
-          "Lexend"
-          "Vazirmatn" # Persian
-          "Microsoft YaHei" # Chinese
-          "Noto Color Emoji"
-        ];
-        emoji = ["Noto Color Emoji"];
-        monospace = [
-          "Meslo LG M"
-          # Fallbacks fonts
-          "LiterationMono Nerd Font"
-          "Source Code Pro Medium"
-          "Source Han Mono"
-        ];
-      };
+      in
+        mapAttrs (_: fonts: fonts ++ fallbackFonts) {
+          serif = [
+            "SF Pro Text"
+            "Noto Serif"
+            "Vazirmatn" # Persion
+            "Microsoft YaHei" # Chinese
+          ];
+          sansSerif = [
+            "SF Pro Text"
+            "Lexend"
+            "Vazirmatn" # Persian
+            "Microsoft YaHei" # Chinese
+          ];
+          emoji = ["Noto Color Emoji"];
+          monospace = [
+            "Meslo LG M"
+            "LiterationMono Nerd Font"
+            "Source Code Pro Medium"
+            "Source Han Mono"
+          ];
+        };
     };
 
     fontDir = {
       enable = true;
       decompressFonts = true;
     };
+
+    enableDefaultPackages = false;
 
     # font packages that should be installed
     packages = with pkgs; [
