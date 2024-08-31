@@ -29,8 +29,8 @@ in {
           word-delimiters = ",│`|:\"'()[]{}<>";
           selection-target = "clipboard";
           dpi-aware = true;
-          font = "Iosevka Nerd Font:size=9";
-          font-bold = "Iosevka Nerd Font:size=9";
+          font = "SF Pro Text:size=9";
+          font-bold = "SF Pro Text:size=9";
           vertical-letter-offset = "-0.75";
           bold-text-in-bright = "no";
         };

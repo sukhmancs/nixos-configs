@@ -26,7 +26,7 @@ in {
               <string>sans-serif</string>
             </test>
             <edit mode="prepend" binding="strong" name="family">
-              <string>SF Pro Text</string>
+              <string>Lexend</string>
             </edit>
           </match>
           <match target="pattern">
@@ -34,7 +34,7 @@ in {
               <string>serif</string>
             </test>
             <edit mode="prepend" binding="strong" name="family">
-              <string>SF Pro Text</string>
+              <string>Noto Serif</string>
             </edit>
           </match>
           <match target="pattern">
@@ -57,6 +57,7 @@ in {
           <alias>
             <family>sans-serif</family>
             <prefer>
+              <fimaly>SF Pro Text</family>
               <family>Noto Color Emoji</family>
               <family>Microsoft YaHei</family>
               <family>Vazirmatn</family>
@@ -65,6 +66,7 @@ in {
           <alias>
             <family>serif</family>
             <prefer>
+              <family>SF Pro Text</family>
               <family>Noto Color Emoji</family>
               <family>Microsoft YaHei</family>
               <family>Vazirmatn</family>
