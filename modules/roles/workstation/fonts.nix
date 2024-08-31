@@ -15,36 +15,39 @@ in {
         enable = true;
         autohint = true;
       };
-      defaultFonts = let
-        # fonts that should be in each font family
-        # if applicable
-        fallbackFonts = [
+      defaultFonts = {
+        serif = [
+          "SF Pro Text"
+          "Noto Serif"
+          "Vazirmatn" # Persion
+          "Microsoft YaHei" # Chinese
           "Iosevka Nerd Font"
           "Symbols Nerd Font"
           "Noto Color Emoji"
         ];
-      in
-        mapAttrs (_: fonts: fonts ++ fallbackFonts) {
-          serif = [
-            "SF Pro Text"
-            "Noto Serif"
-            "Vazirmatn" # Persion
-            "Microsoft YaHei" # Chinese
-          ];
-          sansSerif = [
-            "SF Pro Text"
-            "Lexend"
-            "Vazirmatn" # Persian
-            "Microsoft YaHei" # Chinese
-          ];
-          emoji = ["Noto Color Emoji"];
-          monospace = [
-            "Meslo LG M"
-            "LiterationMono Nerd Font"
-            "Source Code Pro Medium"
-            "Source Han Mono"
-          ];
-        };
+        sansSerif = [
+          "SF Pro Text"
+          "Lexend"
+          "Vazirmatn" # Persian
+          "Microsoft YaHei" # Chinese
+          "Iosevka Nerd Font"
+          "Symbols Nerd Font"
+          "Noto Color Emoji"
+        ];
+        emoji = [
+          "Noto Color Emoji"
+          "Iosevka Nerd Font"
+          "Symbols Nerd Font"
+        ];
+        monospace = [
+          "Meslo LG M"
+          "LiterationMono Nerd Font"
+          "Source Code Pro Medium"
+          "Source Han Mono"
+          "Symbols Nerd Font"
+          "Noto Color Emoji"
+        ];
+      };
     };
 
     fontDir = {
@@ -56,23 +59,16 @@ in {
 
     # font packages that should be installed
     packages = with pkgs; [
-      # defaults worth keeping
-      freefont_ttf
-      gyre-fonts
-      liberation_ttf # for PDFs, Roman
-      unifont
-
-      # programming fonts
-      sarasa-gothic
+      freefont_ttf # Free font
+      gyre-fonts # TeX Gyre fonts
+      liberation_ttf # Liberation fonts
+      unifont # Unicode font
+      sarasa-gothic # Japanese font
       (nerdfonts.override {fonts = ["LiberationMono" "FiraCode" "Iosevka" "JetBrainsMono" "NerdFontsSymbolsOnly"];})
-
-      # emojis
-      noto-fonts-color-emoji
-      twemoji-color-font
-      openmoji-color
-      openmoji-black
-
-      # other fonts
+      noto-fonts-color-emoji # Google emoji
+      twemoji-color-font # Twitter emoji
+      openmoji-color # colorful version of openmoji
+      openmoji-black # black and white version of openmoji
       vazir-fonts # Persian font
       roboto # Google font
       roboto-mono # Google font monospace
@@ -94,10 +90,11 @@ in {
       comic-neue # Comic Sans alternative
       source-sans # Adobe font
       inter # Google font
-      lato
-      lexend
-      noto-fonts
-      fira
+      lato # Google font
+      lexend # Google font
+      noto-fonts # Google font
+      fira # Mozilla font
+      fira-code # Mozilla font
     ];
   };
 }
