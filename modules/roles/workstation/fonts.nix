@@ -15,99 +15,34 @@ in {
       # cache32Bit = true;
       hinting = {
         enable = true;
-        # autohint = true;
+        autohint = true;
       };
-      localConf = ''
-        <?xml version='1.0'?>
-        <!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
-        <fontconfig>
-          <match target="pattern">
-            <test qual="any" name="family">
-              <string>sans-serif</string>
-            </test>
-            <edit mode="prepend" binding="strong" name="family">
-              <string>SF Pro Text</string>
-            </edit>
-          </match>
-          <match target="pattern">
-            <test qual="any" name="family">
-              <string>serif</string>
-            </test>
-            <edit mode="prepend" binding="strong" name="family">
-              <string>SF Pro Text</string>
-            </edit>
-          </match>
-          <match target="pattern">
-            <test qual="any" name="family">
-              <string>monospace</string>
-            </test>
-            <edit mode="prepend" binding="strong" name="family">
-              <string>Source Code Pro Medium</string>
-            </edit>
-          </match>
-          <match>
-            <test name="family">
-              <string>monospace</string>
-            </test>
-            <edit name="family" mode="append_last" binding="strong">
-              <string>Noto Color Emoji</string>
-            </edit>
-          </match>
-          <!-- Fallback fonts preference order -->
-          <alias>
-            <family>sans-serif</family>
-            <prefer>
-              <family>Lexend</family>
-              <family>Microsoft YaHei</family>
-              <family>Vazirmatn</family>
-              <family>Iosevka Nerd Font</family>
-              <family>Noto Color Emoji</family>
-            </prefer>
-          </alias>
-          <alias>
-            <family>serif</family>
-            <prefer>
-              <family>Noto Serif</family>
-              <family>Microsoft YaHei</family>
-              <family>Vazirmatn</family>
-              <family>Noto Color Emoji</family>
-            </prefer>
-          </alias>
-          <alias>
-            <family>monospace</family>
-            <prefer>
-              <family>Meslo LG M</family>
-              <family>LiterationMono Nerd Font</family>
-            </prefer>
-          </alias>
-        </fontconfig>
-      '';
-      # defaultFonts = let
-      #   # fonts that should be in each font family
-      #   # if applicable
-      #   common = [
-      #     "Iosevka Nerd Font"
-      #     "Symbols Nerd Font"
-      #     "Noto Color Emoji"
-      #   ];
-      # in
-      #   mapAttrs (_: fonts: fonts ++ common) {
-      #     serif = [
-      #       "SF Pro Text"
-      #       "Noto Serif"
-      #       "Vazirmatn" # Persion
-      #     ];
-      #     sansSerif = [
-      #       "SF Pro Text"
-      #       "Lexend"
-      #       "Vazirmatn" # Persian
-      #     ];
-      #     emoji = ["Noto Color Emoji"];
-      #     monospace = [
-      #       "Source Code Pro Medium"
-      #       "Source Han Mono"
-      #     ];
-      #   };
+      defaultFonts = {
+        serif = [
+          "SF Pro Text"
+          # Fallbacks fonts
+          "Noto Serif"
+          "Vazirmatn" # Persion
+          "Microsoft YaHei" # Chinese
+          "Noto Color Emoji"
+        ];
+        sansSerif = [
+          "SF Pro Text"
+          # Fallbacks fonts
+          "Lexend"
+          "Vazirmatn" # Persian
+          "Microsoft YaHei" # Chinese
+          "Noto Color Emoji"
+        ];
+        emoji = ["Noto Color Emoji"];
+        monospace = [
+          "Meslo LG M"
+          # Fallbacks fonts
+          "LiterationMono Nerd Font"
+          "Source Code Pro Medium"
+          "Source Han Mono"
+        ];
+      };
     };
 
     fontDir = {
@@ -138,7 +73,7 @@ in {
       roboto # Google font
       roboto-mono # Google font monospace
       siji # bitmap font
-      (self'.packages.apple-fonts) # Apple fonts (SF Pro Text, New York)
+      (self'.packages.apple-fonts) # Apple fonts (SF Pro Text, New York, SF Mono, SF Pro Display, SF Compact Text)
       cantarell-fonts # GNOME font
       cascadia-code # Windows Terminal font
       dejavu_fonts # Typeface family based on the Bitstream Vera fonts
