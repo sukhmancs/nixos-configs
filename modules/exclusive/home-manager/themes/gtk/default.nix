@@ -59,7 +59,7 @@ in {
         package = pkgs.papirus-icon-theme;
       };
 
-      # Make sure these fonts are installed - pkgs.fira, pkgs.lexend
+      # Make sure these fonts are installed - apple-fonts, pkgs.fira, pkgs.lexend
       font = {
         name = "SF Pro Text"; #"Lexend"; # "Fira Sans";
         size = 14;
