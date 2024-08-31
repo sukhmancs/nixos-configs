@@ -26,5 +26,6 @@ in
       homepage = "https://github.com/bloc97/Anime4K";
       license = licenses.mit;
       maintainers = with maintainers; [bloc97];
+      mainProgram = "anime4k";
     };
   }

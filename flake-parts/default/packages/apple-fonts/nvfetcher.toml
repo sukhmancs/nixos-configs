@@ -1,0 +1,4 @@
+[apple-fonts]
+src.git = "https://github.com/fefelixa/macfonts"
+fetch.github = "fefelixa/macfonts"
+git.fetchSubmodules = true

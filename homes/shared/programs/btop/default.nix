@@ -77,12 +77,4 @@ in {
   home.file.".config/btop/themes/custom.theme" = {
     text = import ./themes.nix {inherit pkgs osConfig;};
   };
-
-  #TODO: fix this
-  # home.immutable-file = {
-  #   btop-theme = {
-  #     src = builtins.toFile "custom.theme" (import ./themes.nix {inherit pkgs osConfig;});
-  #     dst = "${config.xdg.configHome}/btop/themes/custom.theme";
-  #   };
-  # };
 }

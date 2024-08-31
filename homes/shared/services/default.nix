@@ -1,6 +1,6 @@
 {
   imports = [
-    ./immutable.nix
+    # ./immutable.nix
     ./dconf.nix
     # ./mail.nix
     ./tray.nix
