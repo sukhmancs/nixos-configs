@@ -1,0 +1,17 @@
+{
+    "stats": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "stats",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-vToCbsfHyLQt7pTSOJ4UUC9brcXJ5UeFkYmheiLgpiY=",
+            "type": "url",
+            "url": "https://github.com/harbassan/spicetify-apps/releases/download/stats-v1.1.1/spicetify-stats.release.zip"
+        },
+        "version": "library-v1.0.0"
+    }
+}

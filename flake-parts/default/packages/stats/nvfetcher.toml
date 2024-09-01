@@ -1,0 +1,3 @@
+[stats]
+src.github = "harbassan/spicetify-apps"
+fetch.url = "https://github.com/harbassan/spicetify-apps/releases/download/stats-v1.1.1/spicetify-stats.release.zip"

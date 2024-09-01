@@ -1,4 +1,3 @@
 [library]
 src.github = "harbassan/spicetify-apps"
 fetch.url = "https://github.com/harbassan/spicetify-apps/releases/download/$ver/spicetify-library.release.zip"
-# git.fetchSubmodules = true

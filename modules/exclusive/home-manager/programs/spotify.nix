@@ -25,18 +25,19 @@ in {
       enable = true;
       spotifyPackage = pkgs.spotify;
       enabledCustomApps = [
-        (self'.packages.library)
+        # (self'.packages.library)
+        (self'.packages.stats)
         #lyrics-plus
         #new-releases
-        {
-          src = pkgs.fetchFromGitHub {
-            owner = "hroland";
-            repo = "spicetify-show-local-files";
-            rev = "1bfd2fc80385b21ed6dd207b00a371065e53042e";
-            hash = "sha256-neKR2WaZ1K10dZZ0nAKJJEHNS56o8vCpYpi+ZJYJ/gU=";
-          };
-          # name = "localFiles";
-        }
+        # {
+        #   src = pkgs.fetchFromGitHub {
+        #     owner = "hroland";
+        #     repo = "spicetify-show-local-files";
+        #     rev = "1bfd2fc80385b21ed6dd207b00a371065e53042e";
+        #     hash = "sha256-neKR2WaZ1K10dZZ0nAKJJEHNS56o8vCpYpi+ZJYJ/gU=";
+        #   };
+        #   # name = "localFiles";
+        # }
       ];
 
       theme = spicePkgs.themes.catppuccin; # dribbblish, catppuccin, comfy, turntable,  etc.
