@@ -3,7 +3,7 @@
     home-manager.users.xi = {
       wayland.windowManager.hyprland.enable = true; # window manager
       services.dunst.enable = true; # notification daemon
-      services.gammastep.enable = true; # display color control #TODO: not working
+      services.gammastep.enable = true; # display color control
       services.nextcloud-client.enable = true; # syncronization client
       services.swayidle.enable = true; # screen idle
       # services.mpd.enable = true; # music player daemon
@@ -34,8 +34,8 @@
       rbw.enable = true; # bitwarden password manager using rofi
       waypipe.enable = true; # wayland over ssh
       sublime-music.enable = true; # music player
-      spotify.enable = false; # music player #TODO: bug - build fails: pull request has been added just wait for the next update
-      element.enable = false; # matrix client
+      spotify.enable = true; # music player #TODO: bug - build fails: pull request has been added just wait for the next update
+      element.enable = true; # matrix client
       discord.enable = false;
       nautilus.enable = false; # file manager
     };
