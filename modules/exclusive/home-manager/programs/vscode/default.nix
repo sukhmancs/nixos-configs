@@ -4,7 +4,7 @@
 # Explore available extensions:
 #
 # $ nix repl
-# nix-repl> :lf github:nix-community/nix-vscode-extensions/c43d9089df96cf8aca157762ed0e2ddca9fcd71e
+# nix-repl> :lf github:nix-community/nix-vscode-extensions
 # nix-repl> t = extensions.<TAB>
 # nix-repl> t = extensions.x86_64-linux
 # nix-repl> t.<TAB>
@@ -59,7 +59,7 @@
     ms-python.python # Python - Python language support
     ms-python.vscode-pylance # Pylance - Python language server
     ms-vscode-remote.remote-ssh # Remote - SSH - SSH support
-    ms-vscode.cpptools # C/C++ - C/C++ language support
+    ms-vscode.cpptools-extension-pack # C/C++ - C/C++ language support
     naumovs.color-highlight # Color Highlight - highlight web colors in your editor
     ms-python.black-formatter # Black - Python code formatter
     svelte.svelte-vscode # Svelte - Svelte language support
@@ -95,7 +95,6 @@
   ];
 in {
   config = mkIf config.programs.vscode.enable {
-
     home.packages = [inputs.alejandra.defaultPackage.${pkgs.stdenv.system}];
     programs.vscode = {
       # package = pkgs.vscodium;

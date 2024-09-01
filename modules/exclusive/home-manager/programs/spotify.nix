@@ -1,3 +1,6 @@
+#
+# Spicetify - Spotify but with more spice
+#
 {
   osConfig,
   inputs,
@@ -13,117 +16,77 @@
   sys = modules.home;
   prg = sys.programs;
 
-  spicePkgs = inputs.spicetify.packages.${pkgs.stdenv.system}.default;
-
-  # use a different version of spicetify-themes than the one provided by
-  # spicetify-nix
-  officialThemesOLD = pkgs.fetchgit {
-    url = "https://github.com/spicetify/spicetify-themes";
-    rev = "c2751b48ff9693867193fe65695a585e3c2e2133";
-    sha256 = "0rbqaxvyfz2vvv3iqik5rpsa3aics5a7232167rmyvv54m475agk";
-  };
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
 in {
-  imports = [inputs.spicetify.homeManagerModule];
+  imports = [inputs.spicetify-nix.homeManagerModules.default];
   config = mkIf prg.spotify.enable {
     programs.spicetify = {
-      spotifyPackage = pkgs.spotify;
-
-      # spicetifyPackage = pkgs.spicetify-cli.overrideAttrs (oa: rec {
-      #   pname = "spicetify-cli";
-      #   version = "2.14.1";
-      #   src = pkgs.fetchgit {
-      #     url = "https://github.com/spicetify/${pname}";
-      #     rev = "v${version}";
-      #     sha256 = "sha256-262tnSKX6M9ggm4JIs0pANeq2JSNYzKkTN8awpqLyMM=";
-      #   };
-      #   vendorSha256 = "sha256-E2Q+mXojMb8E0zSnaCOl9xp5QLeYcuTXjhcp3Hc8gH4=";
-      # });
       enable = true;
-      # injectCss = true;
-      # replaceColors = true;
-
-      # overwriteAssets = true;
-      # sidebarConfig = true;
-      enabledCustomApps = with spicePkgs.apps; [
-        lyrics-plus
-        new-releases
+      spotifyPackage = pkgs.spotify;
+      enabledCustomApps = [
+        #lyrics-plus
+        #new-releases
+        {
+          src = pkgs.fetchFromGitHub {
+            owner = "hroland";
+            repo = "spicetify-show-local-files";
+            rev = "1bfd2fc80385b21ed6dd207b00a371065e53042e";
+            hash = "sha256-neKR2WaZ1K10dZZ0nAKJJEHNS56o8vCpYpi+ZJYJ/gU=";
+          };
+          # name = "localFiles";
+        }
       ];
 
-      # theme = spicePkgs.themes.catppuccin;
-      # colorScheme = "mocha";
-
-      # custom Dribbblish theme
-      theme = {
-        name = "Dribbblish";
-        src = officialThemesOLD;
-        requiredExtensions = [
-          # define extensions that will be installed with this theme
-          {
-            # extension is "${src}/Dribbblish/dribbblish.js"
-            filename = "dribbblish.js";
-            src = "${officialThemesOLD}/Dribbblish";
-          }
-        ];
-        appendName = true; # theme is located at "${src}/Dribbblish" not just "${src}"
-
-        # changes to make to config-xpui.ini for this theme:
-        patches = {
-          "xpui.js_find_8008" = ",(\\w+=)32,";
-          "xpui.js_repl_8008" = ",$\{1}56,";
-        };
-        injectCss = true;
-        replaceColors = true;
-        overwriteAssets = true;
-        sidebarConfig = true;
-      };
+      theme = spicePkgs.themes.catppuccin; # dribbblish, catppuccin, comfy, turntable,  etc.
 
       # specify that we want to use our custom colorscheme
       colorScheme = "custom";
 
       # color definition for custom color scheme.
       customColorScheme = {
-        text = "ebbcba";
-        subtext = "F0F0F0";
-        sidebar-text = "e0def4";
-        main = "191724";
-        sidebar = "2a2837";
-        player = "191724";
-        card = "191724";
-        shadow = "1f1d2e";
-        selected-row = "797979";
-        button = "31748f";
-        button-active = "31748f";
-        button-disabled = "555169";
-        tab-active = "ebbcba";
-        notification = "1db954";
-        notification-error = "eb6f92";
-        misc = "6e6a86";
+        # text = "#ebbcba";
+        # subtext = "#F0F0F0";
+        # sidebar-text = "#e0def4";
+        # main = "#191724";
+        # sidebar = "#2a2837";
+        # player = "#191724";
+        # card = "#191724";
+        # shadow = "1f1d2e";
+        # selected-row = "797979";
+        # button = "#31748f";
+        # button-active = "#31748f";
+        # button-disabled = "#555169";
+        # tab-active = "#ebbcba";
+        # notification = "#1db954";
+        # notification-error = "eb6f92";
+        # misc = "#6e6a86";
 
-        # text = "${colors.base05}";
-        # subtext = "${colors.base04}";
-        # sidebar-text = "${colors.base06}";
-        # main = "${colors.base00}";
-        # sidebar = "${colors.base02}";
-        # player = "${colors.base00}";
-        # card = "${colors.base00}";
-        # shadow = "${colors.base01}";
-        # selected-row = "${colors.base04}";
-        # button = "${colors.base0B}";
-        # button-active = "${colors.base0E}";
-        # button-disabled = "${colors.base03}";
-        # tab-active = "${colors.base05}";
-        # notification = "${colors.base0A}";
-        # notification-error = "${colors.base08}";
-        # misc = "${colors.base03}";
+        text = "${colors.base0E}";
+        subtext = "${colors.base04}";
+        sidebar-text = "${colors.base06}";
+        main = "${colors.base00}";
+        sidebar = "${colors.base02}";
+        player = "${colors.base00}";
+        card = "${colors.base00}";
+        shadow = "${colors.base01}";
+        selected-row = "${colors.base04}";
+        button = "${colors.base0F}";
+        button-active = "${colors.base0F}";
+        button-disabled = "${colors.base03}";
+        tab-active = "${colors.base0E}";
+        notification = "${colors.base0B}";
+        notification-error = "${colors.base08}";
+        misc = "${colors.base06}";
       };
 
       enabledExtensions = with spicePkgs.extensions; [
+        adblock
         fullAppDisplay
         shuffle # shuffle+ (special characters are sanitized out of ext names)
         hidePodcasts
         playlistIcons
         lastfm
-        genre
+        #        genre
         historyShortcut
         bookmark
         fullAlbumDate
