@@ -1,14 +1,13 @@
-{ pkgs
-, lib
-, osConfig
-, config
-, ...
-}:
-let
+{
+  pkgs,
+  lib,
+  osConfig,
+  config,
+  ...
+}: let
   inherit (lib) mkIf mkGraphicalService getExe;
   inherit (osConfig) modules;
-in
-{
+in {
   config = mkIf config.programs.chromium.enable {
     programs.chromium = {
       commandLineArgs = [
@@ -21,7 +20,10 @@ in
         "--enable-wayland-ime"
       ];
       extensions = [
-        { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
+        {
+          # ublock origin
+          id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
+        }
         {
           # bypass paywalls
           id = "dcpihecpambacapedldabdbpakmachpb";

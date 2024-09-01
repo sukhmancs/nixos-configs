@@ -15,7 +15,7 @@ in {
   config = mkIf config.programs.zathura.enable {
     programs.zathura = {
       options = {
-        font = "Iosevka 15"; # Sets the font used in the UI to Iosevka with size 15.
+        font = "SF Pro Text 15"; # Sets the font used in the UI to SF Pro Text with size 15.
         selection-clipboard = "clipboard"; # Enables copying selected text to the clipboard.
         adjust-open = "best-fit"; # Adjusts the document to fit the window when opened.
         pages-per-row = "1"; # Sets the number of pages displayed per row to 1.

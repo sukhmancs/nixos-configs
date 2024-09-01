@@ -1,3 +1,6 @@
+#
+# RBW - Bitwarden CLI
+#
 {
   pkgs,
   osConfig,

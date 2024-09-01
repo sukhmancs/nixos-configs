@@ -1,3 +1,13 @@
+#
+# WayPipe - Remotely run graphical applications under a Wayland compositor
+#
+# Usage:
+#   Run a graphical program remotely and display it locally:
+#      `waypipe ssh user@server program`
+#
+#   Open an SSH tunnel to run any program remotely and display it locally:
+#      `waypipe ssh user@server`
+#
 {
   pkgs,
   lib,
