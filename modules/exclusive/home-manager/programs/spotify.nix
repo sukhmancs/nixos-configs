@@ -3,6 +3,7 @@
 #
 {
   osConfig,
+  self',
   inputs,
   pkgs,
   config,
@@ -24,6 +25,7 @@ in {
       enable = true;
       spotifyPackage = pkgs.spotify;
       enabledCustomApps = [
+        (self'.packages.library)
         #lyrics-plus
         #new-releases
         {
@@ -51,18 +53,18 @@ in {
         # sidebar = "#2a2837";
         # player = "#191724";
         # card = "#191724";
-        # shadow = "1f1d2e";
-        # selected-row = "797979";
+        # shadow = "#1f1d2e";
+        # selected-row = "#797979";
         # button = "#31748f";
         # button-active = "#31748f";
         # button-disabled = "#555169";
         # tab-active = "#ebbcba";
         # notification = "#1db954";
-        # notification-error = "eb6f92";
+        # notification-error = "#eb6f92";
         # misc = "#6e6a86";
 
         text = "${colors.base0E}";
-        subtext = "${colors.base04}";
+        subtext = "${colors.base05}";
         sidebar-text = "${colors.base06}";
         main = "${colors.base00}";
         sidebar = "${colors.base02}";
