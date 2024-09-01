@@ -1,15 +1,14 @@
-{ osConfig
-, pkgs
-, config
-, lib
-, ...
-}:
-let
+{
+  osConfig,
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
   inherit (lib) mkIf;
   inherit (osConfig) modules;
   inherit (modules.themes) colors;
-in
-{
+in {
   config = mkIf config.programs.swaylock.enable {
     programs.swaylock = {
       package = pkgs.swaylock-effects;
@@ -34,7 +33,7 @@ in
         line-color = "${colors.base00}";
         ring-color = "${colors.base04}";
         inside-color = "${colors.base00}";
-        key-hl-color = "${colors.base0F}";
+        key-hl-color = "${colors.base0E}";
         separator-color = "00000000";
         text-color = "${colors.base05}";
         text-caps-lock-color = "";

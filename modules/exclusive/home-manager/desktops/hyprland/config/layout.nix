@@ -1,7 +1,7 @@
 {
   wayland.windowManager.hyprland.settings = {
     dwindle = {
-      # pseudotile = false;
+      pseudotile = false;
       smart_split = false;
       smart_resizing = false;
       preserve_split = "yes";
