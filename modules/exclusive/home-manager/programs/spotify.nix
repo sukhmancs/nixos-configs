@@ -29,7 +29,7 @@ in {
         spicePkgs.apps.lyricsPlus
         spicePkgs.apps.newReleases
         # (self'.packages.library)
-        # (self'.packages.stats)
+        (self'.packages.stats)
 
         # {
         #   src = pkgs.fetchFromGitHub {
@@ -78,7 +78,7 @@ in {
         button = "${colors.base0F}";
         button-active = "${colors.base0F}";
         button-disabled = "${colors.base03}";
-        tab-active = "${colors.base0E}";
+        tab-active = "${colors.base0F}";
         notification = "${colors.base0B}";
         notification-error = "${colors.base08}";
         misc = "${colors.base06}";
@@ -91,6 +91,7 @@ in {
         hidePodcasts
         playlistIcons
         lastfm
+        oneko # cat follow cursor
         #        genre
         historyShortcut
         bookmark
