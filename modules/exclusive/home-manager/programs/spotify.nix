@@ -25,10 +25,12 @@ in {
       enable = true;
       spotifyPackage = pkgs.spotify;
       enabledCustomApps = [
+        spicePkgs.apps.reddit
+        spicePkgs.apps.lyricsPlus
+        spicePkgs.apps.newReleases
         # (self'.packages.library)
-        (self'.packages.stats)
-        #lyrics-plus
-        #new-releases
+        # (self'.packages.stats)
+
         # {
         #   src = pkgs.fetchFromGitHub {
         #     owner = "hroland";
