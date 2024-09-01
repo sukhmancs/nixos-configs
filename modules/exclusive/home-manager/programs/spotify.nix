@@ -29,17 +29,7 @@ in {
         spicePkgs.apps.lyricsPlus
         spicePkgs.apps.newReleases
         # (self'.packages.library)
-        (self'.packages.stats)
-
-        # {
-        #   src = pkgs.fetchFromGitHub {
-        #     owner = "hroland";
-        #     repo = "spicetify-show-local-files";
-        #     rev = "1bfd2fc80385b21ed6dd207b00a371065e53042e";
-        #     hash = "sha256-neKR2WaZ1K10dZZ0nAKJJEHNS56o8vCpYpi+ZJYJ/gU=";
-        #   };
-        #   # name = "localFiles";
-        # }
+        # {src = self'.packages.stats;}
       ];
 
       theme = spicePkgs.themes.catppuccin; # dribbblish, catppuccin, comfy, turntable,  etc.
@@ -49,23 +39,6 @@ in {
 
       # color definition for custom color scheme.
       customColorScheme = {
-        # text = "#ebbcba";
-        # subtext = "#F0F0F0";
-        # sidebar-text = "#e0def4";
-        # main = "#191724";
-        # sidebar = "#2a2837";
-        # player = "#191724";
-        # card = "#191724";
-        # shadow = "#1f1d2e";
-        # selected-row = "#797979";
-        # button = "#31748f";
-        # button-active = "#31748f";
-        # button-disabled = "#555169";
-        # tab-active = "#ebbcba";
-        # notification = "#1db954";
-        # notification-error = "#eb6f92";
-        # misc = "#6e6a86";
-
         text = "${colors.base0E}";
         subtext = "${colors.base05}";
         sidebar-text = "${colors.base06}";
@@ -85,18 +58,17 @@ in {
       };
 
       enabledExtensions = with spicePkgs.extensions; [
-        adblock
         fullAppDisplay
-        shuffle # shuffle+ (special characters are sanitized out of ext names)
-        hidePodcasts
         playlistIcons
-        lastfm
         oneko # cat follow cursor
-        #        genre
+        hidePodcasts
+        adblock
         historyShortcut
         bookmark
+        shuffle
         fullAlbumDate
         groupSession
+        lastfm
         popupLyrics
       ];
     };

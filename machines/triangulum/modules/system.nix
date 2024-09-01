@@ -9,13 +9,13 @@
     virtualisation.libvirtd.enable = true;
 
     # Nixos Cache - Harmonia
-    # services.harmonia.enable = true;
+    services.harmonia.enable = true;
 
     # Matrix Synapse - Private Chat Server
-    # services.matrix-synapse.enable = true;
+    services.matrix-synapse.enable = true;
 
     # Mastodon - Social Media Server
-    # services.mastodon.enable = true;
+    services.mastodon.enable = true;
 
     # Wireguard Server Configuration
     networking.wireguard.enable = true;
