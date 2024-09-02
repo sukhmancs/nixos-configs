@@ -66,7 +66,7 @@ in {
           default_redirection_url = "https://xilain.dev";
           default_2fa_method = "totp";
           server = {
-            address = "tcp://${host}:${toString port}/";
+            address = "http://${host}:${toString port}/";
           };
           log.level = "info";
           totp.issuer = "authelia.com";
@@ -144,7 +144,7 @@ in {
               }
               {
                 domain = ["*.xilain.dev"];
-                policy = "bypass"; # "one_factor";
+                policy = "one_factor";
                 networks = "internal";
                 subject = [
                   "group:lldap_strict_readonly"
