@@ -180,7 +180,7 @@ in {
               }
               {
                 domain = ["*.xilain.dev"];
-                policy = "one_factor";
+                policy = "bypass"; # "one_factor";
                 networks = "internal";
                 subject = [
                   "group:lldap_strict_readonly"
