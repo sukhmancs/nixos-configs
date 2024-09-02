@@ -48,16 +48,16 @@ in {
         enable = true;
         secrets = {
           # jwtSecretFile = config.age.secrets.authelia_jwt_secret.path;
-          jwtSecretFile = config.age.secrets.lldap_jwt_secret.path;
+          jwtSecretFile = config.age.secrets.lldap_jwt_secret.path; # This needs to be the same as the one used in the LDAP server
 
           # oidcHmacSecretFile = "${pkgs.writeText "oidSecretFile" "supersecretkey"}";
           # oidcIssuerPrivateKeyFile = "${pkgs.writeText "oidcissuerSecretFile" "supersecretkey"}";
-          sessionSecretFile = config.age.secrets.authelia_session_secret.path;
-          storageEncryptionKeyFile = config.age.secrets.authelia_storage_encryption_key.path;
+          sessionSecretFile = config.age.secrets.authelia_session_secret.path; # session secret file is used to encrypt the session
+          storageEncryptionKeyFile = config.age.secrets.authelia_storage_encryption_key.path; # storage encryption key file is used to encrypt the storage
         };
         environmentVariables = {
-          AUTHELIA_AUTHENTICATION_BACKEND_LDAP_PASSWORD_FILE = config.age.secrets.lldap_user_pass.path; # config.age.secrets.ldap_password.path;
-          AUTHELIA_NOTIFIER_SMTP_PASSWORD_FILE = secrets.authelia_smtp_password.path;
+          AUTHELIA_AUTHENTICATION_BACKEND_LDAP_PASSWORD_FILE = config.age.secrets.lldap_user_pass.path; # This is the password for the admin user in the LDAP server
+          AUTHELIA_NOTIFIER_SMTP_PASSWORD_FILE = secrets.authelia_smtp_password.path; # This is the password for the SMTP server used to send emails
           AUTHELIA_STORAGE_POSTGRES_PASSWORD_FILE = config.age.secrets.authelia_postgre_password.path;
         };
         #   settingsFiles = [config.age.secrets.authelia_secret_config.path];
@@ -83,6 +83,8 @@ in {
             find_time = 120;
             ban_time = 300;
           };
+          # The authentication backend is used to authenticate users
+          # It is configured to use LDAP as the backend
           authentication_backend = {
             password_reset.disable = true;
             refresh_interval = "1m";
@@ -123,6 +125,10 @@ in {
                 ];
               }
             ];
+            # These rules define the access control policy for the server
+            # First rule: Setup a one factor policy for the manga subdomain for lladp_strict_readonly group
+            # Second rule: Bypass the 2FA for all subdomains for localhost
+            # Third rule: Bypass the 2FA for all subdomains for internal networks
             rules = [
               {
                 domain = ["manga.xilain.dev"];
@@ -138,7 +144,7 @@ in {
               }
               {
                 domain = ["*.xilain.dev"];
-                policy = "one_factor";
+                policy = "bypass"; # "one_factor";
                 networks = "internal";
                 subject = [
                   "group:lldap_strict_readonly"
@@ -146,6 +152,7 @@ in {
               }
             ];
           };
+          # The storage is used to store the user sessions
           storage = {
             postgres = {
               address = "unix:///run/postgresql:5432";
@@ -153,6 +160,7 @@ in {
               username = authelia.user;
             };
           };
+          # The notifier is used to send emails to users
           notifier = {
             disable_startup_check = false;
             smtp = {
