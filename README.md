@@ -59,13 +59,14 @@
 - [x] **fastfetch** - Add custom colors
 - [x] **Zellij** - Terminal multiplexer
 - [x] **btrbk** - Backup tool for btrfs
+- [x] **Spotify** - Spicetify with custom colors
 
 ### In Progress 🚧
 
+- [ ] **Setup Authelia** - Currently not working
 - [ ] **Tailnet** - TailScale, WireGuard, ...
 - [ ] **Icons** - Icon fonts (gtk/qt) are not dynamic. Try to use base16 colors.
 - [ ] **Credit More Gracefully** - Add Name, Repo, etc.
-- [ ] **Spotify** - Spicetify with custom colors (_Done but there is a bug in spicetify_)
 - [ ] **Qemu** - Virtualization with GPU passthrough (_Done but not tested_)
 - [ ] **Hardened Systemd**
 - [ ] **Modularize** - Anyrun, qt.nix, ...

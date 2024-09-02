@@ -20,6 +20,9 @@
     # Wireguard Server Configuration
     networking.wireguard.enable = true;
 
+    # Invidious - Youtube Proxy
+    services.invidious.enable = true;
+
     # Tor - Onion Router
     # services.tor.enable = true;
 
