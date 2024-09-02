@@ -192,7 +192,9 @@ in {
           # preferences, 2FA device handles and secrets, authentication logs, etc…
           storage = {
             postgres = {
-              address = "unix:///run/postgresql:5432";
+              # address = "unix:///run/postgresql:5432";
+              host = "/run/postgresql";
+              port = 5432;
               database = "authelia-main";
               username = authelia.user;
             };
@@ -204,7 +206,9 @@ in {
             # We can disable this check by setting this option to true.
             disable_startup_check = false;
             smtp = {
-              address = "submissions://mail.xilain.dev:465";
+              # address = "submissions://mail.xilain.dev:465";
+              host = "mail.xilain.dev";
+              port = 587;
               username = "authelia@xilain.dev";
               sender = "Authelia <authelia@xilain.dev>";
             };
