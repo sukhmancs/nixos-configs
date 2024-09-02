@@ -154,9 +154,7 @@ in {
         && config.services.authelia.instances.main.enable)
       {
         file = "authelia/jwt_secret.age";
-        mode = "440";
         owner = autheliaUser;
-        group = "lldap-secrets";
       };
 
     authelia_session_secret =
@@ -199,6 +197,7 @@ in {
     lldap_jwt_secret = mkAgenixSecret config.services.lldap.enable {
       file = "lldap/jwt_secret.age";
       mode = "440";
+      owner = autheliaUser;
       group = "lldap-secrets";
     };
 
