@@ -84,7 +84,7 @@ in {
             ban_time = 300;
           };
           authentication_backend = {
-            password_reset.disable = false;
+            password_reset.disable = true;
             refresh_interval = "1m";
             ldap = {
               implementation = "custom";
