@@ -47,12 +47,17 @@ in {
       authelia.instances.main = {
         enable = true;
         secrets = {
-          # jwtSecretFile = config.age.secrets.authelia_jwt_secret.path;
-          jwtSecretFile = config.age.secrets.lldap_jwt_secret.path; # This needs to be the same as the one used in the LDAP server
+          # The Reset Password Identity Validation implementation ensures that users cannot perform
+          # a reset password flow without first ensuring the user is adequately identified.
+          # The settings below therefore can affect the level of security Authelia provides to your
+          # users so they should be carefully considered.
+          # This process is performed by issuing a HMAC signed JWT using a secret key only known by Authelia.
+          jwtSecretFile = config.age.secrets.authelia_jwt_secret.path;
+          # jwtSecretFile = config.age.secrets.lldap_jwt_secret.path; # This needs to be the same as the one used in the LDAP server
 
           # oidcHmacSecretFile = "${pkgs.writeText "oidSecretFile" "supersecretkey"}";
           # oidcIssuerPrivateKeyFile = "${pkgs.writeText "oidcissuerSecretFile" "supersecretkey"}";
-          sessionSecretFile = config.age.secrets.authelia_session_secret.path; # session secret file is used to encrypt the session
+          sessionSecretFile = config.age.secrets.authelia_session_secret.path; # The secret key used to encrypt session data in Redis.
           storageEncryptionKeyFile = config.age.secrets.authelia_storage_encryption_key.path; # storage encryption key file is used to encrypt the storage
         };
         environmentVariables = {
@@ -66,12 +71,42 @@ in {
           default_redirection_url = "https://xilain.dev";
           default_2fa_method = "totp";
           server = {
-            address = "http://${host}:${toString port}/";
+            # address = "tcp://${host}:${toString port}";
+            host = "${host}";
+            port = port;
           };
           log.level = "info";
           totp.issuer = "authelia.com";
+          # This section configures the session cookie behavior
+          # and the domains which Authelia can service authorization requests for.
+          # session = {
+          #   domain = "xilain.dev";
+          #   redis = {
+          #     host = redis.unixSocket;
+          #     port = 0;
+          #     database_index = 0;
+          #   };
+          # };
+
+          # Authelia relies on session cookies to authorize user access to various protected websites.
+          # This section configures the session cookie behavior and the domains which Authelia can
+          # service authorization requests for.
           session = {
-            domain = "xilain.dev";
+            name = "authelia_session";
+            same_site = "lax";
+            inactivity = "1h";
+            expiration = "1h";
+            remember_me = "1M";
+            cookies = {
+              domain = "xilain.dev";
+              authelia_url = "https://auth.xilain.dev";
+              default_redirection_url = "https://xilain.dev";
+              name = "authelia_session";
+              same_site = "lax";
+              inactivity = "1h";
+              expiration = "1h";
+              remember_me = "1d";
+            };
             redis = {
               host = redis.unixSocket;
               port = 0;
@@ -86,7 +121,7 @@ in {
           # The authentication backend is used to authenticate users
           # It is configured to use LDAP as the backend
           authentication_backend = {
-            password_reset.disable = true;
+            password_reset.disable = false;
             refresh_interval = "1m";
             ldap = {
               implementation = "custom";
@@ -152,7 +187,8 @@ in {
               }
             ];
           };
-          # The storage is used to store the user sessions
+          # The storage backend is used to store user
+          # preferences, 2FA device handles and secrets, authentication logs, etc…
           storage = {
             postgres = {
               address = "unix:///run/postgresql:5432";
@@ -162,6 +198,9 @@ in {
           };
           # The notifier is used to send emails to users
           notifier = {
+            # The notifier has a startup check which validates the
+            # specified provider configuration is correct and will be able to send emails.
+            # We can disable this check by setting this option to true.
             disable_startup_check = false;
             smtp = {
               address = "submissions://mail.xilain.dev:465";

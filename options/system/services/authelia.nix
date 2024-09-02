@@ -12,7 +12,7 @@
   cfg = config.modules.system.services;
   inherit (cfg.authelia.settings) host port;
   # authelia = config.services.authelia.instances.main;
-  autheliaUrl = "http://${host}:${builtins.toString port}";
+  autheliaUrl = "tcp://${host}:${builtins.toString port}";
 
   vhostOptions = {config, ...}: {
     options = {
