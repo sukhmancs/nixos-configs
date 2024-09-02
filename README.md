@@ -64,6 +64,7 @@
 ### In Progress 🚧
 
 - [ ] **Setup Authelia** - Currently not working
+- [ ] **Setup Apple Fonts** - Spicetify custom apps
 - [ ] **Tailnet** - TailScale, WireGuard, ...
 - [ ] **Icons** - Icon fonts (gtk/qt) are not dynamic. Try to use base16 colors.
 - [ ] **Credit More Gracefully** - Add Name, Repo, etc.
