@@ -25,7 +25,7 @@ in {
       harmonia = {
         # NOTE: generated via
         # $ nix-store --generate-binary-cache-key cache.domain.tld-1 /var/lib/secrets/harmonia.secret /var/lib/secrets/harmonia.pub
-        signKeyPath = config.age.secrets.harmonia-privateKey.path;
+        signKeyPaths = config.age.secrets.harmonia-privateKey.path;
         settings = {
           # default ip:hostname to bind to
           bind = "${host}:${toString port}";

@@ -1,8 +1,8 @@
-{ config
-, lib
-, ...
-}:
-let
+{
+  config,
+  lib,
+  ...
+}: let
   inherit (lib) mkAgenixSecret;
   inherit (lib.strings) optionalString;
   autheliaUser =
@@ -12,14 +12,13 @@ let
 
   sys = config.modules;
   cfg = sys.services;
-in
-{
+in {
   users = {
     groups = {
-      lldap-secrets = { };
-      gitea-secrets = { };
+      lldap-secrets = {};
+      gitea-secrets = {};
 
-      miniflux-secrets = { };
+      miniflux-secrets = {};
     };
   };
 
@@ -149,15 +148,19 @@ in
     };
 
     # authelia secrets
-    authelia_jwt_secret = mkAgenixSecret
+    authelia_jwt_secret =
+      mkAgenixSecret
       ((config ? services.authelia.instances.main)
         && config.services.authelia.instances.main.enable)
       {
         file = "authelia/jwt_secret.age";
+        mode = "440";
         owner = autheliaUser;
+        group = "lldap-secrets";
       };
 
-    authelia_session_secret = mkAgenixSecret
+    authelia_session_secret =
+      mkAgenixSecret
       ((config ? services.authelia.instances.main)
         && config.services.authelia.instances.main.enable)
       {
@@ -165,7 +168,8 @@ in
         owner = autheliaUser;
       };
 
-    authelia_storage_encryption_key = mkAgenixSecret
+    authelia_storage_encryption_key =
+      mkAgenixSecret
       ((config ? services.authelia.instances.main)
         && config.services.authelia.instances.main.enable)
       {
@@ -173,7 +177,8 @@ in
         owner = autheliaUser;
       };
 
-    authelia_postgre_password = mkAgenixSecret
+    authelia_postgre_password =
+      mkAgenixSecret
       ((config ? services.authelia.instances.main)
         && config.services.authelia.instances.main.enable)
       {
@@ -181,7 +186,8 @@ in
         owner = autheliaUser;
       };
 
-    authelia_smtp_password = mkAgenixSecret
+    authelia_smtp_password =
+      mkAgenixSecret
       ((config ? services.authelia.instances.main)
         && config.services.authelia.instances.main.enable)
       {
@@ -252,7 +258,8 @@ in
       mode = "400";
     };
 
-    mailserver-authelia-secret = mkAgenixSecret
+    mailserver-authelia-secret =
+      mkAgenixSecret
       ((config ? services.authelia.instances.main)
         && config.services.authelia.instances.main.enable)
       {
