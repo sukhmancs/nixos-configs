@@ -24,15 +24,14 @@
   lib,
   ...
 }: let
-  authelia = config.services.authelia.instances.main;
-  redis = config.services.redis.servers."";
-  autheliaUrl = "http://${authelia.settings.server.host}:${builtins.toString authelia.settings.server.port}";
   inherit (lib) mkDefault;
   inherit (config.age) secrets;
-
-  cfg = config.modules.system.services;
-
   inherit (cfg.authelia.settings) host port;
+
+  authelia = config.services.authelia.instances.main;
+  redis = config.services.redis.servers."";
+  # autheliaUrl = "http://${host}:${builtins.toString port}";
+  cfg = config.modules.system.services;
 in {
   config = {
     networking.firewall.allowedTCPPorts = [port];
@@ -48,7 +47,9 @@ in {
       authelia.instances.main = {
         enable = true;
         secrets = {
-          jwtSecretFile = config.age.secrets.authelia_jwt_secret.path;
+          # jwtSecretFile = config.age.secrets.authelia_jwt_secret.path;
+          jwtSecretFile = config.age.secrets.lldap_jwt_secret.path;
+
           # oidcHmacSecretFile = "${pkgs.writeText "oidSecretFile" "supersecretkey"}";
           # oidcIssuerPrivateKeyFile = "${pkgs.writeText "oidcissuerSecretFile" "supersecretkey"}";
           sessionSecretFile = config.age.secrets.authelia_session_secret.path;
