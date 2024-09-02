@@ -318,7 +318,7 @@ in {
       enable = true;
       virtualHosts."home.${domain}" =
         {
-          enableAuthelia = false; # add custom authelia location
+          # enableAuthelia = true; # add custom authelia location
 
           extraConfig = ''
             location / {
