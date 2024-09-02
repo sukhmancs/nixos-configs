@@ -182,13 +182,19 @@ in {
                 policy = "bypass";
                 networks = "localhost";
               }
+              # {
+              #   domain = ["*.xilain.dev"];
+              #   policy = "one_factor";
+              #   networks = "internal";
+              #   subject = [
+              #     "group:lldap_strict_readonly"
+              #   ];
+              # }
               {
+                #TODO: Remove this rule
                 domain = ["*.xilain.dev"];
-                policy = "bypass"; # "one_factor";
+                policy = "bypass";
                 networks = "internal";
-                subject = [
-                  "group:lldap_strict_readonly"
-                ];
               }
             ];
           };
