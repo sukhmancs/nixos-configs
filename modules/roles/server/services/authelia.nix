@@ -52,8 +52,8 @@ in {
           # The settings below therefore can affect the level of security Authelia provides to your
           # users so they should be carefully considered.
           # This process is performed by issuing a HMAC signed JWT using a secret key only known by Authelia.
-          jwtSecretFile = config.age.secrets.authelia_jwt_secret.path;
-          # jwtSecretFile = config.age.secrets.lldap_jwt_secret.path; # This needs to be the same as the one used in the LDAP server
+          # jwtSecretFile = config.age.secrets.authelia_jwt_secret.path;
+          jwtSecretFile = config.age.secrets.lldap_jwt_secret.path; # This needs to be the same as the one used in the LDAP server
 
           # oidcHmacSecretFile = "${pkgs.writeText "oidSecretFile" "supersecretkey"}";
           # oidcIssuerPrivateKeyFile = "${pkgs.writeText "oidcissuerSecretFile" "supersecretkey"}";
