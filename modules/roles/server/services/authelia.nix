@@ -65,8 +65,7 @@ in {
           default_redirection_url = "https://xilain.dev";
           default_2fa_method = "totp";
           server = {
-            host = mkDefault host;
-            port = mkDefault port;
+            address = "tcp://${host}:${toString port}/";
           };
           log.level = "info";
           totp.issuer = "authelia.com";
@@ -88,18 +87,20 @@ in {
             refresh_interval = "1m";
             ldap = {
               implementation = "custom";
-              url = "ldap://localhost:3890";
+              address = "ldap://localhost:3890";
               timeout = "5m";
               start_tls = false;
               base_dn = "dc=xilain,dc=dev";
-              username_attribute = "uid";
-              additional_users_dn = "ou=people";
               users_filter = "(&({username_attribute}={input})(objectClass=person))";
               additional_groups_dn = "ou=groups";
               groups_filter = "(member={dn})";
-              group_name_attribute = "cn";
-              mail_attribute = "mail";
-              display_name_attribute = "displayName";
+              additional_users_dn = "ou=people";
+              attributes = {
+                username = "uid";
+                group_name = "cn";
+                mail = "mail";
+                display_name = "displayName";
+              };
               user = "uid=admin,ou=people,dc=xilain,dc=dev";
             };
           };
@@ -146,17 +147,15 @@ in {
           };
           storage = {
             postgres = {
-              host = "/run/postgresql";
+              address = "unix:///run/postgresql:5432";
               database = "authelia-main";
-              port = 5432;
               username = authelia.user;
             };
           };
           notifier = {
             disable_startup_check = false;
             smtp = {
-              host = "mail.xilain.dev";
-              port = 465;
+              address = "submissions://mail.xilain.dev:465";
               username = "authelia@xilain.dev";
               sender = "Authelia <authelia@xilain.dev>";
             };
