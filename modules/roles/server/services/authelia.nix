@@ -77,42 +77,43 @@ in {
           };
           log.level = "info";
           totp.issuer = "authelia.com";
-          # This section configures the session cookie behavior
-          # and the domains which Authelia can service authorization requests for.
-          # session = {
-          #   domain = "xilain.dev";
-          #   redis = {
-          #     host = redis.unixSocket;
-          #     port = 0;
-          #     database_index = 0;
-          #   };
-          # };
-
           # Authelia relies on session cookies to authorize user access to various protected websites.
           # This section configures the session cookie behavior and the domains which Authelia can
           # service authorization requests for.
           session = {
-            name = "authelia_session";
-            same_site = "lax";
-            inactivity = "1h";
-            expiration = "1h";
-            remember_me = "1M";
-            cookies = {
-              domain = "xilain.dev";
-              authelia_url = "https://auth.xilain.dev";
-              default_redirection_url = "https://xilain.dev";
-              name = "authelia_session";
-              same_site = "lax";
-              inactivity = "1h";
-              expiration = "1h";
-              remember_me = "1d";
-            };
+            domain = "xilain.dev";
             redis = {
               host = redis.unixSocket;
               port = 0;
               database_index = 0;
             };
           };
+
+          # Authelia relies on session cookies to authorize user access to various protected websites.
+          # This section configures the session cookie behavior and the domains which Authelia can
+          # service authorization requests for.
+          # session = {
+          #   name = "authelia_session";
+          #   same_site = "lax";
+          #   inactivity = "1h";
+          #   expiration = "1h";
+          #   remember_me = "1M";
+          #   cookies = {
+          #     domain = "xilain.dev";
+          #     authelia_url = "https://auth.xilain.dev";
+          #     default_redirection_url = "https://xilain.dev";
+          #     name = "authelia_session";
+          #     same_site = "lax";
+          #     inactivity = "1h";
+          #     expiration = "1h";
+          #     remember_me = "1d";
+          #   };
+          #   redis = {
+          #     host = redis.unixSocket;
+          #     port = 0;
+          #     database_index = 0;
+          #   };
+          # };
           regulation = {
             max_retries = 3;
             find_time = 120;
