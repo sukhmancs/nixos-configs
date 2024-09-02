@@ -26,12 +26,12 @@
 }: let
   inherit (lib) mkDefault;
   inherit (config.age) secrets;
+  cfg = config.modules.system.services;
   inherit (cfg.authelia.settings) host port;
 
   authelia = config.services.authelia.instances.main;
   redis = config.services.redis.servers."";
   # autheliaUrl = "http://${host}:${builtins.toString port}";
-  cfg = config.modules.system.services;
 in {
   config = {
     networking.firewall.allowedTCPPorts = [port];

@@ -9,8 +9,10 @@
   lib,
   ...
 }: let
-  authelia = config.services.authelia.instances.main;
-  autheliaUrl = "http://${authelia.settings.server.host}:${builtins.toString authelia.settings.server.port}";
+  cfg = config.modules.system.services;
+  inherit (cfg.authelia.settings) host port;
+  # authelia = config.services.authelia.instances.main;
+  autheliaUrl = "http://${host}:${builtins.toString port}";
 
   vhostOptions = {config, ...}: {
     options = {
