@@ -6,7 +6,7 @@
   inherit (lib) mkIf;
 in {
   # imports = [./dashboards.nix];
-  config = mkIf false {
+  config = {
     networking.firewall.allowedTCPPorts = [config.services.grafana.settings.server.http_port];
 
     services = {

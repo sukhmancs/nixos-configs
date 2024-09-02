@@ -126,20 +126,24 @@ in {
             refresh_interval = "1m";
             ldap = {
               implementation = "custom";
-              address = "ldap://localhost:3890";
+              url = "ldap://localhost:3890";
               timeout = "5m";
               start_tls = false;
               base_dn = "dc=xilain,dc=dev";
+              username_attribute = "uid";
               users_filter = "(&({username_attribute}={input})(objectClass=person))";
               additional_groups_dn = "ou=groups";
               groups_filter = "(member={dn})";
               additional_users_dn = "ou=people";
-              attributes = {
-                username = "uid";
-                group_name = "cn";
-                mail = "mail";
-                display_name = "displayName";
-              };
+              group_name_attribute = "cn";
+              mail_attribute = "mail";
+              display_name_attribute = "displayName";
+              # attributes = {
+              #   username = "uid";
+              #   group_name = "cn";
+              #   mail = "mail";
+              #   display_name = "displayName";
+              # };
               user = "uid=admin,ou=people,dc=xilain,dc=dev";
             };
           };
