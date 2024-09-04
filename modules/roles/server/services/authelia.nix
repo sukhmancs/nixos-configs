@@ -89,31 +89,6 @@ in {
             };
           };
 
-          # Authelia relies on session cookies to authorize user access to various protected websites.
-          # This section configures the session cookie behavior and the domains which Authelia can
-          # service authorization requests for.
-          # session = {
-          #   name = "authelia_session";
-          #   same_site = "lax";
-          #   inactivity = "1h";
-          #   expiration = "1h";
-          #   remember_me = "1M";
-          #   cookies = {
-          #     domain = "xilain.dev";
-          #     authelia_url = "https://auth.xilain.dev";
-          #     default_redirection_url = "https://xilain.dev";
-          #     name = "authelia_session";
-          #     same_site = "lax";
-          #     inactivity = "1h";
-          #     expiration = "1h";
-          #     remember_me = "1d";
-          #   };
-          #   redis = {
-          #     host = redis.unixSocket;
-          #     port = 0;
-          #     database_index = 0;
-          #   };
-          # };
           regulation = {
             max_retries = 3;
             find_time = 120;
@@ -134,8 +109,8 @@ in {
               users_filter = "(&({username_attribute}={input})(objectClass=person))";
               additional_groups_dn = "OU=groups";
               groups_filter = "(member={dn})";
-              # additional_users_dn = "OU=people";
-              additional_users_dn = "OU=users";
+              additional_users_dn = "OU=people";
+              # additional_users_dn = "OU=users";
               group_name_attribute = "cn";
               mail_attribute = "mail";
               display_name_attribute = "displayName";
@@ -145,8 +120,8 @@ in {
               #   mail = "mail";
               #   display_name = "displayName";
               # };
-              # user = "uid=admin,ou=people,dc=xilain,dc=dev";
-              user = "CN=admin,DC=xilain,DC=dev";
+              user = "uid=admin,ou=people,dc=xilain,dc=dev";
+              # user = "CN=admin,DC=xilain,DC=dev";
             };
 
             ### FOR TESTING AUTHELIA
