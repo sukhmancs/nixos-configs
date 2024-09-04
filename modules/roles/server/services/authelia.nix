@@ -52,8 +52,8 @@ in {
           # The settings below therefore can affect the level of security Authelia provides to your
           # users so they should be carefully considered.
           # This process is performed by issuing a HMAC signed JWT using a secret key only known by Authelia.
-          # jwtSecretFile = config.age.secrets.authelia_jwt_secret.path;
-          jwtSecretFile = config.age.secrets.lldap_jwt_secret.path; # This needs to be the same as the one used in the LDAP server
+          jwtSecretFile = config.age.secrets.authelia_jwt_secret.path;
+          # jwtSecretFile = config.age.secrets.lldap_jwt_secret.path; # This needs to be the same as the one used in the LDAP server
 
           # oidcHmacSecretFile = "${pkgs.writeText "oidSecretFile" "supersecretkey"}";
           # oidcIssuerPrivateKeyFile = "${pkgs.writeText "oidcissuerSecretFile" "supersecretkey"}";
@@ -124,27 +124,71 @@ in {
           authentication_backend = {
             password_reset.disable = false;
             refresh_interval = "1m";
-            ldap = {
-              implementation = "custom";
-              url = "ldap://localhost:3890";
-              timeout = "5m";
-              start_tls = false;
-              base_dn = "dc=xilain,dc=dev";
-              username_attribute = "uid";
-              users_filter = "(&({username_attribute}={input})(objectClass=person))";
-              additional_groups_dn = "ou=groups";
-              groups_filter = "(member={dn})";
-              additional_users_dn = "ou=people";
-              group_name_attribute = "cn";
-              mail_attribute = "mail";
-              display_name_attribute = "displayName";
-              # attributes = {
-              #   username = "uid";
-              #   group_name = "cn";
-              #   mail = "mail";
-              #   display_name = "displayName";
-              # };
-              user = "uid=admin,ou=people,dc=xilain,dc=dev";
+            # ldap = {
+            #   implementation = "custom";
+            #   url = "ldap://localhost:3890";
+            #   timeout = "5m";
+            #   start_tls = false;
+            #   base_dn = "DC=xilain,DC=dev";
+            #   username_attribute = "uid";
+            #   users_filter = "(&({username_attribute}={input})(objectClass=person))";
+            #   additional_groups_dn = "OU=groups";
+            #   groups_filter = "(member={dn})";
+            #   # additional_users_dn = "OU=people";
+            #   additional_users_dn = "OU=users";
+            #   group_name_attribute = "cn";
+            #   mail_attribute = "mail";
+            #   display_name_attribute = "displayName";
+            #   # attributes = {
+            #   #   username = "uid";
+            #   #   group_name = "cn";
+            #   #   mail = "mail";
+            #   #   display_name = "displayName";
+            #   # };
+            #   # user = "uid=admin,ou=people,dc=xilain,dc=dev";
+            #   user = "CN=admin,DC=xilain,DC=dev";
+            # };
+
+            ### FOR TESTING AUTHELIA
+            file = {
+              path = "/config/users.yml";
+              watch = false;
+              search = {
+                email = false;
+                case_insensitive = false;
+              };
+              password = {
+                algorithm = "argon2";
+                argon2 = {
+                  variant = "argon2id";
+                  iterations = 3;
+                  memory = 65536;
+                  parallelism = 4;
+                  key_length = 32;
+                  salt_length = 16;
+                };
+                scrypt = {
+                  iterations = 16;
+                  block_size = 8;
+                  parallelism = 1;
+                  key_length = 32;
+                  salt_length = 16;
+                };
+                pbkdf2 = {
+                  variant = "sha512";
+                  iterations = 310000;
+                  salt_length = 16;
+                };
+                sha2crypt = {
+                  variant = "sha512";
+                  iterations = 50000;
+                  salt_length = 16;
+                };
+                bcrypt = {
+                  variant = "standard";
+                  cost = 12;
+                };
+              };
             };
           };
           access_control = {
