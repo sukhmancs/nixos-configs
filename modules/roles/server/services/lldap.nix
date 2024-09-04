@@ -23,7 +23,7 @@ in {
         environment = {
           LLDAP_JWT_SECRET_FILE = secrets.lldap_jwt_secret.path;
           LLDAP_LDAP_USER_PASS_FILE = secrets.lldap_user_pass.path; # password for the admin user
-          # LLDAP_KEY_SEED_FILE = secrets.lldap_key_seed.path;
+          LLDAP_KEY_SEED_FILE = secrets.lldap_key_seed.path;
           LLDAP_LDAP_USER_DN = "admin"; # ldap username
           LLDAP_FORCE_LDAP_USER_PASS_RESET = "false";
         };
