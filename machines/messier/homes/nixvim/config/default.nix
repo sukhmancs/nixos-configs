@@ -1,5 +1,9 @@
-{ config, osConfig, lib, ... }:
 {
+  config,
+  osConfig,
+  lib,
+  ...
+}: {
   imports = [
     ./autocommands.nix
     ./keys.nix
@@ -15,9 +19,4 @@
     ./plugins/ui
     ./plugins/utils
   ];
-  config = {
-    programs.nixvim.extraConfigLua = ''
-      _G.theme = "${osConfig.modules.themes.colorscheme.name}";
-    '';
-  };
 }
