@@ -1,5 +1,6 @@
 {
   inputs',
+  inputs,
   osConfig,
   config,
   pkgs,
