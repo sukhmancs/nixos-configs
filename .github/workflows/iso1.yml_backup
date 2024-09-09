@@ -27,10 +27,6 @@ jobs:
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
 
-      - name: Install Git LFS
-        run: |
-          git lfs install
-
       - name: Install nix
         uses: cachix/install-nix-action@master
         with:
@@ -50,10 +46,19 @@ jobs:
         shell: bash
         run: nix build .#images.${{ matrix.image }} -o ${{ matrix.image }} --print-build-logs
 
+      # - uses: actions/upload-artifact@v4
+      #   with:
+      #     name: ${{ matrix.image }}-iso-image
+      #     path: ${{ matrix.image }}/iso/*.iso
+
+      - name: Split ISO into chunks
+        run: |
+          split -b 100M ${{ matrix.image }}/iso/*.iso ${{ matrix.image }}/iso/${{ matrix.image }}-iso-chunks
+
       - uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.image }}-iso-image
-          path: ${{ matrix.image }}/iso/*.iso
+          name: ${{ matrix.image }}-iso-chunks
+          path: ${{ matrix.image }}/iso/${{ matrix.image }}-iso-chunks
 
   # publish built images
   publish-images:
@@ -112,7 +117,3 @@ jobs:
             Weekly automated ISO releases for my Portable NixOS workstation. The ISO images avaible are as follows:
 
             * **messier**: Graphical installation media
-
-            ## Warning
-
-            Please be aware that these configurations are based on certain assumptions about your setup and may result in undesirable systems. Use them at your own risk.

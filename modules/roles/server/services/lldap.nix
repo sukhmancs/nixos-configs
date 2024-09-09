@@ -18,7 +18,7 @@ in {
         settings = {
           http_url = "https://${domain}"; # the url of the ldap server
           ldap_base_dn = "dc=xilain,dc=dev"; # the root of the ldap directory tree
-          # key_file = secrets.lldap_private_key.path;
+          key_file = secrets.lldap_private_key.path;
         };
         environment = {
           LLDAP_JWT_SECRET_FILE = secrets.lldap_jwt_secret.path;
