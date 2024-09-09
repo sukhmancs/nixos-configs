@@ -1,15 +1,15 @@
-{
-  inputs',
-  osConfig,
-  config,
-  pkgs,
-  lib,
-  ...
-}: let
+{ inputs'
+, osConfig
+, config
+, pkgs
+, lib
+, ...
+}:
+let
   inherit (lib.meta) getExe;
 
   # nix advantages
-  inherit (import ../packages {inherit inputs' pkgs;}) propaganda;
+  inherit (import ../packages { inherit inputs' pkgs; }) propaganda;
 
   terminal =
     if config.programs.foot.enable
@@ -17,7 +17,8 @@
     else "kitty";
 
   locker = getExe pkgs.swaylock-effects;
-in {
+in
+{
   wayland.windowManager.hyprland.settings = {
     # define the mod key
     "$MOD" = "SUPER";
@@ -33,6 +34,7 @@ in {
       "$MODSHIFT, Escape, exec, wlogout -p layer-shell" # logout menu
       "$MODSHIFT, L, exec, ${locker}" # lock the screen with swaylock
       "$MODSHIFT,E,exit," # exit Hyprland session
+      "$MOD,grave,hyprexpo:expo,toggle" # can be: toggle, off/disable or on/enable
       ''$MODSHIFT,H,exec,cat ${propaganda} | ${pkgs.wl-clipboard}/bin/wl-copy && ${pkgs.libnotify}/bin/notify-send "Propaganda" "ready to spread!" && sleep 0.3 && ${lib.getExe pkgs.wtype} -M ctrl -M shift -k v -m shift -m ctrl -s 300 -k Return'' # spread hyprland propaganda
 
       # Daily Applications
