@@ -17,7 +17,7 @@
   ];
   config = {
     programs.nixvim.extraConfigLua = ''
-      _G.theme = "custom";
+      _G.theme = "${osConfig.modules.themes.colorscheme.name}";
     '';
   };
 }

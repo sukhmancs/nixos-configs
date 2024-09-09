@@ -3,7 +3,6 @@
     ./foot # terminal
     ./gtk # gtk theme
     ./nixvim
-    # ./neovim # full-featured text editor
     ./river # window manager
     ./rofi # application launcher #TODO: fix rofi style
     ./waybar # status bar
