@@ -24,13 +24,23 @@ in {
     programs.spicetify = {
       enable = true;
       spotifyPackage = pkgs.spotify;
-      enabledCustomApps = [
-        spicePkgs.apps.reddit
-        spicePkgs.apps.lyricsPlus
-        spicePkgs.apps.newReleases
-        # (self'.packages.library)
-        # {src = self'.packages.stats;}
-      ];
+      # enabledCustomApps = [
+      #   spicePkgs.apps.reddit
+      #   spicePkgs.apps.lyricsPlus
+      #   spicePkgs.apps.newReleases
+      #   # (self'.packages.library)
+      #   # {src = self'.packages.stats;}
+      # ];
+      enabledCustomApps = with spicePkgs.apps;
+        [
+          reddit
+          lyricsPlus
+          newReleases
+        ]
+        ++ [
+          (self'.packages.library)
+          # {src = self'.packages.stats;}
+        ];
 
       theme = spicePkgs.themes.catppuccin; # dribbblish, catppuccin, comfy, turntable,  etc.
 

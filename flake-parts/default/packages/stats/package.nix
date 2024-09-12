@@ -16,10 +16,10 @@ in
       unzip $src
     '';
 
-    installPhase = ''
-      mkdir $out
-      cp -r * $out
-    '';
+    # installPhase = ''
+    #   mkdir $out
+    #   cp -r * $out
+    # '';
 
     meta = with lib; {
       description = "stats - spicetify custom apps";

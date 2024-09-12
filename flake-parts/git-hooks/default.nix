@@ -49,10 +49,10 @@
         inherit excludes;
 
         hooks = {
-          alejandra = makeHook {
-            name = "alejandra";
-            # package = inputs'.nyxpkgs.packages.alejandra-no-ads;
-          };
+          # alejandra = makeHook {
+          #   name = "alejandra";
+          # package = inputs'.nyxpkgs.packages.alejandra-no-ads;
+          # };
           exiftool = makeHook {
             name = "exiftool";
             types = ["image"];
