@@ -373,4 +373,4 @@ nixos-rebuild switch --flake .#<host>
 
 ## Credit and Attribution
 
-I don't mind people copying my code, so you don't have to give credit to me. Howevever, please make sure that you give credit to the original authors of the code that I have used in this repository.
+I’m totally cool with you borrowing my code—no need to give me a shout-out. Just make sure to tip your hat to the original authors whose code I’ve borrowed for this project. They deserve the applause!
