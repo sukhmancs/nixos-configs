@@ -31,16 +31,11 @@ in {
       #   # (self'.packages.library)
       #   # {src = self'.packages.stats;}
       # ];
-      enabledCustomApps = with spicePkgs.apps;
-        [
-          reddit
-          lyricsPlus
-          newReleases
-        ]
-        ++ [
-          (self'.packages.library)
-          # {src = self'.packages.stats;}
-        ];
+      enabledCustomApps = with spicePkgs.apps; [
+        reddit
+        lyricsPlus
+        newReleases
+      ];
 
       theme = spicePkgs.themes.catppuccin; # dribbblish, catppuccin, comfy, turntable,  etc.
 
