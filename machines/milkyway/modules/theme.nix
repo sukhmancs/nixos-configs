@@ -2,9 +2,8 @@
 # Global theme
 #
 # My Ratings based on usability and aesthetics:
-# - 10 - catppuccino-mocha, alph, gruvbox-light-hard
-# - 9.7 - gruvbox-dark-hard
-# - 9 - catppuccino-frappe
+# - 10 - catppuccino-mocha, alph, gruvbox-light-hard, catppuccino-frappe, emil
+# - 9.7 - gruvbox-dark-hard, ember
 # - 8.5 - ashes
 # - 6 - atelier-cave
 #
@@ -24,6 +23,8 @@
     # name = "catppuccin-frappe"; # Dark color theme (9/10)
     # name = "gruvbox-dark-hard"; # Dark color theme (9.7/10)
     # name = "gruvbox-light-hard"; # Light color theme (10/10)
-    name = "ember";
+    # name = "ember";
+    # name = "emil";
+    name = "fairy-floss";
   };
 }
