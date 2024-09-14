@@ -14,57 +14,39 @@
 </p>
 
 <details>
-
 <summary>More Catppuccin Previews</summary>
-
 <img src=".github/assets/rofi.png" alt="Rofi Preview" />
 <img src=".github/assets/anyrun.png" alt="Anyrun Preview" />
 <img src=".github/assets/neovim.png" alt="Neovim Preview" />
 <img src=".github/assets/vscode.png" alt="VSCode Preview" />
 <img src=".github/assets/discord.png" alt="Discord Preview" />
-
 </details>
 
 <details>
-
 <summary>Gruvbox-light-hard</summary>
-
 <img src=".github/assets/gruvbox-light-hard.png" alt="gruvbox-light-hard Theme" />
 <img src=".github/assets/gruvbox-light-hard-common.png" alt="gruvbox-light-hard-common Theme" />
 <img src=".github/assets/gruvbox-light-hard-discord.png" alt="gruvbox-light-hard-discord Theme" />
-
 </details>
 
 <details>
-
-<details>
-
 <summary>Alph</summary>
-
 <img src=".github/assets/alph.png" alt="Alph Theme" />
-
 </details>
 
 <details>
-
 <summary>Ashes</summary>
-
 <img src=".github/assets/ashes.png" alt="Ashes Theme" />
-
-</details>
-
-<summary>Gruvbox-dark-hard</summary>
-
-<img src=".github/assets/gruvbox-dark-hard.png" alt="gruvbox-dark-hard Theme" />
-
 </details>
 
 <details>
+<summary>Gruvbox-dark-hard</summary>
+<img src=".github/assets/gruvbox-dark-hard.png" alt="gruvbox-dark-hard Theme" />
+</details>
 
+<details>
 <summary>Catppuccin-frappe</summary>
-
 <img src=".github/assets/catppuccin-frappe.png" alt="Catppuccin-frappe Theme" />
-
 </details>
 
 <br/>
