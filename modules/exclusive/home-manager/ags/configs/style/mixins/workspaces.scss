@@ -9,6 +9,7 @@
 
     .ws-button {
         transition: all 200ms;
+        color: $primary-fg;
 
         &:hover {
             @include button-hover;

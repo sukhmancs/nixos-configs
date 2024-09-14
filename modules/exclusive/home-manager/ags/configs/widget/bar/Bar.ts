@@ -47,7 +47,7 @@ export default (monitor: number) =>
                     Widget.Box({
                         className: "barRight",
                         children: [
-                            Cava(monitor, "end"),
+                            // Cava(monitor, "end"),
                             SysTray(monitor, "end"),
                             BatteryBar(monitor, "end"),
                             SystemIndicators(monitor, "end"),
