@@ -15,7 +15,7 @@
 
 <details>
 
-<summary>More Previews</summary>
+<summary>More Catppuccin Previews</summary>
 
 <img src=".github/assets/rofi.png" alt="Rofi Preview" />
 <img src=".github/assets/anyrun.png" alt="Anyrun Preview" />
@@ -25,6 +25,13 @@
 
 </details>
 
+<details>
+
+<summary>Alph</summary>
+
+<img src=".github/assets/alph.png" alt="Alph Theme" />
+
+</details>
 <br/>
 
 ## Todo
