@@ -9,7 +9,6 @@
   home = {
     pointerCursor = {
       package = pkgs.bibata-cursors; # pkgs.catppuccin-cursors.mochaDark;
-      # name = "Bibata-Modern-Classic"; # "catppuccin-mocha-dark-cursors";
       name = "Bibata-Modern-${
         if osConfig.modules.themes.polarity == "dark"
         then "Classic"
