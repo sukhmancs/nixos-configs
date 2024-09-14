@@ -24,13 +24,6 @@ in {
     programs.spicetify = {
       enable = true;
       spotifyPackage = pkgs.spotify;
-      # enabledCustomApps = [
-      #   spicePkgs.apps.reddit
-      #   spicePkgs.apps.lyricsPlus
-      #   spicePkgs.apps.newReleases
-      #   # (self'.packages.library)
-      #   # {src = self'.packages.stats;}
-      # ];
       enabledCustomApps = with spicePkgs.apps; [
         reddit
         lyricsPlus
