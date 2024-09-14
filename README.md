@@ -62,6 +62,7 @@
 <summary>Gruvbox-light-hard</summary>
 
 <img src=".github/assets/gruvbox-light-hard.png" alt="gruvbox-light-hard Theme" />
+<img src=".github/assets/gruvbox-light-hard-common.png" alt="gruvbox-light-hard-common Theme" />
 <img src=".github/assets/gruvbox-light-hard-discord.png" alt="gruvbox-light-hard-discord Theme" />
 
 </details>
