@@ -12,6 +12,7 @@
   modules.themes.colorscheme = {
     # name = "catppuccin-mocha";
     # name = "alph"; # just make sure theme name is same as the folder name in /themes folder
-    name = "ashes";
+    # name = "ashes";
+    name = "atelier-cave";
   };
 }

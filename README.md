@@ -32,6 +32,14 @@
 <img src=".github/assets/alph.png" alt="Alph Theme" />
 
 </details>
+
+<details>
+
+<summary>Ashes</summary>
+
+<img src=".github/assets/ashes.png" alt="Ashes Theme" />
+
+</details>
 <br/>
 
 ## Todo
