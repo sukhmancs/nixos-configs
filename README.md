@@ -60,6 +60,12 @@
 <img src=".github/assets/emil2.png" alt="emil Theme" />
 </details>
 
+<details>
+<summary>fairy-floss</summary>
+<img src=".github/assets/fairy-floss1.png" alt="fairy-floss Theme" />
+<img src=".github/assets/fairy-floss2.png" alt="fairy-floss Theme" />
+</details>
+
 <br/>
 
 ## Todo
