@@ -49,6 +49,14 @@
 
 </details>
 
+<details>
+
+<summary>Gruvbox-dark-hard</summary>
+
+<img src=".github/assets/gruvbox-dark-hard.png" alt="gruvbox-dark-hard Theme" />
+
+</details>
+
 <br/>
 
 ## Todo
