@@ -1,8 +1,9 @@
-{osConfig, ...}:
+{ osConfig, ... }:
 let
   inherit (osConfig) modules;
   inherit (modules.themes) colors;
-in ''
+in
+''
   /*define root variables */
   :root {
     --background-color: #${colors.base00};
