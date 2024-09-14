@@ -40,6 +40,15 @@
 <img src=".github/assets/ashes.png" alt="Ashes Theme" />
 
 </details>
+
+<details>
+
+<summary>Catppuccin-frappe</summary>
+
+<img src=".github/assets/catppuccin-frappe.png" alt="Catppuccin-frappe Theme" />
+
+</details>
+
 <br/>
 
 ## Todo

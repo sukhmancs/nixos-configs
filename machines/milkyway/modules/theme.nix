@@ -10,9 +10,10 @@
 #
 {
   modules.themes.colorscheme = {
-    # name = "catppuccin-mocha";
-    # name = "alph"; # just make sure theme name is same as the folder name in /themes folder
-    # name = "ashes";
-    name = "atelier-cave";
+    # name = "catppuccin-mocha"; # Dark color theme (10/10)
+    # name = "alph"; # White color theme (9/10)
+    # name = "ashes"; # Dark color theme (8.5/10)
+    # name = "atelier-cave"; # Dark color theme (6/10)
+    name = "catppuccin-frappe"; # Dark color theme (8/10)
   };
 }
