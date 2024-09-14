@@ -49,6 +49,11 @@
 <img src=".github/assets/catppuccin-frappe.png" alt="Catppuccin-frappe Theme" />
 </details>
 
+<details>
+<summary>ember</summary>
+<img src=".github/assets/ember.png" alt="ember Theme" />
+</details>
+
 <br/>
 
 ## Todo
