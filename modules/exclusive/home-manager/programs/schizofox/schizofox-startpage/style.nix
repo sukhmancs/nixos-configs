@@ -9,7 +9,7 @@ in
     --background-color: #${colors.base00};
     --icon-color: #${colors.base00};
     --hex-gradient-1: #${colors.base0E};
-    --hex-gradient-2: #${colors.base00};
+    --hex-gradient-2: #${colors.base07};
     --blob-color: #${colors.base05};
   }
 

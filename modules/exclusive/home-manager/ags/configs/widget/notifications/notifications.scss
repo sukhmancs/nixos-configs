@@ -11,17 +11,17 @@
     .content {
         .title {
             margin-right: $spacing;
-            color: $primary-fg;
+            color: $base05;
             font-size: 1.1em;
         }
 
         .time {
-            color: transparentize($primary-fg, .2);
+            color: transparentize($base05, .2);
         }
 
         .description {
             font-size: .9em;
-            color: transparentize($primary-fg, .2);
+            color: transparentize($base05, .2);
         }
 
         .icon {

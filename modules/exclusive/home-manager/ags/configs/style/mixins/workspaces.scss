@@ -1,5 +1,4 @@
 // Import the variables file
-// @import './colors.scss';
 @import '../variables.scss';
 
 .ws-container {
@@ -9,7 +8,7 @@
 
     .ws-button {
         transition: all 200ms;
-        color: $primary-fg;
+        // color: $primary-fg;
 
         &:hover {
             @include button-hover;
