@@ -27,6 +27,18 @@
 
 <details>
 
+<summary>Gruvbox-light-hard</summary>
+
+<img src=".github/assets/gruvbox-light-hard.png" alt="gruvbox-light-hard Theme" />
+<img src=".github/assets/gruvbox-light-hard-common.png" alt="gruvbox-light-hard-common Theme" />
+<img src=".github/assets/gruvbox-light-hard-discord.png" alt="gruvbox-light-hard-discord Theme" />
+
+</details>
+
+<details>
+
+<details>
+
 <summary>Alph</summary>
 
 <img src=".github/assets/alph.png" alt="Alph Theme" />
@@ -41,16 +53,6 @@
 
 </details>
 
-<details>
-
-<summary>Catppuccin-frappe</summary>
-
-<img src=".github/assets/catppuccin-frappe.png" alt="Catppuccin-frappe Theme" />
-
-</details>
-
-<details>
-
 <summary>Gruvbox-dark-hard</summary>
 
 <img src=".github/assets/gruvbox-dark-hard.png" alt="gruvbox-dark-hard Theme" />
@@ -59,11 +61,9 @@
 
 <details>
 
-<summary>Gruvbox-light-hard</summary>
+<summary>Catppuccin-frappe</summary>
 
-<img src=".github/assets/gruvbox-light-hard.png" alt="gruvbox-light-hard Theme" />
-<img src=".github/assets/gruvbox-light-hard-common.png" alt="gruvbox-light-hard-common Theme" />
-<img src=".github/assets/gruvbox-light-hard-discord.png" alt="gruvbox-light-hard-discord Theme" />
+<img src=".github/assets/catppuccin-frappe.png" alt="Catppuccin-frappe Theme" />
 
 </details>
 
