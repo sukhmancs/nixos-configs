@@ -56,7 +56,16 @@ in {
           then "Dark"
           else "Light"
         }"; # "Papirus-Dark" or "Papirus-Light";
-        package = pkgs.papirus-icon-theme;
+        #package = pkgs.papirus-icon-theme;
+        package = pkgs.catppuccin-papirus-folders.override {
+          flavor = "mocha";
+          accent =
+            ${
+              if osConfig.modules.themes.polarity == "dark"
+              then "mauve"
+              else "yellow"
+            };
+        };
       };
 
       # Make sure these fonts are installed - apple-fonts, pkgs.fira, pkgs.lexend
