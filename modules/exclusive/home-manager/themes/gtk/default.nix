@@ -57,6 +57,8 @@ in {
           else "Light"
         }"; # "Papirus-Dark" or "Papirus-Light";
         #package = pkgs.papirus-icon-theme;
+        #TODO: I don't like the way the folder colors are set
+        # I want to use base16 colors for the folders
         package = pkgs.catppuccin-papirus-folders.override {
           flavor = "mocha";
           accent =
