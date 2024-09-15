@@ -62,11 +62,9 @@ in {
         package = pkgs.catppuccin-papirus-folders.override {
           flavor = "mocha";
           accent =
-            ${
-              if osConfig.modules.themes.polarity == "dark"
-              then "mauve"
-              else "yellow"
-            };
+            if osConfig.modules.themes.polarity == "dark"
+            then "mauve"
+            else "yellow";
         };
       };
 
