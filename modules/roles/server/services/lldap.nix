@@ -14,7 +14,7 @@ in {
   config = {
     services = {
       lldap = {
-        enable = true;
+        enable = false;
         settings = {
           http_url = "https://${domain}"; # the url of the ldap server
           ldap_base_dn = "dc=xilain,dc=dev"; # the root of the ldap directory tree

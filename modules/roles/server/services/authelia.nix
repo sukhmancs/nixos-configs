@@ -45,7 +45,7 @@ in {
 
     services = {
       authelia.instances.main = {
-        enable = true;
+        enable = false;
         secrets = {
           # The Reset Password Identity Validation implementation ensures that users cannot perform
           # a reset password flow without first ensuring the user is adequately identified.
