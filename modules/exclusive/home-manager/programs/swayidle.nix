@@ -64,21 +64,21 @@ in {
             timeout = lockTime;
             # command = "${swaylock} --image ${modules.themes.wallpaper} --daemonize --grace 15";
             # command = "${lock}";
-            command = "${isAudioRunning} || ${swaylock} --image ${modules.themes.wallpaper}";
+            command = "${isAudioRunning} && ${swaylock} --image ${modules.themes.wallpaper}";
           }
         ]
         ++
         # Turn off displays (hyprland)
         (lib.optionals config.wayland.windowManager.hyprland.enable (afterLockTimeout {
           timeout = 5;
-          command = "${isAudioRunning} || ${hyprctl} dispatch dpms off";
+          command = "${isAudioRunning} && ${hyprctl} dispatch dpms off";
           resumeCommand = "${hyprctl} dispatch dpms on";
         }))
         ++
         # Turn off displays (sway)
         (lib.optionals config.wayland.windowManager.sway.enable (afterLockTimeout {
           timeout = 40;
-          command = "${isAudioRunning} || ${swaymsg} 'output * dpms off'";
+          command = "${isAudioRunning} && ${swaymsg} 'output * dpms off'";
           resumeCommand = "${swaymsg} 'output * dpms on'";
         }));
     };
