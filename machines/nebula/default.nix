@@ -7,8 +7,6 @@
 in {
   imports = [
     ./nixos # Nixos system modules
-
-    ./colors.nix # color scheme for the system
   ];
 
   # getty is the program that manages the virtual terminals
