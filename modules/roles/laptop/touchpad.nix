@@ -4,6 +4,7 @@
 {
   config = {
     services = {
+      xserver.exportConfiguration = true;
       libinput = {
         # enable libinput
         enable = true;
