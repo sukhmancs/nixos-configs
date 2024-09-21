@@ -40,11 +40,14 @@
   ];
 
   # only lock if no audio is playing
-  lock = pkgs.writeShellScript "lock" ''
+  # lock = pkgs.writeShellScript "lock" ''
+  #   ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
+  #   if [ $? == 1 ]; then
+  #     ${swaylock} --image ${modules.themes.wallpaper}
+  #   fi
+  # '';
+  isAudioRunning = pkgs.writeShellScript "is-audio-running" ''
     ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
-    if [ $? == 1 ]; then
-      ${swaylock} --image ${modules.themes.wallpaper}
-    fi
   '';
 in {
   config = mkIf config.services.swayidle.enable {
@@ -56,21 +59,22 @@ in {
           {
             timeout = lockTime;
             # command = "${swaylock} --image ${modules.themes.wallpaper} --daemonize --grace 15";
-            command = "${lock}";
+            # command = "${lock}";
+            command = "${isAudioRunning} || ${swaylock} --image ${modules.themes.wallpaper}";
           }
         ]
         ++
         # Turn off displays (hyprland)
         (lib.optionals config.wayland.windowManager.hyprland.enable (afterLockTimeout {
           timeout = 5;
-          command = "${hyprctl} dispatch dpms off";
+          command = "${isAudioRunning} || ${hyprctl} dispatch dpms off";
           resumeCommand = "${hyprctl} dispatch dpms on";
         }))
         ++
         # Turn off displays (sway)
         (lib.optionals config.wayland.windowManager.sway.enable (afterLockTimeout {
           timeout = 40;
-          command = "${swaymsg} 'output * dpms off'";
+          command = "${isAudioRunning} || ${swaymsg} 'output * dpms off'";
           resumeCommand = "${swaymsg} 'output * dpms on'";
         }));
     };
