@@ -61,7 +61,7 @@ in {
           storageEncryptionKeyFile = config.age.secrets.authelia_storage_encryption_key.path; # storage encryption key file is used to encrypt the storage
         };
         environmentVariables = {
-          AUTHELIA_AUTHENTICATION_BACKEND_LDAP_PASSWORD_FILE = config.age.secrets.lldap_user_pass.path; # This is the password for the admin user in the LDAP server
+          # AUTHELIA_AUTHENTICATION_BACKEND_LDAP_PASSWORD_FILE = config.age.secrets.lldap_user_pass.path; # This is the password for the admin user in the LDAP server
           AUTHELIA_NOTIFIER_SMTP_PASSWORD_FILE = secrets.authelia_smtp_password.path; # This is the password for the SMTP server used to send emails
           AUTHELIA_STORAGE_POSTGRES_PASSWORD_FILE = config.age.secrets.authelia_postgre_password.path;
         };
@@ -121,6 +121,7 @@ in {
               #   display_name = "displayName";
               # };
               user = "uid=admin,ou=people,dc=xilain,dc=dev";
+              password = "changeme";
               # user = "CN=admin,DC=xilain,DC=dev";
             };
 

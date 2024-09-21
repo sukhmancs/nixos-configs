@@ -18,14 +18,14 @@ in {
         settings = {
           http_url = "https://${domain}"; # the url of the ldap server
           ldap_base_dn = "dc=xilain,dc=dev"; # the root of the ldap directory tree
-          key_file = secrets.lldap_private_key.path;
+          # key_file = secrets.lldap_private_key.path;
         };
         environment = {
           LLDAP_JWT_SECRET_FILE = secrets.lldap_jwt_secret.path;
-          LLDAP_LDAP_USER_PASS_FILE = secrets.lldap_user_pass.path; # password for the admin user
-          LLDAP_KEY_SEED_FILE = secrets.lldap_key_seed.path;
-          LLDAP_LDAP_USER_DN = "admin"; # ldap username
-          LLDAP_FORCE_LDAP_USER_PASS_RESET = "false";
+          # LLDAP_LDAP_USER_PASS_FILE = secrets.lldap_user_pass.path; # password for the admin user
+          # LLDAP_KEY_SEED_FILE = secrets.lldap_key_seed.path;
+          # LLDAP_LDAP_USER_DN = "admin"; # ldap username
+          # LLDAP_FORCE_LDAP_USER_PASS_RESET = "false";
         };
       };
 
