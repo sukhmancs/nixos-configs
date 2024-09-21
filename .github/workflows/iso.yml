@@ -115,4 +115,5 @@ jobs:
 
             Weekly automated ISO releases for my Portable NixOS workstation. The ISO images avaible are as follows:
 
+            * **nebula**: Headless installation media
             * **messier**: Graphical installation media
