@@ -3,9 +3,7 @@
   lib,
   pkgs,
   ...
-}: let
-  authelia = config.services.authelia.instances.main;
-in {
+}: {
   config = {
     services.postgresql = {
       enable = true;
@@ -68,7 +66,7 @@ in {
           ensureDBOwnership = true;
         }
         {
-          name = authelia.user;
+          name = config.services.authelia.instances.main.authelia.user;
           ensureDBOwnership = true;
         }
       ];

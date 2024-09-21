@@ -140,7 +140,7 @@ in {
     modules =
       [
         {networking.hostName = "nebula";}
-        "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal-base.nix"
+        "${nixpkgs}/nixos/modules/installer/cd-dvd/iso-image.nix"
         "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
 
         # include all hardware modules
