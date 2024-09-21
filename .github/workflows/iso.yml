@@ -16,7 +16,8 @@ jobs:
     strategy:
       matrix:
         image:
-          - messier
+            - nebula
+          # - messier
 
     permissions:
       contents: write
