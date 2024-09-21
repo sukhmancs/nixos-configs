@@ -130,4 +130,28 @@ in {
         ./messier/home.nix
       ];
   };
+
+  # Headless ISO
+  nebula = lib.nixosSystem {
+    inherit system;
+    specialArgs = {
+      inherit lib inputs self;
+    };
+    modules =
+      [
+        {networking.hostName = "nebula";}
+        "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal-base.nix"
+        "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+
+        # include all hardware modules
+        "${nixpkgs}/nixos/modules/profiles/all-hardware.nix"
+
+        ./nebula
+        ../modules/roles/iso
+      ]
+      ++ [
+        hm
+        ./nebula/home.nix
+      ];
+  };
 }

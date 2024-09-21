@@ -2,30 +2,12 @@
   config,
   lib,
   ...
-}: let
-  inherit (lib) optionalString;
-in {
+}: {
   imports = [
     ./nixos # Nixos system modules
 
     ./colors.nix # color scheme for the system
   ];
-
-  # getty is the program that manages the virtual terminals
-  # we can set the helpLine, which is displayed below the login prompt
-  services.getty.helpLine =
-    ''
-      The "nixos" and "root" accounts have changeme passwords.
-      An ssh daemon is running. You then must set a password
-      for either "root" or "nixos" with `passwd` or add an ssh key
-      to /home/nixos/.ssh/authorized_keys be able to login.
-      If you need a wireless connection, you may use networkmanager
-      by invoking `nmcli` or `nmtui`, the ncurses interface.
-    ''
-    + optionalString config.services.xserver.enable ''
-      Type `sudo systemctl start display-manager' to
-      start the graphical user interface.
-    '';
 
   # since we don't inherit the core module, this needs to be set here manually
   # otherwise we'll see the stateVersion error - which doesn't actually matter inside the ISO
