@@ -46,6 +46,10 @@
   #     ${swaylock} --image ${modules.themes.wallpaper}
   #   fi
   # '';
+
+  # This script uses pw-cli and ripgrep to check if any audio streams are running.
+  # If audio is running, the script will return a status code of 0 (true).
+  # If no audio is running, it will return a status code of 1 (false).
   isAudioRunning = pkgs.writeShellScript "is-audio-running" ''
     ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
   '';
