@@ -65,10 +65,11 @@
           name = "invidious";
           ensureDBOwnership = true;
         }
-        {
-          name = config.services.authelia.instances.main.authelia.user;
-          ensureDBOwnership = true;
-        }
+        #TODO: authelia-main
+        # {
+        #   name = config.services.authelia.instances.main.authelia.user;
+        #   ensureDBOwnership = true;
+        # }
       ];
 
       checkConfig = true;
