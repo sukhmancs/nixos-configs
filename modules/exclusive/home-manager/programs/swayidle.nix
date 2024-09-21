@@ -10,7 +10,8 @@
 
   dev = osConfig.modules.device.type;
 
-  swaylock = "${config.programs.swaylock.package}/bin/swaylock";
+  # swaylock = "${config.programs.swaylock.package}/bin/swaylock";
+  swaylock = getExe config.programs.swaylock.package;
   pgrep = "${pkgs.procps}/bin/pgrep";
   pactl = "${pkgs.pulseaudio}/bin/pactl";
   hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
@@ -32,11 +33,19 @@
       timeout = lockTime + timeout;
       inherit command resumeCommand;
     }
-    # {
-    #   command = "${isLocked} && ${command}";
-    #   inherit resumeCommand timeout;
-    # }
+    {
+      command = "${isLocked} && ${command}";
+      inherit resumeCommand timeout;
+    }
   ];
+
+  # only lock if no audio is playing
+  lock = pkgs.writeShellScript "lock" ''
+    ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
+    if [ $? == 1 ]; then
+      ${swaylock} --image ${modules.themes.wallpaper} --daemonize --grace 15
+    fi
+  '';
 in {
   config = mkIf config.services.swayidle.enable {
     services.swayidle = {
@@ -46,7 +55,8 @@ in {
         [
           {
             timeout = lockTime;
-            command = "${swaylock} --image ${modules.themes.wallpaper} --daemonize --grace 15";
+            # command = "${swaylock} --image ${modules.themes.wallpaper} --daemonize --grace 15";
+            command = "${lock}";
           }
         ]
         ++
