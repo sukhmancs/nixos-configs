@@ -43,7 +43,7 @@
   lock = pkgs.writeShellScript "lock" ''
     ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
     if [ $? == 1 ]; then
-      ${swaylock} --image ${modules.themes.wallpaper} --daemonize --grace 15
+      ${swaylock} --image ${modules.themes.wallpaper}
     fi
   '';
 in {
