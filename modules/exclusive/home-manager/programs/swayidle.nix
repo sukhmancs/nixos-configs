@@ -5,7 +5,7 @@
   osConfig,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib) mkIf getExe;
   inherit (osConfig) modules;
 
   dev = osConfig.modules.device.type;
