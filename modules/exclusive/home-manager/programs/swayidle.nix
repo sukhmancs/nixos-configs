@@ -1,10 +1,10 @@
-{ pkgs
-, lib
-, config
-, osConfig
-, ...
-}:
-let
+{
+  pkgs,
+  lib,
+  config,
+  osConfig,
+  ...
+}: let
   inherit (lib) mkIf;
   inherit (osConfig) modules;
 
@@ -23,23 +23,21 @@ let
     else 10 * 60; # 4 minutes for laptops, 10 minutes for desktops
 
   # Makes two timeouts: one for when the screen is not locked (lockTime+timeout) and one for when it is.
-  afterLockTimeout =
-    { timeout
-    , command
-    , resumeCommand ? null
-    ,
-    }: [
-      {
-        timeout = lockTime + timeout;
-        inherit command resumeCommand;
-      }
-      {
-        command = "${isLocked} && ${command}";
-        inherit resumeCommand timeout;
-      }
-    ];
-in
-{
+  afterLockTimeout = {
+    timeout,
+    command,
+    resumeCommand ? null,
+  }: [
+    {
+      timeout = lockTime + timeout;
+      inherit command resumeCommand;
+    }
+    # {
+    #   command = "${isLocked} && ${command}";
+    #   inherit resumeCommand timeout;
+    # }
+  ];
+in {
   config = mkIf config.services.swayidle.enable {
     services.swayidle = {
       systemdTarget = "graphical-session.target";
@@ -48,7 +46,7 @@ in
         [
           {
             timeout = lockTime;
-            command = "${swaylock} --daemonize --grace 15";
+            command = "${swaylock} --image ${modules.themes.wallpaper} --daemonize --grace 15";
           }
         ]
         ++

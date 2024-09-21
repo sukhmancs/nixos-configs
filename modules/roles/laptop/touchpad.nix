@@ -1,22 +1,29 @@
+#
+# libinput - touchpad and mouse settings
+#
 {
-  config.services.libinput = {
-    # enable libinput
-    enable = true;
+  config = {
+    services = {
+      libinput = {
+        # enable libinput
+        enable = true;
 
-    # disable mouse acceleration
-    mouse = {
-      accelProfile = "flat";
-      accelSpeed = "0";
-      middleEmulation = false;
-    };
+        # disable mouse acceleration
+        mouse = {
+          accelProfile = "flat";
+          accelSpeed = "0";
+          middleEmulation = false;
+        };
 
-    # touchpad settings
-    touchpad = {
-      naturalScrolling = true;
-      tapping = true;
-      clickMethod = "clickfinger";
-      horizontalScrolling = false;
-      disableWhileTyping = true;
+        # touchpad settings
+        touchpad = {
+          naturalScrolling = true;
+          tapping = true;
+          clickMethod = "clickfinger";
+          horizontalScrolling = false;
+          disableWhileTyping = true;
+        };
+      };
     };
   };
 }

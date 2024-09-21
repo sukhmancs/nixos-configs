@@ -8,7 +8,7 @@
     ./coredump.nix # coredump hardening
     ./entropy.nix # entropy gathering
     ./impurity-tracker.nix # find applications that depend on /bin/sh or /usr/bin/env
-    ./kernel.nix # kernel hardening
+    # ./kernel.nix # kernel hardening
     ./network.nix # network hardening
     ./nix.nix # nix command hardening
     # ./memalloc.nix # memory allocator hardening
