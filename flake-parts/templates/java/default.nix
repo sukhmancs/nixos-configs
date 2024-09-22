@@ -1,6 +1,7 @@
 {
   lib,
   buildGradle,
+  pkgs,
 }:
 buildGradle {
   pname = "my-java-app";
