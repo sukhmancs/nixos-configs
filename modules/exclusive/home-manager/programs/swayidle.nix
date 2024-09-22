@@ -10,7 +10,6 @@
 
   dev = osConfig.modules.device.type;
 
-  # swaylock = "${config.programs.swaylock.package}/bin/swaylock";
   swaylock = getExe config.programs.swaylock.package;
   pgrep = "${pkgs.procps}/bin/pgrep";
   pactl = "${pkgs.pulseaudio}/bin/pactl";
@@ -56,7 +55,6 @@ in {
         [
           {
             timeout = lockTime;
-            # command = "${swaylock} --image ${modules.themes.wallpaper} --daemonize --grace 15";
             command = "${isNoAudioRunning} && ${swaylock} --image ${modules.themes.wallpaper}";
           }
         ]

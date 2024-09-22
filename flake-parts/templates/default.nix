@@ -29,5 +29,10 @@ _: {
       path = ./java; # Java
       description = "Development environment for Java";
     };
+
+    php = {
+      path = ./php; # PHP
+      description = "Development environment for PHP";
+    };
   };
 }
