@@ -24,5 +24,10 @@ _: {
       path = ./go; # golang
       description = "Development environment for Golang";
     };
+
+    java = {
+      path = ./java; # Java
+      description = "Development environment for Java";
+    };
   };
 }

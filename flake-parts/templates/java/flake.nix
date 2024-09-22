@@ -1,5 +1,5 @@
 {
-  description = "NodeJS Project Template";
+  description = "Java Project Template";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs";
   };
