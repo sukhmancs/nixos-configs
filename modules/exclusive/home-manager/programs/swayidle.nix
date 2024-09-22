@@ -39,21 +39,6 @@
     }
   ];
 
-  # only lock if no audio is playing
-  # lock = pkgs.writeShellScript "lock" ''
-  #   ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
-  #   if [ $? == 1 ]; then
-  #     ${swaylock} --image ${modules.themes.wallpaper}
-  #   fi
-  # '';
-
-  # This script uses pw-cli and ripgrep to check if any audio streams are running.
-  # If audio is running, the script will return a status code of 0 (true).
-  # If no audio is running, it will return a status code of 1 (false).
-  isAudioRunning = pkgs.writeShellScript "is-audio-running" ''
-    ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
-  '';
-
   isNoAudioRunning = pkgs.writeShellScript "is-no-audio-running" ''
     ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
     if [ $? == 1 ]; then
@@ -72,8 +57,7 @@ in {
           {
             timeout = lockTime;
             # command = "${swaylock} --image ${modules.themes.wallpaper} --daemonize --grace 15";
-            # command = "${lock}";
-            command = "${isNoAudioRunning} && ${swaylock}";
+            command = "${isNoAudioRunning} && ${swaylock} --image ${modules.themes.wallpaper}";
           }
         ]
         ++
