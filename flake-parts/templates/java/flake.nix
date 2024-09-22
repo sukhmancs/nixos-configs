@@ -1,26 +1,35 @@
 {
-  description = "Java Project Template";
+  description = "A Nix-flake-based Java development environment";
+
+  # GitHub URLs for the Nix inputs we're using
   inputs = {
+    # Simply the greatest package repository on the planet
     nixpkgs.url = "github:NixOS/nixpkgs";
+    # A set of helper functions for using flakes
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = {
     self,
     nixpkgs,
-  }: let
-    systems = ["x86_64-linux" "aarch64-linux"];
-    forEachSystem = nixpkgs.lib.genAttrs systems;
+    flake-utils,
+  }:
+    flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = import nixpkgs {inherit system;};
 
-    pkgsForEach = nixpkgs.legacyPackages;
-  in rec {
-    packages = forEachSystem (system: {
-      default = pkgsForEach.${system}.callPackage ./default.nix {};
+      java = pkgs.jdk17_headless;
+
+      others = with pkgs; [gradle maven jetbrains.idea-community];
+    in {
+      devShells = {
+        default = pkgs.mkShell {
+          # Packages included in the environment
+          buildInputs = [java] ++ others;
+
+          shellHook = ''
+            ${java}/bin/java -version
+          '';
+        };
+      };
     });
-
-    devShells = forEachSystem (system: {
-      default = pkgsForEach.${system}.callPackage ./shell.nix {};
-    });
-
-    hydraJobs = packages;
-  };
 }
