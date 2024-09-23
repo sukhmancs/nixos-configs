@@ -63,9 +63,6 @@
                 "fdc9:281f:04d7:9ee9::2/128"
               ];
               publicKey = "T0y8gISdCvbgwH2wOinfX3YuiAfb7zuw20li7dzt1QU=";
-
-              # # Set this to the server IP and port.
-              # endpoint = "174.119.200.86:51820";
             }
             # iphone
             {
@@ -74,9 +71,6 @@
                 "fdc9:281f:04d7:9ee9::3/128"
               ];
               publicKey = "7SUc29cwNgNsvNh95ffsRyQHadDehnO3aC4UHJ8DAXM=";
-
-              # # Set this to the server IP and port.
-              # endpoint = "174.119.200.86:51820";
             }
           ];
         };
