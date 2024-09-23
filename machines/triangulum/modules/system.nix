@@ -17,9 +17,6 @@
     # Mastodon - Social Media Server
     services.mastodon.enable = true;
 
-    # Wireguard Server Configuration
-    networking.wireguard.enable = true;
-
     # Invidious - Youtube Proxy
     services.invidious.enable = true;
 

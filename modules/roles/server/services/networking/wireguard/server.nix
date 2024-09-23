@@ -6,10 +6,8 @@
   lib,
   pkgs,
   ...
-}: let
-  inherit (lib) mkIf;
-in {
-  config = mkIf config.networking.wireguard.enable {
+}: {
+  config = {
     networking = {
       nat = {
         enable = true;
@@ -28,6 +26,7 @@ in {
     ];
 
     networking.wireguard = {
+      enable = true;
       interfaces = {
         wg0 = {
           # General settings
@@ -48,7 +47,7 @@ in {
 
           # Peers
           peers = [
-            # hermes
+            # milkyway
             {
               allowedIPs = [
                 "10.255.255.11/32"
@@ -65,8 +64,8 @@ in {
               ];
               publicKey = "T0y8gISdCvbgwH2wOinfX3YuiAfb7zuw20li7dzt1QU=";
 
-              # Set this to the server IP and port.
-              endpoint = "174.119.200.86:51820";
+              # # Set this to the server IP and port.
+              # endpoint = "174.119.200.86:51820";
             }
             # iphone
             {
@@ -76,8 +75,8 @@ in {
               ];
               publicKey = "7SUc29cwNgNsvNh95ffsRyQHadDehnO3aC4UHJ8DAXM=";
 
-              # Set this to the server IP and port.
-              endpoint = "174.119.200.86:51820";
+              # # Set this to the server IP and port.
+              # endpoint = "174.119.200.86:51820";
             }
           ];
         };
