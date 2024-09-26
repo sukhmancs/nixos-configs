@@ -1,8 +1,8 @@
 {
   wayland.windowManager.hyprland.settings = {
     misc = {
-      vfr = 1;
-      vrr = 1;
+      # vfr = 1;
+      # vrr = 0;
       # layers_hog_mouse_focus = true; # Uncomment if needed
       focus_on_activate = true;
       animate_manual_resizes = false;
