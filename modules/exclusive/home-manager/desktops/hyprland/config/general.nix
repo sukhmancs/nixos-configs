@@ -25,10 +25,10 @@ in {
       allow_tearing = true;
     };
 
-    render = {
-      # disable explicit sync it causes window flickering on older nvidia cards
-      explicit_sync = 0;
-      explicit_sync_kms = 0;
-    };
+    # render = {
+    #   # disable explicit sync it causes window flickering on older nvidia cards
+    #   explicit_sync = 0;
+    #   explicit_sync_kms = 0;
+    # };
   };
 }
