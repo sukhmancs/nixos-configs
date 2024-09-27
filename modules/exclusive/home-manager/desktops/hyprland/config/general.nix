@@ -24,11 +24,5 @@ in {
       #focus_to_other_workspaces = true # ahhhh i still haven't properly implemented this
       allow_tearing = true;
     };
-
-    # render = {
-    #   # disable explicit sync it causes window flickering on older nvidia cards
-    #   explicit_sync = 0;
-    #   explicit_sync_kms = 0;
-    # };
   };
 }
