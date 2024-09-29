@@ -10,13 +10,13 @@
         transition: all 200ms;
         // color: $primary-fg;
 
-        &:hover {
-            @include button-hover;
-        }
+        // &:hover {
+        //     @include button-hover;
+        // }
 
-        &:hover:not(.occupied) {
-            border-radius: 1rem;
-        }
+        // &:hover:not(.occupied) {
+        //     border-radius: 1rem;
+        // }
 
         &.occupied {
             // background-color: $surface_container_low;
