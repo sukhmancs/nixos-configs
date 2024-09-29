@@ -12,7 +12,7 @@
   inherit (lib) mkForce mkDefault;
 in {
   services.auto-cpufreq = {
-    enable = mkForce true;
+    enable = mkForce false;
     settings = let
       MHZ_to_KHZ = x: x * 1000;
     in {
