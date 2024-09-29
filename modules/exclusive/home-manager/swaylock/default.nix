@@ -11,11 +11,6 @@ let
 in
 {
   config = mkIf config.programs.swaylock.enable {
-    # Gradually dim the screen on Wayland
-    home.packages = [
-      pkgs.chayang
-    ];
-
     programs.swaylock = {
       package = pkgs.swaylock-effects;
       settings = {

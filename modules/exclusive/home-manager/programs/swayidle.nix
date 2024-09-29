@@ -55,7 +55,7 @@ in {
         [
           {
             timeout = lockTime;
-            command = "${isNoAudioRunning} && ${swaylock} --image ${modules.themes.wallpaper}";
+            command = "${isNoAudioRunning} && ${pkgs.chayang} && ${swaylock} --image ${modules.themes.wallpaper}";
           }
         ]
         ++
