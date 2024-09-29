@@ -15,6 +15,7 @@
   pactl = "${pkgs.pulseaudio}/bin/pactl";
   hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
   swaymsg = "${config.wayland.windowManager.sway.package}/bin/swaymsg";
+  brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
 
   isLocked = "${pgrep} -x ${swaylock}";
   lockTime =
@@ -32,10 +33,10 @@
       timeout = lockTime + timeout;
       inherit command resumeCommand;
     }
-    {
-      command = "${isLocked} && ${command}";
-      inherit resumeCommand timeout;
-    }
+    # {
+    #   command = "${isLocked} && ${command}";
+    #   inherit resumeCommand timeout;
+    # }
   ];
 
   isNoAudioRunning = pkgs.writeShellScript "is-no-audio-running" ''
@@ -51,11 +52,20 @@ in {
     services.swayidle = {
       systemdTarget = "graphical-session.target";
       timeouts =
+        # Dim screen before locking
+        [
+          {
+            timeout = lockTime - 10; # Dim the screen 10 seconds before locking
+            command = "${brightnessctl} set 10%";
+            resumeCommand = "${brightnessctl} set 100%"; # Restore brightness on resume
+          }
+        ]
+        ++
         # Lock screen
         [
           {
             timeout = lockTime;
-            command = "${isNoAudioRunning} && ${pkgs.chayang} && ${swaylock} --image ${modules.themes.wallpaper}";
+            command = "${isNoAudioRunning} && ${swaylock} --image ${modules.themes.wallpaper}";
           }
         ]
         ++
