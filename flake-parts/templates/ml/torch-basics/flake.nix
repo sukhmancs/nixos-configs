@@ -39,10 +39,10 @@
         python-env = pkgs.python3.withPackages (pyPkgs: with pyPkgs; [
           numpy
           pandas
-          pytorchWithCuda11
+          torchWithCuda
 
           # Uncomment things below if you need them
-          
+
           # torchvisionWithCuda11
           # pytorchLightningWithCuda11
         ]);
