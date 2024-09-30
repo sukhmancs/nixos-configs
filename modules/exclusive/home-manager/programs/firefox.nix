@@ -2,12 +2,15 @@
   pkgs,
   inputs,
   lib,
+  config,
   ...
-}: {
+}: let
+  inherit (lib) mkIf;
+in {
   config = mkIf config.programs.firefox.enable {
     programs.browserpass.enable = true;
     programs.firefox = {
-      profiles.xi = {
+      profiles.xi_firefox = {
         search = {
           force = true;
           default = "Kagi";
