@@ -22,10 +22,7 @@
         };
       };
       bookmarks = {};
-      extensions = with inputs.firefox-addons; [
-        ublock-origin
-        browserpass
-      ];
+
       settings = {
         "browser.startup.homepage" = "about:home";
 
