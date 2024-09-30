@@ -52,6 +52,8 @@ in {
     services.swayidle = {
       systemdTarget = "graphical-session.target";
       timeouts =
+        # Rather than relying on some weird scripts to dim the screen,
+        # We can just use brightnessctl to do it for us.
         # Dim screen before locking
         [
           {
@@ -65,7 +67,7 @@ in {
         [
           {
             timeout = lockTime;
-            command = "${isNoAudioRunning} && ${swaylock} --image ${modules.themes.wallpaper}";
+            command = "${isNoAudioRunning} && ${brightnessctl} set 100% && ${swaylock} --image ${modules.themes.wallpaper}";
           }
         ]
         ++
