@@ -11,7 +11,6 @@
     ./chromium.nix
     ./discord.nix
     ./element.nix
-    ./firefox.nix
     ./gammastep.nix
     ./nautilus.nix
     ./nextcloud.nix
