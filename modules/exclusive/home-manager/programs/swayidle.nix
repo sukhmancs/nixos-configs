@@ -58,7 +58,7 @@ in {
         [
           {
             timeout = lockTime - 10; # Dim the screen 10 seconds before locking
-            command = "${brightnessctl} set 10%";
+            command = "${isNoAudioRunning} && ${brightnessctl} set 10%";
             resumeCommand = "${brightnessctl} set 100%"; # Restore brightness on resume
           }
         ]
