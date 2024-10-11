@@ -84,6 +84,12 @@ in {
         port = 3333;
       };
 
+      mediawiki = mkService {
+        name = "MediaWiki";
+        host = "127.0.0.1";
+        port = 8080;
+      };
+
       zerobin = mkService {
         name = "Zerobin";
         type = "pastebin";
