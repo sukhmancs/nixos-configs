@@ -156,6 +156,13 @@ in {
                   siteMonitor = "https://dns.${domain}";
                 };
               }
+              {
+                MediaWiki = {
+                  href = "https://wiki.${domain}";
+                  icon = "Wikipedia";
+                  siteMonitor = "https://wiki.${domain}";
+                };
+              }
               # {
               #   Gitea = {
               #     href = "https://gitea.${domain}";
