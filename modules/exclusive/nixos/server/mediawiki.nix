@@ -26,7 +26,7 @@ in {
           {
             ip = host;
             port = port;
-            # ssl = true;
+            ssl = false;
           }
         ];
         # Administrator account username is admin.
