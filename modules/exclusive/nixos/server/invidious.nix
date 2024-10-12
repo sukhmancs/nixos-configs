@@ -31,7 +31,7 @@ in {
             feed_menu = ["Subscriptions" "Playlists"];
             default_home = "Subscriptions";
             player_style = "youtube";
-            quality = "hd720"; #"dash";
+            quality = "dash"; # "hd720";
             dark_mode = "auto";
           };
           database = {

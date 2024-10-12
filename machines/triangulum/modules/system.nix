@@ -21,7 +21,7 @@
     services.invidious.enable = true;
 
     # MediaWiki - Wiki
-    services.mediawiki.enable = true;
+    # services.mediawiki.enable = true;
 
     # Tor - Onion Router
     # services.tor.enable = true;
