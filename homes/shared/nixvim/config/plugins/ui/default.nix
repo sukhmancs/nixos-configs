@@ -8,5 +8,6 @@
     ./nvim-notify.nix
     ./precognition.nix
     ./telescope.nix
+    ./web-devicons.nix
   ];
 }
