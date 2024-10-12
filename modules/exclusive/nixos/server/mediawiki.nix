@@ -20,7 +20,7 @@ in {
   config = mkIf config.services.mediawiki.enable {
     services = {
       mediawiki = {
-        # webserver = "nginx";
+        webserver = "nginx";
         name = "Sample_MediaWiki";
         httpd.virtualHost.listen = [
           {
