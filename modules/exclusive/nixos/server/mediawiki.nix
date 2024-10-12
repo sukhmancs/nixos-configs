@@ -40,10 +40,10 @@ in {
           VisualEditor = null;
 
           # https://www.mediawiki.org/wiki/Extension:TemplateStyles
-          TemplateStyles = pkgs.fetchzip {
-            url = "https://extdist.wmflabs.org/dist/extensions/TemplateStyles-REL1_40-c639c7a.tar.gz";
-            hash = "sha256-YBL0Cs4hDSNnoutNJSJBdLsv9zFWVkzo7m5osph8QiY=";
-          };
+          # TemplateStyles = pkgs.fetchzip {
+          #   url = "https://extdist.wmflabs.org/dist/extensions/TemplateStyles-REL1_40-c639c7a.tar.gz";
+          #   hash = "sha256-YBL0Cs4hDSNnoutNJSJBdLsv9zFWVkzo7m5osph8QiY=";
+          # };
         };
       };
 
