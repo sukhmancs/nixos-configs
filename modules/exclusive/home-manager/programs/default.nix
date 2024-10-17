@@ -12,6 +12,7 @@
     ./discord.nix
     ./element.nix
     ./gammastep.nix
+    ./joplin.nix
     ./nautilus.nix
     ./nextcloud.nix
     ./obs.nix
