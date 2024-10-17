@@ -10,6 +10,7 @@
       programs = {
         rofi.enable = true; # application launcher
         firefox.enable = true; # browser (schizofox)
+        joplin-desktop.enable = true; # my favorite note taker
         chromium.enable = true; # browser
         thunderbird.enable = true; # email client
         vscode.enable = true; # code editor
