@@ -16,7 +16,7 @@ in {
         "themeAutoDetect" = true;
       };
       sync = {
-        interval = "10m";
+        interval = "5m";
         target = "onedrive";
       };
     };
