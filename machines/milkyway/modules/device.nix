@@ -10,6 +10,6 @@
     monitors = ["eDP-1"];
     hasBluetooth = true;
     hasSound = true;
-    hasTPM = true;
+    hasTPM = false;
   };
 }
