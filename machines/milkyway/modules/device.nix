@@ -3,8 +3,8 @@
     type = "laptop";
     cpu = {
       type = "amd";
-      # amd.pstate.enable = false;
-      # amd.zenpower.enable = false;
+      amd.pstate.enable = true;
+      amd.zenpower.enable = true;
     };
     gpu.type = "hybrid-nv";
     monitors = ["eDP-1"];
