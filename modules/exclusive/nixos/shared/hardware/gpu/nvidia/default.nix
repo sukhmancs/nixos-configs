@@ -67,13 +67,13 @@ in {
 
         powerManagement = {
           enable = mkDefault true;
-          finegrained = mkDefault false;
+          finegrained = mkDefault true;
         };
 
         # use open source drivers by default, hosts may override this option if their gpu is
         # not supported by the open source drivers
         open = mkDefault true;
-        nvidiaSettings = false; # add nvidia-settings to pkgs, useless on nixos
+        nvidiaSettings = true; # add nvidia-settings to pkgs, useless on nixos
         nvidiaPersistenced = true;
         forceFullCompositionPipeline = true;
       };
