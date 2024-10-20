@@ -24,8 +24,8 @@
         venvDir = ".venv";
         packages = with pkgs;
           [
-            python310
-            (pkgs.python310.withPackages (ps: [
+            python311
+            (pkgs.python311.withPackages (ps: [
               ps.pip
               ps.tkinter
             ]))
@@ -35,7 +35,7 @@
           # Instead u get an Error: No module named 'your_module'. It works fine if using pkgs.python3.withPackages (i.e the latest python version).
           # For me, I usually need to deal with older python versions, most of the time tenorflow, pytorch, relies on some older packages like distutils
           # which are removed from python 3.12+.
-          ++ (with pkgs.python310Packages; [
+          ++ (with pkgs.python311Packages; [
             venvShellHook
             ipython
             ipykernel # required for jupyter notebooks
