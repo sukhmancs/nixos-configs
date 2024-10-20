@@ -25,13 +25,15 @@
               ps.pip
               ps.tkinter
               ps.venvShellHook
-              ipython
-              black
-              ipykernel
-              setuptools
-              pylint
+              #              ipython
+              #black
+              #ipykernel
+              #setuptools
+              #pylint
             ]))
             python3Packages.python-lsp-server
+            python3Packages.ipython
+            python3Packages.ipykernel
             poetry # Instead of pip, you can use $ poetry init -n --name <name> and $ poetry add request <package> to install python packages
           ];
           #          packages = with pkgs;
