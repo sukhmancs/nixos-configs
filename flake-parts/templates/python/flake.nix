@@ -24,18 +24,19 @@
         venvDir = ".venv";
         packages = with pkgs;
           [
-            python311
-            (pkgs.python311.withPackages (ps: [
-              ps.pip
-              ps.tkinter
-            ]))
+            python3
+            # (pkgs.python3.withPackages (ps: [
+            #   ps.pip
+            #   ps.tkinter
+            # ]))
           ]
           # These packages that are packaged with nixpkgs. You can also install packages using pip.
           # For some reason, if I include pip in this list of packages, the packages installed with pip are not available in the shell environment.
           # Instead u get an Error: No module named 'your_module'. It works fine if using pkgs.python3.withPackages (i.e the latest python version).
           # For me, I usually need to deal with older python versions, most of the time tenorflow, pytorch, relies on some older packages like distutils
           # which are removed from python 3.12+.
-          ++ (with pkgs.python311Packages; [
+          ++ (with pkgs.python3Packages; [
+            pip
             venvShellHook
             ipython
             ipykernel # required for jupyter notebooks
