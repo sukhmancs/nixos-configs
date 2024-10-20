@@ -23,6 +23,7 @@
             pip
             venvShellHook
             ipython
+            ipykernel # required for jupyter notebooks
             black
             setuptools
             pylint
