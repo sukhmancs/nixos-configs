@@ -4,7 +4,7 @@
     cpu = {
       type = "amd";
     };
-    gpu.type = "hybrid-nv";
+    gpu.type = null; # "hybrid-nv";
     monitors = [ "eDP-1" ];
     hasBluetooth = true;
     hasSound = true;
