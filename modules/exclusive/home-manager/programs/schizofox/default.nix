@@ -11,7 +11,7 @@
   inherit (osConfig) modules;
   inherit (modules.themes) colors;
 
-  schizofoxStartpage = pkgs.callPackage ./schizofox-startpage { inherit osConfig; };
+  schizofoxStartpage = pkgs.callPackage ./schizofox-startpage {inherit osConfig;};
 in {
   imports = [
     inputs.schizofox.homeManagerModule
@@ -73,6 +73,7 @@ in {
           "treestyletab@piro.sakura.ne.jp".install_url = "https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi";
           "sponsorBlocker@ajay.app".install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
           "2.0@disconnect.me".install_url = "https://addons.mozilla.org/firefox/downloads/latest/disconnect/latest.xpi";
+          "adguardadblocker@adguard.com".install_url = "https://addons.mozilla.org/firefox/downloads/latest/adguard-adblocker/latest.xpi";
           # "extension@one-tab.com".install_url = "https://addons.mozilla.org/firefox/downloads/latest/onetab/latest.xpi";
           "browser-extension@anonaddy".install_url = "https://addons.mozilla.org/firefox/downloads/latest/addy_io/latest.xpi";
           #  "vimium-c@gdh1995.cn".install_url = "https://addons.mozilla.org/firefox/downloads/latest/vimium-c/latest.xpi";

@@ -21,8 +21,8 @@ in {
       ];
       extensions = [
         {
-          # ublock origin
-          id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
+          # adguard
+          id = "bgnkhhnnamicmpeenaelnjfhikgbkllg";
         }
         {
           # bypass paywalls
