@@ -35,7 +35,7 @@
       rbw.enable = true; # bitwarden password manager using rofi
       waypipe.enable = true; # wayland over ssh
       sublime-music.enable = true; # music player
-      spotify.enable = true; # music player #TODO: bug - build fails: pull request has been added just wait for the next update
+      spotify.enable = true; # music player
       element.enable = true; # matrix client
       discord.enable = false;
       nautilus.enable = false; # file manager

@@ -13,25 +13,25 @@
 in {
   services.auto-cpufreq = {
     enable = mkForce true;
-    settings = let
-      MHZ_to_KHZ = x: x * 1000;
-    in {
-      battery = {
-        governor = "powersave";
-        # energy_performance_preference = "power"; # not supported by this host.
-        scaling_min_freq = mkDefault (MHZ_to_KHZ 1400);
-        scaling_max_freq = mkDefault (MHZ_to_KHZ 1700);
-        turbo = "never";
-      };
+    # settings = let
+    #   MHZ_to_KHZ = x: x * 1000;
+    # in {
+    #   battery = {
+    #     governor = "powersave";
+    #     # energy_performance_preference = "power"; # not supported by this host.
+    #     scaling_min_freq = mkDefault (MHZ_to_KHZ 1400);
+    #     scaling_max_freq = mkDefault (MHZ_to_KHZ 1700);
+    #     turbo = "never";
+    #   };
 
-      charger = {
-        governor = "performance";
-        # energy_performance_preference = "performance"; # not supported by this host.
-        scaling_min_freq = mkDefault (MHZ_to_KHZ 1700);
-        scaling_max_freq = mkDefault (MHZ_to_KHZ 2300);
-        turbo = "auto";
-      };
-    };
+    #   charger = {
+    #     governor = "performance";
+    #     # energy_performance_preference = "performance"; # not supported by this host.
+    #     scaling_min_freq = mkDefault (MHZ_to_KHZ 1700);
+    #     scaling_max_freq = mkDefault (MHZ_to_KHZ 2300);
+    #     turbo = "auto";
+    #   };
+    # };
   };
 
   # Battery threshold
