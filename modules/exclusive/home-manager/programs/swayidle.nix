@@ -16,6 +16,7 @@
   hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
   swaymsg = "${config.wayland.windowManager.sway.package}/bin/swaymsg";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+  systemctl = "${pkgs.systemd}/bin/systemctl";
 
   isLocked = "${pgrep} -x ${swaylock}";
   lockTime =
