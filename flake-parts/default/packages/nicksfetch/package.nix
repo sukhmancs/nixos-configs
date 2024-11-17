@@ -15,7 +15,7 @@ in
     inherit (nv) pname src;
     version = nv.date;
 
-    patches = [.patches/0001-nicksfetch.patch];
+    patches = [./patches/0001-nicksfetch.patch];
 
     outputs = ["out" "man"];
 
