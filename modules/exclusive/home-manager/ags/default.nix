@@ -80,7 +80,6 @@ in {
         python311Packages.pywayland
         pywal
         sassc
-        webkitgtk
         webp-pixbuf-loader
         ydotool
       ];

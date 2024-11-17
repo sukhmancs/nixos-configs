@@ -20,11 +20,11 @@ in {
       xdg.portal = {
         enable = true;
         configPackages = [hyprlandPkg];
-        extraPortals = [
-          (inputs'.xdg-portal-hyprland.packages.xdg-desktop-portal-hyprland.override {
-            hyprland = hyprlandPkg;
-          })
-        ];
+        # extraPortals = [
+        #   (inputs'.xdg-portal-hyprland.packages.xdg-desktop-portal-hyprland.override {
+        #     hyprland = hyprlandPkg;
+        #   })
+        # ];
       };
     };
 }

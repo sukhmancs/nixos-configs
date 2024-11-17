@@ -1,9 +1,9 @@
 {
   imports = [
-    # ./power.nix
+    ./power.nix
     ./encryption.nix
     ./git.nix
-    # ./gpg.nix
+    ./gpg.nix
     ./rofi.nix
     ./system.nix
     # ./networking.nix

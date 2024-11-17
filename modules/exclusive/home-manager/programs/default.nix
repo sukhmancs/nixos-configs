@@ -2,10 +2,10 @@
   imports = [
     ./hyprpaper
     ./kitty
-    ./schizofox
+    # ./schizofox
     ./thunderbird
     ./vscode
-    ./webcord
+    # ./webcord
 
     ./clipboard.nix
     ./chromium.nix
