@@ -59,15 +59,15 @@ in {
       # };
 
       misc = {
-        drm.enable = true;
-        disableWebgl = false;
-        firefoxSync = true;
+        # drm.enable = true;
+        # disableWebgl = false;
+        # firefoxSync = true;
         startPageURL = "file://${schizofoxStartpage.outPath}/index.html";
       };
       # Schizofox also have default extensions: temporary-containers, localcdn-fork-of-decentraleyes, don-t-fuck-with-paste, clearurls, libredirect, etc
       extensions = {
         simplefox.enable = true;
-        # darkreader.enable = true;
+        darkreader.enable = true;
         extraExtensions = {
           "cb-remover@search.mozilla.org".install_url = "https://addons.mozilla.org/firefox/downloads/latest/clickbait-remover-for-youtube/latest.xpi";
           "treestyletab@piro.sakura.ne.jp".install_url = "https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi";
