@@ -87,7 +87,7 @@ in {
   milkyway = baseSystemConfig {
     hostname = "milkyway";
     roleModules = laptopRoles;
-    enableHome = true;
+    enableHome = false;
     inherit system agenix; #TODO - do not need secrets
   };
 
