@@ -2,9 +2,9 @@
   imports = [
     # ./power.nix
     ./encryption.nix
-    # ./git.nix
+    ./git.nix
     # ./gpg.nix
-    # ./rofi.nix
+    ./rofi.nix
     ./system.nix
     # ./networking.nix
   ];
