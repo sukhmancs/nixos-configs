@@ -9,7 +9,6 @@
       # services.mpd.enable = true; # music player daemon
       programs = {
         rofi.enable = true; # application launcher
-        firefox.enable = true; # browser (schizofox)
         joplin-desktop.enable = true; # my favorite note taker
         chromium.enable = true; # browser
         thunderbird.enable = true; # email client
@@ -27,6 +26,7 @@
 
     modules.home.programs = {
       ags.enable = true; # widgets
+      schizofox.enable = true; # browser
       clipboard.enable = true; # clipboard manager
       hyprpaper.enable = true; # wallpaper manager
       webcord.enable = true; # privacy respecting discord client

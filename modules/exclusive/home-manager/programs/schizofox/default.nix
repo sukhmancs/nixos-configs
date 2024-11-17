@@ -11,12 +11,14 @@
   inherit (osConfig) modules;
   inherit (modules.themes) colors;
 
+  prg = modules.home.programs;
+
   schizofoxStartpage = pkgs.callPackage ./schizofox-startpage {inherit osConfig;};
 in {
   imports = [
     inputs.schizofox.homeManagerModule
   ];
-  config = mkIf config.programs.firefox.enable {
+  config = mkIf prg.schizofox.enable {
     programs.schizofox = {
       enable = true;
       theme = {

@@ -71,5 +71,10 @@ in {
       default = false;
       description = "Enable Gnome File Manager";
     };
+
+    schizofox.enable = mkEnableOption {
+      default = false;
+      description = "Enable Schizofox";
+    };
   };
 }
