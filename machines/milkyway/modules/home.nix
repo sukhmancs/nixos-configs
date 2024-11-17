@@ -11,6 +11,7 @@
         rofi.enable = true; # application launcher
         joplin-desktop.enable = true; # my favorite note taker
         chromium.enable = true; # browser
+        firefox.enable = true; # browser
         thunderbird.enable = true; # email client
         vscode.enable = true; # code editor
         zathura.enable = true; # pdf reader
