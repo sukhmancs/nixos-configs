@@ -2,7 +2,7 @@
   imports = [
     ./hyprpaper
     ./kitty
-    ./schizofox
+    # ./schizofox
     ./thunderbird
     ./vscode
     ./webcord
