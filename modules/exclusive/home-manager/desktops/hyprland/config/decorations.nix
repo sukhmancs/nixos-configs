@@ -27,12 +27,14 @@ in {
       };
 
       # shadow config
-      drop_shadow = "yes";
-      shadow_ignore_window = true;
-      shadow_range = 20;
-      shadow_offset = "0 2";
-      shadow_render_power = 4;
-      "col.shadow" = "rgb(${colors.base01})";
+      shadow = {
+        enabled = "yes";
+        range = 20;
+        offset = "0 2";
+        render_power = 4;
+        ignore_window = true;
+        color = "rgb(${colors.base01})";
+      };
 
       # Dim
       dim_inactive = false;
