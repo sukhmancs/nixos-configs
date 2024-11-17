@@ -9,7 +9,7 @@
       # services.mpd.enable = true; # music player daemon
       programs = {
         rofi.enable = true; # application launcher
-        firefox.enable = true; # browser (schizofox)
+        # firefox.enable = true; # browser (schizofox)
         joplin-desktop.enable = true; # my favorite note taker
         chromium.enable = true; # browser
         thunderbird.enable = true; # email client
