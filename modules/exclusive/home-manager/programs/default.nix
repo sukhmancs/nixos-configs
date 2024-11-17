@@ -1,5 +1,6 @@
 {
   imports = [
+    ./firefox
     ./hyprpaper
     ./kitty
     ./schizofox
@@ -11,7 +12,6 @@
     ./chromium.nix
     ./discord.nix
     ./element.nix
-    ./firefox.nix
     ./gammastep.nix
     ./joplin.nix
     ./nautilus.nix

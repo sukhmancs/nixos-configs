@@ -27,7 +27,7 @@
 
     modules.home.programs = {
       ags.enable = true; # widgets
-      schizofox.enable = true; # browser
+      # schizofox.enable = true; # browser
       clipboard.enable = true; # clipboard manager
       hyprpaper.enable = true; # wallpaper manager
       webcord.enable = true; # privacy respecting discord client

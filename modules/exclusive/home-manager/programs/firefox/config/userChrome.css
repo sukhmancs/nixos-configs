@@ -1,0 +1,107 @@
+/* Title bar */
+.titlebar-spacer {
+    display: none !important;
+}
+
+/* Tab bar */
+#navigator-toolbox {
+    border: 0px !important;
+}
+
+#TabsToolbar {
+    margin-left: 3px !important;
+}
+
+#TabsToolbar>.tabbrowser-arrowscrollbox {
+    overflow: visible !important;
+}
+
+/* Nav bar */
+/* #nav-bar {
+	height: 0px;
+	min-height: 0px !important;
+	overflow: hidden;
+	transition: height 0.0s ease-in-out;
+} */
+
+/* Only show nav-bar when specifically focused, not when clicking tab bar */
+/* #nav-bar:focus-within {
+	overflow: visible;
+	height: auto;
+} */
+
+/* Remove placeholder text in the URL bar */
+#urlbar-input::placeholder {
+    color: transparent !important;
+}
+
+#urlbar {
+    padding: 2px !important;
+}
+
+/* Hide URL bar text */
+#urlbar-background {
+    border: none !important;
+}
+
+#urlbar-border:focus-within {
+    overflow: visible;
+    height: auto;
+}
+
+/* Hide search engine icon */
+#urlbar .search-one-offs:not([hidden]) {
+    display: none !important;
+}
+
+/* Hide tracking protection icon */
+#tracking-protection-icon-container {
+    display: none !important;
+}
+
+#urlbar-container {
+    width: auto !important;
+}
+
+#urlbar {
+    box-shadow: none !important;
+}
+
+#page-action-buttons {
+    display: none !important;
+}
+
+/* Hide site information button */
+#identity-box {
+    display: none !important;
+}
+
+/* Hide shield icon */
+#tracking-protection-icon-container {
+    display: none !important;
+}
+
+/* Hide forward and back buttons when not active */
+#back-button[disabled="true"] {
+    display: none !important;
+}
+
+#forward-button[disabled="true"] {
+    display: none !important;
+}
+
+.personalize-button {
+    display: none !important;
+}
+
+.tab-close-button {
+    visibility: hidden !important;
+    margin-inline-end: 0 !important;
+    width: 16px !important;
+    height: 16px !important;
+    padding: 2px !important;
+}
+
+.tabbrowser-tab:hover .tab-close-button {
+    visibility: visible !important;
+}
