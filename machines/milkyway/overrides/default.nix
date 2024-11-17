@@ -1,11 +1,11 @@
 {
   imports = [
-    ./power.nix
+    # ./power.nix
     ./encryption.nix
-    ./git.nix
-    ./gpg.nix
-    ./rofi.nix
+    # ./git.nix
+    # ./gpg.nix
+    # ./rofi.nix
     ./system.nix
-    ./networking.nix
+    # ./networking.nix
   ];
 }
