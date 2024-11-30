@@ -6,6 +6,7 @@
       services.gammastep.enable = true; # display color control
       services.nextcloud-client.enable = true; # syncronization client
       services.swayidle.enable = true; # screen idle
+      services.polybar.enable = true; # status bar
       # services.mpd.enable = true; # music player daemon
       programs = {
         rofi.enable = true; # application launcher
