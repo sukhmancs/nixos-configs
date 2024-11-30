@@ -44,7 +44,7 @@
     };
 
     modules.home.gaming = {
-      starcitizen.enable = true; # game
+      starcitizen.enable = false; # game
       runescape.enable = false; # game
       factorio.enable = false; # game
       lutris.enable = false; # game manager
