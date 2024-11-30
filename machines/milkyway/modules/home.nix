@@ -26,7 +26,7 @@
     };
 
     modules.home.programs = {
-      ags.enable = true; # widgets
+      # ags.enable = true; # widgets # TODO: need to upgrade to v2
       # schizofox.enable = true; # browser
       clipboard.enable = true; # clipboard manager
       hyprpaper.enable = true; # wallpaper manager
@@ -43,7 +43,7 @@
     };
 
     modules.home.gaming = {
-      starcitizen.enable = false; # game
+      starcitizen.enable = true; # game
       runescape.enable = false; # game
       factorio.enable = false; # game
       lutris.enable = false; # game manager

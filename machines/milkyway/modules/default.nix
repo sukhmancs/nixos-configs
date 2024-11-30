@@ -5,6 +5,7 @@
     ./home.nix
     ./system.nix
     ./theme.nix
+    ./nvidia.nix
     # ./wireguard.nix
   ];
 }
