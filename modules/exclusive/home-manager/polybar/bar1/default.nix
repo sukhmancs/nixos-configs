@@ -9,8 +9,9 @@
   inherit (osConfig) modules;
   inherit (modules.themes) colors;
 in {
-  config = mkIf config.services.polybar.enable {
+  config = {
     services.polybar = {
+      enable = true;
       config = "./config/config.ini";
       package = pkgs.polybar.override {
         i3GapsSupport = true;
@@ -18,6 +19,7 @@ in {
         iwSupport = true;
         githubSupport = true;
       };
+      script = "polybar karla-bar &";
     };
   };
 }
