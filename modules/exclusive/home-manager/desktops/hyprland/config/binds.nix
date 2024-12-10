@@ -1,15 +1,15 @@
-{ inputs'
-, osConfig
-, config
-, pkgs
-, lib
-, ...
-}:
-let
+{
+  inputs',
+  osConfig,
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
   inherit (lib.meta) getExe;
 
   # nix advantages
-  inherit (import ../packages { inherit inputs' pkgs; }) propaganda;
+  inherit (import ../packages {inherit inputs' pkgs;}) propaganda;
 
   terminal =
     if config.programs.foot.enable
@@ -17,8 +17,7 @@ let
     else "kitty";
 
   locker = getExe pkgs.swaylock-effects;
-in
-{
+in {
   wayland.windowManager.hyprland.settings = {
     # define the mod key
     "$MOD" = "SUPER";
@@ -82,7 +81,10 @@ in
       "$MODSHIFT,O,exec, ocr"
 
       # Toggle Statusbar
-      "$MODSHIFT,B,exec, ags -t bar"
+      # "$MODSHIFT,B,exec, ags -t bar"
+
+      # Toggle Polybar
+      "$MODSHIFT,B,exec, polybar karla-bar &"
 
       # Reload Hyprland
       "$MOD,R,exec, hyprctl reload"

@@ -9,16 +9,14 @@
   inherit (osConfig) modules;
   inherit (modules.themes) colors;
 in {
-  config = mkIf config.services.polybar.enable {
-    services.polybar = {
-      config = "./config/config.ini";
-      package = pkgs.polybar.override {
-        i3GapsSupport = true;
-        alsaSupport = true;
-        iwSupport = true;
-        githubSupport = true;
-      };
-      script = "polybar karla-bar &";
+  config = {
+    home.packages = [
+      pkgs.polybar
+    ];
+
+    home.file.".config/polybar" = {
+      source = ./config;
+      recursive = true;
     };
   };
 }
