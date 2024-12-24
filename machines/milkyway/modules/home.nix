@@ -11,7 +11,7 @@
         rofi.enable = true; # application launcher
         joplin-desktop.enable = true; # my favorite note taker
         chromium.enable = true; # browser
-        firefox.enable = true; # browser
+        firefox.enable = false; # browser
         thunderbird.enable = true; # email client
         vscode.enable = true; # code editor
         zathura.enable = true; # pdf reader
@@ -27,7 +27,7 @@
 
     modules.home.programs = {
       # ags.enable = true; # widgets # TODO: need to upgrade to v2
-      # schizofox.enable = true; # browser
+      schizofox.enable = true; # browser
       clipboard.enable = true; # clipboard manager
       hyprpaper.enable = true; # wallpaper manager
       webcord.enable = true; # privacy respecting discord client
@@ -43,7 +43,7 @@
     };
 
     modules.home.gaming = {
-      starcitizen.enable = false; # game
+      starcitizen.enable = true; # game
       runescape.enable = false; # game
       factorio.enable = false; # game
       lutris.enable = false; # game manager

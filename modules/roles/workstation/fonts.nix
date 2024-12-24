@@ -64,7 +64,8 @@ in {
       liberation_ttf # Liberation fonts
       unifont # Unicode font
       sarasa-gothic # Japanese font
-      (nerdfonts.override {fonts = ["LiberationMono" "FiraCode" "Iosevka" "JetBrainsMono" "NerdFontsSymbolsOnly"];})
+      # (inter-nerdfont.override {fonts = ["LiberationMono" "FiraCode" "Iosevka" "JetBrainsMono" "NerdFontsSymbolsOnly"];})
+      inter-nerdfont
       noto-fonts-color-emoji # Google emoji
       twemoji-color-font # Twitter emoji
       openmoji-color # colorful version of openmoji

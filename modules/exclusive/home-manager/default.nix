@@ -7,7 +7,7 @@
     ./launchers
     ./media
     ./programs
-    ./polybar
+    # ./polybar
     ./swaylock
     ./themes
 
