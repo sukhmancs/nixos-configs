@@ -42,8 +42,7 @@
               };
             };
             luks = {
-              start = "9G";
-              end = "100%";
+              size = "100%";
               content = {
                 type = "luks";
                 name = "crypted";
