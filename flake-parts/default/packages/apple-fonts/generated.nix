@@ -3,14 +3,14 @@
 {
   apple-fonts = {
     pname = "apple-fonts";
-    version = "a0a8998b8d4644dea5e0aa452822abeff206d8eb";
+    version = "cad29b93d1abe93115f9ef71fc7c492f445d4c61";
     src = fetchFromGitHub {
       owner = "fefelixa";
       repo = "macfonts";
-      rev = "a0a8998b8d4644dea5e0aa452822abeff206d8eb";
+      rev = "cad29b93d1abe93115f9ef71fc7c492f445d4c61";
       fetchSubmodules = true;
-      sha256 = "sha256-dBJ90Bhjx9R9IjfKW+YDnif4rZ8B6WuNM+Vf7hV5qXk=";
+      sha256 = "sha256-EsJA8c06h41iG/v/1Kh1i4lHlmXEgAFA6Qg9RVyCq8c=";
     };
-    date = "2021-02-12";
+    date = "2025-04-06";
   };
 }
